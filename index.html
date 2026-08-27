@@ -1,1 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KRAVEX x CARLOS | Portfolio Profesional</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=JetBrains+Mono:wght@700&family=Sora:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:#09090b;color:#fafafa;font-family:'Sora',sans-serif;overflow-x:hidden}
+:root{--border:rgba(255,255,255,.1);--card:rgba(255,255,255,.04);--card2:rgba(255,255,255,.06)}
+.vintage{font-family:'Cinzel Decorative',serif}.mono{font-family:'JetBrains Mono',monospace}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none}.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.07;background:#fff}.orb1{width:500px;height:500px;top:-100px;left:-100px;animation:float 8s ease-in-out infinite}.orb2{width:400px;height:400px;bottom:-50px;right:-50px;animation:float 8s ease-in-out infinite reverse}
+nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 2.5%;background:rgba(9,9,11,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.btn{background:#fff;color:#000;padding:12px 20px;border-radius:999px;border:none;cursor:pointer;font-weight:800;font-size:10px;font-family:'JetBrains Mono';transition:.3s}.btn:hover{transform:translateY(-2px)}
+.outline{border:1px solid var(--border);background:rgba(255,255,255,.06);color:#fff;padding:11px 18px;border-radius:999px;font-size:10px;cursor:pointer;font-family:'JetBrains Mono';transition:.3s}.outline:hover{border-color:#fff}
+.tabs{display:flex;gap:6px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:999px;padding:5px;width:fit-content}.tab{padding:9px 18px;border-radius:999px;font-size:10px;cursor:pointer;font-family:'JetBrains Mono';color:#8a8a8a}.tab.active{background:#fff;color:#000}
+.hero{padding:120px 2.5% 50px;display:grid;grid-template-columns:1.2fr.8fr;gap:30px}.hero h1{font-size:74px;line-height:.85}
+.sec{padding:70px 2.5%}.label{font-size:10px;letter-spacing:4px;color:#8a8a8a;margin-bottom:12px;font-family:'JetBrains Mono';display:flex;align-items:center;gap:10px}.label:after{content:'';height:1px;width:80px;background:linear-gradient(90deg,#fff,transparent)}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:999px;padding:6px;width:fit-content}.filter-btn{border:1px solid transparent;background:transparent;color:#8a8a8a;padding:10px 18px;border-radius:999px;font-size:10px;font-family:'JetBrains Mono';cursor:pointer;transition:.3s}.filter-btn.active{background:#fff;color:#000}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.port-card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.5s}.port-card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.15)}.port-card img{width:100%;height:220px;object-fit:cover;background:#111;transition:.6s}.port-card:hover img{transform:scale(1.06)}
+.badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.9);border:1px solid var(--border);padding:5px 10px;border-radius:999px;font-size:8px;color:#fff;font-family:'JetBrains Mono';z-index:2}.badge.feat{left:68px;background:#fff;color:#000}.badge.new{left:auto;right:12px;background:rgba(255,255,255,.12);color:#fff}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}.price-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:20px;padding:20px;text-align:center;transition:.4s}.price-card.popular{border-color:#fff;transform:scale(1.02)}.price-card:hover{transform:translateY(-5px);border-color:#fff}.price-card.popular:hover{transform:scale(1.02) translateY(-5px)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}.stat-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:18px;padding:20px;text-align:center;transition:.4s}.stat-card:hover{transform:translateY(-4px);border-color:#fff}.stat-card b{font-size:30px;color:#fff;display:block;font-family:'JetBrains Mono'}
+.review-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.review-card{background:#111;border:1px solid var(--border);border-radius:18px;padding:18px;transition:.3s}.review-card:hover{border-color:rgba(255,255,255,.12)}
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.pay-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px}
+.stars-input{display:flex;gap:8px;font-size:30px;cursor:pointer;justify-content:center;margin:12px 0}.stars-input span{color:#222;transition:.3s}.stars-input span.active{color:#fff;transform:scale(1.1)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.4s}.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal{width:94%;max-width:500px;background:#111;border:1px solid var(--border);border-radius:22px;padding:22px;max-height:92vh;overflow-y:auto;transform:scale(.92);transition:.4s}.modal-overlay.open.modal{transform:scale(1)}
 
+/* ADMIN PANEL ARREGLADO SIN MANCHONES */
+.admin-panel{position:fixed;inset:0;background:#08080a;z-index:2000;display:none;overflow-y:auto}.admin-panel.open{display:block}
+.admin-wrap{display:flex;min-height:100vh}
+.sidebar{width:250px;background:#0e0e10;border-right:1px solid var(--border);padding:18px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.main{flex:1;padding:24px;background:#08080a}
+.tab-btn{padding:11px 14px;border-radius:10px;border:1px solid transparent;background:transparent;color:#6a6a6a;font-family:'JetBrains Mono';font-size:10px;cursor:pointer;text-align:left;display:flex;gap:10px;align-items:center;transition:.2s}.tab-btn:hover{background:rgba(255,255,255,.04);color:#fff}.tab-btn.active{background:#fff;color:#000;font-weight:700}
+.tab{display:none}.tab.active{display:block;animation:fadeUp.3s ease}
+.input-admin{width:100%;background:#121214;border:1px solid var(--border);border-radius:12px;padding:12px 14px;color:#fff;font-size:12px;outline:none;margin-top:8px;transition:.2s}.input-admin:focus{border-color:#fff;background:#151518}.input-admin::placeholder{color:#5a5a5a}
+.card-dark{background:#121214;border:1px solid var(--border);border-radius:16px;padding:16px}
+.box-dark{background:#111113;border:1px solid var(--border);border-radius:12px;padding:12px;display:flex;justify-content:space-between;align-items:center;margin-top:10px}.box-dark:hover{border-color:rgba(255,255,255,.15)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat-dark{background:#121214;border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}.stat-dark b{color:#fff;font-size:20px;display:block}
+.input{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:12px;padding:12px 14px;color:#fff;font-size:12px;outline:none;margin-top:8px}.input:focus{border-color:#fff}
+.card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:16px;padding:16px}
+.profile-pic{width:84px;height:84px;border-radius:50%;border:2px solid #fff;background:#111;display:grid;place-items:center;overflow:hidden;cursor:pointer;margin:0 auto}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(100px);background:#111;border:1px solid var(--border);color:#fff;padding:12px 18px;border-radius:12px;font-size:11px;z-index:5000;transition:.4s;opacity:0}.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.edit-modal{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.4s}.edit-modal.open{opacity:1;pointer-events:auto}
+@media(max-width:1000px){.hero,.portfolio-grid,.review-list,.pay-grid,.stats-grid,.price-grid,.grid2,.grid3,.grid4{grid-template-columns:1fr}.hero h1{font-size:52px}.admin-wrap{flex-direction:column}.sidebar{width:100%;height:auto;position:relative;flex-direction:row;overflow-x:auto}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+<div id="toast" class="toast"></div>
+
+<div class="modal-overlay" id="loginModal" onclick="if(event.target===this)closeModal('loginModal')">
+<div class="modal" onclick="event.stopPropagation()">
+<div class="tabs" style="margin:0 auto"><div class="tab active" id="tabLogin" onclick="switchAuth('login')">Iniciar sesión</div><div class="tab" id="tabReg" onclick="switchAuth('register')">Registrarse</div></div>
+<div id="authLogin" style="margin-top:16px"><h3 class="vintage" style="color:#fff;text-align:center">Iniciar sesión</h3><input id="logUser" class="input" placeholder="Usuario o correo"><input id="logPass" class="input" type="password" placeholder="Contraseña"><button class="btn" style="width:100%;margin-top:12px" onclick="loginUser()">Entrar</button></div>
+<div id="authRegister" style="display:none;margin-top:16px"><div style="text-align:center"><div class="profile-pic" onclick="document.getElementById('regPic').click()"><img id="regPicPreview" style="width:100%;height:100%;object-fit:cover;display:none"><span id="regPicIcon">📷</span></div><p class="mono" style="font-size:8px;color:#6a6a6a;margin-top:6px">Foto opcional</p><input type="file" id="regPic" accept="image/*" style="display:none" onchange="previewPic(this)"></div><h3 class="vintage" style="color:#fff;text-align:center;margin-top:10px">Registrarse</h3><input id="regName" class="input" placeholder="Nombre"><input id="regEmail" class="input" placeholder="Correo"><div class="grid2"><input id="regAge" class="input" type="number" placeholder="Edad"><input id="regUser" class="input" placeholder="Usuario"></div><input id="regPass" class="input" type="password" placeholder="Contraseña"><input id="regPass2" class="input" type="password" placeholder="Confirmar"><button class="btn" style="width:100%;margin-top:12px" onclick="registerUser()">Crear cuenta</button></div>
+</div>
+</div>
+
+<div class="modal-overlay" id="addReviewModal" onclick="if(event.target===this)closeModal('addReviewModal')">
+<div class="modal" onclick="event.stopPropagation()"><h3 class="vintage" style="color:#fff;text-align:center">Dejar reseña</h3><div class="stars-input" id="starSelector"><span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span></div><p class="mono" style="font-size:9px;color:#6a6a6a;text-align:center" id="starText">Toca las estrellas</p><textarea id="reviewText" class="input" placeholder="Tu experiencia..." style="min-height:90px;margin-top:12px"></textarea><input id="reviewCodeInput" class="input" placeholder="Código de reseña"><button class="btn" style="width:100%;margin-top:12px;padding:14px" onclick="submitReview()">Publicar reseña</button></div>
+</div>
+
+<div class="modal-overlay" id="buyModal" onclick="closeModal('buyModal')">
+<div class="modal" onclick="event.stopPropagation()"><h3 class="vintage" style="color:#fff" id="buyTitle">Comprar</h3><textarea id="buyMessage" class="input" style="min-height:80px;margin-top:10px"></textarea><div class="grid2" style="margin-top:10px"><button class="outline" onclick="selectPay('paypal')">PayPal</button><button class="outline" onclick="selectPay('bbva')">BBVA</button></div><div id="payDetails" style="display:none;margin-top:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:12px"><b id="paypalEmail" style="color:#fff">iaimbxtcontacted@gmail.com</b><div id="bbvaInfo" style="display:none"><b id="bbvaNum" style="color:#fff">4152 3138 1234 5678</b></div></div><div style="display:flex;gap:8px;margin-top:12px"><button class="btn" style="flex:1" onclick="confirmBuy()">Enviar</button><button class="outline" style="flex:1" onclick="closeModal('buyModal')">Cerrar</button></div></div>
+</div>
+
+<div class="edit-modal" id="editModal" onclick="if(event.target===this)closeEdit()"><div class="modal" onclick="event.stopPropagation()" style="max-width:600px"><h3 class="vintage" style="color:#fff">Editar proyecto</h3><div class="grid3" style="margin-top:12px"><input id="editTitle" class="input-admin" placeholder="Título"><input id="editPrice" class="input-admin" placeholder="Precio"><select id="editCat" class="input-admin"><option value="logo">Logo</option><option value="banner">Banner</option><option value="web">Web</option></select></div><div class="grid2"><input id="editClient" class="input-admin" placeholder="Cliente"><input id="editTime" class="input-admin" placeholder="Entrega"></div><div class="grid2"><input id="editLink" class="input-admin" placeholder="Link demo"><input id="editTags" class="input-admin" placeholder="Tags"></div><input id="editImg" class="input-admin" placeholder="URL imagen"><textarea id="editDesc" class="input-admin" placeholder="Descripción" style="min-height:70px"></textarea><div class="grid3" style="margin-top:8px"><select id="editStatus" class="input-admin"><option value="disponible">Disponible</option><option value="vendido">Vendido</option><option value="destacado">Destacado</option></select><label class="mono" style="font-size:10px;display:flex;gap:6px;align-items:center"><input type="checkbox" id="editFeat"> Destacado</label><label class="mono" style="font-size:10px;display:flex;gap:6px;align-items:center"><input type="checkbox" id="editNew"> Nuevo</label></div><div style="display:flex;gap:8px;margin-top:14px"><button class="btn" style="flex:1" onclick="saveEdit()">Guardar</button><button class="outline" style="flex:1" onclick="closeEdit()">Cancelar</button></div></div></div>
+
+<!-- ADMIN PANEL ARREGLADO - SIN MANCHON BLANCO -->
+<div class="admin-panel" id="adminPanel">
+<div class="admin-wrap">
+<div class="sidebar">
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:14px"><div style="width:34px;height:34px;background:#fff;border-radius:10px;display:grid;place-items:center;color:#000;font-weight:900" class="vintage">K</div><div><b style="color:#fff;font-size:11px" class="vintage">KRAVEX x CARLOS</b><p style="font-size:7px;color:#6a6a6a" class="mono">PANEL LIMPIO ARREGLADO</p></div></div>
+<div id="adminLoginBox">
+<h3 class="vintage" style="color:#fff;font-size:16px">Panel privado</h3>
+<p class="mono" style="font-size:8px;color:#6a6a6a;margin-top:4px">Sin bugs blancos • Limpio</p>
+<input id="adminUser" class="input-admin" placeholder="Usuario" value="Carlos"><input id="adminPass" class="input-admin" type="password" placeholder="Contraseña">
+<button class="btn" style="width:100%;margin-top:12px" onclick="loginAdmin()">Entrar</button>
+</div>
+<div id="adminMenu" style="display:none;flex-direction:column;gap:6px;width:100%">
+<button class="tab-btn active" onclick="switchAdminTab('dash',this)">📊 Dashboard</button>
+<button class="tab-btn" onclick="switchAdminTab('portfolio',this)">🎨 Portfolio</button>
+<button class="tab-btn" onclick="switchAdminTab('add',this)">➕ Agregar proyecto</button>
+<button class="tab-btn" onclick="switchAdminTab('reviews',this)">💬 Reseñas</button>
+<button class="tab-btn" onclick="switchAdminTab('codes',this)">🎟️ Códigos</button>
+<button class="tab-btn" onclick="switchAdminTab('payments',this)">💳 Pagos</button>
+<button class="tab-btn" onclick="switchAdminTab('users',this)">👥 Usuarios</button>
+<button class="tab-btn" onclick="switchAdminTab('settings',this)">⚙️ Ajustes</button>
+<div style="margin-top:auto;display:grid;gap:8px"><button class="outline" onclick="closeAdmin()">Volver al portfolio</button><button class="outline" onclick="logoutAdmin()">Cerrar sesión</button></div>
+</div>
+</div>
+<div class="main">
+<div class="tab active" id="tab-dash">
+<h2 class="vintage" style="color:#fff">Dashboard</h2>
+<p class="mono" style="font-size:8px;color:#6a6a6a;margin-top:4px">Panel arreglado sin manchón blanco</p>
+<div class="grid4" style="margin-top:16px"><div class="stat-dark"><b id="dashProjects">0</b><span class="mono" style="font-size:8px">Proyectos</span></div><div class="stat-dark"><b id="dashReviews">0</b><span class="mono" style="font-size:8px">Reseñas</span></div><div class="stat-dark"><b id="dashUsers">0</b><span class="mono" style="font-size:8px">Usuarios</span></div><div class="stat-dark"><b id="dashCodes">0</b><span class="mono" style="font-size:8px">Códigos</span></div></div>
+<div class="card-dark" style="margin-top:16px"><p class="mono" style="font-size:9px;color:#8a8a8a;line-height:1.7" id="systemInfo"></p></div>
+</div>
+<div class="tab" id="tab-portfolio">
+<h2 class="vintage" style="color:#fff">Portfolio</h2>
+<div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><input id="searchAdmin" class="input-admin" placeholder="Buscar proyectos..." style="flex:1;min-width:200px;margin-top:0" oninput="renderAdminList()"><select id="filterAdmin" class="input-admin" style="width:130px;margin-top:0" onchange="renderAdminList()"><option value="all">Todo</option><option value="logo">Logos</option><option value="banner">Banners</option><option value="web">Webs</option></select><button class="btn" onclick="switchAdminTab('add',document.querySelectorAll('.tab-btn')[2])">Nuevo proyecto</button></div>
+<div id="adminList" style="margin-top:14px"></div>
+</div>
+<div class="tab" id="tab-add">
+<h2 class="vintage" style="color:#fff">Agregar proyecto</h2>
+<p class="mono" style="font-size:8px;color:#6a6a6a;margin-top:4px">Formulario arreglado sin manchón blanco</p>
+<div class="card-dark" style="margin-top:14px">
+<div class="grid3"><input id="pTitle" class="input-admin" placeholder="Título del proyecto"><input id="pPrice" class="input-admin" placeholder="Precio $2-$20"><select id="pCat" class="input-admin"><option value="logo">Logo</option><option value="banner">Banner</option><option value="web">Web</option></select></div>
+<div class="grid2"><input id="pClient" class="input-admin" placeholder="Cliente"><input id="pTime" class="input-admin" placeholder="Entrega ej: 24h"></div>
+<div class="grid2"><input id="pLink" class="input-admin" placeholder="Link demo"><input id="pTags" class="input-admin" placeholder="Tags ej: minimal, gamer"></div>
+<input id="pImg" class="input-admin" placeholder="URL imagen HD"><textarea id="pDesc" class="input-admin" placeholder="Descripción profesional completa" style="min-height:80px;resize:vertical"></textarea>
+<div class="grid3" style="margin-top:10px"><select id="pStatus" class="input-admin"><option value="disponible">Disponible</option><option value="vendido">Vendido</option><option value="destacado">Destacado</option><option value="oferta">En oferta</option></select><label class="mono" style="font-size:10px;display:flex;gap:8px;align-items:center;background:#151518;border:1px solid var(--border);border-radius:10px;padding:10px"><input type="checkbox" id="pFeat"> Destacado ★</label><label class="mono" style="font-size:10px;display:flex;gap:8px;align-items:center;background:#151518;border:1px solid var(--border);border-radius:10px;padding:10px"><input type="checkbox" id="pNew"> Nuevo 🔥</label></div>
+<button class="btn" style="width:100%;margin-top:16px;padding:14px" onclick="addPortfolio()">Agregar proyecto</button>
+</div>
+</div>
+<div class="tab" id="tab-reviews"><h2 class="vintage" style="color:#fff">Reseñas</h2><div id="reviewsAdminList" style="margin-top:12px"></div></div>
+<div class="tab" id="tab-codes"><h2 class="vintage" style="color:#fff">Códigos</h2><div class="card-dark" style="margin-top:12px"><div class="grid3"><input id="codeGen" class="input-admin" placeholder="Código ej: KRAVEX-XXX"><input id="codeUses" class="input-admin" type="number" placeholder="Usos"><button class="btn" onclick="genCode()">Generar</button></div><div id="codesList" style="margin-top:10px"></div></div></div>
+<div class="tab" id="tab-payments"><h2 class="vintage" style="color:#fff">Pagos</h2><div class="card-dark" style="margin-top:12px"><input id="admPaypal" class="input-admin" placeholder="PayPal Email"><input id="admBbva" class="input-admin" placeholder="BBVA Número"><input id="admTit" class="input-admin" placeholder="Titular"><button class="btn" style="width:100%;margin-top:12px" onclick="savePays()">Guardar pagos</button></div></div>
+<div class="tab" id="tab-users"><h2 class="vintage" style="color:#fff">Usuarios</h2><div id="usersList" style="margin-top:12px"></div></div>
+<div class="tab" id="tab-settings"><h2 class="vintage" style="color:#fff">Ajustes</h2><div class="grid2" style="margin-top:12px"><button class="outline" onclick="exportAll()">Exportar datos</button><button class="outline" onclick="clearAll()">Borrar todo</button></div></div>
+</div>
+</div>
+</div>
+
+<nav>
+<div style="display:flex;gap:10px;align-items:center"><div style="width:32px;height:32px;background:#fff;border-radius:10px;display:grid;place-items:center;color:#000;font-weight:900" class="vintage">K</div><span class="vintage" style="color:#fff">KRAVEX</span> <span style="color:#fff">x CARLOS</span></div>
+<div style="display:flex;gap:8px;align-items:center"><div id="navUser" style="display:flex;gap:8px;align-items:center"></div><button class="outline" onclick="openModal('loginModal')" id="loginBtn">Login</button><button class="btn" onclick="openAdmin()">Admin Panel</button></div>
+</nav>
+
+<section class="hero">
+<div>
+<div style="display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.06);border:1px solid var(--border);padding:6px 12px;border-radius:999px;margin-bottom:12px"><div style="width:6px;height:6px;background:#fff;border-radius:50%;animation:pulse 1.5s infinite"></div><span class="mono" style="font-size:8px;color:#b5b5b5">DISPONIBLE • discord.gg/bHHX2FtfP • $2 - $20</span></div>
+<h1 class="vintage">KRAVEX<br><i style="color:#fff">x CARLOS</i></h1>
+<p style="color:#b5b5b5;font-size:13px;max-width:520px;margin:12px 0 16px;line-height:1.6">Diseñador profesional. Logos, banners y webs modernas con entrega rápida. Precios desde $2 hasta $20.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="#portfolio">Ver portfolio</a><a class="outline" href="#sobre-mi">Sobre mi</a><a class="outline" href="#precios">Precios $2-$20</a></div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:20px;padding:18px;backdrop-filter:blur(20px)">
+<div style="display:flex;gap:12px;align-items:center"><div style="width:52px;height:52px;border-radius:50%;border:2px solid #fff;overflow:hidden;animation:float 4s ease-in-out infinite"><img src="https://cdn.discordapp.com/attachments/1541689668972838912/1542125422286872636/ssstik.io_1787642909659.webp?ex=6a9017b7&is=6a8ec637&hm=a086e9781b98fcd1313fffed70269610ecd15a3d14a1453335229ac32ac13c6a&" style="width:100%;height:100%;object-fit:cover"></div><div><b class="vintage" style="color:#fff">CARLOS</b><p class="mono" style="font-size:8px;color:#b5b5b5">Diseñador Profesional • ID 1484659327716294657</p><p class="mono" style="font-size:7px;color:#6a6a6a">3+ años • 500+ proyectos • 5.0 ★ • $2-$20</p></div></div>
+<div style="margin-top:14px;background:#5865F2;border-radius:14px;padding:12px;text-align:center;cursor:pointer" onclick="window.open('https://discord.gg/bHHX2FtfP','_blank')"><b class="mono" style="font-size:10px;color:#fff">discord.gg/bHHX2FtfP</b><p class="mono" style="font-size:7px;color:rgba(255,255,255,.7)">Soporte 24/7</p></div>
+</div>
+</section>
+
+<section class="sec" id="sobre-mi" style="background:rgba(255,255,255,.01);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<div class="label">SOBRE KRAVEX • SOBRE MI • TODO SOBRE MI</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px">
+<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px;padding:22px">
+<h2 class="vintage" style="color:#fff;font-size:26px;line-height:.9">Sobre Kravex<br>x Carlos</h2>
+<p style="color:#b5b5b5;font-size:13px;line-height:1.7;margin-top:12px">Soy Carlos, diseñador y fundador de <b style="color:#fff">KRAVEX</b>. Más de 3 años creando logos, banners y webs.</p>
+<p style="color:#8a8a8a;font-size:12px;line-height:1.6;margin-top:10px">Empecé diseñando para amigos. Hoy 500+ proyectos entregados. Precios justos $2-$20, calidad profesional, sin precios exagerados. Cada diseño desde cero con mockups HD y archivos fuente.</p>
+<div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:12px;padding:12px"><b style="color:#fff;font-size:11px">🎯 Misión</b><p style="font-size:9px;color:#8a8a8a;margin-top:4px">Que cualquier creador tenga diseño pro sin pagar $100</p></div>
+<div style="background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:12px;padding:12px"><b style="color:#fff;font-size:11px">💡 Filosofía</b><p style="font-size:9px;color:#8a8a8a;margin-top:4px">Calidad de agencia, precio independiente</p></div>
+</div>
+</div>
+<div style="display:grid;gap:12px">
+<div class="card"><h4 class="vintage" style="color:#fff">Herramientas</h4><div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px"><span class="mono" style="font-size:8px;background:rgba(255,255,255,.08);border:1px solid var(--border);padding:6px 12px;border-radius:999px">Photoshop</span><span class="mono" style="font-size:8px;background:rgba(255,255,255,.08);border:1px solid var(--border);padding:6px 12px;border-radius:999px">Illustrator</span><span class="mono" style="font-size:8px;background:rgba(255,255,255,.08);border:1px solid var(--border);padding:6px 12px;border-radius:999px">Figma</span><span class="mono" style="font-size:8px;background:rgba(255,255,255,.08);border:1px solid var(--border);padding:6px 12px;border-radius:999px">After Effects</span><span class="mono" style="font-size:8px;background:rgba(255,255,255,.08);border:1px solid var(--border);padding:6px 12px;border-radius:999px">VS Code</span></div></div>
+<div class="card" style="background:#fff;color:#000"><h4 class="vintage" style="font-size:14px">Sobre mi</h4><p style="font-size:11px;line-height:1.6;margin-top:8px;color:#333">Soy directo, responsable. No me gustan precios abusivos. Trabajo todos los días, respondo rápido en Discord.</p><div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="background:rgba(0,0,0,.06);border-radius:10px;padding:8px;text-align:center"><b style="font-size:11px">3+ años</b><p style="font-size:7px" class="mono">Experiencia</p></div><div style="background:rgba(0,0,0,.06);border-radius:10px;padding:8px;text-align:center"><b style="font-size:11px">24/7</b><p style="font-size:7px" class="mono">Soporte</p></div></div></div>
+<div class="card"><h4 class="vintage" style="color:#fff;font-size:13px">Datos</h4><div style="margin-top:8px;display:grid;gap:6px"><div style="display:flex;justify-content:space-between;background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:8px;padding:6px 10px"><span class="mono" style="font-size:7px;color:#6a6a6a">Discord</span><span class="mono" style="font-size:7px;color:#fff">discord.gg/bHHX2FtfP</span></div><div style="display:flex;justify-content:space-between;background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:8px;padding:6px 10px"><span class="mono" style="font-size:7px;color:#6a6a6a">Precios</span><span class="mono" style="font-size:7px;color:#fff">$2 - $20</span></div><div style="display:flex;justify-content:space-between;background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:8px;padding:6px 10px"><span class="mono" style="font-size:7px;color:#6a6a6a">Entrega</span><span class="mono" style="font-size:7px;color:#fff">24h • Ilimitadas revisiones</span></div></div></div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="precios">
+<div class="label">PRECIOS • $2 - $20</div>
+<h2 class="vintage" style="color:#fff;font-size:26px">Precios justos</h2>
+<div class="price-grid">
+<div class="price-card"><b>🎨</b><h4 style="color:#fff;margin-top:8px">Logo Básico</h4><p style="color:#fff;font-size:20px;font-weight:800;margin-top:6px">$2</p><p style="font-size:8px;color:#6a6a6a;margin-top:4px" class="mono">1 concepto • PNG</p><button class="btn" style="width:100%;margin-top:12px" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Ver ejemplos</button></div>
+<div class="price-card"><b>✨</b><h4 style="color:#fff;margin-top:8px">Logo Pro</h4><p style="color:#fff;font-size:20px;font-weight:800;margin-top:6px">$5</p><p style="font-size:8px;color:#6a6a6a;margin-top:4px" class="mono">3 conceptos • Mockups</p><button class="btn" style="width:100%;margin-top:12px" onclick="openBuy(0)">Comprar $5</button></div>
+<div class="price-card popular"><b>🖼️</b><h4 style="color:#fff;margin-top:8px">Banner Pack</h4><p style="color:#fff;font-size:20px;font-weight:800;margin-top:6px">$8</p><p style="font-size:8px;color:#6a6a6a;margin-top:4px" class="mono">Discord + YouTube + Twitch</p><button class="btn" style="width:100%;margin-top:12px" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Comprar $8</button></div>
+<div class="price-card"><b>🌐</b><h4 style="color:#fff;margin-top:8px">Web Completa</h4><p style="color:#fff;font-size:20px;font-weight:800;margin-top:6px">$20</p><p style="font-size:8px;color:#6a6a6a;margin-top:4px" class="mono">Portfolio / Landing</p><button class="btn" style="width:100%;margin-top:12px" onclick="openBuy(0)">Comprar $20</button></div>
+</div>
+</section>
+
+<section class="sec" id="portfolio">
+<div class="label">PORTFOLIO • LOGOS / BANNERS / WEBS</div>
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+<div class="filter-bar">
+<button class="filter-btn active" data-filter="all">Todo</button>
+<button class="filter-btn" data-filter="logo">Logos</button>
+<button class="filter-btn" data-filter="banner">Banners</button>
+<button class="filter-btn" data-filter="web">Webs</button>
+<button class="filter-btn review-cat" data-filter="reviews">★ Reseñas <span id="reviewCountTop" class="mono" style="background:rgba(0,0,0,.3);padding:2px 8px;border-radius:999px;margin-left:6px">0</span></button>
+</div>
+<input id="searchPortfolio" class="input" placeholder="Buscar..." style="max-width:220px;margin-top:0" oninput="renderPortfolio()">
+</div>
+<div class="portfolio-grid" id="portfolioGrid" style="margin-top:14px"></div>
+<div id="reviewsSection" style="display:none">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;margin-bottom:14px"><h3 class="vintage" style="color:#fff">Reseñas verificadas</h3><button class="btn" onclick="openModal('addReviewModal')">Dejar reseña</button></div>
+<div class="review-list" id="reviewGrid"></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="label">ESTADÍSTICAS • MÁS COSAS</div>
+<div class="stats-grid">
+<div class="stat-card"><b>512+</b><p class="mono" style="font-size:8px">Proyectos</p></div>
+<div class="stat-card"><b>98%</b><p class="mono" style="font-size:8px">Satisfechos</p></div>
+<div class="stat-card"><b>24h</b><p class="mono" style="font-size:8px">Entrega</p></div>
+<div class="stat-card"><b>127</b><p class="mono" style="font-size:8px">Reseñas</p></div>
+</div>
+<div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+<div class="card"><h4 class="vintage" style="color:#fff;font-size:13px">Garantía</h4><p style="font-size:10px;color:#8a8a8a;margin-top:6px;line-height:1.5">Si no te gusta, lo rehago sin costo. Revisiones ilimitadas.</p></div>
+<div class="card"><h4 class="vintage" style="color:#fff;font-size:13px">Proceso</h4><p style="font-size:10px;color:#8a8a8a;margin-top:6px;line-height:1.5">Discord → Precio $2-$20 → Pago → Diseño 24h → Revisiones → Entrega</p></div>
+<div class="card"><h4 class="vintage" style="color:#fff;font-size:13px">Entrega</h4><p style="font-size:10px;color:#8a8a8a;margin-top:6px;line-height:1.5">PNG, JPG, PSD, AI, mockups HD listos para usar.</p></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="label">PAGOS VERIFICADOS</div>
+<div class="pay-grid">
+<div class="pay-card"><b style="color:#fff">PayPal</b><p id="paypalDisplay" class="mono" style="font-size:11px;color:#8a8a8a;margin-top:8px">iaimbxtcontacted@gmail.com</p></div>
+<div class="pay-card"><b style="color:#fff">BBVA</b><p id="bbvaDisplay" class="mono" style="font-size:11px;color:#8a8a8a;margin-top:8px">4152 3138 1234 5678</p><p id="titularDisplay" class="mono" style="font-size:9px;color:#6a6a6a;margin-top:4px">Titular: Carlos</p></div>
+</div>
+</section>
+
+<div style="padding:18px 2.5%;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:8px;color:#6a6a6a" class="mono"><span>© 2026 KRAVEX x CARLOS • discord.gg/bHHX2FtfP • $2-$20</span><span>Portfolio profesional con animaciones</span></div>
+
+<script>
+let portfolio=JSON.parse(localStorage.getItem('kravex_final')||'[]');
+let reviews=JSON.parse(localStorage.getItem('kravex_reviews_final')||'[]');
+let reviewCodes=JSON.parse(localStorage.getItem('kravex_codes_final')||'[]');
+let users=JSON.parse(localStorage.getItem('kravex_users_final')||'[]');
+let currentUser=JSON.parse(localStorage.getItem('kravex_current_final')||'null');
+let payments=JSON.parse(localStorage.getItem('kravex_pay_final')||'{"paypal":"iaimbxtcontacted@gmail.com","bbva":"4152 3138 1234 5678","titular":"Carlos"}');
+let selectedPay=null,selectedStars=0,tempPic='',currentFilter='all',editingIndex=-1;
+function switchAuth(t){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.getElementById('authLogin').style.display='none';document.getElementById('authRegister').style.display='none';if(t==='login'){document.getElementById('tabLogin').classList.add('active');document.getElementById('authLogin').style.display='block';}if(t==='register'){document.getElementById('tabReg').classList.add('active');document.getElementById('authRegister').style.display='block';}}
+function previewPic(i){const f=i.files[0];if(!f) return;const r=new FileReader();r.onload=e=>{tempPic=e.target.result;document.getElementById('regPicPreview').src=tempPic;document.getElementById('regPicPreview').style.display='block';document.getElementById('regPicIcon').style.display='none';};r.readAsDataURL(f);}
+function registerUser(){const name=document.getElementById('regName').value.trim();const email=document.getElementById('regEmail').value.trim();const age=document.getElementById('regAge').value.trim();const user=document.getElementById('regUser').value.trim();const pass=document.getElementById('regPass').value;const pass2=document.getElementById('regPass2').value;if(!name||!email||!user||!pass){toast('Completa datos');return;}if(pass!==pass2){toast('Contraseñas no coinciden');return;}if(users.find(u=>u.user===user||u.email===email)){toast('Ya existe');return;}const nu={name,email,age,user,pass,pic:tempPic||''};users.push(nu);localStorage.setItem('kravex_users_final',JSON.stringify(users));currentUser=nu;localStorage.setItem('kravex_current_final',JSON.stringify(currentUser));updateNav();toast('Cuenta creada');closeModal('loginModal');}
+function loginUser(){const u=document.getElementById('logUser').value.trim();const p=document.getElementById('logPass').value;const f=users.find(x=>(x.user===u||x.email===u)&&x.pass===p);if(!f){toast('Datos incorrectos');return;}currentUser=f;localStorage.setItem('kravex_current_final',JSON.stringify(currentUser));updateNav();toast('Bienvenido');closeModal('loginModal');}
+function updateNav(){const nav=document.getElementById('navUser');const btn=document.getElementById('loginBtn');if(currentUser){nav.innerHTML=`<div style="width:28px;height:28px;border-radius:50%;overflow:hidden;border:1px solid #fff;background:#111"><img src="${currentUser.pic||'https://via.placeholder.com/100/fff/000?text='+currentUser.name[0]}" style="width:100%;height:100%;object-fit:cover"></div><span class="mono" style="font-size:9px;color:#fff">${currentUser.name}</span><button class="outline" style="padding:6px 10px;font-size:8px" onclick="logout()">Salir</button>`;btn.style.display='none';}else{nav.innerHTML='';btn.style.display='block';}}
+function logout(){currentUser=null;localStorage.removeItem('kravex_current_final');updateNav();toast('Sesión cerrada');}
+async function hashPass(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');}
+function openAdmin(){document.getElementById('adminPanel').classList.add('open');document.body.style.overflow='hidden';}
+function closeAdmin(){document.getElementById('adminPanel').classList.remove('open');document.body.style.overflow='';}
+async function loginAdmin(){const u=document.getElementById('adminUser').value.trim();const p=document.getElementById('adminPass').value;const h=await hashPass(p);const real=await hashPass("Carlos1");if(u.toLowerCase()!=="carlos"||h!==real){toast('Admin incorrecto');return;}document.getElementById('adminLoginBox').style.display='none';document.getElementById('adminMenu').style.display='flex';document.getElementById('adminMain').style.display='block';renderAllAdmin();toast('Panel desbloqueado');}
+function logoutAdmin(){document.getElementById('adminLoginBox').style.display='block';document.getElementById('adminMenu').style.display='none';document.getElementById('adminMain').style.display='none';}
+function switchAdminTab(tab,btn){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('tab-'+tab).classList.add('active');document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(tab==='portfolio') renderAdminList();}
+function genCode(){const code=document.getElementById('codeGen').value.trim()||'KRAVEX-'+Math.random().toString(36).substring(2,6).toUpperCase();const uses=parseInt(document.getElementById('codeUses').value)||1;reviewCodes.push({code,uses,used:0});localStorage.setItem('kravex_codes_final',JSON.stringify(reviewCodes));document.getElementById('codeGen').value='';renderAllAdmin();toast('Código: '+code);}
+document.getElementById('starSelector').querySelectorAll('span').forEach(s=>{s.addEventListener('click',()=>{selectedStars=parseInt(s.dataset.v);document.querySelectorAll('#starSelector span').forEach((el,i)=>{el.classList.toggle('active',i<selectedStars);});document.getElementById('starText').innerText=selectedStars===1?'Malo':selectedStars===2?'Regular':selectedStars===3?'Bueno':selectedStars===4?'Muy bueno':'Excelente';});});
+function submitReview(){if(!currentUser){toast('Haz login');openModal('loginModal');switchAuth('login');return;}const code=document.getElementById('reviewCodeInput').value.trim();const text=document.getElementById('reviewText').value.trim();if(!code||!text||selectedStars===0){toast('Completa estrellas, experiencia y código');return;}const found=reviewCodes.find(r=>r.code===code);if(!found){toast('Código no válido');return;}if(found.used>=found.uses){toast('Código agotado');return;}found.used++;localStorage.setItem('kravex_codes_final',JSON.stringify(reviewCodes));reviews.unshift({name:currentUser.name,pic:currentUser.pic||'',stars:selectedStars,text,code,date:new Date().toLocaleDateString()});localStorage.setItem('kravex_reviews_final',JSON.stringify(reviews));document.getElementById('reviewText').value='';document.getElementById('reviewCodeInput').value='';selectedStars=0;document.querySelectorAll('#starSelector span').forEach(el=>el.classList.remove('active'));renderPortfolio();renderAllAdmin();toast('Reseña publicada');closeModal('addReviewModal');}
+function renderPortfolio(){
+ const grid=document.getElementById('portfolioGrid');const revSec=document.getElementById('reviewsSection');const search=document.getElementById('searchPortfolio').value.toLowerCase();
+ if(currentFilter==='reviews'){grid.style.display='none';revSec.style.display='block';renderReviews();return;}else{grid.style.display='grid';revSec.style.display='none';}
+ let filtered=portfolio.filter(p=>{const matchCat=currentFilter==='all'||p.cat===currentFilter;const matchSearch=!search||p.title.toLowerCase().includes(search)||p.desc.toLowerCase().includes(search)||(p.tags||'').toLowerCase().includes(search);return matchCat&&matchSearch;});
+ if(portfolio.length===0){grid.innerHTML='<div style="grid-column:1/-1;background:var(--card);border:1px dashed var(--border);border-radius:18px;padding:30px;text-align:center"><p class="mono" style="font-size:10px;color:#5a5a5a">Aún no hay proyectos • Abre Admin Panel para agregar</p></div>';return;}
+ if(filtered.length===0){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:20px"><p class="mono" style="font-size:10px;color:#5a5a5a">No hay proyectos en esta categoría</p></div>';return;}
+ grid.innerHTML='';filtered.forEach((p,i)=>{const real=portfolio.indexOf(p);const el=document.createElement('div');el.className='port-card';el.style.animation=`fadeUp.5s ease ${i*.06}s both`;el.innerHTML=`<div style="position:relative;overflow:hidden"><img src="${p.img}" onerror="this.src='https://via.placeholder.com/600x400/fff/000?text=${encodeURIComponent(p.title)}'"><span class="badge">${p.cat.toUpperCase()}</span>${p.feat?'<span class="badge feat">DESTACADO</span>':''}${p.isNew?'<span class="badge new">NUEVO</span>':''}</div><div style="padding:14px"><div style="display:flex;justify-content:space-between;align-items:center"><b style="color:#fff;font-size:12px" class="vintage">${p.title}</b><span style="background:#fff;color:#000;padding:5px 12px;border-radius:999px;font-size:9px;font-weight:800">${p.price}</span></div><p style="color:#8a8a8a;font-size:11px;margin-top:6px;line-height:1.5">${p.desc}</p>${p.client?`<p class="mono" style="font-size:8px;color:#5a5a5a;margin-top:6px">Cliente: ${p.client} • ${p.time||'24h'} • <a href="${p.link||'#'}" target="_blank" style="color:#fff">Demo</a></p>`:''}${p.tags?`<div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap">${p.tags.split(',').map(t=>`<span class="mono" style="font-size:7px;background:rgba(255,255,255,.06);border:1px solid var(--border);padding:3px 8px;border-radius:999px">${t.trim()}</span>`).join('')}</div>`:''}<div style="display:flex;gap:6px;margin-top:10px"><button class=btn style="flex:1;padding:10px;font-size:9px" onclick="openBuy(${real})">Comprar • ${p.time||'24h'}</button><a href="${p.link||'#'}" target="_blank" class="outline" style="flex:1;padding:10px;font-size:9px;text-align:center;text-decoration:none">Ver demo</a></div></div>`;grid.appendChild(el);});
+}
+function renderReviews(){
+ const g=document.getElementById('reviewGrid');const countTop=document.getElementById('reviewCountTop');
+ if(countTop) countTop.innerText=reviews.length;
+ if(!g) return;
+ if(reviews.length===0){g.innerHTML='<div style="grid-column:1/-1;background:var(--card);border:1px dashed var(--border);border-radius:18px;padding:30px;text-align:center"><p class="mono" style="font-size:10px;color:#5a5a5a">Aún no hay reseñas</p><button class=btn style="margin-top:10px" onclick="openModal(\'addReviewModal\')">Dejar reseña</button></div>';return;}
+ g.innerHTML='';reviews.forEach(r=>{
+  const d=document.createElement('div');d.className='review-card';
+  d.innerHTML=`<div style="display:flex;justify-content:space-between"><div style="display:flex;gap:10px;align-items:center"><div style="width:42px;height:42px;border-radius:50%;overflow:hidden;border:1px solid #fff;background:#111"><img src="${r.pic||'https://via.placeholder.com/100/fff/000?text='+r.name[0]}" style="width:100%;height:100%;object-fit:cover"></div><div><b style="color:#fff;font-size:12px">${r.name}</b><div style="color:#fff;font-size:14px">${'★'.repeat(r.stars)}<span style="color:#333">${'★'.repeat(5-r.stars)}</span></div><p class="mono" style="font-size:8px;color:#5a5a5a">${r.date}</p></div></div><span style="background:rgba(255,255,255,.08);border:1px solid var(--border);color:#fff;padding:4px 8px;border-radius:999px;font-size:8px" class="mono">VERIFICADA</span></div><p style="color:#e8e6e6;font-size:12px;margin-top:10px;line-height:1.6">${r.text}</p><p class="mono" style="font-size:8px;color:#5a5a5a;margin-top:8px">Código: ${r.code}</p>`;
+  g.appendChild(d);
+ });
+}
+function renderAdminList(){
+ const list=document.getElementById('adminList');if(!list) return;
+ const search=document.getElementById('searchAdmin').value.toLowerCase();const filter=document.getElementById('filterAdmin').value;
+ let filtered=portfolio.filter(p=>{const mS=!search||p.title.toLowerCase().includes(search)||p.desc.toLowerCase().includes(search);const mF=filter==='all'||p.cat===filter;return mS&&mF;});
+ if(filtered.length===0){list.innerHTML='<p class="mono" style="font-size:10px;color:#5a5a5a">No hay proyectos</p>';return;}
+ list.innerHTML='';filtered.forEach(p=>{const real=portfolio.indexOf(p);const d=document.createElement('div');d.className='box-dark';d.innerHTML=`<div style="display:flex;gap:12px;align-items:center;flex:1"><img src="${p.img}" style="width:56px;height:40px;border-radius:8px;object-fit:cover"><div style="flex:1"><div style="color:#fff;font-size:11px;display:flex;gap:6px;align-items:center"><b>${p.title}</b><span style="background:#fff;color:#000;padding:2px 8px;border-radius:999px;font-size:8px">${p.price}</span><span style="background:rgba(255,255,255,.06);border:1px solid var(--border);padding:2px 8px;border-radius:999px;font-size:7px">${p.cat}</span>${p.feat?'★':''}${p.isNew?'🔥':''}</div><div style="font-size:8px;color:#6a6a6a">${p.client||''} • ${p.time||''} • ${p.status||''} • ${p.tags||''}</div></div></div><div style="display:flex;gap:6px"><button class=outline style="padding:6px 10px;font-size:8px" onclick="editProject(${real})">Editar</button><button class=outline style="padding:6px 10px;font-size:8px" onclick="duplicateProject(${real})">Duplicar</button><button class=outline style="padding:6px 10px;font-size:8px" onclick="deleteProject(${real})">Borrar</button></div>`;list.appendChild(d);});
+}
+function renderAllAdmin(){
+ document.getElementById('dashProjects').innerText=portfolio.length;document.getElementById('dashReviews').innerText=reviews.length;document.getElementById('dashUsers').innerText=users.length;document.getElementById('dashCodes').innerText=reviewCodes.length;
+ document.getElementById('systemInfo').innerText=`KRAVEX x CARLOS • Panel arreglado sin manchón blanco • Sobre mi completo\nPortfolio: Logos, Banners, Webs, Reseñas • Precios $2-$20 • ID 1484659327716294657 • discord.gg/bHHX2FtfP\nProyectos: ${portfolio.length} • Reseñas: ${reviews.length} • Usuarios: ${users.length}\nPayPal: ${payments.paypal} • BBVA: ${payments.bbva} • Titular: ${payments.titular}`;
+ renderAdminList();
+ const rev=document.getElementById('reviewsAdminList');const uList=document.getElementById('usersList');const cList=document.getElementById('codesList');
+ if(rev){rev.innerHTML='';reviews.forEach((r,i)=>{const d=document.createElement('div');d.className='box-dark';d.innerHTML=`<div><div style="color:#fff;font-size:11px">${r.name} • ${'★'.repeat(r.stars)} • ${r.code}</div><div style="font-size:9px;color:#6a6a6a">${r.text.substring(0,80)}</div></div><button class=outline style="padding:4px 8px;font-size:8px" onclick="reviews.splice(${i},1);localStorage.setItem('kravex_reviews_final',JSON.stringify(reviews));renderAllAdmin();renderPortfolio()">Borrar</button>`;rev.appendChild(d);});}
+ if(uList){uList.innerHTML='';users.forEach((u,i)=>{const d=document.createElement('div');d.className='box-dark';d.innerHTML=`<div style="display:flex;gap:8px;align-items:center"><div style="width:32px;height:32px;border-radius:50%;overflow:hidden;background:#111">${u.pic?`<img src="${u.pic}" style="width:100%;height:100%;object-fit:cover">`:`<div style="display:grid;place-items:center;width:100%;height:100%">${u.name[0].toUpperCase()}</div>`}</div><div><div style="color:#fff;font-size:11px">${u.name} • @${u.user}</div><div style="font-size:9px;color:#6a6a6a">${u.email}</div></div></div><button class=outline style="padding:4px 8px;font-size:8px" onclick="users.splice(${i},1);localStorage.setItem('kravex_users_final',JSON.stringify(users));renderAllAdmin()">Borrar</button>`;uList.appendChild(d);});}
+ if(cList){cList.innerHTML='';reviewCodes.forEach((rc,i)=>{const d=document.createElement('div');d.className='box-dark';d.innerHTML=`<div><b style="color:#fff;font-size:11px">${rc.code}</b><p class="mono" style="font-size:9px;color:#6a6a6a">${rc.used}/${rc.uses} • ${rc.uses>rc.used?'Válido':'Agotado'}</p></div><div style="display:flex;gap:6px"><button class=outline style="padding:5px 8px;font-size:8px" onclick="navigator.clipboard.writeText('${rc.code}').then(()=>toast('Copiado'))">Copiar</button><button class=outline style="padding:5px 8px;font-size:8px" onclick="reviewCodes.splice(${i},1);localStorage.setItem('kravex_codes_final',JSON.stringify(reviewCodes));renderAllAdmin()">Borrar</button></div>`;cList.appendChild(d);});}
+ document.getElementById('admPaypal').value=payments.paypal;document.getElementById('admBbva').value=payments.bbva;document.getElementById('admTit').value=payments.titular;
+}
+function addPortfolio(){
+ const t=document.getElementById('pTitle').value.trim();const pr=document.getElementById('pPrice').value.trim()||'$2';const c=document.getElementById('pCat').value;const img=document.getElementById('pImg').value.trim()||`https://via.placeholder.com/600x400/fff/000?text=${encodeURIComponent(t||'KRAVEX')}`;const d=document.getElementById('pDesc').value.trim()||'';const client=document.getElementById('pClient').value.trim();const time=document.getElementById('pTime').value.trim()||'24h';const link=document.getElementById('pLink').value.trim();const tags=document.getElementById('pTags').value.trim();const status=document.getElementById('pStatus').value;const feat=document.getElementById('pFeat').checked;const isNew=document.getElementById('pNew').checked;
+ if(!t){toast('Título requerido');return;}
+ portfolio.unshift({title:t,price:pr,cat:c,img,desc:d,client,time,link,tags,status,feat,isNew});localStorage.setItem('kravex_final',JSON.stringify(portfolio));
+ ['pTitle','pPrice','pImg','pDesc','pClient','pTime','pLink','pTags'].forEach(id=>{const el=document.getElementById(id);if(el) el.value='';});document.getElementById('pFeat').checked=false;document.getElementById('pNew').checked=false;
+ renderAllAdmin();renderPortfolio();toast('Proyecto agregado');
+}
+function editProject(i){editingIndex=i;const p=portfolio[i];document.getElementById('editTitle').value=p.title;document.getElementById('editPrice').value=p.price;document.getElementById('editCat').value=p.cat;document.getElementById('editClient').value=p.client||'';document.getElementById('editTime').value=p.time||'';document.getElementById('editLink').value=p.link||'';document.getElementById('editTags').value=p.tags||'';document.getElementById('editImg').value=p.img;document.getElementById('editDesc').value=p.desc;document.getElementById('editStatus').value=p.status||'disponible';document.getElementById('editFeat').checked=p.feat||false;document.getElementById('editNew').checked=p.isNew||false;document.getElementById('editModal').classList.add('open');}
+function closeEdit(){document.getElementById('editModal').classList.remove('open');editingIndex=-1;}
+function saveEdit(){
+ if(editingIndex<0) return;const p=portfolio[editingIndex];
+ p.title=document.getElementById('editTitle').value.trim()||p.title;p.price=document.getElementById('editPrice').value.trim()||p.price;p.cat=document.getElementById('editCat').value;p.client=document.getElementById('editClient').value.trim();p.time=document.getElementById('editTime').value.trim();p.link=document.getElementById('editLink').value.trim();p.tags=document.getElementById('editTags').value.trim();p.img=document.getElementById('editImg').value.trim()||p.img;p.desc=document.getElementById('editDesc').value.trim()||p.desc;p.status=document.getElementById('editStatus').value;p.feat=document.getElementById('editFeat').checked;p.isNew=document.getElementById('editNew').checked;
+ localStorage.setItem('kravex_final',JSON.stringify(portfolio));renderAllAdmin();renderPortfolio();closeEdit();toast('Proyecto editado');
+}
+function duplicateProject(i){const p={...portfolio[i],title:portfolio[i].title+' Copy'};portfolio.unshift(p);localStorage.setItem('kravex_final',JSON.stringify(portfolio));renderAllAdmin();renderPortfolio();toast('Duplicado');}
+function deleteProject(i){if(confirm('¿Borrar proyecto?')){portfolio.splice(i,1);localStorage.setItem('kravex_final',JSON.stringify(portfolio));renderAllAdmin();renderPortfolio();toast('Borrado');}}
+function openBuy(i){const item=portfolio[i];document.getElementById('buyTitle').innerText=item.title;document.getElementById('buyMessage').value=`Hola Carlos, quiero comprar ${item.title} (${item.price})\nCategoría: ${item.cat}\nDescripción: ${item.desc}`;document.getElementById('payDetails').style.display='none';selectedPay=null;openModal('buyModal');}
+function selectPay(m){selectedPay=m;document.getElementById('payDetails').style.display='block';document.getElementById('bbvaInfo').style.display=m==='bbva'?'block':'none';}
+function confirmBuy(){const msg=document.getElementById('buyMessage').value.trim();if(!selectedPay){toast('Selecciona PayPal o BBVA');return;}toast('Pedido enviado');closeModal('buyModal');const body=encodeURIComponent(msg+`\n\nMétodo: ${selectedPay}\nPayPal: ${payments.paypal}\nBBVA: ${payments.bbva}\nDiscord: discord.gg/bHHX2FtfP`);window.open(`mailto:iaimbxtcontacted@gmail.com?subject=Pedido KRAVEX&body=${body}`,'_blank');}
+function savePays(){payments.paypal=document.getElementById('admPaypal').value.trim()||payments.paypal;payments.bbva=document.getElementById('admBbva').value.trim()||payments.bbva;payments.titular=document.getElementById('admTit').value.trim()||payments.titular;localStorage.setItem('kravex_pay_final',JSON.stringify(payments));document.getElementById('paypalDisplay').innerText=payments.paypal;document.getElementById('paypalEmail').innerText=payments.paypal;document.getElementById('bbvaDisplay').innerText=payments.bbva;document.getElementById('bbvaNum').innerText=payments.bbva;document.getElementById('titularDisplay').innerText='Titular: '+payments.titular;toast('Pagos guardados');renderAllAdmin();}
+function exportAll(){const all={portfolio,reviews,reviewCodes,users,payments};const blob=new Blob([JSON.stringify(all,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='kravexxcarlos_'+Date.now()+'.json';a.click();toast('Exportado');}
+function clearAll(){if(confirm('¿Borrar todo?')){localStorage.clear();location.reload();}}
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+function toast(m){const t=document.getElementById('toast');t.innerText=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+document.querySelectorAll('.filter-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentFilter=b.dataset.filter;renderPortfolio();});});
+function updatePay(){document.getElementById('paypalDisplay').innerText=payments.paypal;document.getElementById('paypalEmail').innerText=payments.paypal;document.getElementById('bbvaDisplay').innerText=payments.bbva;document.getElementById('bbvaNum').innerText=payments.bbva;document.getElementById('titularDisplay').innerText='Titular: '+payments.titular;}
+updateNav();renderPortfolio();updatePay();
+</script>
+</body>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </html>
