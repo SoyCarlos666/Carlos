@@ -2,178 +2,1012 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>zCarlos_ht — Staff & Media Manager</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LUNAR MARKET® - Oficial</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Baloo+2:wght@600;700;800&family=Nunito:wght@700;800&family=Poppins:wght@600;700&family=Outfit:wght@600;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{ --main-font:'Fredoka'; --bg:#08080a; --card:#141417; }
-*{font-family:var(--main-font), sans-serif!important}
-body{background:var(--bg); color:#fff; overflow-x:hidden}
-.card{background:var(--card); border:1px solid rgba(255,255,255,0.07); transition:.4s cubic-bezier(.175,.885,.32,1.275)}
-.card:hover{transform:translateY(-6px) scale(1.02); border-color:rgba(255,255,255,0.15)}
-.input{background:#0c0c0e; border:1.5px solid rgba(255,255,255,0.1); outline:none; transition:.3s}
-.input:focus{border-color:#fff}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes fadeUp{from{opacity:0; transform:translateY(30px)}to{opacity:1; transform:translateY(0)}}
-@keyframes scaleIn{from{opacity:0; transform:scale(0.9)}to{opacity:1; transform:scale(1)}}
-.float{animation:float 4s ease-in-out infinite}
-.fadeUp{animation:fadeUp.8s ease-out both}
-.scaleIn{animation:scaleIn.4s ease-out}
+*{
+font-family:'Plus Jakarta Sans',sans-serif;
+}
+html{
+scroll-behavior:smooth;
+}
+body{
+background:#07070a;
+color:white;
+overflow-x:hidden;
+}
+::-webkit-scrollbar{
+width:6px;
+}
+::-webkit-scrollbar-track{
+background:#0a0a0c;
+}
+::-webkit-scrollbar-thumb{
+background:#2a2a2e;
+border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover{
+background:#3a3a3e;
+}
+.card{
+background:#121216;
+border:1px solid rgba(255,255,255,.07);
+border-radius:22px;
+transition:.6s cubic-bezier(.16,1,.3,1);
+}
+.card:hover{
+transform:translateY(-6px) scale(1.015);
+border-color:rgba(139,92,246,.25);
+box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(139,92,246,.12);
+}
+.input{
+background:#1a1a1f;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+color:white;
+transition:.3s cubic-bezier(.16,1,.3,1);
+}
+.input:focus{
+border-color:#8b5cf6;
+box-shadow:0 0 0 4px rgba(139,92,246,.15);
+outline:none;
+transform:translateY(-1px);
+}
+.input:hover{
+border-color:rgba(255,255,255,.14);
+}
+.logo{
+width:116px;
+height:116px;
+border-radius:50%;
+object-fit:cover;
+cursor:pointer;
+box-shadow:0 0 0 2px rgba(255,255,255,.1),0 0 60px rgba(139,92,246,.5);
+transition:.6s cubic-bezier(.16,1,.3,1);
+animation:float 4s ease-in-out infinite,glow 3s ease-in-out infinite;
+}
+.logo:hover{
+transform:scale(1.08) rotate(3deg);
+}
+.logo:active{
+transform:scale(.88) rotate(-8deg);
+}
+.nav-item{
+position:relative;
+transition:.3s;
+}
+.nav-item::after{
+content:'';
+position:absolute;
+bottom:-4px;
+left:0;
+width:0;
+height:2px;
+background:#8b5cf6;
+transition:.3s;
+}
+.nav-item:hover::after{
+width:100%;
+}
+.btn-primary{
+background:white;
+color:black;
+border-radius:9999px;
+font-weight:800;
+transition:.4s cubic-bezier(.16,1,.3,1);
+}
+.btn-primary:hover{
+transform:scale(1.05) translateY(-2px);
+box-shadow:0 10px 30px rgba(255,255,255,.15);
+}
+.btn-primary:active{
+transform:scale(.96);
+}
+.btn-ghost{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:9999px;
+transition:.3s;
+}
+.btn-ghost:hover{
+background:rgba(255,255,255,.08);
+transform:translateY(-1px);
+}
+.badge{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+border-radius:9999px;
+font-size:10px;
+font-weight:700;
+letter-spacing:.1em;
+transition:.3s;
+}
+.badge:hover{
+background:rgba(255,255,255,.08);
+transform:scale(1.05);
+}
+.badge-active{
+background:white;
+color:black;
+border-color:white;
+}
+.star{
+font-size:26px;
+cursor:pointer;
+transition:.3s cubic-bezier(.16,1,.3,1);
+user-select:none;
+}
+.star:hover{
+transform:scale(1.4) rotate(10deg);
+}
+.star.active{
+color:#facc15;
+text-shadow:0 0 20px rgba(250,204,21,.5);
+}
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-12px);
+}
+}
+@keyframes glow{
+0%,100%{
+box-shadow:0 0 0 2px rgba(255,255,255,.08),0 0 40px rgba(139,92,246,.3);
+}
+50%{
+box-shadow:0 0 0 3px rgba(255,255,255,.15),0 0 80px rgba(139,92,246,.7);
+}
+}
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px) scale(.98);
+}
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+@keyframes slideIn{
+from{
+opacity:0;
+transform:translateX(-20px);
+}
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
+@keyframes slideUp{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+@keyframes pulse{
+0%,100%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.05);
+}
+}
+@keyframes shimmer{
+0%{
+transform:translateX(-100%);
+}
+100%{
+transform:translateX(300%);
+}
+}
+@keyframes spin{
+from{
+transform:rotate(0deg);
+}
+to{
+transform:rotate(360deg);
+}
+}
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-6px);
+}
+}
+@keyframes gradient{
+0%{
+background-position:0% 50%;
+}
+50%{
+background-position:100% 50%;
+}
+100%{
+background-position:0% 50%;
+}
+}
+.anim{
+animation:fadeUp.9s cubic-bezier(.16,1,.3,1) both;
+}
+.anim2{
+animation:slideIn.7s cubic-bezier(.16,1,.3,1) both;
+}
+.anim3{
+animation:fadeIn.6s ease both;
+}
+.anim-bounce{
+animation:bounce 2s ease-in-out infinite;
+}
+.shimmer-bar{
+position:relative;
+overflow:hidden;
+}
+.shimmer-bar::after{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+animation:shimmer 2s infinite;
+}
+.gradient-text{
+background:linear-gradient(90deg,#8b5cf6,#ec4899,#8b5cf6);
+background-size:200% 100%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+animation:gradient 3s ease infinite;
+}
+.glass{
+background:rgba(18,18,22,.8);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.06);
+}
+.tooltip{
+position:relative;
+}
+.tooltip::before{
+content:attr(data-tip);
+position:absolute;
+bottom:100%;
+left:50%;
+transform:translateX(-50%) translateY(-8px);
+background:#1a1a1f;
+border:1px solid rgba(255,255,255,.1);
+padding:6px 10px;
+border-radius:8px;
+font-size:10px;
+white-space:nowrap;
+opacity:0;
+pointer-events:none;
+transition:.3s;
+}
+.tooltip:hover::before{
+opacity:1;
+transform:translateX(-50%) translateY(-4px);
+}
 </style>
 </head>
-<body>
-
-<nav class="sticky top-0 z-40 bg-[#08080a]/80 backdrop-blur-2xl border-b border-white/[0.06]">
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-  <span class="font-bold text-[22px] flex items-center gap-2"><span class="w-2 h-2 bg-green-400 rounded-full animate-ping"></span><span id="navName">zCarlos_ht</span></span>
-  <div class="flex items-center gap-3">
-    <div id="musicWidget" class="hidden md:flex items-center gap-3 bg-[#141417] border border-white/10 rounded-full pl-2 pr-3 py-1.5">
-      <div class="w-8 h-8 rounded-full bg-white text-black grid place-items-center"><i class="fa-solid fa-music text-[10px]"></i></div>
-      <div><p id="mTitle" class="text-[13px] font-bold">No playing</p><p id="mArtist" class="text-[11px] text-zinc-500">-</p></div>
-      <button onclick="toggleMusic()" id="mBtn" class="w-8 h-8 bg-white text-black rounded-full grid place-items-center"><i class="fa-solid fa-play text-[10px]"></i></button>
-    </div>
-    <a href="#contacto" class="bg-white text-black px-6 py-2.5 rounded-full font-bold text-[14px]">Contactar</a>
-  </div>
+<body class="text-white antialiased selection:bg-violet-500/30">
+<!-- NAV -->
+<div class="sticky top-0 z-40 h-[68px] border-b border-white/[0.06] bg-[#0a0a0c]/80 backdrop-blur-2xl flex items-center anim" style="animation-delay:0s">
+<div class="mx-auto max-w-[1120px] w-full flex items-center justify-between px-6">
+<div class="flex items-center gap-3.5">
+<div class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,.8)] animate-pulse"></div>
+<span class="font-extrabold tracking-tight text-[15px]" id="navTitle">LUNAR MARKET®</span>
+<span id="cc" class="text-[10px] text-white/30 ml-2 font-mono"></span>
 </div>
-</nav>
-<audio id="audio"></audio>
+<div class="hidden md:flex items-center gap-8 text-[12px] text-white/40 font-bold tracking-wide">
+<a href="#presentacion" class="nav-item hover:text-white" id="nav1">Presentación</a>
+<a href="#sobre" class="nav-item hover:text-white" id="nav2">Sobre</a>
+<a href="#servicios" class="nav-item hover:text-white" id="nav3">Servicios</a>
+<a href="#resenas" class="nav-item hover:text-white" id="nav4">Reseñas</a>
+<a href="#discord" class="nav-item hover:text-white" id="nav5">Discord</a>
+</div>
+<div class="flex items-center gap-2">
+<button class="btn-ghost h-9 px-4 text-[11px] font-bold" id="navBtnSecondary">Tienda</button>
+</div>
+</div>
+</div>
 
-<section class="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-[360px_1fr] gap-10">
-  <div class="card rounded-[28px] p-7 text-center fadeUp">
-    <div class="relative mx-auto w-[168px] h-[168px]"><div class="absolute inset-0 rounded-full bg-gradient-to-tr from-violet-500 to-pink-500 blur-[20px] opacity-60"></div><img id="mainAvatar" src="https://cdn.discordapp.com/attachments/1540977308830011461/1543511927349846106/tumblr_p2eqboFAV91upn76yo4_r3_540.gif?ex=6a952300&is=6a93d180&hm=1df9bc0c302f73cada36719578afd516920d9bff701bc237973673402a631262&" class="relative w-[168px] h-[168px] rounded-full object-cover border-2 border-white/10 float cursor-pointer"></div>
-    <h3 class="font-bold text-[22px] mt-6" id="dName">@zCarlos_ht</h3>
-    <p class="text-[12px] text-zinc-500 font-bold tracking-widest mt-1" id="dRole">STAFF • MEDIA MANAGER • MEXICO</p>
-    <div class="grid grid-cols-3 gap-2 mt-6"><div class="bg-[#0c0c0e] border border-white/5 rounded-2xl py-3"><p id="sStaff" class="font-bold text-[22px]">0</p><p class="text-[10px] text-zinc-500 font-bold" id="sStaffLabel">STAFF</p></div><div class="bg-[#0c0c0e] border border-white/5 rounded-2xl py-3"><p id="sMedia" class="font-bold text-[22px]">0</p><p class="text-[10px] text-zinc-500 font-bold" id="sMediaLabel">MEDIA</p></div><div class="bg-[#0c0c0e] border border-white/5 rounded-2xl py-3"><p id="sPlayers" class="font-bold text-[22px]">0</p><p class="text-[10px] text-zinc-500 font-bold" id="sPlayersLabel">PLAYERS</p></div></div>
-    <p id="dBio" class="text-[13px] text-zinc-400 mt-6">Staff & Media Manager profesional</p><p id="clock" class="text-[11px] text-zinc-600 font-bold mt-4">00:00:00</p>
-  </div>
-  <div><h1 class="text-[54px] md:text-[68px] font-bold leading-[0.85] tracking-tight" id="heroTitle">Hola, soy<br><span class="text-zinc-500" id="heroTitle2">zCarlos_ht</span></h1><p class="text-[16px] text-zinc-400 mt-6 max-w-[600px]" id="heroDesc">Ayudo a servidores a crecer. Como Staff mantengo orden, como Media traigo jugadores reales.</p><div class="grid md:grid-cols-3 gap-4 mt-10"><div class="card rounded-[20px] p-6"><div class="w-10 h-10 rounded-xl bg-white text-black grid place-items-center"><i class="fa-solid fa-shield-halved"></i></div><h4 class="font-bold mt-4">Staff</h4><p class="text-[13px] text-zinc-500 mt-2">Moderación completa.</p></div><div class="card rounded-[20px] p-6"><div class="w-10 h-10 rounded-xl bg-white text-black grid place-items-center"><i class="fa-solid fa-video"></i></div><h4 class="font-bold mt-4">Media</h4><p class="text-[13px] text-zinc-500 mt-2">Contenido diario.</p></div><div class="card rounded-[20px] p-6"><div class="w-10 h-10 rounded-xl bg-white text-black grid place-items-center"><i class="fa-solid fa-bolt"></i></div><h4 class="font-bold mt-4">Media Manager</h4><p class="text-[13px] text-zinc-500 mt-2">Gestión de creadores.</p></div></div></div>
-</section>
-
-<section class="max-w-7xl mx-auto px-6 py-10">
-  <div class="flex justify-between items-center flex-wrap gap-4"><h2 class="text-[38px] font-bold">Experiencia</h2><div class="bg-[#121214] border border-white/10 rounded-full p-1 flex"><button onclick="filterTab('todos')" id="btn-todos" class="bg-white text-black px-6 py-2 rounded-full text-[13px] font-bold">Todos</button><button onclick="filterTab('staff')" id="btn-staff" class="px-6 py-2 rounded-full text-[13px] font-bold text-zinc-500">Staff</button><button onclick="filterTab('media')" id="btn-media" class="px-6 py-2 rounded-full text-[13px] font-bold text-zinc-500">Media</button></div></div>
-  <div id="grid" class="grid md:grid-cols-3 gap-6 mt-8"></div><div id="empty" class="card rounded-[20px] p-16 text-center mt-8 border-dashed"><p class="text-zinc-500 font-bold">Sin servidores aún</p></div>
-</section>
-
-<!-- CONTACTO CON OPCIONES QUE PEDISTE -->
-<section id="contacto" class="max-w-7xl mx-auto px-6 py-16">
-<div class="grid lg:grid-cols-[1fr_380px] gap-8">
-  <div class="card rounded-[28px] p-8">
-    <h3 class="text-[26px] font-bold" id="contactTitle">¿Quieres reclutarme?</h3><p class="text-[13px] text-zinc-500 mt-2">Selecciona para qué rol me necesitas</p>
-    <div class="grid md:grid-cols-2 gap-3 mt-6">
-      <input id="fName" placeholder="Tu nombre / Nick" class="input rounded-full px-5 py-3.5 text-[14px]">
-      <input id="fDiscord" placeholder="Tu Discord" class="input rounded-full px-5 py-3.5 text-[14px]">
-      <input id="fIp" placeholder="IP del servidor" class="md:col-span-2 input rounded-full px-5 py-3.5 text-[14px]">
-      <select id="fRole" class="md:col-span-2 input rounded-full px-5 py-3.5 text-[14px] font-bold">
-        <option value="Media">Media</option>
-        <option value="Media Manager">Media Manager</option>
-        <option value="Staff">Staff</option>
-        <option value="Staff & Media" selected>Staff & Media</option>
-        <option value="Staff & Media Manager">Staff & Media Manager</option>
-      </select>
-      <textarea id="fMsg" placeholder="Cuéntame de tu servidor, modalidad, usuarios promedio..." class="md:col-span-2 input rounded-[20px] px-5 py-4 text-[14px] h-[110px]"></textarea>
-    </div>
-    <button onclick="sendMessage()" class="w-full mt-5 bg-white text-black py-4 rounded-full font-bold hover:scale-[1.02] transition">Enviar solicitud 🚀</button>
-    <p class="text-[11px] text-zinc-600 text-center mt-3">Llega directo a mi panel → Mensajes</p>
-  </div>
-  <div id="contactBox" class="space-y-4"></div>
+<div class="mx-auto max-w-[1120px] px-6 py-12">
+<!-- 01 PRESENTACION -->
+<section id="presentacion" class="anim grid md:grid-cols-[360px_1fr] gap-10" style="animation-delay:.08s">
+<div class="card p-8 flex flex-col items-center text-center anim" style="animation-delay:.12s">
+<div class="relative">
+<img id="logo" src="https://cdn.discordapp.com/attachments/1546713103679365170/1546720990371905556/IMG-20260907-WA0586.jpg?ex=6aa0cfac&is=6a9f7e2c&hm=5ddd2fb86e6719e2d3f6ce2222d71fc38bc48d934934fa52aa095d1a932008e5&" onerror="this.src='https://cdn-icons-png.flaticon.com/512/9689/9689017.png'" class="logo">
+<div class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-emerald-500 border-[3px] border-[#121216] grid place-items-center text-[11px] font-bold animate-pulse">✓</div>
+</div>
+<div class="mt-7 font-extrabold text-[18px] tracking-tight" id="bName">LUNAR MARKET®</div>
+<div class="mt-1.5 text-[10px] tracking-[0.2em] text-white/30 font-bold" id="bTag">BUILDS • BANNERS • LOGOS • MEXICO</div>
+<div class="mt-8 grid grid-cols-3 gap-3 w-full">
+<div class="bg-[#1b1b20] border border-white/[0.06] rounded-2xl py-4 hover:scale-105 transition duration-300">
+<div class="font-extrabold text-[19px]" id="stat1">1,847</div>
+<div class="text-[9px] text-white/30 mt-1 font-bold tracking-widest" id="stat1Label">VENTAS</div>
+</div>
+<div class="bg-[#1b1b20] border border-white/[0.06] rounded-2xl py-4 hover:scale-105 transition duration-300">
+<div class="font-extrabold text-[19px]" id="stat2">4.9★</div>
+<div class="text-[9px] text-white/30 mt-1 font-bold tracking-widest" id="stat2Label">RATING</div>
+</div>
+<div class="bg-[#1b1b20] border border-white/[0.06] rounded-2xl py-4 hover:scale-105 transition duration-300">
+<div class="font-extrabold text-[19px]" id="stat3">24/7</div>
+<div class="text-[9px] text-white/30 mt-1 font-bold tracking-widest" id="stat3Label">SOPORTE</div>
+</div>
+</div>
+<div class="mt-5 flex items-center gap-2 text-[10px] text-white/20">
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
+<span id="onlineText">1,203 en línea</span>
+</div>
+</div>
+<div class="pt-2">
+<h1 class="text-[56px] font-extrabold leading-[0.88] tracking-[-0.05em] anim" id="hTitle" style="animation-delay:.16s">
+Marketplace<br>
+<span class="text-white/30">premium</span> para<br>
+servidores MC
+</h1>
+<p class="mt-6 text-[14px] leading-[1.9] text-white/40 max-w-[460px] anim" id="hDesc" style="animation-delay:.22s">
+Builds, banners, logos y templates entregados en menos de 3 minutos. Más de 1,800 clientes satisfechos en toda LATAM.
+</p>
+<div class="mt-10 grid grid-cols-3 gap-4 max-w-[540px] anim" style="animation-delay:.28s">
+<div class="card p-5 hover:rotate-1 transition duration-500">
+<div class="text-[10px] text-white/30 font-bold tracking-widest" id="miniStat1Title">CLIENTES</div>
+<div class="mt-3 text-[30px] font-extrabold tracking-tight" id="miniStat1Val">1,847</div>
+<div class="mt-1 text-[10px] text-white/30" id="miniStat1Desc">Activos este mes</div>
+<div class="mt-4 h-2 bg-white/5 rounded-full overflow-hidden shimmer-bar">
+<div class="h-full w-[92%] bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full"></div>
+</div>
+</div>
+<div class="card p-5 hover:-rotate-1 transition duration-500">
+<div class="text-[10px] text-white/30 font-bold tracking-widest" id="miniStat2Title">ENTREGA</div>
+<div class="mt-3 text-[30px] font-extrabold tracking-tight" id="miniStat2Val">2.3m</div>
+<div class="mt-1 text-[10px] text-white/30" id="miniStat2Desc">Promedio real</div>
+<div class="mt-4 h-2 bg-white/5 rounded-full overflow-hidden shimmer-bar">
+<div class="h-full w-[88%] bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
+</div>
+</div>
+<div class="card p-5 hover:rotate-1 transition duration-500">
+<div class="text-[10px] text-white/30 font-bold tracking-widest" id="miniStat3Title">SATISFACCIÓN</div>
+<div class="mt-3 text-[30px] font-extrabold tracking-tight" id="miniStat3Val">99%</div>
+<div class="mt-1 text-[10px] text-white/30" id="miniStat3Desc">Clientes felices</div>
+<div class="mt-4 h-2 bg-white/5 rounded-full overflow-hidden shimmer-bar">
+<div class="h-full w-[99%] bg-gradient-to-r from-blue-500 to-violet-500 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-3 anim" style="animation-delay:.34s">
+<button class="btn-primary h-12 px-7 text-[13px] flex items-center gap-2" id="heroBtn1">
+<span>Explorar tienda</span>
+<span>→</span>
+</button>
+<button class="btn-ghost h-12 px-7 text-[13px] font-bold" id="heroBtn2">Ver reseñas</button>
+</div>
 </div>
 </section>
 
-<div id="passModal" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-[200] hidden place-items-center p-4"><div class="bg-[#151518] border border-white/10 rounded-[24px] p-8 w-full max-w-[340px] text-center scaleIn"><div class="w-14 h-14 bg-white text-black rounded-full grid place-items-center mx-auto">🔒</div><h3 class="font-bold text-[20px] mt-4">Acceso Privado</h3><input id="passInput" type="password" placeholder="••••" class="input w-full mt-6 rounded-full px-5 py-3 text-center text-[18px]"><p id="passErr" class="text-red-400 text-[12px] mt-2 hidden">Incorrecta</p><button onclick="checkPass()" class="w-full mt-4 bg-white text-black py-3 rounded-full font-bold">Entrar</button></div></div>
+<!-- 02 SOBRE -->
+<section id="sobre" class="mt-24 anim" style="animation-delay:.38s">
+<div class="flex items-center gap-4">
+<h2 class="font-extrabold text-[13px] tracking-[0.2em] text-white/30" id="sec2Title">02 — SOBRE LUNAR MARKET</h2>
+<div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
+</div>
+<div class="mt-6 grid md:grid-cols-[1.4fr_.8fr] gap-5">
+<div class="card p-8 hover:scale-[1.01] transition duration-500">
+<p class="text-[14.5px] leading-[1.9] text-white/60" id="about">
+Lunar Market es el marketplace líder de LATAM para servidores de Minecraft. Desde 2023 ayudamos a más de 1,800 servidores a mejorar su apariencia con builds profesionales, banners animados y branding completo. Cada compra incluye schematic, soporte de instalación y garantía de satisfacción.
+</p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="badge px-3 py-1.5" id="aboutBadge1">🇲🇽 México</span>
+<span class="badge px-3 py-1.5" id="aboutBadge2">Desde 2023</span>
+<span class="badge px-3 py-1.5" id="aboutBadge3">1,800+ clientes</span>
+<span class="badge px-3 py-1.5" id="aboutBadge4">Entrega 3min</span>
+</div>
+</div>
+<div class="card p-7">
+<div class="font-bold text-[13px]" id="whyTitle">¿Por qué Lunar Market?</div>
+<div class="mt-5 space-y-3.5 text-[12px] text-white/50">
+<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why1">Entrega en menos de 3 minutos</span></div>
+<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why2">Schematic y Litematica incluido</span></div>
+<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why3">Soporte para instalación</span></div>
+<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why4">Garantía de satisfacción</span></div>
+<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why5">Precios desde $120 MXN</span></div>
+<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why6">Soporte 24/7 real</span></div>
+</div>
+</div>
+</div>
+</section>
 
-<div id="adminPanel" class="fixed inset-0 bg-[#050507]/95 backdrop-blur-2xl z-[100] hidden overflow-y-auto"><div class="min-h-screen p-4 md:p-8"><div class="max-w-6xl mx-auto">
-  <div class="flex justify-between items-center"><div><h2 class="text-[32px] font-bold">Dashboard Pro ✨</h2><p class="text-[13px] text-zinc-500">Edita stats, letra Gg, colores, servers, mensajes</p></div><button onclick="closeAdmin()" class="w-11 h-11 bg-[#1a1a1f] border border-white/10 rounded-full grid place-items-center"><i class="fa-solid fa-xmark"></i></button></div>
-  <div class="mt-8 bg-[#121214] border border-white/10 rounded-full p-1.5 flex gap-1 overflow-x-auto max-w-fit"><button onclick="aTab('overview')" id="atab-overview" class="bg-white text-black px-5 py-2.5 rounded-full text-[13px] font-bold">Overview</button><button onclick="aTab('editall')" id="atab-editall" class="px-5 py-2.5 rounded-full text-[13px] font-bold text-zinc-500">Editar Todo</button><button onclick="aTab('servers')" id="atab-servers" class="px-5 py-2.5 rounded-full text-[13px] font-bold text-zinc-500">Servidores</button><button onclick="aTab('messages')" id="atab-messages" class="px-5 py-2.5 rounded-full text-[13px] font-bold text-zinc-500">Mensajes <span id="msgCount" class="bg-red-500 text-white px-1.5 rounded-full text-[10px] ml-1 hidden">0</span></button><button onclick="aTab('music')" id="atab-music" class="px-5 py-2.5 rounded-full text-[13px] font-bold text-zinc-500">Música</button></div>
-  <div id="admin-overview" class="mt-8 grid md:grid-cols-3 gap-4"><div class="card rounded-[20px] p-6"><p class="text-[11px] text-zinc-500 font-bold">SERVERS</p><p id="ovServers" class="text-[32px] font-bold">0</p></div><div class="card rounded-[20px] p-6"><p class="text-[11px] text-zinc-500 font-bold">PLAYERS</p><p id="ovPlayers" class="text-[32px] font-bold">0+</p></div><div class="card rounded-[20px] p-6"><p class="text-[11px] text-zinc-500 font-bold">MENSAJES</p><p id="ovMsgs" class="text-[32px] font-bold">0</p></div></div>
-  <div id="admin-editall" class="mt-8 hidden"><div class="grid lg:grid-cols-2 gap-6"><div class="card rounded-[24px] p-7"><h3 class="font-bold">✏️ Textos</h3><div class="grid gap-3 mt-5"><input id="pName" placeholder="Nombre" class="input rounded-full px-5 py-3 text-[14px]"><input id="pAvatarUrl" placeholder="URL Avatar" class="input rounded-full px-5 py-3 text-[14px]"><input id="pRole" placeholder="Rol" class="input rounded-full px-5 py-3 text-[14px]"><input id="pHeroTitle" placeholder="Titulo" class="input rounded-full px-5 py-3 text-[14px]"><input id="pHeroTitle2" placeholder="Segunda linea" class="input rounded-full px-5 py-3 text-[14px]"><textarea id="pBio" placeholder="Bio" class="input rounded-[20px] px-5 py-3 text-[14px] h-[70px]"></textarea><textarea id="pHeroDesc" placeholder="Desc hero" class="input rounded-[20px] px-5 py-3 text-[14px] h-[80px]"></textarea></div></div><div class="space-y-6"><div class="card rounded-[24px] p-7"><h3 class="font-bold">📊 Estadísticas</h3><div class="grid grid-cols-2 gap-3 mt-5"><div><p class="text-[11px] text-zinc-500">Staff #</p><input id="eStaff" type="number" class="input w-full rounded-full px-5 py-3 text-[14px] mt-1"></div><div><p class="text-[11px] text-zinc-500">Label</p><input id="eStaffLabel" class="input w-full rounded-full px-5 py-3 text-[14px] mt-1"></div><div><p class="text-[11px] text-zinc-500">Media #</p><input id="eMedia" type="number" class="input w-full rounded-full px-5 py-3 text-[14px] mt-1"></div><div><p class="text-[11px] text-zinc-500">Label</p><input id="eMediaLabel" class="input w-full rounded-full px-5 py-3 text-[14px] mt-1"></div><div><p class="text-[11px] text-zinc-500">Players #</p><input id="ePlayers" type="number" class="input w-full rounded-full px-5 py-3 text-[14px] mt-1"></div><div><p class="text-[11px] text-zinc-500">Label</p><input id="ePlayersLabel" class="input w-full rounded-full px-5 py-3 text-[14px] mt-1"></div><label class="col-span-2 flex gap-2 items-center mt-2 text-[12px]"><input id="eAutoStats" type="checkbox" checked> Automático desde servidores</label></div></div><div class="card rounded-[24px] p-7"><h3 class="font-bold">🔤 Letra Gg</h3><select id="eFont" class="input w-full rounded-full px-5 py-3 text-[14px] mt-4"><option value="'Fredoka'">Fredoka - Gg original</option><option value="'Baloo 2'">Baloo 2 - Redonda pro</option><option value="'Nunito'">Nunito</option><option value="'Poppins'">Poppins</option><option value="'Outfit'">Outfit</option><option value="'Lexend'">Lexend</option></select><div class="mt-4 p-4 bg-black rounded-xl border border-white/10"><p class="text-[26px] font-bold" id="fontPreview">Gg zCarlos_ht</p></div></div><div class="card rounded-[24px] p-7"><h3 class="font-bold">🎨 Colores + Contacto</h3><div class="grid grid-cols-2 gap-3 mt-4"><div><p class="text-[11px] text-zinc-500">Fondo</p><input id="eBg" type="color" value="#08080a" class="w-full h-12 rounded-xl mt-1"></div><div><p class="text-[11px] text-zinc-500">Cards</p><input id="eCard" type="color" value="#141417" class="w-full h-12 rounded-xl mt-1"></div><input id="cDiscord" placeholder="Discord" class="input rounded-full px-5 py-3 text-[14px]"><input id="cTiktok" placeholder="TikTok" class="input rounded-full px-5 py-3 text-[14px]"></div><button onclick="saveAll()" class="w-full mt-5 bg-white text-black py-4 rounded-full font-bold">💾 Guardar TODO</button></div></div></div></div>
-  <div id="admin-servers" class="mt-8 hidden"><div class="card rounded-[24px] p-7"><h3 class="font-bold">Agregar Servidor Epic ✨</h3><div class="grid md:grid-cols-2 gap-3 mt-5"><input id="aName" placeholder="* Nombre" class="input rounded-full px-5 py-3 text-[14px]"><select id="aCat" class="input rounded-full px-5 py-3 text-[14px]"><option value="media">Media</option><option value="staff">Staff</option></select><input id="aRank" placeholder="* Rango" class="input rounded-full px-5 py-3 text-[14px]"><input id="aPlayers" type="number" placeholder="* Jugadores" class="input rounded-full px-5 py-3 text-[14px]"><input id="aLogo" placeholder="* URL Logo" class="input rounded-full px-5 py-3 text-[14px]"><input id="aBanner" placeholder="* URL Banner" class="input rounded-full px-5 py-3 text-[14px]"><div class="flex gap-2"><input id="aBorder" type="color" value="#ffffff" class="w-16 h-[46px] rounded-full p-1"><input id="aBorderHex" value="#ffffff" class="flex-1 input rounded-full px-5 py-3 text-[14px]"></div><div class="flex gap-2"><input id="aGlow" type="color" value="#7c3aed" class="w-16 h-[46px] rounded-full p-1"><input id="aGlowHex" value="#7c3aed" class="flex-1 input rounded-full px-5 py-3 text-[14px]"></div><input id="aViews" placeholder="Extra" class="md:col-span-2 input rounded-full px-5 py-3 text-[14px]"><textarea id="aDesc" placeholder="* Descripción" class="md:col-span-2 input rounded-[20px] px-5 py-4 text-[14px] h-[80px]"></textarea></div><button onclick="saveServer()" class="w-full mt-5 bg-white text-black py-4 rounded-full font-bold">Agregar</button></div><div id="adminList" class="mt-6 grid md:grid-cols-2 gap-3"></div></div>
-  <div id="admin-messages" class="mt-8 hidden"><div class="card rounded-[24px] p-7"><div class="flex justify-between"><h3 class="font-bold">Mensajes 💬</h3><button onclick="clearMessages()" class="text-[12px] border border-white/10 px-3 py-1 rounded-full">Borrar</button></div><div id="messagesList" class="mt-6 space-y-3"></div></div></div>
-  <div id="admin-music" class="mt-8 hidden"><div class="card rounded-[24px] p-7"><h3 class="font-bold">Música 🎵</h3><div class="grid md:grid-cols-2 gap-3 mt-4"><input id="mTitleI" placeholder="Título" class="input rounded-full px-5 py-3 text-[14px]"><input id="mArtistI" placeholder="Artista" class="input rounded-full px-5 py-3 text-[14px]"><input id="mUrlI" placeholder="URL MP3" class="md:col-span-2 input rounded-full px-5 py-3 text-[14px]"></div><button onclick="saveMusic()" class="w-full mt-4 bg-white text-black py-3 rounded-full font-bold">Guardar</button><div id="musicList" class="mt-6 space-y-2"></div></div></div>
+<!-- 03 SERVICIOS -->
+<section id="servicios" class="mt-24 anim" style="animation-delay:.44s">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<h2 class="font-extrabold text-[13px] tracking-[0.2em] text-white/30" id="sec3Title">03 — SERVICIOS</h2>
+<div class="hidden md:block h-px w-20 bg-white/10"></div>
+</div>
+<div id="catFilters" class="flex gap-2 flex-wrap"></div>
+</div>
+<div id="sGrid" class="mt-7 grid md:grid-cols-3 gap-5"></div>
+<div id="sEmpty" class="card mt-7 h-[160px] grid place-items-center">
+<div class="text-center">
+<div class="text-[30px] animate-[float_3s_ease-in-out_infinite]">📦</div>
+<div class="mt-3 text-[13px] text-white/30 font-bold" id="sEmptyTitle">No hay servicios</div>
+<div class="mt-1 text-[11px] text-white/20" id="sEmptyDesc">Los servicios aparecerán aquí</div>
+</div>
+</div>
+</section>
+
+<!-- 04 RESEÑAS -->
+<section id="resenas" class="mt-24 anim" style="animation-delay:.5s">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<h2 class="font-extrabold text-[13px] tracking-[0.2em] text-white/30" id="sec4Title">04 — RESEÑAS VERIFICADAS</h2>
+<div class="hidden md:block h-px w-20 bg-white/10"></div>
+</div>
+<button onclick="openReviewModal()" class="group h-12 px-6 rounded-full bg-white text-black text-[12px] font-extrabold flex items-center gap-2.5 hover:scale-105 active:scale-95 transition">
+<span class="w-6 h-6 rounded-full bg-black text-white grid place-items-center text-[14px] group-hover:rotate-90 transition duration-500">✦</span>
+<span id="reviewBtnText">Dejar reseña con código</span>
+</button>
+</div>
+<div class="mt-4 flex items-center gap-3 text-[11px] text-white/30">
+<span id="rCount" class="font-bold">0 reseñas verificadas</span>
+<span class="w-1 h-1 rounded-full bg-white/20"></span>
+<span id="rAvgText">⭐ 4.9 promedio</span>
+<span class="w-1 h-1 rounded-full bg-white/20"></span>
+<span class="text-emerald-400 animate-pulse" id="rVerifText">● Verificadas con código</span>
+</div>
+<div id="rGrid" class="mt-7 grid md:grid-cols-3 gap-5"></div>
+<div id="rEmpty" class="card mt-7 h-[150px] grid place-items-center">
+<div class="text-center">
+<div class="text-[28px]">💬</div>
+<div class="mt-3 text-[13px] text-white/30 font-bold" id="rEmptyTitle">Las reseñas aparecerán aquí</div>
+<div class="mt-1 text-[11px] text-white/20" id="rEmptyDesc">Solo clientes con código especial pueden opinar</div>
+</div>
+</div>
+</section>
+
+<!-- 05 DISCORD -->
+<section id="discord" class="mt-24 pb-32 anim" style="animation-delay:.56s">
+<div class="flex items-center gap-4">
+<h2 class="font-extrabold text-[13px] tracking-[0.2em] text-white/30" id="sec5Title">05 — DISCORD</h2>
+<div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
+</div>
+<div class="card mt-7 p-12 text-center relative overflow-hidden hover:scale-[1.01] transition duration-700">
+<div class="absolute inset-0 bg-gradient-to-b from-violet-500/[0.08] via-fuchsia-500/[0.03] to-transparent pointer-events-none"></div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,.15),transparent_60%)] pointer-events-none"></div>
+<div class="relative">
+<div class="w-20 h-20 mx-auto rounded-[20px] bg-[#5865f2] grid place-items-center text-[32px] shadow-[0_0_40px_rgba(88,101,242,.5)] animate-[float_4s_ease-in-out_infinite]">◈</div>
+<div class="mt-8 font-extrabold text-[20px] tracking-tight" id="dTitle">Discord Oficial Lunar Market</div>
+<div class="mt-3 text-[13px] text-white/40 max-w-[400px] mx-auto leading-[1.6]" id="dDesc">1,203 miembros • Soporte instantáneo • Entregas automáticas • Comunidad activa</div>
+<div class="mt-8 flex justify-center gap-3">
+<a id="dLink" href="https://discord.gg/lunar" target="_blank" class="btn-primary h-12 px-8 text-[13px] inline-flex items-center gap-2 hover:gap-3 transition-all">
+<span id="dBtnText">Unirse al Discord</span>
+<span>→</span>
+</a>
+</div>
+<div class="mt-5 flex justify-center gap-2 text-[10px] text-white/20 font-mono">
+<span id="dLinkText">discord.gg/lunar-market</span>
+<span>•</span>
+<span id="dMembersText">1,203 miembros</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- MODAL RESEÑA 1-5 ESTRELLAS -->
+<div id="reviewModal" class="fixed inset-0 bg-black/80 backdrop-blur-2xl hidden z-[65] grid place-items-center p-4">
+<div class="card p-8 w-full max-w-[480px] anim">
+<div class="flex justify-between items-center">
+<h3 class="font-extrabold text-[15px]" id="modalReviewTitle">Dejar reseña verificada</h3>
+<button onclick="reviewModal.classList.add('hidden')" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 grid place-items-center transition">✕</button>
+</div>
+<p class="text-[11px] text-white/40 mt-2 leading-[1.6]" id="modalReviewDesc">Ingresa el código que te dio el staff después de tu compra.</p>
+<div class="mt-6 space-y-4">
+<input id="clientCode" class="input w-full h-12 px-4 text-[12px] font-mono" placeholder="LUNAR-XXXX">
+<input id="clientName" class="input w-full h-12 px-4 text-[12px]" placeholder="Tu nombre @ejemplo">
+<select id="clientService" class="input w-full h-12 px-4 text-[12px]"></select>
+<div class="bg-[#1a1a1f] border border-white/5 rounded-2xl p-5">
+<div class="flex justify-between items-center">
+<div class="text-[11px] text-white/40 font-bold tracking-wide" id="starLabel">CALIFICACIÓN</div>
+<div class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white/5 border border-white/10" id="starValue">5/5</div>
+</div>
+<div class="flex gap-2.5 mt-3" id="starSelector">
+<span class="star" data-v="1" onclick="setStars(1)">☆</span>
+<span class="star" data-v="2" onclick="setStars(2)">☆</span>
+<span class="star" data-v="3" onclick="setStars(3)">☆</span>
+<span class="star" data-v="4" onclick="setStars(4)">☆</span>
+<span class="star active" data-v="5" onclick="setStars(5)">★</span>
+</div>
+<div class="text-[12px] font-bold mt-3" id="starText">5 estrellas — Excelente</div>
+<div class="mt-1 text-[10px] text-white/30" id="starDesc">Experiencia perfecta, recomendado</div>
+</div>
+<textarea id="clientText" class="input w-full h-32 p-4 text-[12px] resize-none" placeholder="Cuéntanos tu experiencia con Lunar Market..."></textarea>
+<button onclick="submitClientReview()" class="w-full h-12 rounded-full bg-white text-black font-extrabold text-[12px] hover:scale-[1.01] active:scale-[0.99] transition" id="modalBtnText">Enviar para revisión ✓</button>
+<div id="reviewError" class="hidden text-[11px] text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl p-3.5"></div>
+<p class="text-[10px] text-white/20 text-center leading-[1.5]" id="modalFooter">Tu reseña será revisada por el staff antes de aparecer en la web.</p>
+</div>
+</div>
+</div>
+
+<!-- MODAL PASSWORD -->
+<div id="passM" class="fixed inset-0 bg-black/80 backdrop-blur-2xl hidden z-[60] grid place-items-center p-4">
+<div class="card p-8 w-full max-w-[380px] anim">
+<div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 grid place-items-center text-[20px] mx-auto">🔒</div>
+<h3 class="font-extrabold text-[15px] text-center mt-5" id="passTitle">Acceso administrador</h3>
+<p class="text-[11px] text-white/40 mt-2 text-center leading-[1.6]" id="passDesc">Ingresa tu clave privada para acceder al panel</p>
+<input id="passI" type="password" class="input w-full h-12 px-4 mt-6 text-[13px]" placeholder="••••••••">
+<div class="flex gap-2.5 mt-4">
+<button onclick="checkP()" class="flex-1 h-11 rounded-full bg-white text-black font-extrabold text-[12px] hover:scale-[1.02] transition" id="passBtn1">Entrar</button>
+<button onclick="passM.classList.add('hidden')" class="flex-1 h-11 rounded-full bg-white/5 border border-white/10 text-[12px] hover:bg-white/10 transition" id="passBtn2">Cancelar</button>
+</div>
+<p id="passE" class="hidden text-[11px] text-red-400 mt-4 bg-red-500/10 border border-red-500/20 rounded-xl p-3 text-center">Clave incorrecta</p>
+</div>
+</div>
+
+<!-- ADMIN PANEL COMPLETO -->
+<div id="admin" class="fixed inset-0 bg-[#08080a] hidden z-[70] overflow-auto">
+<div class="sticky top-0 bg-[#0a0a0c]/90 backdrop-blur-2xl border-b border-white/[0.06] h-[68px] flex items-center justify-between px-8 z-10">
+<div class="flex items-center gap-3">
+<div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+<span class="font-extrabold text-[14px] tracking-tight">LUNAR ADMIN PANEL — TODO EDITABLE</span>
+<span class="text-[10px] px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold">● ACTIVO</span>
+</div>
+<button onclick="admin.classList.add('hidden')" class="bg-white text-black rounded-full px-6 h-10 text-[11px] font-extrabold hover:scale-105 transition">Cerrar ✕</button>
+</div>
+<div class="max-w-[1300px] mx-auto p-8 grid md:grid-cols-[250px_1fr] gap-8">
+<div class="space-y-1.5">
+<button onclick="tab('dash')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-white text-black font-bold text-[11px] flex items-center gap-2.5" data-t="dash"><span>📊</span> Dashboard</button>
+<button onclick="tab('alltext')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] font-bold text-violet-300 flex items-center gap-2.5" data-t="alltext"><span>✏️</span> EDITAR TODO EL TEXTO</button>
+<button onclick="tab('cats')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="cats"><span>📁</span> Categorías</button>
+<button onclick="tab('serv')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="serv"><span>🛠️</span> Servicios</button>
+<button onclick="tab('codes')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="codes"><span>🔑</span> Códigos</button>
+<button onclick="tab('pend')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="pend"><span>⏳</span> Pendientes (<span id="pC">0</span>)</button>
+<button onclick="tab('appr')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="appr"><span>✅</span> Aprobadas</button>
+<button onclick="tab('stats')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="stats"><span>📈</span> Estadísticas</button>
+<div class="pt-4 mt-4 border-t border-white/5">
+<div class="text-[10px] text-white/20 font-bold tracking-widest px-4">ATAJOS</div>
+<div class="mt-2 space-y-1 text-[10px] text-white/30 px-4 leading-[1.6]">
+<div>• 10 toques logo = admin</div>
+<div>• Clave privada oculta</div>
+<div>• Códigos 1 uso</div>
+</div>
+</div>
+</div>
+<div>
+<div id="t-dash" class="tt">
+<div class="grid grid-cols-3 gap-4">
+<div class="card p-6 hover:rotate-1 transition duration-500"><div class="text-[10px] text-white/30 font-bold tracking-widest">SERVICIOS ACTIVOS</div><div class="text-[32px] font-extrabold mt-3 tracking-tight" id="dServ">0</div><div class="mt-2 text-[11px] text-white/40">En la tienda ahora</div><div class="mt-4 h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[70%] bg-violet-500 rounded-full shimmer-bar"></div></div></div>
+<div class="card p-6 hover:-rotate-1 transition duration-500"><div class="text-[10px] text-white/30 font-bold tracking-widest">RESEÑAS VERIFICADAS</div><div class="text-[32px] font-extrabold mt-3 tracking-tight" id="dRev">0</div><div class="mt-2 text-[11px] text-emerald-400">● Verificadas con código</div><div class="mt-4 h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[90%] bg-emerald-500 rounded-full shimmer-bar"></div></div></div>
+<div class="card p-6 hover:rotate-1 transition duration-500"><div class="text-[10px] text-white/30 font-bold tracking-widest">CÓDIGOS DISPONIBLES</div><div class="text-[32px] font-extrabold mt-3 tracking-tight" id="dCodes">0</div><div class="mt-2 text-[11px] text-white/40">Sin usar, listos para clientes</div><div class="mt-4 h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[60%] bg-blue-500 rounded-full shimmer-bar"></div></div></div>
+</div>
+<div class="card p-6 mt-6">
+<div class="font-bold text-[13px]">Actividad reciente</div>
+<div id="activity" class="mt-4 space-y-2.5 text-[11px] text-white/40"></div>
+</div>
+</div>
+
+<div id="t-alltext" class="tt hidden">
+<div class="card p-7">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 grid place-items-center">✏️</div>
+<div>
+<h3 class="font-extrabold text-[15px]">Editar todo el texto de la web</h3>
+<p class="text-[11px] text-white/40 mt-1">Cada texto que ves en la página se puede editar aquí. Sin excepciones.</p>
+</div>
+</div>
+<div class="mt-8 space-y-6 max-h-[65vh] overflow-auto pr-2">
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">NAVEGACIÓN SUPERIOR</label><input id="eNavTitle" class="input w-full h-11 px-4 text-[12px]" placeholder="Título nav"><div class="grid grid-cols-2 md:grid-cols-5 gap-2"><input id="eNav1" class="input h-10 px-3 text-[11px]" placeholder="Link 1"><input id="eNav2" class="input h-10 px-3 text-[11px]" placeholder="Link 2"><input id="eNav3" class="input h-10 px-3 text-[11px]" placeholder="Link 3"><input id="eNav4" class="input h-10 px-3 text-[11px]" placeholder="Link 4"><input id="eNav5" class="input h-10 px-3 text-[11px]" placeholder="Link 5"></div><div class="grid grid-cols-2 gap-2"><input id="eNavBtnSecondary" class="input h-10 px-3 text-[11px]" placeholder="Botón secundario"><input id="eOnlineText" class="input h-10 px-3 text-[11px]" placeholder="Texto online"></div></div>
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">HERO / PRESENTACIÓN</label><input id="eBName" class="input w-full h-11 px-4 text-[12px]" placeholder="Nombre marca"><input id="eBTag" class="input w-full h-11 px-4 text-[12px]" placeholder="Tagline"><textarea id="eHTitle" class="input w-full h-24 p-4 text-[12px]" placeholder="Título grande con HTML"></textarea><textarea id="eHDesc" class="input w-full h-24 p-4 text-[12px]" placeholder="Descripción hero"></textarea><div class="grid grid-cols-3 gap-2"><input id="eStat1" class="input h-10 px-3 text-[11px]" placeholder="Stat 1 valor"><input id="eStat1Label" class="input h-10 px-3 text-[11px]" placeholder="Stat 1 label"><input id="eStat2" class="input h-10 px-3 text-[11px]"><input id="eStat2Label" class="input h-10 px-3 text-[11px]"><input id="eStat3" class="input h-10 px-3 text-[11px]"><input id="eStat3Label" class="input h-10 px-3 text-[11px]"></div><div class="grid grid-cols-2 gap-2"><input id="eMiniStat1Title" class="input h-10 px-3 text-[11px]"><input id="eMiniStat1Val" class="input h-10 px-3 text-[11px]"><input id="eMiniStat1Desc" class="input h-10 px-3 text-[11px]"><input id="eMiniStat2Title" class="input h-10 px-3 text-[11px]"><input id="eMiniStat2Val" class="input h-10 px-3 text-[11px]"><input id="eMiniStat2Desc" class="input h-10 px-3 text-[11px]"><input id="eMiniStat3Title" class="input h-10 px-3 text-[11px]"><input id="eMiniStat3Val" class="input h-10 px-3 text-[11px]"><input id="eMiniStat3Desc" class="input h-10 px-3 text-[11px]"></div><div class="grid grid-cols-2 gap-2"><input id="eHeroBtn1" class="input h-10 px-3 text-[11px]" placeholder="Botón principal"><input id="eHeroBtn2" class="input h-10 px-3 text-[11px]" placeholder="Botón secundario"></div></div>
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">TÍTULOS DE SECCIONES</label><input id="eSec2Title" class="input w-full h-11 px-4 text-[12px]"><input id="eSec3Title" class="input w-full h-11 px-4 text-[12px]"><input id="eSec4Title" class="input w-full h-11 px-4 text-[12px]"><input id="eSec5Title" class="input w-full h-11 px-4 text-[12px]"></div>
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">SOBRE LUNAR MARKET</label><textarea id="eAbout" class="input w-full h-32 p-4 text-[12px]"></textarea><div class="grid grid-cols-2 gap-2"><input id="eAboutBadge1" class="input h-10 px-3 text-[11px]"><input id="eAboutBadge2" class="input h-10 px-3 text-[11px]"><input id="eAboutBadge3" class="input h-10 px-3 text-[11px]"><input id="eAboutBadge4" class="input h-10 px-3 text-[11px]"><input id="eWhyTitle" class="input h-10 px-3 text-[11px]"><input id="eWhy1" class="input h-10 px-3 text-[11px]"><input id="eWhy2" class="input h-10 px-3 text-[11px]"><input id="eWhy3" class="input h-10 px-3 text-[11px]"><input id="eWhy4" class="input h-10 px-3 text-[11px]"><input id="eWhy5" class="input h-10 px-3 text-[11px]"><input id="eWhy6" class="input h-10 px-3 text-[11px]"></div></div>
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">SERVICIOS</label><input id="eSEmptyTitle" class="input w-full h-11 px-4 text-[12px]" placeholder="Título vacío"><input id="eSEmptyDesc" class="input w-full h-11 px-4 text-[12px]" placeholder="Descripción vacío"></div>
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">RESEÑAS - TEXTOS</label><input id="eReviewBtnText" class="input w-full h-11 px-4 text-[12px]"><input id="eRAvgText" class="input w-full h-11 px-4 text-[12px]"><input id="eRVerifText" class="input w-full h-11 px-4 text-[12px]"><input id="eREmptyTitle" class="input w-full h-11 px-4 text-[12px]"><input id="eREmptyDesc" class="input w-full h-11 px-4 text-[12px]"></div>
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">MODAL RESEÑA</label><input id="eModalReviewTitle" class="input w-full h-11 px-4 text-[12px]"><input id="eModalReviewDesc" class="input w-full h-11 px-4 text-[12px]"><input id="eStarLabel" class="input w-full h-11 px-4 text-[12px]"><input id="eStarDesc" class="input w-full h-11 px-4 text-[12px]"><input id="eModalBtnText" class="input w-full h-11 px-4 text-[12px]"><input id="eModalFooter" class="input w-full h-11 px-4 text-[12px]"></div>
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">DISCORD</label><input id="eDTitle" class="input w-full h-11 px-4 text-[12px]"><input id="eDDesc" class="input w-full h-11 px-4 text-[12px]"><input id="eDBtnText" class="input w-full h-11 px-4 text-[12px]"><input id="eDLinkText" class="input w-full h-11 px-4 text-[12px]"><input id="eDMembersText" class="input w-full h-11 px-4 text-[12px]"><input id="eDLink" class="input w-full h-11 px-4 text-[12px]"></div>
+<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">LOGIN ADMIN</label><input id="ePassTitle" class="input w-full h-11 px-4 text-[12px]"><input id="ePassDesc" class="input w-full h-11 px-4 text-[12px]"><input id="ePassBtn1" class="input w-full h-11 px-4 text-[12px]"><input id="ePassBtn2" class="input w-full h-11 px-4 text-[12px]"></div>
+<button onclick="saveAllText()" class="w-full h-13 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 font-extrabold text-[13px] hover:scale-[1.02] active:scale-[0.98] transition py-3">💾 Guardar TODO el texto de la web</button>
+</div>
+</div>
+</div>
+<div id="t-cats" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Categorías de servicios</h3><p class="text-[11px] text-white/40 mt-1">Crea categorías como Bots, Logos, Builds, etc.</p><div class="mt-5 flex gap-2"><input id="catName" class="input flex-1 h-11 px-4 text-[12px]" placeholder="Nombre: Bots"><input id="catEmoji" class="input w-20 h-11 px-4 text-[12px]" placeholder="🤖"><button onclick="addCat()" class="h-11 px-6 rounded-full bg-white text-black font-bold text-[11px] hover:scale-105 transition">Crear</button></div><div id="catList" class="mt-7 space-y-2"></div></div></div>
+<div id="t-serv" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Servicios</h3><div class="mt-5 grid gap-3"><input id="sN" class="input h-11 px-4 text-[12px]" placeholder="Nombre del servicio"><select id="sCat" class="input h-11 px-4 text-[12px]"></select><input id="sDesc2" class="input h-11 px-4 text-[12px]" placeholder="Descripción corta"><input id="sPrice2" class="input h-11 px-4 text-[12px]" placeholder="Precio: Desde $250 MXN"><input id="sEmoji2" class="input h-11 px-4 text-[12px]" placeholder="Emoji: 🏰"><button onclick="addServ()" class="h-11 rounded-full bg-white text-black font-bold text-[11px] hover:scale-[1.02] transition">Agregar servicio</button></div><div id="servList" class="mt-7 space-y-2"></div></div></div>
+<div id="t-codes" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Códigos de reseña — 1 uso</h3><p class="text-[11px] text-white/40 mt-1">Solo con código válido se puede dejar reseña. 1 código = 1 reseña.</p><div class="mt-5 flex gap-2"><button onclick="genCode()" class="h-11 px-6 rounded-full bg-violet-600 font-bold text-[11px] hover:scale-105 transition">Generar código</button><button onclick="genBulk()" class="h-11 px-6 rounded-full bg-white/5 border border-white/10 text-[11px] hover:bg-white/10 transition">Generar 5 códigos</button></div><div id="codeList" class="mt-7 space-y-2"></div></div></div>
+<div id="t-pend" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Reseñas pendientes de aprobación</h3><div id="pendList" class="mt-6 space-y-3"></div></div></div>
+<div id="t-appr" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Reseñas aprobadas — Editable</h3><p class="text-[11px] text-white/40 mt-1">Aquí puedes editar el texto y las estrellas (1-5) de cada reseña.</p><div id="apprList" class="mt-6 space-y-3"></div></div></div>
+<div id="t-stats" class="tt hidden"><div class="grid grid-cols-2 gap-5"><div class="card p-7"><div class="text-[10px] text-white/30 font-bold tracking-widest">POR CATEGORÍA</div><div id="statsCat" class="mt-5 space-y-2.5 text-[12px]"></div></div><div class="card p-7"><div class="text-[10px] text-white/30 font-bold tracking-widest">RENDIMIENTO GLOBAL</div><div class="mt-5"><div class="text-[36px] font-extrabold tracking-tight" id="statsRating">4.9/5.0</div><div class="mt-2 text-[11px] text-white/40">Basado en reseñas verificadas con código</div><div class="mt-5 h-2.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[98%] bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full shimmer-bar"></div></div><div class="mt-4 grid grid-cols-5 gap-1.5 text-[10px] text-white/20"><div>1★</div><div>2★</div><div>3★</div><div>4★</div><div>5★</div></div></div></div></div></div>
 </div></div></div>
 
 <script>
-let servers = JSON.parse(localStorage.getItem('zcarlos_servers_v3')||'[]');
-let profile = JSON.parse(localStorage.getItem('zcarlos_profile_v2')||'null') || {name:'zCarlos_ht', avatar:'https://cdn.discordapp.com/attachments/1540977308830011461/1543511927349846106/tumblr_p2eqboFAV91upn76yo4_r3_540.gif?ex=6a952300&is=6a93d180&hm=1df9bc0c302f73cada36719578afd516920d9bff701bc237973673402a631262&', role:'STAFF • MEDIA MANAGER • MEXICO', bio:'Staff & Media Manager profesional', heroTitle:'Hola, soy', heroTitle2:'zCarlos_ht', heroDesc:'Ayudo a servidores a crecer.'};
-let stats = JSON.parse(localStorage.getItem('zcarlos_stats')||'null') || {staff:0, staffLabel:'STAFF', media:0, mediaLabel:'MEDIA', players:0, playersLabel:'PLAYERS', auto:true};
-let design = JSON.parse(localStorage.getItem('zcarlos_design')||'null') || {font:"'Fredoka'", bg:'#08080a', card:'#141417'};
-let contact = JSON.parse(localStorage.getItem('zcarlos_contact_v3')||'null') || {discord:'zCarlos_ht', tiktok:'@zCarlos_ht'};
-let playlist = JSON.parse(localStorage.getItem('zcarlos_music')||'[]');
-let messages = JSON.parse(localStorage.getItem('zcarlos_messages')||'[]');
-let curTrack=0, isPlaying=false;
-function aTab(t){ ['overview','editall','servers','messages','music'].forEach(x=>{ document.getElementById('admin-'+x).classList.toggle('hidden', x!==t); const b=document.getElementById('atab-'+x); b.classList.toggle('bg-white', x===t); b.classList.toggle('text-black', x===t); b.classList.toggle('text-zinc-500', x!==t); }); }
-let clicks=0; document.getElementById('mainAvatar').addEventListener('click', ()=>{ clicks++; if(clicks>=5){ openPass(); clicks=0; } setTimeout(()=>clicks=0,2500); });
-function openPass(){ document.getElementById('passModal').classList.remove('hidden'); document.getElementById('passModal').classList.add('grid'); }
-function closePass(){ document.getElementById('passModal').classList.add('hidden'); }
-function checkPass(){ if(document.getElementById('passInput').value==='Cap1'){ closePass(); openAdmin(); } else{ document.getElementById('passErr').classList.remove('hidden'); } }
-function openAdmin(){ document.getElementById('adminPanel').classList.remove('hidden'); loadAdmin(); renderAdminList(); renderMessages(); renderMusicList(); renderOverview(); }
-function closeAdmin(){ document.getElementById('adminPanel').classList.add('hidden'); }
-function loadAdmin(){
-  document.getElementById('pName').value=profile.name; document.getElementById('pAvatarUrl').value=profile.avatar; document.getElementById('pRole').value=profile.role; document.getElementById('pHeroTitle').value=profile.heroTitle; document.getElementById('pHeroTitle2').value=profile.heroTitle2; document.getElementById('pBio').value=profile.bio; document.getElementById('pHeroDesc').value=profile.heroDesc;
-  document.getElementById('eStaff').value=stats.staff; document.getElementById('eStaffLabel').value=stats.staffLabel; document.getElementById('eMedia').value=stats.media; document.getElementById('eMediaLabel').value=stats.mediaLabel; document.getElementById('ePlayers').value=stats.players; document.getElementById('ePlayersLabel').value=stats.playersLabel; document.getElementById('eAutoStats').checked=stats.auto;
-  document.getElementById('eFont').value=design.font; document.getElementById('eBg').value=design.bg; document.getElementById('eCard').value=design.card;
-  document.getElementById('cDiscord').value=contact.discord; document.getElementById('cTiktok').value=contact.tiktok;
+// DATA COMPLETA
+let clicks=0, filterCat='all', currentStars=5;
+let data=JSON.parse(localStorage.getItem('lunar_v21')||`{
+"texts":{
+"navTitle":"LUNAR MARKET®","nav1":"Presentación","nav2":"Sobre","nav3":"Servicios","nav4":"Reseñas","nav5":"Discord","navBtnSecondary":"Tienda","onlineText":"1,203 en línea",
+"bName":"LUNAR MARKET®","bTag":"BUILDS • BANNERS • LOGOS • MEXICO","stat1":"1,847","stat1Label":"VENTAS","stat2":"4.9★","stat2Label":"RATING","stat3":"24/7","stat3Label":"SOPORTE",
+"hTitle":"Marketplace<br><span class=text-white/30>premium</span> para<br>servidores MC","hDesc":"Builds, banners, logos y templates entregados en menos de 3 minutos. Más de 1,800 clientes satisfechos en toda LATAM.",
+"miniStat1Title":"CLIENTES","miniStat1Val":"1,847","miniStat1Desc":"Activos este mes","miniStat2Title":"ENTREGA","miniStat2Val":"2.3m","miniStat2Desc":"Promedio real","miniStat3Title":"SATISFACCIÓN","miniStat3Val":"99%","miniStat3Desc":"Clientes felices",
+"heroBtn1":"Explorar tienda →","heroBtn2":"Ver reseñas",
+"sec2Title":"02 — SOBRE LUNAR MARKET","about":"Lunar Market es el marketplace líder de LATAM para servidores de Minecraft. Desde 2023 ayudamos a más de 1,800 servidores a mejorar su apariencia con builds profesionales, banners animados y branding completo. Cada compra incluye schematic, soporte de instalación y garantía de satisfacción.",
+"aboutBadge1":"🇲🇽 México","aboutBadge2":"Desde 2023","aboutBadge3":"1,800+ clientes","aboutBadge4":"Entrega 3min",
+"whyTitle":"¿Por qué Lunar Market?","why1":"Entrega en menos de 3 minutos","why2":"Schematic y Litematica incluido","why3":"Soporte para instalación","why4":"Garantía de satisfacción","why5":"Precios desde $120 MXN","why6":"Soporte 24/7 real",
+"sec3Title":"03 — SERVICIOS","sEmptyTitle":"No hay servicios","sEmptyDesc":"Los servicios aparecerán aquí",
+"sec4Title":"04 — RESEÑAS VERIFICADAS","reviewBtnText":"✦ Dejar reseña con código","rAvgText":"⭐ 4.9 promedio","rVerifText":"● Verificadas con código","rEmptyTitle":"Las reseñas aparecerán aquí","rEmptyDesc":"Solo clientes con código especial pueden opinar",
+"modalReviewTitle":"Dejar reseña verificada","modalReviewDesc":"Ingresa el código que te dio el staff después de tu compra.","starLabel":"CALIFICACIÓN","starDesc":"Experiencia perfecta, recomendado","modalBtnText":"Enviar para revisión ✓","modalFooter":"Tu reseña será revisada por el staff antes de aparecer en la web.",
+"sec5Title":"05 — DISCORD","dTitle":"Discord Oficial Lunar Market","dDesc":"1,203 miembros • Soporte instantáneo • Entregas automáticas • Comunidad activa","dBtnText":"Unirse al Discord →","dLinkText":"discord.gg/lunar-market","dMembersText":"1,203 miembros","dLink":"https://discord.gg/lunar",
+"passTitle":"Acceso administrador","passDesc":"Ingresa tu clave privada para acceder al panel","passBtn1":"Entrar","passBtn2":"Cancelar"
+},
+"categories":[{"id":"builds","name":"Builds","emoji":"🏰"},{"id":"banners","name":"Banners","emoji":"🚩"},{"id":"logos","name":"Logos","emoji":"🎨"},{"id":"bots","name":"Bots","emoji":"🤖"}],
+"services":[],
+"codes":[{"code":"LUNAR-DEMO1","used":false,"usedBy":""},{"code":"LUNAR-DEMO2","used":false,"usedBy":""},{"code":"LUNAR-DEMO3","used":false,"usedBy":""}],
+"reviews":[],
+"pending":[]
+}`);
+
+function save(){
+localStorage.setItem('lunar_v21',JSON.stringify(data));
+render();
 }
-function saveAll(){
-  profile={name:document.getElementById('pName').value, avatar:document.getElementById('pAvatarUrl').value, role:document.getElementById('pRole').value, heroTitle:document.getElementById('pHeroTitle').value, heroTitle2:document.getElementById('pHeroTitle2').value, bio:document.getElementById('pBio').value, heroDesc:document.getElementById('pHeroDesc').value, expTitle:'Experiencia'};
-  stats={staff:parseInt(document.getElementById('eStaff').value)||0, staffLabel:document.getElementById('eStaffLabel').value||'STAFF', media:parseInt(document.getElementById('eMedia').value)||0, mediaLabel:document.getElementById('eMediaLabel').value||'MEDIA', players:parseInt(document.getElementById('ePlayers').value)||0, playersLabel:document.getElementById('ePlayersLabel').value||'PLAYERS', auto:document.getElementById('eAutoStats').checked};
-  design={font:document.getElementById('eFont').value, bg:document.getElementById('eBg').value, card:document.getElementById('eCard').value};
-  contact={discord:document.getElementById('cDiscord').value, tiktok:document.getElementById('cTiktok').value};
-  localStorage.setItem('zcarlos_profile_v2', JSON.stringify(profile)); localStorage.setItem('zcarlos_stats', JSON.stringify(stats)); localStorage.setItem('zcarlos_design', JSON.stringify(design)); localStorage.setItem('zcarlos_contact_v3', JSON.stringify(contact));
-  applyAll();
-}
-function applyAll(){
-  document.documentElement.style.setProperty('--main-font', design.font);
-  document.body.style.background=design.bg;
-  document.querySelectorAll('.card').forEach(c=>c.style.background=design.card);
-  document.getElementById('navName').textContent=profile.name;
-  document.getElementById('dName').textContent='@'+profile.name;
-  document.getElementById('dRole').textContent=profile.role;
-  document.getElementById('dBio').textContent=profile.bio;
-  document.getElementById('heroTitle').innerHTML=profile.heroTitle+'<br><span class="text-zinc-500">'+profile.heroTitle2+'</span>';
-  document.getElementById('heroDesc').textContent=profile.heroDesc;
-  document.getElementById('mainAvatar').src=profile.avatar;
-  document.getElementById('fontPreview').style.fontFamily=design.font;
-  render(); renderContact();
-}
-function sendMessage(){
-  const name=document.getElementById('fName').value.trim(); const disc=document.getElementById('fDiscord').value.trim(); const ip=document.getElementById('fIp').value.trim(); const role=document.getElementById('fRole').value; const msg=document.getElementById('fMsg').value.trim();
-  if(!name||!disc||!msg){ alert('Completa nombre, discord y mensaje'); return; }
-  messages.unshift({name,discord:disc,ip,role,msg,date:new Date().toLocaleString()}); localStorage.setItem('zcarlos_messages', JSON.stringify(messages)); ['fName','fDiscord','fIp','fMsg'].forEach(id=>document.getElementById(id).value=''); renderMessages(); renderOverview(); alert('Solicitud enviada ✅ - Rol: '+role);
-}
-function renderMessages(){
-  const list=document.getElementById('messagesList'); const count=document.getElementById('msgCount');
-  if(messages.length>0){ count.textContent=messages.length; count.classList.remove('hidden'); } else{ count.classList.add('hidden'); }
-  list.innerHTML=messages.map((m,i)=>`<div class="bg-[#0c0c0e] border border-white/10 rounded-2xl p-5 scaleIn"><div class="flex justify-between items-start"><div><p class="font-bold text-[14px]">${m.name} • ${m.discord}</p><span class="text-[11px] px-2 py-1 rounded-full bg-white text-black font-bold mt-1 inline-block">${m.role||'Sin rol'}</span></div><span class="text-[11px] text-zinc-500">${m.date}</span></div><p class="text-[12px] text-zinc-400 mt-2">${m.ip||'Sin IP'}</p><p class="text-[13px] mt-3 leading-relaxed">${m.msg}</p><button onclick="messages.splice(${i},1);localStorage.setItem('zcarlos_messages',JSON.stringify(messages));renderMessages();renderOverview();" class="mt-3 text-[11px] text-red-400 border border-red-500/20 px-3 py-1 rounded-full">Eliminar</button></div>`).join('')||'<p class="text-center text-zinc-600 py-10">No hay mensajes</p>';
-}
-function clearMessages(){ if(confirm('¿Borrar todo?')){ messages=[]; localStorage.setItem('zcarlos_messages', JSON.stringify(messages)); renderMessages(); renderOverview(); } }
-function saveServer(){
-  const name=document.getElementById('aName').value.trim(); const cat=document.getElementById('aCat').value; const rank=document.getElementById('aRank').value.trim(); const players=parseInt(document.getElementById('aPlayers').value)||0; const logo=document.getElementById('aLogo').value.trim(); const banner=document.getElementById('aBanner').value.trim(); const border=document.getElementById('aBorderHex').value; const glow=document.getElementById('aGlowHex').value; const views=document.getElementById('aViews').value.trim(); const desc=document.getElementById('aDesc').value.trim();
-  if(!name||!rank||!logo||!banner||!desc){ alert('Completa obligatorios'); return; }
-  servers.push({name,cat,rank,players,logo,banner,border,glow,views,desc}); localStorage.setItem('zcarlos_servers_v3', JSON.stringify(servers)); render(); renderAdminList(); renderOverview();
-}
+
 function render(){
-  const grid=document.getElementById('grid'); const empty=document.getElementById('empty');
-  if(servers.length===0){ grid.innerHTML=''; empty.classList.remove('hidden'); return; }
-  empty.classList.add('hidden');
-  grid.innerHTML=servers.map((s,i)=>`<div data-cat="${s.cat}" class="card rounded-[24px] overflow-hidden fadeUp" style="border-color:${s.border}; box-shadow:0 0 25px ${s.glow}30; animation-delay:${i*0.1}s"><div class="h-[90px] bg-cover bg-center" style="background-image:url('${s.banner}')"></div><div class="p-5 -mt-8 relative"><img src="${s.logo}" class="w-14 h-14 rounded-[14px] border-2 bg-black object-cover float" style="border-color:${s.border}"><div class="flex justify-between mt-4"><h3 class="font-bold text-[17px]">${s.name}</h3><span class="text-[10px] font-bold px-3 py-1 rounded-full" style="background:${s.border}; color:#000">${s.rank.toUpperCase()}</span></div><p class="text-[13px] text-zinc-400 mt-2">${s.desc}</p><div class="flex gap-2 mt-4"><span class="text-[11px] bg-black border border-white/10 px-2.5 py-1 rounded-full">${s.players}+</span>${s.views?`<span class="text-[11px] bg-black border border-white/10 px-2.5 py-1 rounded-full">${s.views}</span>`:''}</div></div></div>`).join('');
-  if(stats.auto){ document.getElementById('sStaff').textContent=servers.filter(s=>s.cat==='staff').length; document.getElementById('sMedia').textContent=servers.filter(s=>s.cat==='media').length; document.getElementById('sPlayers').textContent=servers.reduce((a,b)=>a+b.players,0)+'+'; } else{ document.getElementById('sStaff').textContent=stats.staff; document.getElementById('sMedia').textContent=stats.media; document.getElementById('sPlayers').textContent=stats.players; }
-  document.getElementById('sStaffLabel').textContent=stats.staffLabel; document.getElementById('sMediaLabel').textContent=stats.mediaLabel; document.getElementById('sPlayersLabel').textContent=stats.playersLabel;
+let t=data.texts;
+Object.keys(t).forEach(k=>{
+let el=document.getElementById(k);
+if(el){
+if(k==='hTitle'){
+el.innerHTML=t[k];
+}else if(k==='dLink'){
+el.href=t[k];
+}else{
+el.textContent=t[k];
 }
-function renderAdminList(){ document.getElementById('adminList').innerHTML=servers.map((s,i)=>`<div class="bg-[#0c0c0e] border rounded-xl p-4 flex gap-3 items-center" style="border-color:${s.border}"><img src="${s.logo}" class="w-10 h-10 rounded-xl"><div class="flex-1"><p class="font-bold text-[14px]">${s.name}</p><p class="text-[11px] text-zinc-500">${s.players} players</p></div><button onclick="servers.splice(${i},1);localStorage.setItem('zcarlos_servers_v3',JSON.stringify(servers));render();renderAdminList();renderOverview();" class="w-8 h-8 bg-red-500/10 text-red-400 rounded-full grid place-items-center"><i class="fa-solid fa-trash text-[12px]"></i></button></div>`).join(''); }
-function renderOverview(){ document.getElementById('ovServers').textContent=servers.length; document.getElementById('ovPlayers').textContent=servers.reduce((a,b)=>a+b.players,0)+'+'; document.getElementById('ovMsgs').textContent=messages.length; }
-function filterTab(cat){ document.querySelectorAll('[id^=btn-]').forEach(b=>{b.classList.remove('bg-white','text-black'); b.classList.add('text-zinc-500')}); document.getElementById('btn-'+cat).classList.add('bg-white','text-black'); document.getElementById('btn-'+cat).classList.remove('text-zinc-500'); document.querySelectorAll('#grid > div').forEach(d=>{ d.style.display=(cat==='todos'||d.dataset.cat===cat)?'block':'none'; }); }
-function saveMusic(){ const t=document.getElementById('mTitleI').value, a=document.getElementById('mArtistI').value, u=document.getElementById('mUrlI').value; if(!t||!u) return alert('Completa'); playlist.push({title:t,artist:a,url:u}); localStorage.setItem('zcarlos_music',JSON.stringify(playlist)); renderMusicList(); applyMusic(); }
-function renderMusicList(){ document.getElementById('musicList').innerHTML=playlist.map((m,i)=>`<div class="bg-[#0c0c0e] border border-white/10 rounded-xl p-3 flex justify-between items-center"><div><p class="font-bold text-[13px]">${m.title}</p><p class="text-[11px] text-zinc-500">${m.artist}</p></div><button onclick="playlist.splice(${i},1);localStorage.setItem('zcarlos_music',JSON.stringify(playlist));renderMusicList();applyMusic();" class="text-red-400"><i class="fa-solid fa-trash"></i></button></div>`).join(''); }
-function applyMusic(){ if(playlist.length===0){ document.getElementById('musicWidget').classList.add('hidden'); return; } document.getElementById('musicWidget').classList.remove('hidden'); document.getElementById('mTitle').textContent=playlist[curTrack].title; document.getElementById('mArtist').textContent=playlist[curTrack].artist||'-'; document.getElementById('audio').src=playlist[curTrack].url; }
-function toggleMusic(){ const aud=document.getElementById('audio'); if(!isPlaying){ aud.play(); isPlaying=true; document.getElementById('mBtn').innerHTML='<i class="fa-solid fa-pause"></i>'; } else{ aud.pause(); isPlaying=false; document.getElementById('mBtn').innerHTML='<i class="fa-solid fa-play"></i>'; } }
-function renderContact(){ document.getElementById('contactBox').innerHTML=`<div class="card rounded-[20px] p-5 flex gap-4 items-center"><div class="w-11 h-11 bg-[#5865F2] rounded-xl grid place-items-center"><i class="fa-brands fa-discord"></i></div><div><p class="text-[11px] text-zinc-500 font-bold">DISCORD</p><p class="font-bold">${contact.discord}</p></div></div><div class="card rounded-[20px] p-5 flex gap-4 items-center"><div class="w-11 h-11 bg-black border border-white/10 rounded-xl grid place-items-center"><i class="fa-brands fa-tiktok"></i></div><div><p class="text-[11px] text-zinc-500 font-bold">TIKTOK</p><p class="font-bold">${contact.tiktok}</p></div></div>`; }
-document.getElementById('eFont').addEventListener('change', e=>{ document.getElementById('fontPreview').style.fontFamily=e.target.value; document.documentElement.style.setProperty('--main-font', e.target.value); });
-document.getElementById('aBorder').addEventListener('input', e=>document.getElementById('aBorderHex').value=e.target.value);
-document.getElementById('aGlow').addEventListener('input', e=>document.getElementById('aGlowHex').value=e.target.value);
-setInterval(()=>{const el=document.getElementById('clock'); if(el) el.textContent=new Date().toLocaleTimeString('es-MX',{hour12:false,timeZone:'America/Mexico_City'});},1000)
-applyAll(); render(); renderContact(); applyMusic(); renderMessages(); renderOverview();
+}
+});
+document.getElementById('dLink').href=t.dLink;
+
+let cats=data.categories;
+catFilters.innerHTML='<button onclick="filterCat=\'all\';render()" class="badge px-4 py-2 '+ (filterCat=='all'?'badge-active':'') +'">Todas</button>'+cats.map(c=>`<button onclick="filterCat='${c.id}';render()" class="badge px-4 py-2 ${filterCat==c.id?'badge-active':''}">${c.emoji} ${c.name}</button>`).join('');
+
+let filtered=data.services.filter(s=>filterCat=='all'||s.category==filterCat);
+sGrid.innerHTML=filtered.map((s,i)=>`
+<div class="card p-7 anim" style="animation-delay:${i*0.06}s">
+<div class="flex justify-between items-center">
+<span class="badge px-2.5 py-1">${s.category.toUpperCase()}</span>
+<span class="text-[11px] text-white/30 font-bold">${s.price}</span>
+</div>
+<div class="mt-6 text-[32px]">${s.emoji}</div>
+<div class="mt-4 font-extrabold text-[15px] tracking-tight">${s.name}</div>
+<div class="mt-2 text-[12px] text-white/40 leading-[1.6]">${s.desc}</div>
+<div class="mt-5 h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full w-[85%] bg-violet-500 rounded-full shimmer-bar"></div>
+</div>
+</div>
+`).join('');
+sEmpty.style.display=filtered.length?'none':'grid';
+
+function starsToText(n){
+return '★'.repeat(n)+'☆'.repeat(5-n);
+}
+
+rGrid.innerHTML=data.reviews.map((r,i)=>`
+<div class="card p-7 anim" style="animation-delay:${i*0.06}s">
+<div class="flex justify-between items-center">
+<span class="text-[14px]">${starsToText(r.stars)} <span class="text-[11px] text-white/30">(${r.stars}/5)</span></span>
+<span class="badge px-2.5 py-1">${r.service.toUpperCase()}</span>
+</div>
+<p class="mt-5 text-[13px] leading-[1.7] text-white/60">"${r.text}"</p>
+<div class="mt-6 flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 grid place-items-center text-[13px] font-extrabold">${r.name[1]?.toUpperCase()||'L'}</div>
+<div>
+<div class="text-[12px] font-bold">${r.name}</div>
+<div class="text-[10px] text-white/30">${r.category} • ${r.code} • ${r.stars} estrellas</div>
+</div>
+<div class="ml-auto">
+<div class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">✓ ${r.stars}★</div>
+</div>
+</div>
+</div>
+`).join('');
+rEmpty.style.display=data.reviews.length?'none':'grid';
+rCount.textContent=data.reviews.length+' reseñas verificadas';
+
+dServ.textContent=data.services.length;
+dRev.textContent=data.reviews.length;
+dCodes.textContent=data.codes.filter(c=>!c.used).length;
+pC.textContent=data.pending.length;
+
+catList.innerHTML=cats.map((c,i)=>`
+<div class="flex justify-between bg-[#1a1a1f] border border-white/5 rounded-xl px-4 py-3.5 text-[12px] hover:border-white/10 transition">
+<span>${c.emoji} ${c.name} <span class="text-white/20">(${data.services.filter(s=>s.category==c.id).length})</span></span>
+<span class="flex gap-3"><span onclick="data.categories.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold hover:underline">Borrar</span></span>
+</div>
+`).join('');
+
+sCat.innerHTML=cats.map(c=>`<option value="${c.id}">${c.emoji} ${c.name}</option>`).join('')||'<option value="">Crea categoría primero</option>';
+clientService.innerHTML=data.services.map(s=>`<option value="${s.name}">${s.name}</option>`).join('')||cats.map(c=>`<option value="${c.name}">${c.name}</option>`).join('')||'<option>General</option>';
+
+servList.innerHTML=data.services.map((s,i)=>`
+<div class="bg-[#1a1a1f] border border-white/5 rounded-xl p-4 text-[12px] hover:border-white/10 transition">
+<div class="flex justify-between items-center">
+<span class="font-bold">${s.emoji} ${s.name} [${s.category}]</span>
+<span class="flex gap-3">
+<span onclick="editService(${i})" class="text-violet-400 cursor-pointer font-bold hover:underline">Editar</span>
+<span onclick="data.services.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold hover:underline">Borrar</span>
+</span>
+</div>
+<div class="text-white/40 mt-1.5">${s.desc} • ${s.price}</div>
+</div>
+`).join('');
+
+codeList.innerHTML=data.codes.map((c,i)=>`
+<div class="flex justify-between bg-[#1a1a1f] border border-white/5 rounded-xl px-4 py-3.5 text-[12px] font-mono hover:border-white/10 transition">
+<span class="${c.used?'text-white/20 line-through':''}">${c.code} ${c.used?'• '+c.usedBy:''}</span>
+<div class="flex gap-4 font-sans">
+<span onclick="navigator.clipboard.writeText('${c.code}');alert('Copiado: ${c.code}')" class="text-violet-400 cursor-pointer font-bold hover:underline">Copiar</span>
+<span onclick="data.codes.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold hover:underline">Borrar</span>
+</div>
+</div>
+`).join('');
+
+pendList.innerHTML=data.pending.map((r,i)=>`
+<div class="bg-[#1a1a1f] border border-white/5 rounded-xl p-5 text-[12px] hover:border-white/10 transition">
+<div class="flex justify-between items-center">
+<b class="text-[13px]">${r.name} ${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)} (${r.stars}/5)</b>
+<span class="badge px-2.5 py-1">${r.service}</span>
+</div>
+<div class="text-white/30 text-[10px] mt-2 tracking-wide">${r.category} • Código: ${r.code}</div>
+<div class="mt-4 text-white/60 leading-[1.6] text-[13px]">"${r.text}"</div>
+<div class="flex gap-2.5 mt-5">
+<button onclick="approve(${i})" class="px-5 py-2.5 rounded-full bg-white text-black font-bold text-[11px] hover:scale-105 transition">Aprobar ✓</button>
+<button onclick="data.pending.splice(${i},1);save()" class="px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-[11px] hover:bg-white/10 transition">Rechazar</button>
+</div>
+</div>
+`).join('')||'<div class="text-[12px] text-white/20 p-4">No hay reseñas pendientes</div>';
+
+apprList.innerHTML=data.reviews.map((r,i)=>`
+<div class="bg-[#1a1a1f] border border-white/5 rounded-xl p-4 text-[12px] hover:border-white/10 transition">
+<div class="flex justify-between items-start gap-4">
+<span class="leading-[1.5]">${r.name} — ${r.stars}★ — "${r.text.substring(0,45)}..." [${r.code}]</span>
+<span class="flex gap-3 shrink-0">
+<span onclick="editReview(${i})" class="text-violet-400 cursor-pointer font-bold hover:underline">Editar texto y estrellas</span>
+<span onclick="data.reviews.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold hover:underline">Borrar</span>
+</span>
+</div>
+</div>
+`).join('')||'<div class="text-[12px] text-white/20 p-4">No hay reseñas aprobadas</div>';
+
+statsCat.innerHTML=cats.map(c=>`
+<div class="flex justify-between items-center py-3 border-b border-white/5 last:border-0 hover:bg-white/[0.02] px-2 rounded-lg transition">
+<span>${c.emoji} ${c.name}</span>
+<span class="font-bold px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[11px]">${data.services.filter(s=>s.category==c.id).length} servicios</span>
+</div>
+`).join('')||'<div class="text-white/20">Sin categorías</div>';
+
+activity.innerHTML=[...data.reviews,...data.pending].slice(0,6).map(r=>`<div class="flex gap-2"><span class="text-white/20">•</span><span>${r.name} dejó ${r.stars}★ en ${r.service} con código ${r.code}</span></div>`).join('')||'<div>Sin actividad aún. Genera códigos y deja reseñas.</div>';
+
+// llenar inputs editar todo
+Object.keys(t).forEach(k=>{
+let inp=document.getElementById('e'+k.charAt(0).toUpperCase()+k.slice(1));
+if(inp) inp.value=t[k];
+});
+}
+
+function setStars(n){
+currentStars=n;
+document.querySelectorAll('.star').forEach(s=>{
+let v=parseInt(s.dataset.v);
+if(v<=n){
+s.textContent='★';
+s.classList.add('active');
+}else{
+s.textContent='☆';
+s.classList.remove('active');
+}
+});
+let labels=['1 estrella - Muy malo','2 estrellas - Malo','3 estrellas - Regular','4 estrellas - Muy bueno','5 estrellas - Excelente'];
+let descs=['Experiencia negativa','Podría mejorar','Buena experiencia','Muy buena experiencia','Experiencia perfecta, recomendado'];
+starText.textContent=labels[n-1];
+starDesc.textContent=descs[n-1];
+starValue.textContent=n+'/5';
+}
+
+logo.addEventListener('click',()=>{
+clicks++;
+cc.textContent=clicks+'/10 ✨';
+logo.style.transform='scale(0.9) rotate(-5deg)';
+setTimeout(()=>{logo.style.transform='';},150);
+if(clicks>=10){
+passM.classList.remove('hidden');
+clicks=0;
+cc.textContent='🔓 Admin desbloqueado';
+setTimeout(()=>{cc.textContent='';},2000);
+}
+});
+
+logo.addEventListener('touchstart',()=>{
+clicks++;
+cc.textContent=clicks+'/10 ✨';
+if(clicks>=10){
+passM.classList.remove('hidden');
+clicks=0;
+}
+});
+
+function checkP(){
+if(passI.value==='Ghost'){
+passM.classList.add('hidden');
+passI.value='';
+admin.classList.remove('hidden');
+passE.classList.add('hidden');
+cc.textContent='✅ Admin activo';
+setTimeout(()=>{cc.textContent='';},2000);
+}else{
+passE.classList.remove('hidden');
+}
+}
+
+function tab(t){
+document.querySelectorAll('.tt').forEach(e=>e.classList.add('hidden'));
+document.getElementById('t-'+t).classList.remove('hidden');
+document.querySelectorAll('.tbtn').forEach(b=>{
+b.className='tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5';
+});
+document.querySelector(`[data-t="${t}"]`).className='tbtn w-full text-left px-4 py-3 rounded-xl bg-white text-black font-bold text-[11px] flex items-center gap-2.5 scale-[1.02]';
+}
+
+function addCat(){
+let n=catName.value.trim();
+let e=catEmoji.value||'📁';
+if(!n){
+alert('Pon nombre de categoría');
+return;
+}
+let id=n.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+data.categories.push({id,name:n,emoji:e});
+catName.value='';
+catEmoji.value='';
+save();
+}
+
+function addServ(){
+let n=sN.value.trim();
+let cat=sCat.value;
+let desc=sDesc2.value||'Descripción premium';
+let price=sPrice2.value||'Desde $250 MXN';
+let emoji=sEmoji2.value||'🛠️';
+if(!n||!cat){
+alert('Falta nombre o categoría. Crea una categoría primero.');
+return;
+}
+data.services.push({name:n,category:cat,desc,price,emoji});
+sN.value='';
+sDesc2.value='';
+sPrice2.value='';
+sEmoji2.value='';
+save();
+}
+
+function editService(i){
+let s=data.services[i];
+let nn=prompt('Editar nombre:',s.name);
+if(nn===null) return;
+let dd=prompt('Editar descripción:',s.desc);
+let pp=prompt('Editar precio:',s.price);
+let ee=prompt('Editar emoji:',s.emoji);
+if(nn) data.services[i].name=nn;
+if(dd) data.services[i].desc=dd;
+if(pp) data.services[i].price=pp;
+if(ee) data.services[i].emoji=ee;
+save();
+}
+
+function genCode(){
+let c='LUNAR-'+Math.random().toString(36).substring(2,6).toUpperCase()+Math.floor(10+Math.random()*89);
+data.codes.push({code:c,used:false,usedBy:''});
+save();
+}
+
+function genBulk(){
+for(let i=0;i<5;i++){
+genCode();
+}
+}
+
+function openReviewModal(){
+reviewModal.classList.remove('hidden');
+reviewError.classList.add('hidden');
+setStars(5);
+}
+
+function submitClientReview(){
+let code=clientCode.value.trim().toUpperCase();
+let name=clientName.value.trim()||'@cliente';
+let serv=clientService.value||'General';
+let text=clientText.value.trim();
+reviewError.classList.add('hidden');
+
+if(!code){
+reviewError.textContent='Ingresa tu código especial. Pídelo al staff en Discord.';
+reviewError.classList.remove('hidden');
+return;
+}
+
+let found=data.codes.find(c=>c.code===code);
+if(!found){
+reviewError.textContent='Código no válido. Verifica que esté bien escrito o pide uno nuevo al staff.';
+reviewError.classList.remove('hidden');
+return;
+}
+
+if(found.used){
+reviewError.textContent='Este código ya fue usado por '+found.usedBy+'. Cada código solo se usa 1 vez.';
+reviewError.classList.remove('hidden');
+return;
+}
+
+if(!text || text.length<10){
+reviewError.textContent='Escribe una reseña más detallada (mínimo 10 caracteres).';
+reviewError.classList.remove('hidden');
+return;
+}
+
+found.used=true;
+found.usedBy=name;
+data.pending.unshift({name,category:'general',service:serv,stars:currentStars,text,code,date:new Date().toLocaleDateString()});
+clientCode.value='';
+clientName.value='';
+clientText.value='';
+reviewModal.classList.add('hidden');
+save();
+alert(`¡Reseña de ${currentStars} ${currentStars===1?'estrella':'estrellas'} enviada! Será revisada por el staff.`);
+}
+
+function approve(i){
+let r=data.pending.splice(i,1)[0];
+data.reviews.unshift(r);
+save();
+}
+
+function editReview(i){
+let r=data.reviews[i];
+let txt=prompt('Editar texto de la reseña:',r.text);
+if(txt===null) return;
+let st=prompt('Editar estrellas (1 a 5):',r.stars);
+let newStars=parseInt(st);
+if(txt) data.reviews[i].text=txt;
+if(newStars>=1 && newStars<=5) data.reviews[i].stars=newStars;
+save();
+}
+
+function saveAllText(){
+let t=data.texts;
+let keys=Object.keys(t);
+keys.forEach(k=>{
+let inp=document.getElementById('e'+k.charAt(0).toUpperCase()+k.slice(1));
+if(inp){
+t[k]=inp.value;
+}
+});
+save();
+alert('✅ TODO EL TEXTO GUARDADO CORRECTAMENTE - Toda la web es editable');
+}
+
+setStars(5);
+render();
 </script>
 </body>
 </html>
