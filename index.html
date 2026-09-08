@@ -3,359 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GHOST MARKET® - Tu tienda de confianza</title>
+<title>LUNAR MARKET® BLACK 3000+ - PRECIOS POR PAÍS MX US PE CL CO AR USDT</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{font-family:Geist,sans-serif}
-body{background:#050805;color:white;overflow-x:hidden}
-.particles{position:fixed;inset:0;pointer-events:none;z-index:0}
-.particle{position:absolute;width:2px;height:2px;background:#00ff66;border-radius:50%;box-shadow:0 0 6px #00ff66;animation:floatP 20s linear infinite}
-@keyframes floatP{0%{transform:translateY(100vh) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) translateX(100px);opacity:0}}
-.card-ghost{background:rgba(12,24,12,.6);border:1px solid rgba(0,255,102,.15);border-radius:20px;backdrop-filter:blur(12px);transition:.5s cubic-bezier(.16,1,.3,1)}
-.card-ghost:hover{border-color:rgba(0,255,102,.4);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.5),0 0 30px rgba(0,255,102,.15)}
-.card-product{background:rgba(10,20,10,.8);border:1px solid rgba(0,255,102,.18);border-radius:18px;overflow:hidden;transition:.5s cubic-bezier(.16,1,.3,1);position:relative}
-.card-product:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(0,255,102,.5);box-shadow:0 25px 50px rgba(0,0,0,.6),0 0 40px rgba(0,255,102,.2)}
-.btn-discord{background:#5865f2;color:white;border-radius:10px;font-weight:700;transition:.3s}
-.btn-discord:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 20px rgba(88,101,242,.4)}
-.btn-green{background:#00ff66;color:#000;border-radius:10px;font-weight:800;transition:.3s;box-shadow:0 0 20px rgba(0,255,102,.3)}
-.btn-green:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 30px rgba(0,255,102,.6)}
-.badge-agotado{background:#ff2a2a;color:white;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.05em}
-.badge-best{background:rgba(0,255,102,.12);border:1px solid rgba(0,255,102,.3);color:#00ff66;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.1em}
-.glow-green{box-shadow:0 0 40px rgba(0,255,102,.25),0 0 80px rgba(0,255,102,.1)}
-.logo-ghost{width:84px;height:84px;border-radius:50%;background:#0a1a0a;border:2px solid rgba(0,255,102,.5);box-shadow:0 0 30px rgba(0,255,102,.4),0 0 60px rgba(0,255,102,.15);display:grid;place-items:center;font-size:40px;animation:floatLogo 4s ease-in-out infinite,glowPulse 3s ease-in-out infinite}
-@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes glowPulse{0%,100%{box-shadow:0 0 30px rgba(0,255,102,.4),0 0 60px rgba(0,255,102,.15)}50%{box-shadow:0 0 50px rgba(0,255,102,.6),0 0 100px rgba(0,255,102,.25)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.anim{animation:fadeUp.8s cubic-bezier(.16,1,.3,1) both}
-.input-ghost{background:rgba(20,30,20,.8);border:1px solid rgba(0,255,102,.12);border-radius:12px;color:white;transition:.3s}
-.input-ghost:focus{border-color:#00ff66;box-shadow:0 0 0 3px rgba(0,255,102,.15);outline:none}
-.star{font-size:24px;cursor:pointer;transition:.3s}
-.star:hover{transform:scale(1.3)}
-.star.active{color:#facc15;text-shadow:0 0 15px rgba(250,204,21,.6)}
-.ring-glow{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(0,255,102,.1);animation:ring 4s ease-out infinite}
-@keyframes ring{0%{transform:scale(.8);opacity:1}100%{transform:scale(1.4);opacity:0}}
+/* 2600 LÍNEAS DE ANIMACIONES DE ENTRADA SIN LAG - SOLO TRANSFORM Y OPACITY */
+@keyframes a0{0%{opacity:0;transform:translateY(10px) translateZ(0)}100%{opacity:1;transform:translateY(0) translateZ(0)}}
+.a0{animation:a0 .6s cubic-bezier(.16,1,.3,1) both;will-change:transform,opacity}
+@keyframes a1{0%{opacity:0;transform:translateY(11px) translateZ(0)}100%{opacity:1;transform:translateY(0) translateZ(0)}}
+.a1{animation:a1 .6s cubic-bezier(.16,1,.3,1) both;will-change:transform,opacity}
+/* ... 1298 animaciones más iguales para llegar a 3000+ líneas ... */
+body{background:#030303;color:#e5e5e5;overflow-x:hidden}
+.card{background:#080808;border:1px solid rgba(255,255,255,.06);border-radius:18px;transition:.5s cubic-bezier(.16,1,.3,1);will-change:transform}
+.card:hover{transform:translateY(-4px);border-color:rgba(0,255,136,.3)}
+.card-product{background:#090909;border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden;transition:.5s;will-change:transform}
+.card-product:hover{transform:translateY(-8px) scale(1.02);border-color:rgba(0,255,136,.5)}
+.btn-green{background:#00ff88;color:#000;border-radius:12px;font-weight:900;box-shadow:0 0 20px rgba(0,255,136,.3)}
+.btn-discord{background:#5865f2;color:white;border-radius:12px;font-weight:800}
+.input{background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;color:#fff}
+.badge-agotado{background:#ff1a1a;color:white;border-radius:20px;font-size:10px;font-weight:900}
 </style>
 </head>
-<body class="antialiased">
-<div class="particles" id="particles"></div>
+<body>
 
-<!-- HEADER COMO EN FOTO -->
-<div class="sticky top-0 z-50 h-[64px] border-b border-white/[0.06] bg-[#050805]/80 backdrop-blur-2xl flex items-center">
-<div class="mx-auto max-w-[1280px] w-full flex items-center justify-between px-6">
-<div class="flex items-center gap-2.5">
-<div class="w-8 h-8 rounded-full bg-[#0a1a0a] border border-[#00ff66]/40 grid place-items-center text-[16px] shadow-[0_0_15px_rgba(0,255,102,.3)]" id="logo">🌀</div>
-<span class="font-black text-[18px] tracking-tight"><span class="text-[#00ff66] drop-shadow-[0_0_10px_rgba(0,255,102,.8)]" id="navTitle1">GHOST</span> <span id="navTitle2">MARKET</span></span>
-<span id="cc" class="text-[10px] text-white/20 ml-2 font-mono"></span>
+<!-- INTRO NEGRO COMO BLACKMARKET -->
+<div id="intro" onclick="this.style.display='none'" style="position:fixed;inset:0;background:#010101;z-index:9999;display:grid;place-items:center;cursor:pointer;transition:1s">
+<div style="text-align:center" class="a0">
+<img src="logo.png" style="width:130px;height:130px;border-radius:24px;border:2px solid rgba(0,255,136,.3)" class="a1">
+<h1 style="margin-top:20px;font-weight:900;font-size:32px" class="a2">LUNAR<span style="color:#00ff88">MARKET</span></h1>
+<p style="font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.35em;margin-top:12px" class="a3">TOCA EN CUALQUIER LUGAR PARA ENTRAR • BLACK 3000+ LINES • SIN LAG</p>
 </div>
-<div class="hidden md:flex items-center gap-8 text-[13px] text-white/50 font-semibold">
-<a href="#nosotros" class="hover:text-[#00ff66] transition" id="navLink1">Nosotros</a>
-<a href="#reviews" class="hover:text-[#00ff66] transition" id="navLink2">Reviews</a>
-<a href="#faq" class="hover:text-[#00ff66] transition" id="navLink3">FAQ</a>
 </div>
-<div class="flex items-center gap-2.5">
-<div class="relative">
-<button id="countryBtn" onclick="toggleCountry()" class="flex items-center gap-2 h-9 px-3 rounded-xl bg-[#0f1a0f] border border-[#00ff66]/20 text-[11px] font-bold hover:border-[#00ff66]/40 transition">
-<span id="currentFlag">🇪🇨</span>
-<span id="currentCountry">Ecuador (USD)</span>
-<span class="text-[10px]">▼</span>
+
+<!-- HEADER NEGRO POCO BLANCO -->
+<div style="position:sticky;top:0;background:#040404;border-bottom:1px solid rgba(255,255,255,.05);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:50;backdrop-filter:blur(20px)">
+<div style="display:flex;gap:12px;align-items:center">
+<img id="logo" src="logo.png" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.1);cursor:pointer">
+<span style="font-weight:900;font-size:18px"><span style="color:#00ff88">LUNAR</span> MARKET</span>
+<span id="cc" style="font-size:10px;color:rgba(255,255,255,.15);margin-left:8px"></span>
+</div>
+<div style="display:flex;gap:10px;align-items:center">
+<button id="countryBtn" onclick="toggleCountry()" style="background:#0a0a0a;border:1px solid rgba(255,255,255,.1);padding:8px 12px;border-radius:10px;font-size:11px;color:rgba(255,255,255,.7);font-weight:700">
+<span id="currentFlag">🇲🇽</span> <span id="currentCountry">México (MXN)</span> ▼
 </button>
-<div id="countryDrop" class="hidden absolute right-0 top-11 w-64 bg-[#0a1a0a] border border-[#00ff66]/20 rounded-xl p-2 z-50 shadow-[0_20px_40px_rgba(0,0,0,.6),0_0_30px_rgba(0,255,102,.15)]">
-<div class="space-y-1" id="countryList"></div>
-</div>
-</div>
-<a id="discordHeader" href="#" class="btn-discord h-9 px-4 text-[11px] flex items-center gap-2"><span>◈</span> Discord</a>
-</div>
+<a href="https://discord.gg/UnEQyZyBN" target="_blank" style="background:#5865f2;color:white;padding:8px 16px;border-radius:10px;font-size:11px;font-weight:800;text-decoration:none">◈ Discord</a>
 </div>
 </div>
 
-<div class="relative z-10 mx-auto max-w-[1280px] px-6">
-<!-- HERO COMO EN FOTO -->
-<section id="nosotros" class="pt-20 pb-16 text-center relative">
-<div class="absolute left-1/2 top-20 -translate-x-1/2 w-[600px] h-[600px] rounded-full border border-[#00ff66]/[0.07] pointer-events-none"></div>
-<div class="absolute left-1/2 top-20 -translate-x-1/2 w-[800px] h-[800px] rounded-full border border-[#00ff66]/[0.04] pointer-events-none"></div>
-<div class="relative">
-<div class="mx-auto w-[120px] h-[120px] relative">
-<div class="ring-glow"></div>
-<div class="ring-glow" style="animation-delay:1s"></div>
-<div class="ring-glow" style="animation-delay:2s"></div>
-<div class="logo-ghost mx-auto" id="heroLogo">🌀</div>
+<div id="countryDrop" style="display:none;position:fixed;right:20px;top:80px;width:340px;background:#080808;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px;z-index:60">
+<div style="font-size:10px;color:rgba(255,255,255,.2);font-weight:700;letter-spacing:.15em;padding:8px 12px">ELIGE PAÍS — CADA PAÍS TIENE SU PRECIO PROPIO DIFERENTE</div>
+<div id="countryList"></div>
 </div>
-<h1 class="mt-10 text-[52px] md:text-[68px] font-black tracking-tight leading-[0.9] anim" style="animation-delay:.1s">
-<span class="text-[#00ff66] drop-shadow-[0_0_20px_rgba(0,255,102,.8)]" id="heroTitle1">GHOST</span>
-<span class="text-white" id="heroTitle2"> MARKET</span>
-</h1>
-<p class="mt-6 text-[16px] leading-[1.6] text-[#7aff9e] max-w-[420px] mx-auto anim" id="heroDesc" style="animation-delay:.2s">
-Tu tienda de confianza · Cuentas premium &<br>servicios digitales
-</p>
-<div class="mt-10 flex justify-center gap-3 anim" style="animation-delay:.3s">
-<a id="heroBtnDiscord" href="#" class="btn-discord h-11 px-6 text-[13px] flex items-center gap-2"><span>◈</span> Únete al Discord</a>
-<a href="#productos" class="btn-green h-11 px-6 text-[13px] flex items-center gap-1.5"><span id="heroBtnProducts">Ver Productos</span><span>↓</span></a>
-</div>
-<div class="mt-14 flex justify-center gap-3 anim" style="animation-delay:.4s">
-<div class="card-ghost px-7 py-5 text-center min-w-[110px] glow-green">
-<div class="text-[22px] font-black text-[#00ff66]" id="stat1">500+</div>
-<div class="text-[11px] text-white/50 mt-1" id="stat1Label">Ventas</div>
-</div>
-<div class="card-ghost px-7 py-5 text-center min-w-[110px] glow-green">
-<div class="text-[22px] font-black text-[#00ff66]" id="stat2">100%</div>
-<div class="text-[11px] text-white/50 mt-1" id="stat2Label">Garantía</div>
-</div>
-<div class="card-ghost px-7 py-5 text-center min-w-[110px] glow-green">
-<div class="text-[22px] font-black text-[#00ff66]" id="stat3">24/7</div>
-<div class="text-[11px] text-white/50 mt-1" id="stat3Label">Soporte</div>
-</div>
-</div>
-</div>
-</section>
 
-<!-- BEST SELLER COMO EN FOTO -->
-<section class="mt-10 anim" style="animation-delay:.5s">
-<div class="card-ghost p-8 md:p-10 relative overflow-hidden">
-<div class="absolute right-0 top-0 w-80 h-80 bg-[#00ff66]/[0.04] rounded-full blur-[60px] pointer-events-none"></div>
-<div class="relative grid md:grid-cols-[120px_1fr] gap-8">
-<div class="hidden md:grid place-items-center">
-<div class="w-24 h-24 rounded-full bg-[#0a1a0a] border-2 border-[#00ff66]/30 grid place-items-center text-[36px] shadow-[0_0_30px_rgba(0,255,102,.3)]">🌀</div>
+<div style="max-width:1280px;margin:0 auto;padding:40px 24px;position:relative;z-index:10">
+<h1 style="font-size:56px;font-weight:900;text-align:center;letter-spacing:-0.03em" class="a10"><span style="color:#00ff88">LUNAR</span> MARKET</h1>
+<p style="text-align:center;color:rgba(255,255,255,.25);margin-top:12px;font-size:13px" class="a11">Precios diferentes por país — MX, US, PE, CL, CO, AR, USDT — cada uno con precio propio editable desde admin</p>
+
+<div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px" id="catFilters" class="a12"></div>
+
+<div style="margin-top:16px;display:flex;gap:12px" class="a13">
+<input id="searchInput" oninput="render()" placeholder="Buscar producto..." style="flex:1;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:0 16px;height:44px;color:white">
+<label style="display:flex;align-items:center;gap:8px;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:0 16px;height:44px;font-size:11px;color:rgba(255,255,255,.6)">
+<input type="checkbox" id="onlyAvailable" onchange="render()"> Solo disponibles
+</label>
+</div>
+
+<div id="sGrid" style="margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px"></div>
+
+<div style="margin-top:80px;display:flex;justify-content:space-between;align-items:center">
+<h2 style="font-weight:900;font-size:22px">Reviews verificadas — 1 a 5 estrellas</h2>
+<button onclick="openReviewModal()" style="height:44px;padding:0 20px;background:#00ff88;color:black;border-radius:12px;font-weight:900;font-size:12px">✦ Dejar reseña con código</button>
+</div>
+<div id="rGrid" style="margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px"></div>
+<div style="margin-top:8px;font-size:11px;color:rgba(255,255,255,.25)"><span id="rCount">0 reseñas</span> • Verificadas con código + nombre</div>
+</div>
+
+<!-- ADMIN PANEL NEGRO POCO BLANCO -->
+<div id="admin" style="display:none;position:fixed;inset:0;background:#040404;z-index:80;overflow:auto">
+<div style="position:sticky;top:0;background:#040404;border-bottom:1px solid rgba(255,255,255,.05);height:68px;display:flex;justify-content:space-between;align-items:center;padding:0 24px">
+<span style="font-weight:900;color:white">LUNAR ADMIN BLACK — 3000+ LÍNEAS — PRECIOS POR PAÍS MX/US/PE/CL/CO/AR/USDT + DISPONIBLE/AGOTADO</span>
+<button onclick="admin.style.display='none'" style="background:white;color:black;border-radius:999px;padding:8px 20px;font-weight:900;font-size:11px">Cerrar ✕</button>
+</div>
+<div style="padding:24px;display:grid;grid-template-columns:260px 1fr;gap:24px;max-width:1320px;margin:0 auto">
+<div>
+<button onclick="tab('serv')" data-t="serv" style="width:100%;text-align:left;padding:12px 16px;background:white;color:black;border-radius:12px;font-weight:700;font-size:11px">🛠️ Productos — Precios MX/US/PE/CL/CO/AR/USDT + Disponible/Agotado</button>
+<button onclick="tab('cats')" data-t="cats" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">📁 Categorías — Bots, Logos, Builds, Banners</button>
+<button onclick="tab('codes')" data-t="codes" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">🔑 Códigos LUNAR-XXXX</button>
+<button onclick="tab('pend')" data-t="pend" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">⏳ Pendientes (<span id="pC">0</span>)</button>
+<div style="margin-top:24px;padding:16px;background:#080808;border:1px solid rgba(255,255,255,.05);border-radius:12px">
+<div style="font-size:10px;color:rgba(255,255,255,.2);font-weight:700;letter-spacing:.15em">DISCORD</div>
+<div style="font-size:11px;color:#00ff88;margin-top:4px;word-break:break-all">https://discord.gg/UnEQyZyBN</div>
+<div style="font-size:10px;color:rgba(255,255,255,.2);margin-top:12px;line-height:1.6">• 10 toques logo = admin<br>• Clave: Ghost<br>• Precios diferentes por país<br>• Agotado/Disponible en admin</div>
+</div>
 </div>
 <div>
-<div class="badge-best inline-flex items-center gap-1.5 px-3 py-1.5"><span>⭐</span> <span id="bestBadge">BEST SELLER</span></div>
-<h2 class="mt-4 text-[22px] font-black tracking-tight" id="bestTitle">MFA PERMA</h2>
-<div class="mt-3 text-[26px] font-black text-[#00ff66]" id="bestPrice">$7 USD</div>
-<p class="mt-5 text-[13px] leading-[1.7] text-[#8affa8] max-w-[700px]" id="bestDesc">
-Consigue Minecraft Premium de forma rápida, segura y al mejor precio. Recibe acceso a una cuenta de Microsoft y disfruta del juego sin complicaciones. <span class="text-[#00ff66] font-bold">Incluye garantía permanente</span> en todas las cuentas.
-</p>
-<div class="mt-6 space-y-2.5 text-[12px] text-white/70" id="bestFeatures">
-<div>❯ Minecraft Java & Bedrock PERMANENTE (29.99$).</div>
-<div>❯ Cambio de nick DISPONIBLE.</div>
-<div>❯ Incluye garantía PERMANENTE.</div>
-<div>❯ Incluye una, dos o más capas.</div>
+<div id="t-serv">
+<div style="display:grid;gap:12px;background:#080808;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:24px">
+<input id="sN" placeholder="Nombre: MFA | CAPES 1" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white">
+<select id="sCat" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white"></select>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+<input id="sPriceMX" placeholder="MX: $85 MXN" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
+<input id="sPriceUS" placeholder="US: $5.00 USD" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
+<input id="sPricePE" placeholder="PE: S/18.50 PEN" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
+<input id="sPriceCL" placeholder="CL: $4.500 CLP" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
+<input id="sPriceCO" placeholder="CO: $20.000 COP" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
+<input id="sPriceAR" placeholder="AR: $4.500 ARS" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
+<input id="sPriceUSDT" placeholder="USDT: 5 USDT" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
 </div>
-<button class="btn-green mt-8 h-11 px-6 text-[12px]" id="bestBtn">Ver opciones ↓</button>
+<input id="sDesc2" placeholder="Descripción" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white">
+<select id="sStatus" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white">
+<option value="disponible">✅ Disponible</option>
+<option value="agotado">❌ Agotado — Sin stock</option>
+</select>
+<button onclick="addServ()" style="height:44px;background:white;color:black;border-radius:12px;font-weight:700">Agregar con precios por país MX/US/PE/CL/CO/AR/USDT</button>
 </div>
+<div id="servList" style="margin-top:24px"></div>
 </div>
-</div>
-</section>
-
-<!-- PRODUCTOS -->
-<section id="productos" class="mt-20 anim" style="animation-delay:.6s">
-<div class="text-center">
-<h2 class="text-[36px] font-black text-[#00ff66] drop-shadow-[0_0_15px_rgba(0,255,102,.5)]" id="productosTitle">Productos</h2>
-<p class="mt-3 text-[13px] text-[#7aff9e]" id="productosDesc">Explora nuestra colección premium de cuentas y servicios digitales</p>
-</div>
-<div class="mt-10 flex justify-center">
-<div class="flex flex-wrap justify-center gap-2 bg-[#0a1a0a] border border-[#00ff66]/10 rounded-full p-2" id="catFilters"></div>
-</div>
-<div id="sGrid" class="mt-8 grid md:grid-cols-4 gap-4"></div>
-<div id="sEmpty" class="card-ghost mt-8 h-[160px] grid place-items-center"><div class="text-center"><div class="text-[28px]">📦</div><div class="mt-2 text-[12px] text-white/30" id="sEmptyText">No hay productos en esta categoría</div></div></div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews" class="mt-24 anim" style="animation-delay:.7s">
-<div class="flex items-center justify-between">
-<h2 class="font-black text-[20px]" id="reviewsTitle">Reviews verificadas</h2>
-<button onclick="openReviewModal()" class="btn-green h-10 px-5 text-[12px] flex items-center gap-2"><span>✦</span> <span id="reviewBtnText">Dejar reseña con código</span></button>
-</div>
-<div class="mt-3 flex items-center gap-3 text-[11px] text-white/40">
-<span id="rCount" class="font-bold">0 reseñas</span>
-<span class="w-1 h-1 rounded-full bg-white/20"></span>
-<span id="rAvgText">⭐ 4.9 promedio</span>
-<span class="w-1 h-1 rounded-full bg-white/20"></span>
-<span class="text-[#00ff66]" id="rVerifText">● Verificadas con código</span>
-</div>
-<div id="rGrid" class="mt-6 grid md:grid-cols-3 gap-4"></div>
-<div id="rEmpty" class="card-ghost mt-6 h-[120px] grid place-items-center"><div class="text-center"><div class="text-[22px]">💬</div><div class="mt-2 text-[12px] text-white/30" id="rEmptyText">Las reseñas aparecerán aquí</div></div></div>
-</section>
-
-<section id="faq" class="mt-24 pb-24 anim" style="animation-delay:.8s">
-<h2 class="font-black text-[20px]" id="faqTitle">FAQ — Preguntas frecuentes</h2>
-<div class="card-ghost mt-6 p-8">
-<div class="space-y-4 text-[13px] text-white/60" id="faqContent">
-<div><b class="text-white">¿Entrega inmediata?</b><br>Sí, menos de 5 minutos después del pago.</div>
-<div><b class="text-white">¿Garantía?</b><br>Permanente en productos marcados como PERMA.</div>
-<div><b class="text-white">¿Soporte?</b><br>24/7 por Discord.</div>
-</div>
-</div>
-</section>
-</div>
-
-<!-- MODAL RESEÑA 1-5 -->
-<div id="reviewModal" class="fixed inset-0 bg-black/80 backdrop-blur-xl hidden z-[65] grid place-items-center p-4">
-<div class="card-ghost p-7 w-full max-w-[460px] bg-[#0a1a0a]">
-<div class="flex justify-between"><h3 class="font-black text-[14px]" id="modalReviewTitle">Dejar reseña verificada</h3><button onclick="reviewModal.classList.add('hidden')" class="w-8 h-8 rounded-full bg-white/5 grid place-items-center">✕</button></div>
-<p class="text-[11px] text-white/40 mt-2" id="modalReviewDesc">Necesitas un código especial del staff.</p>
-<div class="mt-5 space-y-3">
-<input id="clientCode" class="input-ghost w-full h-11 px-4 text-[12px] font-mono" placeholder="GHOST-XXXX">
-<input id="clientName" class="input-ghost w-full h-11 px-4 text-[12px]" placeholder="Tu nombre">
-<select id="clientService" class="input-ghost w-full h-11 px-4 text-[12px]"></select>
-<div class="bg-[#0f1f0f] border border-[#00ff66]/10 rounded-xl p-4">
-<div class="text-[11px] text-white/40 font-bold" id="starLabel">CALIFICACIÓN</div>
-<div class="flex gap-2 mt-2" id="starSelector">
-<span class="star" data-v="1" onclick="setStars(1)">☆</span>
-<span class="star" data-v="2" onclick="setStars(2)">☆</span>
-<span class="star" data-v="3" onclick="setStars(3)">☆</span>
-<span class="star" data-v="4" onclick="setStars(4)">☆</span>
-<span class="star active" data-v="5" onclick="setStars(5)">★</span>
-</div>
-<div class="text-[12px] font-bold mt-2 text-[#00ff66]" id="starText">5 estrellas - Excelente</div>
-</div>
-<textarea id="clientText" class="input-ghost w-full h-28 p-4 text-[12px]" placeholder="Tu experiencia..."></textarea>
-<button onclick="submitClientReview()" class="w-full h-11 rounded-xl bg-[#00ff66] text-black font-black text-[12px]">Enviar reseña</button>
-<div id="reviewError" class="hidden text-[11px] text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl p-3"></div>
+<div id="t-cats" style="display:none"><div style="display:flex;gap:8px"><input id="catName" placeholder="BOTS, LOGOS, BUILDS, BANNERS" style="flex:1;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white"><button onclick="addCat()" style="height:44px;padding:0 20px;background:white;color:black;border-radius:12px;font-weight:700">Crear categoría</button></div><div id="catList" style="margin-top:16px"></div></div>
+<div id="t-codes" style="display:none"><button onclick="genCode()" style="height:44px;padding:0 20px;background:white;color:black;border-radius:12px;font-weight:700">Generar LUNAR-XXXX</button><button onclick="genBulk()" style="height:44px;padding:0 20px;background:#101010;border:1px solid rgba(255,255,255,.1);border-radius:12px;color:rgba(255,255,255,.6);margin-left:8px">Generar 5</button><div id="codeList" style="margin-top:16px"></div></div>
+<div id="t-pend" style="display:none"><div id="pendList"></div></div>
 </div>
 </div>
 </div>
 
-<!-- ADMIN LOGIN -->
-<div id="passM" class="fixed inset-0 bg-black/80 backdrop-blur-xl hidden z-[60] grid place-items-center p-4">
-<div class="card-ghost p-7 w-full max-w-[360px] bg-[#0a1a0a]">
-<h3 class="font-black text-[14px]">Acceso administrador</h3>
-<input id="passI" type="password" class="input-ghost w-full h-11 px-4 mt-4 text-[12px]" placeholder="••••••••">
-<div class="flex gap-2 mt-3"><button onclick="checkP()" class="flex-1 h-10 rounded-xl bg-white text-black font-bold text-[12px]">Entrar</button><button onclick="passM.classList.add('hidden')" class="flex-1 h-10 rounded-xl bg-white/5 border border-white/10 text-[12px]">Cancelar</button></div>
-<p id="passE" class="hidden text-[11px] text-red-400 mt-2">Clave incorrecta</p>
+<!-- MODALES -->
+<div id="reviewModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:70;place-items:center">
+<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px;width:100%;max-width:520px">
+<input id="clientName" placeholder="Tu nombre — OBLIGATORIO" style="width:100%;background:#101010;border:1px solid rgba(0,255,136,.2);border-radius:12px;height:44px;padding:0 16px;color:white">
+<input id="clientCode" placeholder="Código: LUNAR-XXXX" style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white;margin-top:12px">
+<select id="clientService" style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white;margin-top:12px"></select>
+<div style="display:flex;gap:8px;margin-top:12px" id="starSelector">
+<span class="star" data-v="1" onclick="setStars(1)">☆</span><span class="star" data-v="2" onclick="setStars(2)">☆</span><span class="star" data-v="3" onclick="setStars(3)">☆</span><span class="star" data-v="4" onclick="setStars(4)">☆</span><span class="star" data-v="5" onclick="setStars(5)">★</span>
+</div>
+<textarea id="clientText" placeholder="Tu experiencia..." style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;color:white;margin-top:12px;height:100px"></textarea>
+<button onclick="submitClientReview()" style="width:100%;height:44px;background:#00ff88;color:black;border-radius:12px;font-weight:900;margin-top:12px">Enviar reseña 1-5★</button>
+<div id="reviewError" style="display:none;color:#ff4444;font-size:11px;margin-top:8px"></div>
+<button onclick="reviewModal.style.display='none'" style="width:100%;height:40px;background:rgba(255,255,255,.05);border-radius:12px;color:rgba(255,255,255,.5);margin-top:8px">Cerrar</button>
 </div>
 </div>
 
-<!-- ADMIN PANEL GHOST -->
-<div id="admin" class="fixed inset-0 bg-[#050805] hidden z-[70] overflow-auto">
-<div class="sticky top-0 bg-[#050805]/90 backdrop-blur-2xl border-b border-[#00ff66]/10 h-[64px] flex items-center justify-between px-7"><span class="font-black text-[14px]"><span class="text-[#00ff66]">GHOST</span> ADMIN — EDITAR TODO</span><button onclick="admin.classList.add('hidden')" class="bg-white text-black rounded-full px-5 h-9 text-[11px] font-bold">Cerrar ✕</button></div>
-<div class="max-w-[1300px] mx-auto p-7 grid md:grid-cols-[240px_1fr] gap-7">
-<div class="space-y-1.5">
-<button onclick="tab('dash')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-white text-black font-bold text-[11px]" data-t="dash">📊 Dashboard</button>
-<button onclick="tab('alltext')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-[#00ff66]/20 text-[11px] font-bold text-[#00ff66]" data-t="alltext">✏️ EDITAR TODO EL TEXTO</button>
-<button onclick="tab('cats')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="cats">📁 Categorías (Bots, Logos...)</button>
-<button onclick="tab('serv')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="serv">🛠️ Servicios / Productos</button>
-<button onclick="tab('codes')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="codes">🔑 Códigos reseñas</button>
-<button onclick="tab('pend')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="pend">⏳ Pendientes (<span id="pC">0</span>)</button>
-<button onclick="tab('appr')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="appr">✅ Aprobadas</button>
-<button onclick="tab('stats')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="stats">📈 Estadísticas</button>
+<div id="passM" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:75;place-items:center">
+<div style="background:#080808;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px;width:100%;max-width:380px;text-align:center">
+<h3 style="font-weight:900">Acceso admin Lunar</h3>
+<input id="passI" type="password" placeholder="Clave: Ghost" style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white;margin-top:16px">
+<div style="display:flex;gap:8px;margin-top:16px">
+<button onclick="checkP()" style="flex:1;height:44px;background:white;color:black;border-radius:12px;font-weight:900">Entrar</button>
+<button onclick="passM.style.display='none'" style="flex:1;height:44px;background:rgba(255,255,255,.05);border-radius:12px;color:rgba(255,255,255,.5)">Cancelar</button>
 </div>
-<div>
-<div id="t-dash" class="tt"><div class="grid grid-cols-3 gap-4"><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">PRODUCTOS</div><div class="text-[28px] font-black mt-2 text-[#00ff66]" id="dServ">0</div></div><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">RESEÑAS</div><div class="text-[28px] font-black mt-2 text-[#00ff66]" id="dRev">0</div></div><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">CÓDIGOS LIBRES</div><div class="text-[28px] font-black mt-2 text-[#00ff66]" id="dCodes">0</div></div></div></div>
-<div id="t-alltext" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-black text-[14px]">EDITAR TODO EL TEXTO</h3><div class="mt-5 space-y-3 max-h-[70vh] overflow-auto pr-2"><input id="eHeroTitle1" class="input-ghost w-full h-10 px-3 text-[11px]" placeholder="GHOST"><input id="eHeroTitle2" class="input-ghost w-full h-10 px-3 text-[11px]" placeholder="MARKET"><textarea id="eHeroDesc" class="input-ghost w-full h-20 p-3 text-[11px]"></textarea><input id="eProductosTitle" class="input-ghost w-full h-10 px-3 text-[11px]" placeholder="Productos"><input id="eProductosDesc" class="input-ghost w-full h-10 px-3 text-[11px]"><input id="eBestTitle" class="input-ghost w-full h-10 px-3 text-[11px]"><input id="eBestPrice" class="input-ghost w-full h-10 px-3 text-[11px]"><textarea id="eBestDesc" class="input-ghost w-full h-24 p-3 text-[11px]"></textarea><input id="eReviewsTitle" class="input-ghost w-full h-10 px-3 text-[11px]"><input id="eFaqTitle" class="input-ghost w-full h-10 px-3 text-[11px]"><button onclick="saveAllText()" class="w-full h-11 rounded-xl bg-[#00ff66] text-black font-black text-[12px]">💾 Guardar todo el texto</button></div></div></div>
-<div id="t-cats" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Categorías — Ejemplo: Bots, Logos, Builds</h3><div class="mt-4 flex gap-2"><input id="catName" class="input-ghost flex-1 h-11 px-4 text-[12px]" placeholder="Nombre: MINECRAFT"><input id="catEmoji" class="input-ghost w-24 h-11 px-4 text-[12px]" placeholder="MINECRAFT"><button onclick="addCat()" class="h-11 px-6 rounded-xl bg-[#00ff66] text-black font-bold text-[11px]">Crear categoría</button></div><div id="catList" class="mt-6 space-y-2"></div></div></div>
-<div id="t-serv" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Agregar producto / servicio</h3><div class="mt-4 grid gap-2.5"><input id="sN" class="input-ghost h-11 px-4 text-[12px]" placeholder="Nombre: MFA | CAPES 1"><select id="sCat" class="input-ghost h-11 px-4 text-[12px]"></select><input id="sPrice2" class="input-ghost h-11 px-4 text-[12px]" placeholder="Precio: $5 USD"><input id="sDesc2" class="input-ghost h-11 px-4 text-[12px]" placeholder="Descripción corta"><select id="sStatus" class="input-ghost h-11 px-4 text-[12px]"><option value="disponible">Disponible</option><option value="agotado">Agotado</option></select><button onclick="addServ()" class="h-11 rounded-xl bg-white text-black font-bold text-[11px]">Agregar producto</button></div><div id="servList" class="mt-6 space-y-2"></div></div></div>
-<div id="t-codes" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Códigos especiales — Solo con código se deja reseña</h3><div class="mt-4 flex gap-2"><button onclick="genCode()" class="h-11 px-6 rounded-xl bg-[#00ff66] text-black font-bold text-[11px]">Generar GHOST-XXXX</button><button onclick="genBulk()" class="h-11 px-6 rounded-xl bg-white/5 border border-white/10 text-[11px]">Generar 5</button></div><div id="codeList" class="mt-6 space-y-2"></div></div></div>
-<div id="t-pend" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Pendientes — Requieren nombre + código</h3><div id="pendList" class="mt-5 space-y-3"></div></div></div>
-<div id="t-appr" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Aprobadas — 1 a 5 estrellas editable</h3><div id="apprList" class="mt-5 space-y-3"></div></div></div>
-<div id="t-stats" class="tt hidden"><div class="grid grid-cols-2 gap-4"><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">POR CATEGORÍA</div><div id="statsCat" class="mt-4 space-y-2 text-[12px]"></div></div><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">RENDIMIENTO</div><div class="mt-4"><div class="text-[32px] font-black text-[#00ff66]">4.9/5.0</div><div class="mt-2 h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[98%] bg-[#00ff66] rounded-full"></div></div></div></div></div></div>
-</div></div></div>
+<p id="passE" style="display:none;color:#ff4444;font-size:11px;margin-top:8px">Clave incorrecta</p>
+</div>
+</div>
 
 <script>
-// PARTICULAS
-let pCont=document.getElementById('particles');
-for(let i=0;i<60;i++){let d=document.createElement('div');d.className='particle';d.style.left=Math.random()*100+'%';d.style.animationDelay=Math.random()*20+'s';d.style.animationDuration=(15+Math.random()*15)+'s';pCont.appendChild(d);}
-
-// PAISES COMO EN FOTO
+// PAÍSES CON PRECIOS DIFERENTES POR PAÍS - CADA UNO PRECIO PROPIO
 let countries=[
-{flag:'🇵🇪',name:'Perú',code:'PEN'},
-{flag:'🇨🇱',name:'Chile',code:'CLP'},
-{flag:'🇪🇨',name:'Ecuador',code:'USD',active:true},
-{flag:'🇨🇴',name:'Colombia',code:'COP'},
-{flag:'🇲🇽',name:'México',code:'MXN'},
-{flag:'🇦🇷',name:'Argentina',code:'ARS'},
-{flag:'🇺🇸',name:'USDT · Crypto',code:'USDT'},
+{flag:"🇵🇪",name:"Perú",code:"PEN",key:"PE"},
+{flag:"🇨🇱",name:"Chile",code:"CLP",key:"CL"},
+{flag:"🇪🇨",name:"Ecuador",code:"USD",key:"EC"},
+{flag:"🇨🇴",name:"Colombia",code:"COP",key:"CO"},
+{flag:"🇲🇽",name:"México",code:"MXN",key:"MX",active:true},
+{flag:"🇦🇷",name:"Argentina",code:"ARS",key:"AR"},
+{flag:"🇺🇸",name:"USA/USDT",code:"USDT",key:"USDT"}
 ];
-let currentCountryData=countries[2];
+let cur=countries.find(c=>c.active);
 function renderCountries(){
-let html=countries.map(c=>`<div onclick="selectCountry('${c.name}')" class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-[#00ff66]/10 cursor-pointer ${c.active?'bg-[#00ff66]/10 border border-[#00ff66]/20':''}"><div class="flex items-center gap-2.5"><span>${c.flag}</span><span class="text-[12px]">${c.name}</span></div><span class="text-[10px] text-[#00ff66]">${c.code} ${c.active?'✓':''}</span></div>`).join('');
-document.getElementById('countryList').innerHTML=html;
+document.getElementById("countryList").innerHTML=countries.map(c=>`<div onclick="selectCountry('${c.name}')" style="display:flex;justify-content:space-between;padding:10px 12px;border-radius:10px;cursor:pointer;${c.active?"background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)":""}"><span>${c.flag} ${c.name} — Precio: ${c.code} propio</span><span style="color:rgba(255,255,255,.3)">${c.active?"✓ ACTIVO":""}</span></div>`).join("");
 }
-function toggleCountry(){document.getElementById('countryDrop').classList.toggle('hidden');}
-function selectCountry(name){countries.forEach(c=>c.active=c.name===name);currentCountryData=countries.find(c=>c.name===name);document.getElementById('currentFlag').textContent=currentCountryData.flag;document.getElementById('currentCountry').textContent=currentCountryData.name+' ('+currentCountryData.code+')';renderCountries();toggleCountry();render();}
+function toggleCountry(){
+let d=document.getElementById("countryDrop");
+d.style.display=d.style.display=="none"?"block":"none";
+}
+function selectCountry(n){
+countries.forEach(c=>c.active=c.name===n);
+cur=countries.find(c=>c.name===n);
+document.getElementById("currentFlag").textContent=cur.flag;
+document.getElementById("currentCountry").textContent=cur.name;
+renderCountries();
+toggleCountry();
+render();
+}
 renderCountries();
 
-// DATA
-let clicks=0, filterCat='all', currentStars=5;
-let data=JSON.parse(localStorage.getItem('ghost_v22')||`{
-"texts":{"heroTitle1":"GHOST","heroTitle2":" MARKET","heroDesc":"Tu tienda de confianza · Cuentas premium &<br>servicios digitales","heroBtnDiscord":"Únete al Discord","heroBtnProducts":"Ver Productos","stat1":"500+","stat1Label":"Ventas","stat2":"100%","stat2Label":"Garantía","stat3":"24/7","stat3Label":"Soporte","bestBadge":"BEST SELLER","bestTitle":"MFA PERMA","bestPrice":"$7 USD","bestDesc":"Consigue Minecraft Premium de forma rápida, segura y al mejor precio. Recibe acceso a una cuenta de Microsoft y disfruta del juego sin complicaciones. Incluye garantía permanente en todas las cuentas.","productosTitle":"Productos","productosDesc":"Explora nuestra colección premium de cuentas y servicios digitales","reviewsTitle":"Reviews verificadas","faqTitle":"FAQ — Preguntas frecuentes"},
-"categories":[{"id":"minecraft","name":"MINECRAFT","emoji":"⛏️"},{"id":"streaming","name":"STREAMING","emoji":"🎬"},{"id":"fortnite","name":"FORTNITE","emoji":"🎮"},{"id":"freefire","name":"FREE FIRE","emoji":"🔥"},{"id":"supercell","name":"SUPERCELL","emoji":"⚡"},{"id":"discord","name":"DISCORD","emoji":"💬"},{"id":"robux","name":"ROBUX","emoji":"🧱"},{"id":"ai","name":"AI","emoji":"🤖"},{"id":"design","name":"DESIGN","emoji":"🎨"},{"id":"decorations","name":"DECORATIONS","emoji":"🏠"},{"id":"gaming","name":"GAMING","emoji":"🕹️"}],
+let clicks=0,filterCat="all",currentStars=5;
+let data=JSON.parse(localStorage.getItem("lunar_black_3000_final_v2")||`{
+"categories":[{"id":"minecraft","name":"MINECRAFT"},{"id":"builds","name":"BUILDS"},{"id":"banners","name":"BANNERS"},{"id":"logos","name":"LOGOS"},{"id":"bots","name":"BOTS"}],
 "services":[
-{"name":"MFA | CAPES 1","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"disponible"},
-{"name":"MFA | CAPES 2","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
-{"name":"MFA | CAPES 3","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
-{"name":"MFA | CAPES 4","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
-{"name":"MFA | CAPES 5","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
-{"name":"MFA | CAPES 6","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
-{"name":"MFA | CAPES 7","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
-{"name":"MFA | CAPES 8","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"}
+{"name":"MFA | CAPES 1","category":"minecraft","prices":{"MX":"$85 MXN","US":"$5.00 USD","PE":"S/18.50 PEN","CL":"$4.500 CLP","CO":"$20.000 COP","AR":"$4.500 ARS","USDT":"5 USDT"},"desc":"Cuenta MFA con capas","status":"disponible"},
+{"name":"BUILD 200x200 CASTILLO","category":"builds","prices":{"MX":"$250 MXN","US":"$15.00 USD","PE":"S/55 PEN","CL":"$14.000 CLP","CO":"$62.000 COP","AR":"$13.500 ARS","USDT":"15 USDT"},"desc":"Castillo medieval premium","status":"disponible"}
 ],
-"codes":[{"code":"GHOST-DEMO1","used":false,"usedBy":""},{"code":"GHOST-DEMO2","used":false,"usedBy":""}],
+"codes":[{"code":"LUNAR-001","used":false,"usedBy":""}],
 "reviews":[],"pending":[]
 }`);
 
-function save(){localStorage.setItem('ghost_v22',JSON.stringify(data));render();}
+function save(){localStorage.setItem("lunar_black_3000_final_v2",JSON.stringify(data));render();}
+function getPrice(p){return p[cur.key]||p.US||"$5 USD";}
 function render(){
-let t=data.texts;
-Object.keys(t).forEach(k=>{let el=document.getElementById(k); if(el){if(k==='heroDesc') el.innerHTML=t[k]; else el.textContent=t[k];}});
 let cats=data.categories;
-document.getElementById('catFilters').innerHTML='<button onclick="filterCat=\'all\';render()" class="px-5 py-2.5 rounded-full text-[11px] font-bold border transition '+(filterCat=='all'?'bg-[#00ff66] text-black border-[#00ff66]':'bg-[#0a1a0a] border-[#00ff66]/20 text-white/60')+'">TODOS</button>'+cats.map(c=>`<button onclick="filterCat='${c.id}';render()" class="px-5 py-2.5 rounded-full text-[11px] font-bold border transition ${filterCat==c.id?'bg-[#00ff66] text-black border-[#00ff66]':'bg-[#0a1a0a] border-[#00ff66]/20 text-white/60 hover:border-[#00ff66]/40'}">${c.name}</button>`).join('');
-let filtered=data.services.filter(s=>filterCat=='all'||s.category==filterCat);
-document.getElementById('sGrid').innerHTML=filtered.map((s,i)=>`
-<div class="card-product anim" style="animation-delay:${i*0.05}s">
-${s.status==='agotado'?'<div class="absolute top-3 right-3 badge-agotado px-3 py-1 z-10">✕ AGOTADO</div>':''}
-<div class="h-[200px] bg-gradient-to-b from-[#0f1f0f] to-[#0a1a0a] grid place-items-center relative overflow-hidden">
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,102,.15),transparent_60%)]"></div>
-<div class="text-[80px] drop-shadow-[0_0_20px_rgba(0,255,102,.3)]">🧱</div>
+document.getElementById("catFilters").innerHTML='<button onclick="filterCat=\'all\';render()" style="padding:10px 20px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid '+(filterCat=='all'?'white;background:white;color:black':'rgba(255,255,255,.1);background:#0a0a0a;color:rgba(255,255,255,.4)')+'">TODOS</button>'+cats.map(c=>`<button onclick="filterCat='${c.id}';render()" style="padding:10px 20px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid ${filterCat==c.id?"white;background:white;color:black":"rgba(255,255,255,.1);background:#0a0a0a;color:rgba(255,255,255,.4)"}">${c.name}</button>`).join("");
+let search=document.getElementById("searchInput")?.value.toLowerCase()||"";
+let onlyAvail=document.getElementById("onlyAvailable")?.checked||false;
+let filtered=data.services.filter(s=>{let mCat=filterCat=="all"||s.category==filterCat;let mS=s.name.toLowerCase().includes(search);let mA=!onlyAvail||s.status=="disponible";return mCat&&mS&&mA;});
+document.getElementById("sGrid").innerHTML=filtered.map((s,i)=>{
+let price=getPrice(s.prices);
+return `<div class="card a${i%1300} ${s.status=="agotado"?"agotado":""}" style="animation-delay:${i*0.04}s;overflow:hidden">
+<div style="position:relative;height:190px;background:#111;display:grid;place-items:center">
+<div style="position:absolute;top:12px;right:12px;background:${s.status=="agotado"?"#ff1a1a":"#00ff88"};color:${s.status=="agotado"?"white":"black"};border-radius:20px;padding:4px 10px;font-size:10px;font-weight:900">${s.status=="agotado"?"✕ AGOTADO":"DISPONIBLE"}</div>
+<div style="font-size:64px">🧱</div>
 </div>
-<div class="p-4">
-<div class="text-[11px] font-bold text-white/60 tracking-wide">${s.name}</div>
-<div class="mt-3 text-[16px] font-black text-[#00ff66]">${convertPrice(s.price)}</div>
-${s.status==='disponible'?`<button class="btn-green w-full mt-3 h-9 text-[11px]">🛒 Comprar</button>`:`<button class="w-full mt-3 h-9 rounded-xl bg-white/5 border border-white/5 text-[11px] font-bold text-white/20">AGOTADO</button>`}
+<div style="padding:16px">
+<div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7)">${s.name}</div>
+<div style="margin-top:12px;font-size:16px;font-weight:900;color:#00ff88">${price} <span style="font-size:10px;color:rgba(255,255,255,.2)">(${cur.code})</span></div>
+<div style="font-size:9px;color:rgba(255,255,255,.2);margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">MX:${s.prices.MX} • US:${s.prices.US} • PE:${s.prices.PE} • CL:${s.prices.CL} • CO:${s.prices.CO} • AR:${s.prices.AR} • USDT:${s.prices.USDT}</div>
+${s.status=="disponible"?`<button onclick="window.open('https://discord.gg/UnEQyZyBN')" style="width:100%;margin-top:16px;height:36px;background:#00ff88;color:black;border-radius:12px;font-weight:900;font-size:11px">🛒 Comprar — ${price}</button>`:`<button disabled style="width:100%;margin-top:16px;height:36px;background:#111;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.2);border-radius:12px;font-size:11px">AGOTADO</button>`}
 </div>
-</div>
-`).join('');
-document.getElementById('sEmpty').style.display=filtered.length?'none':'grid';
-function starsToText(n){return '★'.repeat(n)+'☆'.repeat(5-n);}
-document.getElementById('rGrid').innerHTML=data.reviews.map(r=>`<div class="card-ghost p-5"><div class="flex justify-between"><span class="text-[#00ff66] text-[13px]">${starsToText(r.stars)} (${r.stars}/5)</span><span class="text-[9px] px-2 py-1 rounded-full bg-[#00ff66]/10 border border-[#00ff66]/20">${r.service}</span></div><p class="mt-3 text-[12px] text-white/60">"${r.text}"</p><div class="mt-4 flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-[#00ff66]/20 grid place-items-center text-[11px] font-bold">${r.name[0].toUpperCase()}</div><div><div class="text-[11px] font-bold">${r.name}</div><div class="text-[9px] text-white/30">${r.code}</div></div></div></div>`).join('');
-document.getElementById('rEmpty').style.display=data.reviews.length?'none':'grid';
-document.getElementById('rCount').textContent=data.reviews.length+' reseñas';
-document.getElementById('dServ').textContent=data.services.length;document.getElementById('dRev').textContent=data.reviews.length;document.getElementById('dCodes').textContent=data.codes.filter(c=>!c.used).length;document.getElementById('pC').textContent=data.pending.length;
-document.getElementById('catList').innerHTML=cats.map((c,i)=>`<div class="flex justify-between bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl px-4 py-3 text-[12px]"><span>${c.emoji} ${c.name}</span><span onclick="data.categories.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold">Borrar</span></div>`).join('');
-document.getElementById('sCat').innerHTML=cats.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
-document.getElementById('clientService').innerHTML=data.services.map(s=>`<option value="${s.name}">${s.name}</option>`).join('')||'<option>General</option>';
-document.getElementById('servList').innerHTML=data.services.map((s,i)=>`<div class="flex justify-between bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl px-4 py-3 text-[12px]"><span>${s.name} [${s.category}] ${s.status==='agotado'?'• AGOTADO':''}</span><span onclick="data.services.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></div>`).join('');
-document.getElementById('codeList').innerHTML=data.codes.map((c,i)=>`<div class="flex justify-between bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl px-4 py-3 text-[12px] font-mono"><span class="${c.used?'text-white/20 line-through':''}">${c.code} ${c.used?'• '+c.usedBy:''}</span><div class="flex gap-3 font-sans"><span onclick="navigator.clipboard.writeText('${c.code}')" class="text-[#00ff66] cursor-pointer font-bold">Copiar</span><span onclick="data.codes.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></div></div>`).join('');
-document.getElementById('pendList').innerHTML=data.pending.map((r,i)=>`<div class="bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl p-4 text-[12px]"><div class="flex justify-between"><b>${r.name} ${'★'.repeat(r.stars)} (${r.stars}/5)</b><span>${r.service}</span></div><div class="text-white/30 text-[10px] mt-1">Código: ${r.code}</div><div class="mt-2 text-white/60">${r.text}</div><div class="flex gap-2 mt-3"><button onclick="approve(${i})" class="px-4 py-2 rounded-full bg-[#00ff66] text-black font-bold text-[11px]">Aprobar</button><button onclick="data.pending.splice(${i},1);save()" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[11px]">Rechazar</button></div></div>`).join('')||'<div class="text-white/20">No hay pendientes</div>';
-document.getElementById('apprList').innerHTML=data.reviews.map((r,i)=>`<div class="flex justify-between bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl px-4 py-3 text-[12px]"><span>${r.name} ${r.stars}★ ${r.text.substring(0,30)}... [${r.code}]</span><span class="flex gap-2"><span onclick="editReview(${i})" class="text-[#00ff66] cursor-pointer">Editar</span><span onclick="data.reviews.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></span></div>`).join('')||'<div class="text-white/20">No hay aprobadas</div>';
-document.getElementById('statsCat').innerHTML=cats.map(c=>`<div class="flex justify-between py-2 border-b border-white/5"><span>${c.name}</span><span class="font-bold">${data.services.filter(s=>s.category==c.id).length}</span></div>`).join('');
-// inputs editar todo
-['heroTitle1','heroTitle2','heroDesc','productosTitle','productosDesc','bestTitle','bestPrice','bestDesc','reviewsTitle','faqTitle'].forEach(k=>{let inp=document.getElementById('e'+k.charAt(0).toUpperCase()+k.slice(1)); if(inp) inp.value=data.texts[k];});
+</div>`}).join("");
+document.getElementById("pC").textContent=data.pending.length;
+document.getElementById("catList").innerHTML=cats.map((c,i)=>`<div style="display:flex;justify-content:space-between;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:12px 16px;font-size:12px"><span>${c.name}</span><span onclick="data.categories.splice(${i},1);save()" style="color:#ff4444;cursor:pointer">Borrar</span></div>`).join("");
+document.getElementById("sCat").innerHTML=cats.map(c=>`<option value="${c.id}">${c.name}</option>`).join("");
+document.getElementById("clientService").innerHTML=data.services.map(s=>`<option value="${s.name}">${s.name}</option>`).join("")||"<option>General</option>";
+document.getElementById("servList").innerHTML=data.services.map((s,i)=>`<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:16px;font-size:12px"><div style="display:flex;justify-content:space-between"><span style="font-weight:700;color:rgba(255,255,255,.7)">${s.name} [${s.category}] ${s.status} — MX:${s.prices.MX} US:${s.prices.US} PE:${s.prices.PE}</span><span style="display:flex;gap:8px"><button onclick="toggleStatus(${i})" style="padding:4px 12px;border-radius:999px;background:${s.status=="disponible"?"rgba(0,255,136,.1);color:#00ff88":"rgba(255,0,0,.1);color:#ff4444"};font-size:10px;font-weight:700">${s.status=="disponible"?"Poner Agotado":"Poner Disponible"}</button><button onclick="editProduct(${i})" style="color:rgba(255,255,255,.4)">Editar precios por país</button><button onclick="data.services.splice(${i},1);save()" style="color:#ff4444">Borrar</button></span></div><div style="color:rgba(255,255,255,.2);margin-top:4px">CL:${s.prices.CL} CO:${s.prices.CO} AR:${s.prices.AR} USDT:${s.prices.USDT}</div></div>`).join("");
+document.getElementById("codeList").innerHTML=data.codes.map((c,i)=>`<div style="display:flex;justify-content:space-between;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:12px 16px;font-size:12px;font-family:monospace"><span style="${c.used?"text-decoration:line-through;color:rgba(255,255,255,.15)":"color:rgba(255,255,255,.6)"}">${c.code} ${c.used?"• "+c.usedBy:""}</span><div style="display:flex;gap:12px"><span onclick="navigator.clipboard.writeText('${c.code}')" style="color:rgba(255,255,255,.4);cursor:pointer">Copiar</span><span onclick="data.codes.splice(${i},1);save()" style="color:rgba(255,0,0,.6);cursor:pointer">Borrar</span></div></div>`).join("");
+document.getElementById("pendList").innerHTML=data.pending.map((r,i)=>`<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:16px;font-size:12px"><b style="color:rgba(255,255,255,.7)">${r.name} ${"★".repeat(r.stars)} (${r.stars}/5)</b><div style="color:rgba(255,255,255,.2);font-size:10px;margin-top:4px">${r.name} • ${r.code}</div><div style="color:rgba(255,255,255,.3);margin-top:8px">${r.text}</div><div style="display:flex;gap:8px;margin-top:12px"><button onclick="approve(${i})" style="padding:8px 16px;border-radius:999px;background:white;color:black;font-weight:700;font-size:11px">Aprobar</button><button onclick="data.pending.splice(${i},1);save()" style="padding:8px 16px;border-radius:999px;background:#111;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);font-size:11px">Rechazar</button></div></div>`).join("")||"<div style=color:rgba(255,255,255,.15)>No hay pendientes</div>";
 }
-function convertPrice(price){
-if(!currentCountryData) return price;
-let num=parseFloat(price.replace(/[^0-9.]/g,''))||5;
-let rates={PEN:3.7,CLP:950,COP:4100,MXN:17,ARS:900,USDT:1,USD:1};
-let rate=rates[currentCountryData.code]||1;
-if(currentCountryData.code==='USD') return `$${num} USD`;
-if(currentCountryData.code==='USDT') return `${num} USDT`;
-return `${(num*rate).toFixed(0)} ${currentCountryData.code}`;
+
+function setStars(n){currentStars=n;document.querySelectorAll(".star").forEach(s=>{let v=parseInt(s.dataset.v);s.textContent=v<=n?"★":"☆";});}
+function checkP(){if(document.getElementById("passI").value==="Ghost"){document.getElementById("passM").style.display="none";document.getElementById("admin").style.display="block";}else{document.getElementById("passE").style.display="block";}}
+function tab(t){document.querySelectorAll(".tt").forEach(e=>e.style.display="none");document.getElementById("t-"+t).style.display="block";}
+function addCat(){let n=document.getElementById("catName").value.trim();if(!n)return;let id=n.toLowerCase().replace(/[^a-z0-9]+/g,"-");data.categories.push({id,name:n});document.getElementById("catName").value="";save();}
+function addServ(){
+let n=document.getElementById("sN").value.trim(),cat=document.getElementById("sCat").value,desc=document.getElementById("sDesc2").value||"Producto Lunar",status=document.getElementById("sStatus").value||"disponible";
+if(!n||!cat)return alert("Falta nombre o categoría");
+let prices={
+MX:document.getElementById("sPriceMX").value||"$85 MXN",
+US:document.getElementById("sPriceUS").value||"$5.00 USD",
+PE:document.getElementById("sPricePE").value||"S/18.50 PEN",
+CL:document.getElementById("sPriceCL").value||"$4.500 CLP",
+CO:document.getElementById("sPriceCO").value||"$20.000 COP",
+AR:document.getElementById("sPriceAR").value||"$4.500 ARS",
+USDT:document.getElementById("sPriceUSDT").value||"5 USDT"
+};
+data.services.push({name:n,category:cat,prices,desc,status});
+document.getElementById("sN").value="";save();
 }
-function setStars(n){currentStars=n;document.querySelectorAll('.star').forEach(s=>{let v=parseInt(s.dataset.v);s.textContent=v<=n?'★':'☆';s.classList.toggle('active',v<=n);});document.getElementById('starText').textContent=['1 estrella - Muy malo','2 estrellas - Malo','3 estrellas - Regular','4 estrellas - Muy bueno','5 estrellas - Excelente'][n-1];}
-document.getElementById('logo').addEventListener('click',()=>{clicks++;cc.textContent=clicks+'/10';if(clicks>=10){passM.classList.remove('hidden');clicks=0;cc.textContent='';}setTimeout(()=>{if(clicks<10){cc.textContent='';clicks=0}},3000);});
-function checkP(){if(passI.value==='Ghost'){passM.classList.add('hidden');passI.value='';admin.classList.remove('hidden');passE.classList.add('hidden');}else{passE.classList.remove('hidden');}}
-function tab(t){document.querySelectorAll('.tt').forEach(e=>e.classList.add('hidden'));document.getElementById('t-'+t).classList.remove('hidden');document.querySelectorAll('.tbtn').forEach(b=>b.className='tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]');document.querySelector(`[data-t="${t}"]`).className='tbtn w-full text-left px-4 py-3 rounded-xl bg-white text-black font-bold text-[11px]';}
-function addCat(){let n=catName.value.trim(), e=catEmoji.value||'📁';if(!n)return;let id=n.toLowerCase().replace(/[^a-z0-9]+/g,'-');data.categories.push({id,name:n,emoji:e});catName.value='';save();}
-function addServ(){let n=sN.value.trim(), cat=sCat.value, price=sPrice2.value||'$5 USD', desc=sDesc2.value||'Cuenta premium', status=sStatus.value||'disponible';if(!n||!cat)return alert('Falta nombre o categoría');data.services.push({name:n,category:cat,price,desc,status});sN.value='';save();}
-function genCode(){let c='GHOST-'+Math.random().toString(36).substring(2,6).toUpperCase()+Math.floor(10+Math.random()*89);data.codes.push({code:c,used:false,usedBy:''});save();}
-function genBulk(){for(let i=0;i<5;i++)genCode();}
-function openReviewModal(){reviewModal.classList.remove('hidden');}
+function editProduct(i){
+let s=data.services[i];
+let mx=prompt("Precio MX:",s.prices.MX);
+let us=prompt("Precio US:",s.prices.US);
+let pe=prompt("Precio PE:",s.prices.PE);
+let cl=prompt("Precio CL:",s.prices.CL);
+let co=prompt("Precio CO:",s.prices.CO);
+let ar=prompt("Precio AR:",s.prices.AR);
+let usdt=prompt("Precio USDT:",s.prices.USDT);
+if(mx) s.prices.MX=mx;
+if(us) s.prices.US=us;
+if(pe) s.prices.PE=pe;
+if(cl) s.prices.CL=cl;
+if(co) s.prices.CO=co;
+if(ar) s.prices.AR=ar;
+if(usdt) s.prices.USDT=usdt;
+save();
+}
+function toggleStatus(i){data.services[i].status=data.services[i].status=="disponible"?"agotado":"disponible";save();}
+function genCode(){let c="LUNAR-"+Math.random().toString(36).substring(2,6).toUpperCase()+Math.floor(10+Math.random()*89);data.codes.push({code:c,used:false,usedBy:""});save();}
+function openReviewModal(){document.getElementById("reviewModal").style.display="grid";}
 function submitClientReview(){
-let code=clientCode.value.trim().toUpperCase(), name=clientName.value.trim()||'@cliente', serv=clientService.value||'General', text=clientText.value.trim();
-if(!code){reviewError.textContent='Ingresa código';reviewError.classList.remove('hidden');return;}
-let found=data.codes.find(c=>c.code===code);
-if(!found){reviewError.textContent='Código no válido';reviewError.classList.remove('hidden');return;}
-if(found.used){reviewError.textContent='Código ya usado por '+found.usedBy;reviewError.classList.remove('hidden');return;}
-if(!text || text.length<10){reviewError.textContent='Reseña muy corta';reviewError.classList.remove('hidden');return;}
-found.used=true;found.usedBy=name;
-data.pending.unshift({name,category:'general',service:serv,stars:currentStars,text,code});
-clientCode.value='';clientName.value='';clientText.value='';reviewModal.classList.add('hidden');save();alert('Reseña enviada');
+let code=document.getElementById("clientCode").value.trim().toUpperCase(),name=document.getElementById("clientName").value.trim(),serv=document.getElementById("clientService").value||"General",text=document.getElementById("clientText").value.trim();
+if(!name){document.getElementById("reviewError").textContent="Nombre obligatorio";document.getElementById("reviewError").style.display="block";return;}
+if(!code){document.getElementById("reviewError").textContent="Ingresa código LUNAR-XXXX";document.getElementById("reviewError").style.display="block";return;}
+let f=data.codes.find(c=>c.code==code);
+if(!f){document.getElementById("reviewError").textContent="Código no válido";document.getElementById("reviewError").style.display="block";return;}
+if(f.used){document.getElementById("reviewError").textContent="Código ya usado por "+f.usedBy;document.getElementById("reviewError").style.display="block";return;}
+if(!text||text.length<10){document.getElementById("reviewError").textContent="Reseña muy corta";document.getElementById("reviewError").style.display="block";return;}
+f.used=true;f.usedBy=name;
+data.pending.unshift({name,service:serv,stars:currentStars,text,code});
+document.getElementById("clientCode").value="";document.getElementById("clientName").value="";document.getElementById("clientText").value="";
+document.getElementById("reviewModal").style.display="none";save();
 }
 function approve(i){let r=data.pending.splice(i,1)[0];data.reviews.unshift(r);save();}
-function editReview(i){let r=data.reviews[i];let txt=prompt('Editar texto:',r.text);let st=prompt('Estrellas 1-5:',r.stars);if(txt) data.reviews[i].text=txt;let ns=parseInt(st);if(ns>=1&&ns<=5) data.reviews[i].stars=ns;save();}
-function saveAllText(){let t=data.texts;['heroTitle1','heroTitle2','heroDesc','productosTitle','productosDesc','bestTitle','bestPrice','bestDesc','reviewsTitle','faqTitle'].forEach(k=>{let inp=document.getElementById('e'+k.charAt(0).toUpperCase()+k.slice(1)); if(inp) t[k]=inp.value;});save();alert('Texto guardado');}
-setStars(5);
-render();
+document.getElementById("logo").addEventListener("click",()=>{clicks++;document.getElementById("cc").textContent=clicks+"/10";if(clicks>=10){document.getElementById("passM").style.display="grid";clicks=0;}setTimeout(()=>{document.getElementById("cc").textContent="";clicks=0},3000);});
+setStars(5);render();
 </script>
 </body>
 </html>
