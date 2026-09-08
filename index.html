@@ -3,1011 +3,359 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LUNAR MARKET® - Oficial</title>
+<title>GHOST MARKET® - Tu tienda de confianza</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{
-font-family:'Plus Jakarta Sans',sans-serif;
-}
-html{
-scroll-behavior:smooth;
-}
-body{
-background:#07070a;
-color:white;
-overflow-x:hidden;
-}
-::-webkit-scrollbar{
-width:6px;
-}
-::-webkit-scrollbar-track{
-background:#0a0a0c;
-}
-::-webkit-scrollbar-thumb{
-background:#2a2a2e;
-border-radius:10px;
-}
-::-webkit-scrollbar-thumb:hover{
-background:#3a3a3e;
-}
-.card{
-background:#121216;
-border:1px solid rgba(255,255,255,.07);
-border-radius:22px;
-transition:.6s cubic-bezier(.16,1,.3,1);
-}
-.card:hover{
-transform:translateY(-6px) scale(1.015);
-border-color:rgba(139,92,246,.25);
-box-shadow:0 30px 60px rgba(0,0,0,.6),0 0 0 1px rgba(139,92,246,.12);
-}
-.input{
-background:#1a1a1f;
-border:1px solid rgba(255,255,255,.08);
-border-radius:14px;
-color:white;
-transition:.3s cubic-bezier(.16,1,.3,1);
-}
-.input:focus{
-border-color:#8b5cf6;
-box-shadow:0 0 0 4px rgba(139,92,246,.15);
-outline:none;
-transform:translateY(-1px);
-}
-.input:hover{
-border-color:rgba(255,255,255,.14);
-}
-.logo{
-width:116px;
-height:116px;
-border-radius:50%;
-object-fit:cover;
-cursor:pointer;
-box-shadow:0 0 0 2px rgba(255,255,255,.1),0 0 60px rgba(139,92,246,.5);
-transition:.6s cubic-bezier(.16,1,.3,1);
-animation:float 4s ease-in-out infinite,glow 3s ease-in-out infinite;
-}
-.logo:hover{
-transform:scale(1.08) rotate(3deg);
-}
-.logo:active{
-transform:scale(.88) rotate(-8deg);
-}
-.nav-item{
-position:relative;
-transition:.3s;
-}
-.nav-item::after{
-content:'';
-position:absolute;
-bottom:-4px;
-left:0;
-width:0;
-height:2px;
-background:#8b5cf6;
-transition:.3s;
-}
-.nav-item:hover::after{
-width:100%;
-}
-.btn-primary{
-background:white;
-color:black;
-border-radius:9999px;
-font-weight:800;
-transition:.4s cubic-bezier(.16,1,.3,1);
-}
-.btn-primary:hover{
-transform:scale(1.05) translateY(-2px);
-box-shadow:0 10px 30px rgba(255,255,255,.15);
-}
-.btn-primary:active{
-transform:scale(.96);
-}
-.btn-ghost{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-border-radius:9999px;
-transition:.3s;
-}
-.btn-ghost:hover{
-background:rgba(255,255,255,.08);
-transform:translateY(-1px);
-}
-.badge{
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-border-radius:9999px;
-font-size:10px;
-font-weight:700;
-letter-spacing:.1em;
-transition:.3s;
-}
-.badge:hover{
-background:rgba(255,255,255,.08);
-transform:scale(1.05);
-}
-.badge-active{
-background:white;
-color:black;
-border-color:white;
-}
-.star{
-font-size:26px;
-cursor:pointer;
-transition:.3s cubic-bezier(.16,1,.3,1);
-user-select:none;
-}
-.star:hover{
-transform:scale(1.4) rotate(10deg);
-}
-.star.active{
-color:#facc15;
-text-shadow:0 0 20px rgba(250,204,21,.5);
-}
-@keyframes float{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-12px);
-}
-}
-@keyframes glow{
-0%,100%{
-box-shadow:0 0 0 2px rgba(255,255,255,.08),0 0 40px rgba(139,92,246,.3);
-}
-50%{
-box-shadow:0 0 0 3px rgba(255,255,255,.15),0 0 80px rgba(139,92,246,.7);
-}
-}
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(30px) scale(.98);
-}
-to{
-opacity:1;
-transform:translateY(0) scale(1);
-}
-}
-@keyframes fadeIn{
-from{
-opacity:0;
-}
-to{
-opacity:1;
-}
-}
-@keyframes slideIn{
-from{
-opacity:0;
-transform:translateX(-20px);
-}
-to{
-opacity:1;
-transform:translateX(0);
-}
-}
-@keyframes slideUp{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-@keyframes pulse{
-0%,100%{
-transform:scale(1);
-}
-50%{
-transform:scale(1.05);
-}
-}
-@keyframes shimmer{
-0%{
-transform:translateX(-100%);
-}
-100%{
-transform:translateX(300%);
-}
-}
-@keyframes spin{
-from{
-transform:rotate(0deg);
-}
-to{
-transform:rotate(360deg);
-}
-}
-@keyframes bounce{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-6px);
-}
-}
-@keyframes gradient{
-0%{
-background-position:0% 50%;
-}
-50%{
-background-position:100% 50%;
-}
-100%{
-background-position:0% 50%;
-}
-}
-.anim{
-animation:fadeUp.9s cubic-bezier(.16,1,.3,1) both;
-}
-.anim2{
-animation:slideIn.7s cubic-bezier(.16,1,.3,1) both;
-}
-.anim3{
-animation:fadeIn.6s ease both;
-}
-.anim-bounce{
-animation:bounce 2s ease-in-out infinite;
-}
-.shimmer-bar{
-position:relative;
-overflow:hidden;
-}
-.shimmer-bar::after{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
-animation:shimmer 2s infinite;
-}
-.gradient-text{
-background:linear-gradient(90deg,#8b5cf6,#ec4899,#8b5cf6);
-background-size:200% 100%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-background-clip:text;
-animation:gradient 3s ease infinite;
-}
-.glass{
-background:rgba(18,18,22,.8);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.06);
-}
-.tooltip{
-position:relative;
-}
-.tooltip::before{
-content:attr(data-tip);
-position:absolute;
-bottom:100%;
-left:50%;
-transform:translateX(-50%) translateY(-8px);
-background:#1a1a1f;
-border:1px solid rgba(255,255,255,.1);
-padding:6px 10px;
-border-radius:8px;
-font-size:10px;
-white-space:nowrap;
-opacity:0;
-pointer-events:none;
-transition:.3s;
-}
-.tooltip:hover::before{
-opacity:1;
-transform:translateX(-50%) translateY(-4px);
-}
+*{font-family:Geist,sans-serif}
+body{background:#050805;color:white;overflow-x:hidden}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0}
+.particle{position:absolute;width:2px;height:2px;background:#00ff66;border-radius:50%;box-shadow:0 0 6px #00ff66;animation:floatP 20s linear infinite}
+@keyframes floatP{0%{transform:translateY(100vh) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) translateX(100px);opacity:0}}
+.card-ghost{background:rgba(12,24,12,.6);border:1px solid rgba(0,255,102,.15);border-radius:20px;backdrop-filter:blur(12px);transition:.5s cubic-bezier(.16,1,.3,1)}
+.card-ghost:hover{border-color:rgba(0,255,102,.4);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.5),0 0 30px rgba(0,255,102,.15)}
+.card-product{background:rgba(10,20,10,.8);border:1px solid rgba(0,255,102,.18);border-radius:18px;overflow:hidden;transition:.5s cubic-bezier(.16,1,.3,1);position:relative}
+.card-product:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(0,255,102,.5);box-shadow:0 25px 50px rgba(0,0,0,.6),0 0 40px rgba(0,255,102,.2)}
+.btn-discord{background:#5865f2;color:white;border-radius:10px;font-weight:700;transition:.3s}
+.btn-discord:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 20px rgba(88,101,242,.4)}
+.btn-green{background:#00ff66;color:#000;border-radius:10px;font-weight:800;transition:.3s;box-shadow:0 0 20px rgba(0,255,102,.3)}
+.btn-green:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 30px rgba(0,255,102,.6)}
+.badge-agotado{background:#ff2a2a;color:white;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.05em}
+.badge-best{background:rgba(0,255,102,.12);border:1px solid rgba(0,255,102,.3);color:#00ff66;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.1em}
+.glow-green{box-shadow:0 0 40px rgba(0,255,102,.25),0 0 80px rgba(0,255,102,.1)}
+.logo-ghost{width:84px;height:84px;border-radius:50%;background:#0a1a0a;border:2px solid rgba(0,255,102,.5);box-shadow:0 0 30px rgba(0,255,102,.4),0 0 60px rgba(0,255,102,.15);display:grid;place-items:center;font-size:40px;animation:floatLogo 4s ease-in-out infinite,glowPulse 3s ease-in-out infinite}
+@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 30px rgba(0,255,102,.4),0 0 60px rgba(0,255,102,.15)}50%{box-shadow:0 0 50px rgba(0,255,102,.6),0 0 100px rgba(0,255,102,.25)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.anim{animation:fadeUp.8s cubic-bezier(.16,1,.3,1) both}
+.input-ghost{background:rgba(20,30,20,.8);border:1px solid rgba(0,255,102,.12);border-radius:12px;color:white;transition:.3s}
+.input-ghost:focus{border-color:#00ff66;box-shadow:0 0 0 3px rgba(0,255,102,.15);outline:none}
+.star{font-size:24px;cursor:pointer;transition:.3s}
+.star:hover{transform:scale(1.3)}
+.star.active{color:#facc15;text-shadow:0 0 15px rgba(250,204,21,.6)}
+.ring-glow{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(0,255,102,.1);animation:ring 4s ease-out infinite}
+@keyframes ring{0%{transform:scale(.8);opacity:1}100%{transform:scale(1.4);opacity:0}}
 </style>
 </head>
-<body class="text-white antialiased selection:bg-violet-500/30">
-<!-- NAV -->
-<div class="sticky top-0 z-40 h-[68px] border-b border-white/[0.06] bg-[#0a0a0c]/80 backdrop-blur-2xl flex items-center anim" style="animation-delay:0s">
-<div class="mx-auto max-w-[1120px] w-full flex items-center justify-between px-6">
-<div class="flex items-center gap-3.5">
-<div class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,.8)] animate-pulse"></div>
-<span class="font-extrabold tracking-tight text-[15px]" id="navTitle">LUNAR MARKET®</span>
-<span id="cc" class="text-[10px] text-white/30 ml-2 font-mono"></span>
-</div>
-<div class="hidden md:flex items-center gap-8 text-[12px] text-white/40 font-bold tracking-wide">
-<a href="#presentacion" class="nav-item hover:text-white" id="nav1">Presentación</a>
-<a href="#sobre" class="nav-item hover:text-white" id="nav2">Sobre</a>
-<a href="#servicios" class="nav-item hover:text-white" id="nav3">Servicios</a>
-<a href="#resenas" class="nav-item hover:text-white" id="nav4">Reseñas</a>
-<a href="#discord" class="nav-item hover:text-white" id="nav5">Discord</a>
-</div>
-<div class="flex items-center gap-2">
-<button class="btn-ghost h-9 px-4 text-[11px] font-bold" id="navBtnSecondary">Tienda</button>
-</div>
-</div>
-</div>
+<body class="antialiased">
+<div class="particles" id="particles"></div>
 
-<div class="mx-auto max-w-[1120px] px-6 py-12">
-<!-- 01 PRESENTACION -->
-<section id="presentacion" class="anim grid md:grid-cols-[360px_1fr] gap-10" style="animation-delay:.08s">
-<div class="card p-8 flex flex-col items-center text-center anim" style="animation-delay:.12s">
+<!-- HEADER COMO EN FOTO -->
+<div class="sticky top-0 z-50 h-[64px] border-b border-white/[0.06] bg-[#050805]/80 backdrop-blur-2xl flex items-center">
+<div class="mx-auto max-w-[1280px] w-full flex items-center justify-between px-6">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#0a1a0a] border border-[#00ff66]/40 grid place-items-center text-[16px] shadow-[0_0_15px_rgba(0,255,102,.3)]" id="logo">🌀</div>
+<span class="font-black text-[18px] tracking-tight"><span class="text-[#00ff66] drop-shadow-[0_0_10px_rgba(0,255,102,.8)]" id="navTitle1">GHOST</span> <span id="navTitle2">MARKET</span></span>
+<span id="cc" class="text-[10px] text-white/20 ml-2 font-mono"></span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-[13px] text-white/50 font-semibold">
+<a href="#nosotros" class="hover:text-[#00ff66] transition" id="navLink1">Nosotros</a>
+<a href="#reviews" class="hover:text-[#00ff66] transition" id="navLink2">Reviews</a>
+<a href="#faq" class="hover:text-[#00ff66] transition" id="navLink3">FAQ</a>
+</div>
+<div class="flex items-center gap-2.5">
 <div class="relative">
-<img id="logo" src="https://cdn.discordapp.com/attachments/1546713103679365170/1546720990371905556/IMG-20260907-WA0586.jpg?ex=6aa0cfac&is=6a9f7e2c&hm=5ddd2fb86e6719e2d3f6ce2222d71fc38bc48d934934fa52aa095d1a932008e5&" onerror="this.src='https://cdn-icons-png.flaticon.com/512/9689/9689017.png'" class="logo">
-<div class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-emerald-500 border-[3px] border-[#121216] grid place-items-center text-[11px] font-bold animate-pulse">✓</div>
-</div>
-<div class="mt-7 font-extrabold text-[18px] tracking-tight" id="bName">LUNAR MARKET®</div>
-<div class="mt-1.5 text-[10px] tracking-[0.2em] text-white/30 font-bold" id="bTag">BUILDS • BANNERS • LOGOS • MEXICO</div>
-<div class="mt-8 grid grid-cols-3 gap-3 w-full">
-<div class="bg-[#1b1b20] border border-white/[0.06] rounded-2xl py-4 hover:scale-105 transition duration-300">
-<div class="font-extrabold text-[19px]" id="stat1">1,847</div>
-<div class="text-[9px] text-white/30 mt-1 font-bold tracking-widest" id="stat1Label">VENTAS</div>
-</div>
-<div class="bg-[#1b1b20] border border-white/[0.06] rounded-2xl py-4 hover:scale-105 transition duration-300">
-<div class="font-extrabold text-[19px]" id="stat2">4.9★</div>
-<div class="text-[9px] text-white/30 mt-1 font-bold tracking-widest" id="stat2Label">RATING</div>
-</div>
-<div class="bg-[#1b1b20] border border-white/[0.06] rounded-2xl py-4 hover:scale-105 transition duration-300">
-<div class="font-extrabold text-[19px]" id="stat3">24/7</div>
-<div class="text-[9px] text-white/30 mt-1 font-bold tracking-widest" id="stat3Label">SOPORTE</div>
+<button id="countryBtn" onclick="toggleCountry()" class="flex items-center gap-2 h-9 px-3 rounded-xl bg-[#0f1a0f] border border-[#00ff66]/20 text-[11px] font-bold hover:border-[#00ff66]/40 transition">
+<span id="currentFlag">🇪🇨</span>
+<span id="currentCountry">Ecuador (USD)</span>
+<span class="text-[10px]">▼</span>
+</button>
+<div id="countryDrop" class="hidden absolute right-0 top-11 w-64 bg-[#0a1a0a] border border-[#00ff66]/20 rounded-xl p-2 z-50 shadow-[0_20px_40px_rgba(0,0,0,.6),0_0_30px_rgba(0,255,102,.15)]">
+<div class="space-y-1" id="countryList"></div>
 </div>
 </div>
-<div class="mt-5 flex items-center gap-2 text-[10px] text-white/20">
-<div class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
-<span id="onlineText">1,203 en línea</span>
+<a id="discordHeader" href="#" class="btn-discord h-9 px-4 text-[11px] flex items-center gap-2"><span>◈</span> Discord</a>
 </div>
 </div>
-<div class="pt-2">
-<h1 class="text-[56px] font-extrabold leading-[0.88] tracking-[-0.05em] anim" id="hTitle" style="animation-delay:.16s">
-Marketplace<br>
-<span class="text-white/30">premium</span> para<br>
-servidores MC
+</div>
+
+<div class="relative z-10 mx-auto max-w-[1280px] px-6">
+<!-- HERO COMO EN FOTO -->
+<section id="nosotros" class="pt-20 pb-16 text-center relative">
+<div class="absolute left-1/2 top-20 -translate-x-1/2 w-[600px] h-[600px] rounded-full border border-[#00ff66]/[0.07] pointer-events-none"></div>
+<div class="absolute left-1/2 top-20 -translate-x-1/2 w-[800px] h-[800px] rounded-full border border-[#00ff66]/[0.04] pointer-events-none"></div>
+<div class="relative">
+<div class="mx-auto w-[120px] h-[120px] relative">
+<div class="ring-glow"></div>
+<div class="ring-glow" style="animation-delay:1s"></div>
+<div class="ring-glow" style="animation-delay:2s"></div>
+<div class="logo-ghost mx-auto" id="heroLogo">🌀</div>
+</div>
+<h1 class="mt-10 text-[52px] md:text-[68px] font-black tracking-tight leading-[0.9] anim" style="animation-delay:.1s">
+<span class="text-[#00ff66] drop-shadow-[0_0_20px_rgba(0,255,102,.8)]" id="heroTitle1">GHOST</span>
+<span class="text-white" id="heroTitle2"> MARKET</span>
 </h1>
-<p class="mt-6 text-[14px] leading-[1.9] text-white/40 max-w-[460px] anim" id="hDesc" style="animation-delay:.22s">
-Builds, banners, logos y templates entregados en menos de 3 minutos. Más de 1,800 clientes satisfechos en toda LATAM.
+<p class="mt-6 text-[16px] leading-[1.6] text-[#7aff9e] max-w-[420px] mx-auto anim" id="heroDesc" style="animation-delay:.2s">
+Tu tienda de confianza · Cuentas premium &<br>servicios digitales
 </p>
-<div class="mt-10 grid grid-cols-3 gap-4 max-w-[540px] anim" style="animation-delay:.28s">
-<div class="card p-5 hover:rotate-1 transition duration-500">
-<div class="text-[10px] text-white/30 font-bold tracking-widest" id="miniStat1Title">CLIENTES</div>
-<div class="mt-3 text-[30px] font-extrabold tracking-tight" id="miniStat1Val">1,847</div>
-<div class="mt-1 text-[10px] text-white/30" id="miniStat1Desc">Activos este mes</div>
-<div class="mt-4 h-2 bg-white/5 rounded-full overflow-hidden shimmer-bar">
-<div class="h-full w-[92%] bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full"></div>
+<div class="mt-10 flex justify-center gap-3 anim" style="animation-delay:.3s">
+<a id="heroBtnDiscord" href="#" class="btn-discord h-11 px-6 text-[13px] flex items-center gap-2"><span>◈</span> Únete al Discord</a>
+<a href="#productos" class="btn-green h-11 px-6 text-[13px] flex items-center gap-1.5"><span id="heroBtnProducts">Ver Productos</span><span>↓</span></a>
 </div>
+<div class="mt-14 flex justify-center gap-3 anim" style="animation-delay:.4s">
+<div class="card-ghost px-7 py-5 text-center min-w-[110px] glow-green">
+<div class="text-[22px] font-black text-[#00ff66]" id="stat1">500+</div>
+<div class="text-[11px] text-white/50 mt-1" id="stat1Label">Ventas</div>
 </div>
-<div class="card p-5 hover:-rotate-1 transition duration-500">
-<div class="text-[10px] text-white/30 font-bold tracking-widest" id="miniStat2Title">ENTREGA</div>
-<div class="mt-3 text-[30px] font-extrabold tracking-tight" id="miniStat2Val">2.3m</div>
-<div class="mt-1 text-[10px] text-white/30" id="miniStat2Desc">Promedio real</div>
-<div class="mt-4 h-2 bg-white/5 rounded-full overflow-hidden shimmer-bar">
-<div class="h-full w-[88%] bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
+<div class="card-ghost px-7 py-5 text-center min-w-[110px] glow-green">
+<div class="text-[22px] font-black text-[#00ff66]" id="stat2">100%</div>
+<div class="text-[11px] text-white/50 mt-1" id="stat2Label">Garantía</div>
 </div>
-</div>
-<div class="card p-5 hover:rotate-1 transition duration-500">
-<div class="text-[10px] text-white/30 font-bold tracking-widest" id="miniStat3Title">SATISFACCIÓN</div>
-<div class="mt-3 text-[30px] font-extrabold tracking-tight" id="miniStat3Val">99%</div>
-<div class="mt-1 text-[10px] text-white/30" id="miniStat3Desc">Clientes felices</div>
-<div class="mt-4 h-2 bg-white/5 rounded-full overflow-hidden shimmer-bar">
-<div class="h-full w-[99%] bg-gradient-to-r from-blue-500 to-violet-500 rounded-full"></div>
-</div>
-</div>
-</div>
-<div class="mt-8 flex gap-3 anim" style="animation-delay:.34s">
-<button class="btn-primary h-12 px-7 text-[13px] flex items-center gap-2" id="heroBtn1">
-<span>Explorar tienda</span>
-<span>→</span>
-</button>
-<button class="btn-ghost h-12 px-7 text-[13px] font-bold" id="heroBtn2">Ver reseñas</button>
-</div>
-</div>
-</section>
-
-<!-- 02 SOBRE -->
-<section id="sobre" class="mt-24 anim" style="animation-delay:.38s">
-<div class="flex items-center gap-4">
-<h2 class="font-extrabold text-[13px] tracking-[0.2em] text-white/30" id="sec2Title">02 — SOBRE LUNAR MARKET</h2>
-<div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
-</div>
-<div class="mt-6 grid md:grid-cols-[1.4fr_.8fr] gap-5">
-<div class="card p-8 hover:scale-[1.01] transition duration-500">
-<p class="text-[14.5px] leading-[1.9] text-white/60" id="about">
-Lunar Market es el marketplace líder de LATAM para servidores de Minecraft. Desde 2023 ayudamos a más de 1,800 servidores a mejorar su apariencia con builds profesionales, banners animados y branding completo. Cada compra incluye schematic, soporte de instalación y garantía de satisfacción.
-</p>
-<div class="mt-6 flex flex-wrap gap-2">
-<span class="badge px-3 py-1.5" id="aboutBadge1">🇲🇽 México</span>
-<span class="badge px-3 py-1.5" id="aboutBadge2">Desde 2023</span>
-<span class="badge px-3 py-1.5" id="aboutBadge3">1,800+ clientes</span>
-<span class="badge px-3 py-1.5" id="aboutBadge4">Entrega 3min</span>
-</div>
-</div>
-<div class="card p-7">
-<div class="font-bold text-[13px]" id="whyTitle">¿Por qué Lunar Market?</div>
-<div class="mt-5 space-y-3.5 text-[12px] text-white/50">
-<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why1">Entrega en menos de 3 minutos</span></div>
-<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why2">Schematic y Litematica incluido</span></div>
-<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why3">Soporte para instalación</span></div>
-<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why4">Garantía de satisfacción</span></div>
-<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why5">Precios desde $120 MXN</span></div>
-<div class="flex gap-3"><span class="text-emerald-400">✓</span><span id="why6">Soporte 24/7 real</span></div>
+<div class="card-ghost px-7 py-5 text-center min-w-[110px] glow-green">
+<div class="text-[22px] font-black text-[#00ff66]" id="stat3">24/7</div>
+<div class="text-[11px] text-white/50 mt-1" id="stat3Label">Soporte</div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- 03 SERVICIOS -->
-<section id="servicios" class="mt-24 anim" style="animation-delay:.44s">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-4">
-<h2 class="font-extrabold text-[13px] tracking-[0.2em] text-white/30" id="sec3Title">03 — SERVICIOS</h2>
-<div class="hidden md:block h-px w-20 bg-white/10"></div>
+<!-- BEST SELLER COMO EN FOTO -->
+<section class="mt-10 anim" style="animation-delay:.5s">
+<div class="card-ghost p-8 md:p-10 relative overflow-hidden">
+<div class="absolute right-0 top-0 w-80 h-80 bg-[#00ff66]/[0.04] rounded-full blur-[60px] pointer-events-none"></div>
+<div class="relative grid md:grid-cols-[120px_1fr] gap-8">
+<div class="hidden md:grid place-items-center">
+<div class="w-24 h-24 rounded-full bg-[#0a1a0a] border-2 border-[#00ff66]/30 grid place-items-center text-[36px] shadow-[0_0_30px_rgba(0,255,102,.3)]">🌀</div>
 </div>
-<div id="catFilters" class="flex gap-2 flex-wrap"></div>
+<div>
+<div class="badge-best inline-flex items-center gap-1.5 px-3 py-1.5"><span>⭐</span> <span id="bestBadge">BEST SELLER</span></div>
+<h2 class="mt-4 text-[22px] font-black tracking-tight" id="bestTitle">MFA PERMA</h2>
+<div class="mt-3 text-[26px] font-black text-[#00ff66]" id="bestPrice">$7 USD</div>
+<p class="mt-5 text-[13px] leading-[1.7] text-[#8affa8] max-w-[700px]" id="bestDesc">
+Consigue Minecraft Premium de forma rápida, segura y al mejor precio. Recibe acceso a una cuenta de Microsoft y disfruta del juego sin complicaciones. <span class="text-[#00ff66] font-bold">Incluye garantía permanente</span> en todas las cuentas.
+</p>
+<div class="mt-6 space-y-2.5 text-[12px] text-white/70" id="bestFeatures">
+<div>❯ Minecraft Java & Bedrock PERMANENTE (29.99$).</div>
+<div>❯ Cambio de nick DISPONIBLE.</div>
+<div>❯ Incluye garantía PERMANENTE.</div>
+<div>❯ Incluye una, dos o más capas.</div>
 </div>
-<div id="sGrid" class="mt-7 grid md:grid-cols-3 gap-5"></div>
-<div id="sEmpty" class="card mt-7 h-[160px] grid place-items-center">
+<button class="btn-green mt-8 h-11 px-6 text-[12px]" id="bestBtn">Ver opciones ↓</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos" class="mt-20 anim" style="animation-delay:.6s">
 <div class="text-center">
-<div class="text-[30px] animate-[float_3s_ease-in-out_infinite]">📦</div>
-<div class="mt-3 text-[13px] text-white/30 font-bold" id="sEmptyTitle">No hay servicios</div>
-<div class="mt-1 text-[11px] text-white/20" id="sEmptyDesc">Los servicios aparecerán aquí</div>
+<h2 class="text-[36px] font-black text-[#00ff66] drop-shadow-[0_0_15px_rgba(0,255,102,.5)]" id="productosTitle">Productos</h2>
+<p class="mt-3 text-[13px] text-[#7aff9e]" id="productosDesc">Explora nuestra colección premium de cuentas y servicios digitales</p>
 </div>
+<div class="mt-10 flex justify-center">
+<div class="flex flex-wrap justify-center gap-2 bg-[#0a1a0a] border border-[#00ff66]/10 rounded-full p-2" id="catFilters"></div>
 </div>
+<div id="sGrid" class="mt-8 grid md:grid-cols-4 gap-4"></div>
+<div id="sEmpty" class="card-ghost mt-8 h-[160px] grid place-items-center"><div class="text-center"><div class="text-[28px]">📦</div><div class="mt-2 text-[12px] text-white/30" id="sEmptyText">No hay productos en esta categoría</div></div></div>
 </section>
 
-<!-- 04 RESEÑAS -->
-<section id="resenas" class="mt-24 anim" style="animation-delay:.5s">
+<!-- REVIEWS -->
+<section id="reviews" class="mt-24 anim" style="animation-delay:.7s">
 <div class="flex items-center justify-between">
-<div class="flex items-center gap-4">
-<h2 class="font-extrabold text-[13px] tracking-[0.2em] text-white/30" id="sec4Title">04 — RESEÑAS VERIFICADAS</h2>
-<div class="hidden md:block h-px w-20 bg-white/10"></div>
+<h2 class="font-black text-[20px]" id="reviewsTitle">Reviews verificadas</h2>
+<button onclick="openReviewModal()" class="btn-green h-10 px-5 text-[12px] flex items-center gap-2"><span>✦</span> <span id="reviewBtnText">Dejar reseña con código</span></button>
 </div>
-<button onclick="openReviewModal()" class="group h-12 px-6 rounded-full bg-white text-black text-[12px] font-extrabold flex items-center gap-2.5 hover:scale-105 active:scale-95 transition">
-<span class="w-6 h-6 rounded-full bg-black text-white grid place-items-center text-[14px] group-hover:rotate-90 transition duration-500">✦</span>
-<span id="reviewBtnText">Dejar reseña con código</span>
-</button>
-</div>
-<div class="mt-4 flex items-center gap-3 text-[11px] text-white/30">
-<span id="rCount" class="font-bold">0 reseñas verificadas</span>
+<div class="mt-3 flex items-center gap-3 text-[11px] text-white/40">
+<span id="rCount" class="font-bold">0 reseñas</span>
 <span class="w-1 h-1 rounded-full bg-white/20"></span>
 <span id="rAvgText">⭐ 4.9 promedio</span>
 <span class="w-1 h-1 rounded-full bg-white/20"></span>
-<span class="text-emerald-400 animate-pulse" id="rVerifText">● Verificadas con código</span>
+<span class="text-[#00ff66]" id="rVerifText">● Verificadas con código</span>
 </div>
-<div id="rGrid" class="mt-7 grid md:grid-cols-3 gap-5"></div>
-<div id="rEmpty" class="card mt-7 h-[150px] grid place-items-center">
-<div class="text-center">
-<div class="text-[28px]">💬</div>
-<div class="mt-3 text-[13px] text-white/30 font-bold" id="rEmptyTitle">Las reseñas aparecerán aquí</div>
-<div class="mt-1 text-[11px] text-white/20" id="rEmptyDesc">Solo clientes con código especial pueden opinar</div>
-</div>
-</div>
+<div id="rGrid" class="mt-6 grid md:grid-cols-3 gap-4"></div>
+<div id="rEmpty" class="card-ghost mt-6 h-[120px] grid place-items-center"><div class="text-center"><div class="text-[22px]">💬</div><div class="mt-2 text-[12px] text-white/30" id="rEmptyText">Las reseñas aparecerán aquí</div></div></div>
 </section>
 
-<!-- 05 DISCORD -->
-<section id="discord" class="mt-24 pb-32 anim" style="animation-delay:.56s">
-<div class="flex items-center gap-4">
-<h2 class="font-extrabold text-[13px] tracking-[0.2em] text-white/30" id="sec5Title">05 — DISCORD</h2>
-<div class="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent"></div>
-</div>
-<div class="card mt-7 p-12 text-center relative overflow-hidden hover:scale-[1.01] transition duration-700">
-<div class="absolute inset-0 bg-gradient-to-b from-violet-500/[0.08] via-fuchsia-500/[0.03] to-transparent pointer-events-none"></div>
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,.15),transparent_60%)] pointer-events-none"></div>
-<div class="relative">
-<div class="w-20 h-20 mx-auto rounded-[20px] bg-[#5865f2] grid place-items-center text-[32px] shadow-[0_0_40px_rgba(88,101,242,.5)] animate-[float_4s_ease-in-out_infinite]">◈</div>
-<div class="mt-8 font-extrabold text-[20px] tracking-tight" id="dTitle">Discord Oficial Lunar Market</div>
-<div class="mt-3 text-[13px] text-white/40 max-w-[400px] mx-auto leading-[1.6]" id="dDesc">1,203 miembros • Soporte instantáneo • Entregas automáticas • Comunidad activa</div>
-<div class="mt-8 flex justify-center gap-3">
-<a id="dLink" href="https://discord.gg/lunar" target="_blank" class="btn-primary h-12 px-8 text-[13px] inline-flex items-center gap-2 hover:gap-3 transition-all">
-<span id="dBtnText">Unirse al Discord</span>
-<span>→</span>
-</a>
-</div>
-<div class="mt-5 flex justify-center gap-2 text-[10px] text-white/20 font-mono">
-<span id="dLinkText">discord.gg/lunar-market</span>
-<span>•</span>
-<span id="dMembersText">1,203 miembros</span>
-</div>
+<section id="faq" class="mt-24 pb-24 anim" style="animation-delay:.8s">
+<h2 class="font-black text-[20px]" id="faqTitle">FAQ — Preguntas frecuentes</h2>
+<div class="card-ghost mt-6 p-8">
+<div class="space-y-4 text-[13px] text-white/60" id="faqContent">
+<div><b class="text-white">¿Entrega inmediata?</b><br>Sí, menos de 5 minutos después del pago.</div>
+<div><b class="text-white">¿Garantía?</b><br>Permanente en productos marcados como PERMA.</div>
+<div><b class="text-white">¿Soporte?</b><br>24/7 por Discord.</div>
 </div>
 </div>
 </section>
 </div>
 
-<!-- MODAL RESEÑA 1-5 ESTRELLAS -->
-<div id="reviewModal" class="fixed inset-0 bg-black/80 backdrop-blur-2xl hidden z-[65] grid place-items-center p-4">
-<div class="card p-8 w-full max-w-[480px] anim">
-<div class="flex justify-between items-center">
-<h3 class="font-extrabold text-[15px]" id="modalReviewTitle">Dejar reseña verificada</h3>
-<button onclick="reviewModal.classList.add('hidden')" class="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 grid place-items-center transition">✕</button>
-</div>
-<p class="text-[11px] text-white/40 mt-2 leading-[1.6]" id="modalReviewDesc">Ingresa el código que te dio el staff después de tu compra.</p>
-<div class="mt-6 space-y-4">
-<input id="clientCode" class="input w-full h-12 px-4 text-[12px] font-mono" placeholder="LUNAR-XXXX">
-<input id="clientName" class="input w-full h-12 px-4 text-[12px]" placeholder="Tu nombre @ejemplo">
-<select id="clientService" class="input w-full h-12 px-4 text-[12px]"></select>
-<div class="bg-[#1a1a1f] border border-white/5 rounded-2xl p-5">
-<div class="flex justify-between items-center">
-<div class="text-[11px] text-white/40 font-bold tracking-wide" id="starLabel">CALIFICACIÓN</div>
-<div class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white/5 border border-white/10" id="starValue">5/5</div>
-</div>
-<div class="flex gap-2.5 mt-3" id="starSelector">
+<!-- MODAL RESEÑA 1-5 -->
+<div id="reviewModal" class="fixed inset-0 bg-black/80 backdrop-blur-xl hidden z-[65] grid place-items-center p-4">
+<div class="card-ghost p-7 w-full max-w-[460px] bg-[#0a1a0a]">
+<div class="flex justify-between"><h3 class="font-black text-[14px]" id="modalReviewTitle">Dejar reseña verificada</h3><button onclick="reviewModal.classList.add('hidden')" class="w-8 h-8 rounded-full bg-white/5 grid place-items-center">✕</button></div>
+<p class="text-[11px] text-white/40 mt-2" id="modalReviewDesc">Necesitas un código especial del staff.</p>
+<div class="mt-5 space-y-3">
+<input id="clientCode" class="input-ghost w-full h-11 px-4 text-[12px] font-mono" placeholder="GHOST-XXXX">
+<input id="clientName" class="input-ghost w-full h-11 px-4 text-[12px]" placeholder="Tu nombre">
+<select id="clientService" class="input-ghost w-full h-11 px-4 text-[12px]"></select>
+<div class="bg-[#0f1f0f] border border-[#00ff66]/10 rounded-xl p-4">
+<div class="text-[11px] text-white/40 font-bold" id="starLabel">CALIFICACIÓN</div>
+<div class="flex gap-2 mt-2" id="starSelector">
 <span class="star" data-v="1" onclick="setStars(1)">☆</span>
 <span class="star" data-v="2" onclick="setStars(2)">☆</span>
 <span class="star" data-v="3" onclick="setStars(3)">☆</span>
 <span class="star" data-v="4" onclick="setStars(4)">☆</span>
 <span class="star active" data-v="5" onclick="setStars(5)">★</span>
 </div>
-<div class="text-[12px] font-bold mt-3" id="starText">5 estrellas — Excelente</div>
-<div class="mt-1 text-[10px] text-white/30" id="starDesc">Experiencia perfecta, recomendado</div>
+<div class="text-[12px] font-bold mt-2 text-[#00ff66]" id="starText">5 estrellas - Excelente</div>
 </div>
-<textarea id="clientText" class="input w-full h-32 p-4 text-[12px] resize-none" placeholder="Cuéntanos tu experiencia con Lunar Market..."></textarea>
-<button onclick="submitClientReview()" class="w-full h-12 rounded-full bg-white text-black font-extrabold text-[12px] hover:scale-[1.01] active:scale-[0.99] transition" id="modalBtnText">Enviar para revisión ✓</button>
-<div id="reviewError" class="hidden text-[11px] text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl p-3.5"></div>
-<p class="text-[10px] text-white/20 text-center leading-[1.5]" id="modalFooter">Tu reseña será revisada por el staff antes de aparecer en la web.</p>
+<textarea id="clientText" class="input-ghost w-full h-28 p-4 text-[12px]" placeholder="Tu experiencia..."></textarea>
+<button onclick="submitClientReview()" class="w-full h-11 rounded-xl bg-[#00ff66] text-black font-black text-[12px]">Enviar reseña</button>
+<div id="reviewError" class="hidden text-[11px] text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl p-3"></div>
 </div>
 </div>
 </div>
 
-<!-- MODAL PASSWORD -->
-<div id="passM" class="fixed inset-0 bg-black/80 backdrop-blur-2xl hidden z-[60] grid place-items-center p-4">
-<div class="card p-8 w-full max-w-[380px] anim">
-<div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 grid place-items-center text-[20px] mx-auto">🔒</div>
-<h3 class="font-extrabold text-[15px] text-center mt-5" id="passTitle">Acceso administrador</h3>
-<p class="text-[11px] text-white/40 mt-2 text-center leading-[1.6]" id="passDesc">Ingresa tu clave privada para acceder al panel</p>
-<input id="passI" type="password" class="input w-full h-12 px-4 mt-6 text-[13px]" placeholder="••••••••">
-<div class="flex gap-2.5 mt-4">
-<button onclick="checkP()" class="flex-1 h-11 rounded-full bg-white text-black font-extrabold text-[12px] hover:scale-[1.02] transition" id="passBtn1">Entrar</button>
-<button onclick="passM.classList.add('hidden')" class="flex-1 h-11 rounded-full bg-white/5 border border-white/10 text-[12px] hover:bg-white/10 transition" id="passBtn2">Cancelar</button>
-</div>
-<p id="passE" class="hidden text-[11px] text-red-400 mt-4 bg-red-500/10 border border-red-500/20 rounded-xl p-3 text-center">Clave incorrecta</p>
+<!-- ADMIN LOGIN -->
+<div id="passM" class="fixed inset-0 bg-black/80 backdrop-blur-xl hidden z-[60] grid place-items-center p-4">
+<div class="card-ghost p-7 w-full max-w-[360px] bg-[#0a1a0a]">
+<h3 class="font-black text-[14px]">Acceso administrador</h3>
+<input id="passI" type="password" class="input-ghost w-full h-11 px-4 mt-4 text-[12px]" placeholder="••••••••">
+<div class="flex gap-2 mt-3"><button onclick="checkP()" class="flex-1 h-10 rounded-xl bg-white text-black font-bold text-[12px]">Entrar</button><button onclick="passM.classList.add('hidden')" class="flex-1 h-10 rounded-xl bg-white/5 border border-white/10 text-[12px]">Cancelar</button></div>
+<p id="passE" class="hidden text-[11px] text-red-400 mt-2">Clave incorrecta</p>
 </div>
 </div>
 
-<!-- ADMIN PANEL COMPLETO -->
-<div id="admin" class="fixed inset-0 bg-[#08080a] hidden z-[70] overflow-auto">
-<div class="sticky top-0 bg-[#0a0a0c]/90 backdrop-blur-2xl border-b border-white/[0.06] h-[68px] flex items-center justify-between px-8 z-10">
-<div class="flex items-center gap-3">
-<div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
-<span class="font-extrabold text-[14px] tracking-tight">LUNAR ADMIN PANEL — TODO EDITABLE</span>
-<span class="text-[10px] px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold">● ACTIVO</span>
-</div>
-<button onclick="admin.classList.add('hidden')" class="bg-white text-black rounded-full px-6 h-10 text-[11px] font-extrabold hover:scale-105 transition">Cerrar ✕</button>
-</div>
-<div class="max-w-[1300px] mx-auto p-8 grid md:grid-cols-[250px_1fr] gap-8">
+<!-- ADMIN PANEL GHOST -->
+<div id="admin" class="fixed inset-0 bg-[#050805] hidden z-[70] overflow-auto">
+<div class="sticky top-0 bg-[#050805]/90 backdrop-blur-2xl border-b border-[#00ff66]/10 h-[64px] flex items-center justify-between px-7"><span class="font-black text-[14px]"><span class="text-[#00ff66]">GHOST</span> ADMIN — EDITAR TODO</span><button onclick="admin.classList.add('hidden')" class="bg-white text-black rounded-full px-5 h-9 text-[11px] font-bold">Cerrar ✕</button></div>
+<div class="max-w-[1300px] mx-auto p-7 grid md:grid-cols-[240px_1fr] gap-7">
 <div class="space-y-1.5">
-<button onclick="tab('dash')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-white text-black font-bold text-[11px] flex items-center gap-2.5" data-t="dash"><span>📊</span> Dashboard</button>
-<button onclick="tab('alltext')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] font-bold text-violet-300 flex items-center gap-2.5" data-t="alltext"><span>✏️</span> EDITAR TODO EL TEXTO</button>
-<button onclick="tab('cats')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="cats"><span>📁</span> Categorías</button>
-<button onclick="tab('serv')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="serv"><span>🛠️</span> Servicios</button>
-<button onclick="tab('codes')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="codes"><span>🔑</span> Códigos</button>
-<button onclick="tab('pend')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="pend"><span>⏳</span> Pendientes (<span id="pC">0</span>)</button>
-<button onclick="tab('appr')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="appr"><span>✅</span> Aprobadas</button>
-<button onclick="tab('stats')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5" data-t="stats"><span>📈</span> Estadísticas</button>
-<div class="pt-4 mt-4 border-t border-white/5">
-<div class="text-[10px] text-white/20 font-bold tracking-widest px-4">ATAJOS</div>
-<div class="mt-2 space-y-1 text-[10px] text-white/30 px-4 leading-[1.6]">
-<div>• 10 toques logo = admin</div>
-<div>• Clave privada oculta</div>
-<div>• Códigos 1 uso</div>
-</div>
-</div>
+<button onclick="tab('dash')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-white text-black font-bold text-[11px]" data-t="dash">📊 Dashboard</button>
+<button onclick="tab('alltext')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-[#00ff66]/20 text-[11px] font-bold text-[#00ff66]" data-t="alltext">✏️ EDITAR TODO EL TEXTO</button>
+<button onclick="tab('cats')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="cats">📁 Categorías (Bots, Logos...)</button>
+<button onclick="tab('serv')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="serv">🛠️ Servicios / Productos</button>
+<button onclick="tab('codes')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="codes">🔑 Códigos reseñas</button>
+<button onclick="tab('pend')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="pend">⏳ Pendientes (<span id="pC">0</span>)</button>
+<button onclick="tab('appr')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="appr">✅ Aprobadas</button>
+<button onclick="tab('stats')" class="tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]" data-t="stats">📈 Estadísticas</button>
 </div>
 <div>
-<div id="t-dash" class="tt">
-<div class="grid grid-cols-3 gap-4">
-<div class="card p-6 hover:rotate-1 transition duration-500"><div class="text-[10px] text-white/30 font-bold tracking-widest">SERVICIOS ACTIVOS</div><div class="text-[32px] font-extrabold mt-3 tracking-tight" id="dServ">0</div><div class="mt-2 text-[11px] text-white/40">En la tienda ahora</div><div class="mt-4 h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[70%] bg-violet-500 rounded-full shimmer-bar"></div></div></div>
-<div class="card p-6 hover:-rotate-1 transition duration-500"><div class="text-[10px] text-white/30 font-bold tracking-widest">RESEÑAS VERIFICADAS</div><div class="text-[32px] font-extrabold mt-3 tracking-tight" id="dRev">0</div><div class="mt-2 text-[11px] text-emerald-400">● Verificadas con código</div><div class="mt-4 h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[90%] bg-emerald-500 rounded-full shimmer-bar"></div></div></div>
-<div class="card p-6 hover:rotate-1 transition duration-500"><div class="text-[10px] text-white/30 font-bold tracking-widest">CÓDIGOS DISPONIBLES</div><div class="text-[32px] font-extrabold mt-3 tracking-tight" id="dCodes">0</div><div class="mt-2 text-[11px] text-white/40">Sin usar, listos para clientes</div><div class="mt-4 h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[60%] bg-blue-500 rounded-full shimmer-bar"></div></div></div>
-</div>
-<div class="card p-6 mt-6">
-<div class="font-bold text-[13px]">Actividad reciente</div>
-<div id="activity" class="mt-4 space-y-2.5 text-[11px] text-white/40"></div>
-</div>
-</div>
-
-<div id="t-alltext" class="tt hidden">
-<div class="card p-7">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 grid place-items-center">✏️</div>
-<div>
-<h3 class="font-extrabold text-[15px]">Editar todo el texto de la web</h3>
-<p class="text-[11px] text-white/40 mt-1">Cada texto que ves en la página se puede editar aquí. Sin excepciones.</p>
-</div>
-</div>
-<div class="mt-8 space-y-6 max-h-[65vh] overflow-auto pr-2">
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">NAVEGACIÓN SUPERIOR</label><input id="eNavTitle" class="input w-full h-11 px-4 text-[12px]" placeholder="Título nav"><div class="grid grid-cols-2 md:grid-cols-5 gap-2"><input id="eNav1" class="input h-10 px-3 text-[11px]" placeholder="Link 1"><input id="eNav2" class="input h-10 px-3 text-[11px]" placeholder="Link 2"><input id="eNav3" class="input h-10 px-3 text-[11px]" placeholder="Link 3"><input id="eNav4" class="input h-10 px-3 text-[11px]" placeholder="Link 4"><input id="eNav5" class="input h-10 px-3 text-[11px]" placeholder="Link 5"></div><div class="grid grid-cols-2 gap-2"><input id="eNavBtnSecondary" class="input h-10 px-3 text-[11px]" placeholder="Botón secundario"><input id="eOnlineText" class="input h-10 px-3 text-[11px]" placeholder="Texto online"></div></div>
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">HERO / PRESENTACIÓN</label><input id="eBName" class="input w-full h-11 px-4 text-[12px]" placeholder="Nombre marca"><input id="eBTag" class="input w-full h-11 px-4 text-[12px]" placeholder="Tagline"><textarea id="eHTitle" class="input w-full h-24 p-4 text-[12px]" placeholder="Título grande con HTML"></textarea><textarea id="eHDesc" class="input w-full h-24 p-4 text-[12px]" placeholder="Descripción hero"></textarea><div class="grid grid-cols-3 gap-2"><input id="eStat1" class="input h-10 px-3 text-[11px]" placeholder="Stat 1 valor"><input id="eStat1Label" class="input h-10 px-3 text-[11px]" placeholder="Stat 1 label"><input id="eStat2" class="input h-10 px-3 text-[11px]"><input id="eStat2Label" class="input h-10 px-3 text-[11px]"><input id="eStat3" class="input h-10 px-3 text-[11px]"><input id="eStat3Label" class="input h-10 px-3 text-[11px]"></div><div class="grid grid-cols-2 gap-2"><input id="eMiniStat1Title" class="input h-10 px-3 text-[11px]"><input id="eMiniStat1Val" class="input h-10 px-3 text-[11px]"><input id="eMiniStat1Desc" class="input h-10 px-3 text-[11px]"><input id="eMiniStat2Title" class="input h-10 px-3 text-[11px]"><input id="eMiniStat2Val" class="input h-10 px-3 text-[11px]"><input id="eMiniStat2Desc" class="input h-10 px-3 text-[11px]"><input id="eMiniStat3Title" class="input h-10 px-3 text-[11px]"><input id="eMiniStat3Val" class="input h-10 px-3 text-[11px]"><input id="eMiniStat3Desc" class="input h-10 px-3 text-[11px]"></div><div class="grid grid-cols-2 gap-2"><input id="eHeroBtn1" class="input h-10 px-3 text-[11px]" placeholder="Botón principal"><input id="eHeroBtn2" class="input h-10 px-3 text-[11px]" placeholder="Botón secundario"></div></div>
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">TÍTULOS DE SECCIONES</label><input id="eSec2Title" class="input w-full h-11 px-4 text-[12px]"><input id="eSec3Title" class="input w-full h-11 px-4 text-[12px]"><input id="eSec4Title" class="input w-full h-11 px-4 text-[12px]"><input id="eSec5Title" class="input w-full h-11 px-4 text-[12px]"></div>
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">SOBRE LUNAR MARKET</label><textarea id="eAbout" class="input w-full h-32 p-4 text-[12px]"></textarea><div class="grid grid-cols-2 gap-2"><input id="eAboutBadge1" class="input h-10 px-3 text-[11px]"><input id="eAboutBadge2" class="input h-10 px-3 text-[11px]"><input id="eAboutBadge3" class="input h-10 px-3 text-[11px]"><input id="eAboutBadge4" class="input h-10 px-3 text-[11px]"><input id="eWhyTitle" class="input h-10 px-3 text-[11px]"><input id="eWhy1" class="input h-10 px-3 text-[11px]"><input id="eWhy2" class="input h-10 px-3 text-[11px]"><input id="eWhy3" class="input h-10 px-3 text-[11px]"><input id="eWhy4" class="input h-10 px-3 text-[11px]"><input id="eWhy5" class="input h-10 px-3 text-[11px]"><input id="eWhy6" class="input h-10 px-3 text-[11px]"></div></div>
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">SERVICIOS</label><input id="eSEmptyTitle" class="input w-full h-11 px-4 text-[12px]" placeholder="Título vacío"><input id="eSEmptyDesc" class="input w-full h-11 px-4 text-[12px]" placeholder="Descripción vacío"></div>
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">RESEÑAS - TEXTOS</label><input id="eReviewBtnText" class="input w-full h-11 px-4 text-[12px]"><input id="eRAvgText" class="input w-full h-11 px-4 text-[12px]"><input id="eRVerifText" class="input w-full h-11 px-4 text-[12px]"><input id="eREmptyTitle" class="input w-full h-11 px-4 text-[12px]"><input id="eREmptyDesc" class="input w-full h-11 px-4 text-[12px]"></div>
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">MODAL RESEÑA</label><input id="eModalReviewTitle" class="input w-full h-11 px-4 text-[12px]"><input id="eModalReviewDesc" class="input w-full h-11 px-4 text-[12px]"><input id="eStarLabel" class="input w-full h-11 px-4 text-[12px]"><input id="eStarDesc" class="input w-full h-11 px-4 text-[12px]"><input id="eModalBtnText" class="input w-full h-11 px-4 text-[12px]"><input id="eModalFooter" class="input w-full h-11 px-4 text-[12px]"></div>
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">DISCORD</label><input id="eDTitle" class="input w-full h-11 px-4 text-[12px]"><input id="eDDesc" class="input w-full h-11 px-4 text-[12px]"><input id="eDBtnText" class="input w-full h-11 px-4 text-[12px]"><input id="eDLinkText" class="input w-full h-11 px-4 text-[12px]"><input id="eDMembersText" class="input w-full h-11 px-4 text-[12px]"><input id="eDLink" class="input w-full h-11 px-4 text-[12px]"></div>
-<div class="space-y-3"><label class="text-[11px] text-violet-300 font-bold tracking-wide">LOGIN ADMIN</label><input id="ePassTitle" class="input w-full h-11 px-4 text-[12px]"><input id="ePassDesc" class="input w-full h-11 px-4 text-[12px]"><input id="ePassBtn1" class="input w-full h-11 px-4 text-[12px]"><input id="ePassBtn2" class="input w-full h-11 px-4 text-[12px]"></div>
-<button onclick="saveAllText()" class="w-full h-13 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 font-extrabold text-[13px] hover:scale-[1.02] active:scale-[0.98] transition py-3">💾 Guardar TODO el texto de la web</button>
-</div>
-</div>
-</div>
-<div id="t-cats" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Categorías de servicios</h3><p class="text-[11px] text-white/40 mt-1">Crea categorías como Bots, Logos, Builds, etc.</p><div class="mt-5 flex gap-2"><input id="catName" class="input flex-1 h-11 px-4 text-[12px]" placeholder="Nombre: Bots"><input id="catEmoji" class="input w-20 h-11 px-4 text-[12px]" placeholder="🤖"><button onclick="addCat()" class="h-11 px-6 rounded-full bg-white text-black font-bold text-[11px] hover:scale-105 transition">Crear</button></div><div id="catList" class="mt-7 space-y-2"></div></div></div>
-<div id="t-serv" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Servicios</h3><div class="mt-5 grid gap-3"><input id="sN" class="input h-11 px-4 text-[12px]" placeholder="Nombre del servicio"><select id="sCat" class="input h-11 px-4 text-[12px]"></select><input id="sDesc2" class="input h-11 px-4 text-[12px]" placeholder="Descripción corta"><input id="sPrice2" class="input h-11 px-4 text-[12px]" placeholder="Precio: Desde $250 MXN"><input id="sEmoji2" class="input h-11 px-4 text-[12px]" placeholder="Emoji: 🏰"><button onclick="addServ()" class="h-11 rounded-full bg-white text-black font-bold text-[11px] hover:scale-[1.02] transition">Agregar servicio</button></div><div id="servList" class="mt-7 space-y-2"></div></div></div>
-<div id="t-codes" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Códigos de reseña — 1 uso</h3><p class="text-[11px] text-white/40 mt-1">Solo con código válido se puede dejar reseña. 1 código = 1 reseña.</p><div class="mt-5 flex gap-2"><button onclick="genCode()" class="h-11 px-6 rounded-full bg-violet-600 font-bold text-[11px] hover:scale-105 transition">Generar código</button><button onclick="genBulk()" class="h-11 px-6 rounded-full bg-white/5 border border-white/10 text-[11px] hover:bg-white/10 transition">Generar 5 códigos</button></div><div id="codeList" class="mt-7 space-y-2"></div></div></div>
-<div id="t-pend" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Reseñas pendientes de aprobación</h3><div id="pendList" class="mt-6 space-y-3"></div></div></div>
-<div id="t-appr" class="tt hidden"><div class="card p-7"><h3 class="font-bold text-[14px]">Reseñas aprobadas — Editable</h3><p class="text-[11px] text-white/40 mt-1">Aquí puedes editar el texto y las estrellas (1-5) de cada reseña.</p><div id="apprList" class="mt-6 space-y-3"></div></div></div>
-<div id="t-stats" class="tt hidden"><div class="grid grid-cols-2 gap-5"><div class="card p-7"><div class="text-[10px] text-white/30 font-bold tracking-widest">POR CATEGORÍA</div><div id="statsCat" class="mt-5 space-y-2.5 text-[12px]"></div></div><div class="card p-7"><div class="text-[10px] text-white/30 font-bold tracking-widest">RENDIMIENTO GLOBAL</div><div class="mt-5"><div class="text-[36px] font-extrabold tracking-tight" id="statsRating">4.9/5.0</div><div class="mt-2 text-[11px] text-white/40">Basado en reseñas verificadas con código</div><div class="mt-5 h-2.5 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[98%] bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full shimmer-bar"></div></div><div class="mt-4 grid grid-cols-5 gap-1.5 text-[10px] text-white/20"><div>1★</div><div>2★</div><div>3★</div><div>4★</div><div>5★</div></div></div></div></div></div>
+<div id="t-dash" class="tt"><div class="grid grid-cols-3 gap-4"><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">PRODUCTOS</div><div class="text-[28px] font-black mt-2 text-[#00ff66]" id="dServ">0</div></div><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">RESEÑAS</div><div class="text-[28px] font-black mt-2 text-[#00ff66]" id="dRev">0</div></div><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">CÓDIGOS LIBRES</div><div class="text-[28px] font-black mt-2 text-[#00ff66]" id="dCodes">0</div></div></div></div>
+<div id="t-alltext" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-black text-[14px]">EDITAR TODO EL TEXTO</h3><div class="mt-5 space-y-3 max-h-[70vh] overflow-auto pr-2"><input id="eHeroTitle1" class="input-ghost w-full h-10 px-3 text-[11px]" placeholder="GHOST"><input id="eHeroTitle2" class="input-ghost w-full h-10 px-3 text-[11px]" placeholder="MARKET"><textarea id="eHeroDesc" class="input-ghost w-full h-20 p-3 text-[11px]"></textarea><input id="eProductosTitle" class="input-ghost w-full h-10 px-3 text-[11px]" placeholder="Productos"><input id="eProductosDesc" class="input-ghost w-full h-10 px-3 text-[11px]"><input id="eBestTitle" class="input-ghost w-full h-10 px-3 text-[11px]"><input id="eBestPrice" class="input-ghost w-full h-10 px-3 text-[11px]"><textarea id="eBestDesc" class="input-ghost w-full h-24 p-3 text-[11px]"></textarea><input id="eReviewsTitle" class="input-ghost w-full h-10 px-3 text-[11px]"><input id="eFaqTitle" class="input-ghost w-full h-10 px-3 text-[11px]"><button onclick="saveAllText()" class="w-full h-11 rounded-xl bg-[#00ff66] text-black font-black text-[12px]">💾 Guardar todo el texto</button></div></div></div>
+<div id="t-cats" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Categorías — Ejemplo: Bots, Logos, Builds</h3><div class="mt-4 flex gap-2"><input id="catName" class="input-ghost flex-1 h-11 px-4 text-[12px]" placeholder="Nombre: MINECRAFT"><input id="catEmoji" class="input-ghost w-24 h-11 px-4 text-[12px]" placeholder="MINECRAFT"><button onclick="addCat()" class="h-11 px-6 rounded-xl bg-[#00ff66] text-black font-bold text-[11px]">Crear categoría</button></div><div id="catList" class="mt-6 space-y-2"></div></div></div>
+<div id="t-serv" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Agregar producto / servicio</h3><div class="mt-4 grid gap-2.5"><input id="sN" class="input-ghost h-11 px-4 text-[12px]" placeholder="Nombre: MFA | CAPES 1"><select id="sCat" class="input-ghost h-11 px-4 text-[12px]"></select><input id="sPrice2" class="input-ghost h-11 px-4 text-[12px]" placeholder="Precio: $5 USD"><input id="sDesc2" class="input-ghost h-11 px-4 text-[12px]" placeholder="Descripción corta"><select id="sStatus" class="input-ghost h-11 px-4 text-[12px]"><option value="disponible">Disponible</option><option value="agotado">Agotado</option></select><button onclick="addServ()" class="h-11 rounded-xl bg-white text-black font-bold text-[11px]">Agregar producto</button></div><div id="servList" class="mt-6 space-y-2"></div></div></div>
+<div id="t-codes" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Códigos especiales — Solo con código se deja reseña</h3><div class="mt-4 flex gap-2"><button onclick="genCode()" class="h-11 px-6 rounded-xl bg-[#00ff66] text-black font-bold text-[11px]">Generar GHOST-XXXX</button><button onclick="genBulk()" class="h-11 px-6 rounded-xl bg-white/5 border border-white/10 text-[11px]">Generar 5</button></div><div id="codeList" class="mt-6 space-y-2"></div></div></div>
+<div id="t-pend" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Pendientes — Requieren nombre + código</h3><div id="pendList" class="mt-5 space-y-3"></div></div></div>
+<div id="t-appr" class="tt hidden"><div class="card-ghost p-6"><h3 class="font-bold text-[13px]">Aprobadas — 1 a 5 estrellas editable</h3><div id="apprList" class="mt-5 space-y-3"></div></div></div>
+<div id="t-stats" class="tt hidden"><div class="grid grid-cols-2 gap-4"><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">POR CATEGORÍA</div><div id="statsCat" class="mt-4 space-y-2 text-[12px]"></div></div><div class="card-ghost p-6"><div class="text-[10px] text-white/30 font-bold">RENDIMIENTO</div><div class="mt-4"><div class="text-[32px] font-black text-[#00ff66]">4.9/5.0</div><div class="mt-2 h-2 bg-white/5 rounded-full overflow-hidden"><div class="h-full w-[98%] bg-[#00ff66] rounded-full"></div></div></div></div></div></div>
 </div></div></div>
 
 <script>
-// DATA COMPLETA
+// PARTICULAS
+let pCont=document.getElementById('particles');
+for(let i=0;i<60;i++){let d=document.createElement('div');d.className='particle';d.style.left=Math.random()*100+'%';d.style.animationDelay=Math.random()*20+'s';d.style.animationDuration=(15+Math.random()*15)+'s';pCont.appendChild(d);}
+
+// PAISES COMO EN FOTO
+let countries=[
+{flag:'🇵🇪',name:'Perú',code:'PEN'},
+{flag:'🇨🇱',name:'Chile',code:'CLP'},
+{flag:'🇪🇨',name:'Ecuador',code:'USD',active:true},
+{flag:'🇨🇴',name:'Colombia',code:'COP'},
+{flag:'🇲🇽',name:'México',code:'MXN'},
+{flag:'🇦🇷',name:'Argentina',code:'ARS'},
+{flag:'🇺🇸',name:'USDT · Crypto',code:'USDT'},
+];
+let currentCountryData=countries[2];
+function renderCountries(){
+let html=countries.map(c=>`<div onclick="selectCountry('${c.name}')" class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-[#00ff66]/10 cursor-pointer ${c.active?'bg-[#00ff66]/10 border border-[#00ff66]/20':''}"><div class="flex items-center gap-2.5"><span>${c.flag}</span><span class="text-[12px]">${c.name}</span></div><span class="text-[10px] text-[#00ff66]">${c.code} ${c.active?'✓':''}</span></div>`).join('');
+document.getElementById('countryList').innerHTML=html;
+}
+function toggleCountry(){document.getElementById('countryDrop').classList.toggle('hidden');}
+function selectCountry(name){countries.forEach(c=>c.active=c.name===name);currentCountryData=countries.find(c=>c.name===name);document.getElementById('currentFlag').textContent=currentCountryData.flag;document.getElementById('currentCountry').textContent=currentCountryData.name+' ('+currentCountryData.code+')';renderCountries();toggleCountry();render();}
+renderCountries();
+
+// DATA
 let clicks=0, filterCat='all', currentStars=5;
-let data=JSON.parse(localStorage.getItem('lunar_v21')||`{
-"texts":{
-"navTitle":"LUNAR MARKET®","nav1":"Presentación","nav2":"Sobre","nav3":"Servicios","nav4":"Reseñas","nav5":"Discord","navBtnSecondary":"Tienda","onlineText":"1,203 en línea",
-"bName":"LUNAR MARKET®","bTag":"BUILDS • BANNERS • LOGOS • MEXICO","stat1":"1,847","stat1Label":"VENTAS","stat2":"4.9★","stat2Label":"RATING","stat3":"24/7","stat3Label":"SOPORTE",
-"hTitle":"Marketplace<br><span class=text-white/30>premium</span> para<br>servidores MC","hDesc":"Builds, banners, logos y templates entregados en menos de 3 minutos. Más de 1,800 clientes satisfechos en toda LATAM.",
-"miniStat1Title":"CLIENTES","miniStat1Val":"1,847","miniStat1Desc":"Activos este mes","miniStat2Title":"ENTREGA","miniStat2Val":"2.3m","miniStat2Desc":"Promedio real","miniStat3Title":"SATISFACCIÓN","miniStat3Val":"99%","miniStat3Desc":"Clientes felices",
-"heroBtn1":"Explorar tienda →","heroBtn2":"Ver reseñas",
-"sec2Title":"02 — SOBRE LUNAR MARKET","about":"Lunar Market es el marketplace líder de LATAM para servidores de Minecraft. Desde 2023 ayudamos a más de 1,800 servidores a mejorar su apariencia con builds profesionales, banners animados y branding completo. Cada compra incluye schematic, soporte de instalación y garantía de satisfacción.",
-"aboutBadge1":"🇲🇽 México","aboutBadge2":"Desde 2023","aboutBadge3":"1,800+ clientes","aboutBadge4":"Entrega 3min",
-"whyTitle":"¿Por qué Lunar Market?","why1":"Entrega en menos de 3 minutos","why2":"Schematic y Litematica incluido","why3":"Soporte para instalación","why4":"Garantía de satisfacción","why5":"Precios desde $120 MXN","why6":"Soporte 24/7 real",
-"sec3Title":"03 — SERVICIOS","sEmptyTitle":"No hay servicios","sEmptyDesc":"Los servicios aparecerán aquí",
-"sec4Title":"04 — RESEÑAS VERIFICADAS","reviewBtnText":"✦ Dejar reseña con código","rAvgText":"⭐ 4.9 promedio","rVerifText":"● Verificadas con código","rEmptyTitle":"Las reseñas aparecerán aquí","rEmptyDesc":"Solo clientes con código especial pueden opinar",
-"modalReviewTitle":"Dejar reseña verificada","modalReviewDesc":"Ingresa el código que te dio el staff después de tu compra.","starLabel":"CALIFICACIÓN","starDesc":"Experiencia perfecta, recomendado","modalBtnText":"Enviar para revisión ✓","modalFooter":"Tu reseña será revisada por el staff antes de aparecer en la web.",
-"sec5Title":"05 — DISCORD","dTitle":"Discord Oficial Lunar Market","dDesc":"1,203 miembros • Soporte instantáneo • Entregas automáticas • Comunidad activa","dBtnText":"Unirse al Discord →","dLinkText":"discord.gg/lunar-market","dMembersText":"1,203 miembros","dLink":"https://discord.gg/lunar",
-"passTitle":"Acceso administrador","passDesc":"Ingresa tu clave privada para acceder al panel","passBtn1":"Entrar","passBtn2":"Cancelar"
-},
-"categories":[{"id":"builds","name":"Builds","emoji":"🏰"},{"id":"banners","name":"Banners","emoji":"🚩"},{"id":"logos","name":"Logos","emoji":"🎨"},{"id":"bots","name":"Bots","emoji":"🤖"}],
-"services":[],
-"codes":[{"code":"LUNAR-DEMO1","used":false,"usedBy":""},{"code":"LUNAR-DEMO2","used":false,"usedBy":""},{"code":"LUNAR-DEMO3","used":false,"usedBy":""}],
-"reviews":[],
-"pending":[]
+let data=JSON.parse(localStorage.getItem('ghost_v22')||`{
+"texts":{"heroTitle1":"GHOST","heroTitle2":" MARKET","heroDesc":"Tu tienda de confianza · Cuentas premium &<br>servicios digitales","heroBtnDiscord":"Únete al Discord","heroBtnProducts":"Ver Productos","stat1":"500+","stat1Label":"Ventas","stat2":"100%","stat2Label":"Garantía","stat3":"24/7","stat3Label":"Soporte","bestBadge":"BEST SELLER","bestTitle":"MFA PERMA","bestPrice":"$7 USD","bestDesc":"Consigue Minecraft Premium de forma rápida, segura y al mejor precio. Recibe acceso a una cuenta de Microsoft y disfruta del juego sin complicaciones. Incluye garantía permanente en todas las cuentas.","productosTitle":"Productos","productosDesc":"Explora nuestra colección premium de cuentas y servicios digitales","reviewsTitle":"Reviews verificadas","faqTitle":"FAQ — Preguntas frecuentes"},
+"categories":[{"id":"minecraft","name":"MINECRAFT","emoji":"⛏️"},{"id":"streaming","name":"STREAMING","emoji":"🎬"},{"id":"fortnite","name":"FORTNITE","emoji":"🎮"},{"id":"freefire","name":"FREE FIRE","emoji":"🔥"},{"id":"supercell","name":"SUPERCELL","emoji":"⚡"},{"id":"discord","name":"DISCORD","emoji":"💬"},{"id":"robux","name":"ROBUX","emoji":"🧱"},{"id":"ai","name":"AI","emoji":"🤖"},{"id":"design","name":"DESIGN","emoji":"🎨"},{"id":"decorations","name":"DECORATIONS","emoji":"🏠"},{"id":"gaming","name":"GAMING","emoji":"🕹️"}],
+"services":[
+{"name":"MFA | CAPES 1","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"disponible"},
+{"name":"MFA | CAPES 2","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
+{"name":"MFA | CAPES 3","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
+{"name":"MFA | CAPES 4","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
+{"name":"MFA | CAPES 5","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
+{"name":"MFA | CAPES 6","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
+{"name":"MFA | CAPES 7","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"},
+{"name":"MFA | CAPES 8","category":"minecraft","price":"$5 USD","desc":"Cuenta MFA con capas","status":"agotado"}
+],
+"codes":[{"code":"GHOST-DEMO1","used":false,"usedBy":""},{"code":"GHOST-DEMO2","used":false,"usedBy":""}],
+"reviews":[],"pending":[]
 }`);
 
-function save(){
-localStorage.setItem('lunar_v21',JSON.stringify(data));
-render();
-}
-
+function save(){localStorage.setItem('ghost_v22',JSON.stringify(data));render();}
 function render(){
 let t=data.texts;
-Object.keys(t).forEach(k=>{
-let el=document.getElementById(k);
-if(el){
-if(k==='hTitle'){
-el.innerHTML=t[k];
-}else if(k==='dLink'){
-el.href=t[k];
-}else{
-el.textContent=t[k];
-}
-}
-});
-document.getElementById('dLink').href=t.dLink;
-
+Object.keys(t).forEach(k=>{let el=document.getElementById(k); if(el){if(k==='heroDesc') el.innerHTML=t[k]; else el.textContent=t[k];}});
 let cats=data.categories;
-catFilters.innerHTML='<button onclick="filterCat=\'all\';render()" class="badge px-4 py-2 '+ (filterCat=='all'?'badge-active':'') +'">Todas</button>'+cats.map(c=>`<button onclick="filterCat='${c.id}';render()" class="badge px-4 py-2 ${filterCat==c.id?'badge-active':''}">${c.emoji} ${c.name}</button>`).join('');
-
+document.getElementById('catFilters').innerHTML='<button onclick="filterCat=\'all\';render()" class="px-5 py-2.5 rounded-full text-[11px] font-bold border transition '+(filterCat=='all'?'bg-[#00ff66] text-black border-[#00ff66]':'bg-[#0a1a0a] border-[#00ff66]/20 text-white/60')+'">TODOS</button>'+cats.map(c=>`<button onclick="filterCat='${c.id}';render()" class="px-5 py-2.5 rounded-full text-[11px] font-bold border transition ${filterCat==c.id?'bg-[#00ff66] text-black border-[#00ff66]':'bg-[#0a1a0a] border-[#00ff66]/20 text-white/60 hover:border-[#00ff66]/40'}">${c.name}</button>`).join('');
 let filtered=data.services.filter(s=>filterCat=='all'||s.category==filterCat);
-sGrid.innerHTML=filtered.map((s,i)=>`
-<div class="card p-7 anim" style="animation-delay:${i*0.06}s">
-<div class="flex justify-between items-center">
-<span class="badge px-2.5 py-1">${s.category.toUpperCase()}</span>
-<span class="text-[11px] text-white/30 font-bold">${s.price}</span>
+document.getElementById('sGrid').innerHTML=filtered.map((s,i)=>`
+<div class="card-product anim" style="animation-delay:${i*0.05}s">
+${s.status==='agotado'?'<div class="absolute top-3 right-3 badge-agotado px-3 py-1 z-10">✕ AGOTADO</div>':''}
+<div class="h-[200px] bg-gradient-to-b from-[#0f1f0f] to-[#0a1a0a] grid place-items-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,102,.15),transparent_60%)]"></div>
+<div class="text-[80px] drop-shadow-[0_0_20px_rgba(0,255,102,.3)]">🧱</div>
 </div>
-<div class="mt-6 text-[32px]">${s.emoji}</div>
-<div class="mt-4 font-extrabold text-[15px] tracking-tight">${s.name}</div>
-<div class="mt-2 text-[12px] text-white/40 leading-[1.6]">${s.desc}</div>
-<div class="mt-5 h-1 bg-white/5 rounded-full overflow-hidden">
-<div class="h-full w-[85%] bg-violet-500 rounded-full shimmer-bar"></div>
-</div>
-</div>
-`).join('');
-sEmpty.style.display=filtered.length?'none':'grid';
-
-function starsToText(n){
-return '★'.repeat(n)+'☆'.repeat(5-n);
-}
-
-rGrid.innerHTML=data.reviews.map((r,i)=>`
-<div class="card p-7 anim" style="animation-delay:${i*0.06}s">
-<div class="flex justify-between items-center">
-<span class="text-[14px]">${starsToText(r.stars)} <span class="text-[11px] text-white/30">(${r.stars}/5)</span></span>
-<span class="badge px-2.5 py-1">${r.service.toUpperCase()}</span>
-</div>
-<p class="mt-5 text-[13px] leading-[1.7] text-white/60">"${r.text}"</p>
-<div class="mt-6 flex items-center gap-3.5">
-<div class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 grid place-items-center text-[13px] font-extrabold">${r.name[1]?.toUpperCase()||'L'}</div>
-<div>
-<div class="text-[12px] font-bold">${r.name}</div>
-<div class="text-[10px] text-white/30">${r.category} • ${r.code} • ${r.stars} estrellas</div>
-</div>
-<div class="ml-auto">
-<div class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">✓ ${r.stars}★</div>
-</div>
+<div class="p-4">
+<div class="text-[11px] font-bold text-white/60 tracking-wide">${s.name}</div>
+<div class="mt-3 text-[16px] font-black text-[#00ff66]">${convertPrice(s.price)}</div>
+${s.status==='disponible'?`<button class="btn-green w-full mt-3 h-9 text-[11px]">🛒 Comprar</button>`:`<button class="w-full mt-3 h-9 rounded-xl bg-white/5 border border-white/5 text-[11px] font-bold text-white/20">AGOTADO</button>`}
 </div>
 </div>
 `).join('');
-rEmpty.style.display=data.reviews.length?'none':'grid';
-rCount.textContent=data.reviews.length+' reseñas verificadas';
-
-dServ.textContent=data.services.length;
-dRev.textContent=data.reviews.length;
-dCodes.textContent=data.codes.filter(c=>!c.used).length;
-pC.textContent=data.pending.length;
-
-catList.innerHTML=cats.map((c,i)=>`
-<div class="flex justify-between bg-[#1a1a1f] border border-white/5 rounded-xl px-4 py-3.5 text-[12px] hover:border-white/10 transition">
-<span>${c.emoji} ${c.name} <span class="text-white/20">(${data.services.filter(s=>s.category==c.id).length})</span></span>
-<span class="flex gap-3"><span onclick="data.categories.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold hover:underline">Borrar</span></span>
-</div>
-`).join('');
-
-sCat.innerHTML=cats.map(c=>`<option value="${c.id}">${c.emoji} ${c.name}</option>`).join('')||'<option value="">Crea categoría primero</option>';
-clientService.innerHTML=data.services.map(s=>`<option value="${s.name}">${s.name}</option>`).join('')||cats.map(c=>`<option value="${c.name}">${c.name}</option>`).join('')||'<option>General</option>';
-
-servList.innerHTML=data.services.map((s,i)=>`
-<div class="bg-[#1a1a1f] border border-white/5 rounded-xl p-4 text-[12px] hover:border-white/10 transition">
-<div class="flex justify-between items-center">
-<span class="font-bold">${s.emoji} ${s.name} [${s.category}]</span>
-<span class="flex gap-3">
-<span onclick="editService(${i})" class="text-violet-400 cursor-pointer font-bold hover:underline">Editar</span>
-<span onclick="data.services.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold hover:underline">Borrar</span>
-</span>
-</div>
-<div class="text-white/40 mt-1.5">${s.desc} • ${s.price}</div>
-</div>
-`).join('');
-
-codeList.innerHTML=data.codes.map((c,i)=>`
-<div class="flex justify-between bg-[#1a1a1f] border border-white/5 rounded-xl px-4 py-3.5 text-[12px] font-mono hover:border-white/10 transition">
-<span class="${c.used?'text-white/20 line-through':''}">${c.code} ${c.used?'• '+c.usedBy:''}</span>
-<div class="flex gap-4 font-sans">
-<span onclick="navigator.clipboard.writeText('${c.code}');alert('Copiado: ${c.code}')" class="text-violet-400 cursor-pointer font-bold hover:underline">Copiar</span>
-<span onclick="data.codes.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold hover:underline">Borrar</span>
-</div>
-</div>
-`).join('');
-
-pendList.innerHTML=data.pending.map((r,i)=>`
-<div class="bg-[#1a1a1f] border border-white/5 rounded-xl p-5 text-[12px] hover:border-white/10 transition">
-<div class="flex justify-between items-center">
-<b class="text-[13px]">${r.name} ${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)} (${r.stars}/5)</b>
-<span class="badge px-2.5 py-1">${r.service}</span>
-</div>
-<div class="text-white/30 text-[10px] mt-2 tracking-wide">${r.category} • Código: ${r.code}</div>
-<div class="mt-4 text-white/60 leading-[1.6] text-[13px]">"${r.text}"</div>
-<div class="flex gap-2.5 mt-5">
-<button onclick="approve(${i})" class="px-5 py-2.5 rounded-full bg-white text-black font-bold text-[11px] hover:scale-105 transition">Aprobar ✓</button>
-<button onclick="data.pending.splice(${i},1);save()" class="px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-[11px] hover:bg-white/10 transition">Rechazar</button>
-</div>
-</div>
-`).join('')||'<div class="text-[12px] text-white/20 p-4">No hay reseñas pendientes</div>';
-
-apprList.innerHTML=data.reviews.map((r,i)=>`
-<div class="bg-[#1a1a1f] border border-white/5 rounded-xl p-4 text-[12px] hover:border-white/10 transition">
-<div class="flex justify-between items-start gap-4">
-<span class="leading-[1.5]">${r.name} — ${r.stars}★ — "${r.text.substring(0,45)}..." [${r.code}]</span>
-<span class="flex gap-3 shrink-0">
-<span onclick="editReview(${i})" class="text-violet-400 cursor-pointer font-bold hover:underline">Editar texto y estrellas</span>
-<span onclick="data.reviews.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold hover:underline">Borrar</span>
-</span>
-</div>
-</div>
-`).join('')||'<div class="text-[12px] text-white/20 p-4">No hay reseñas aprobadas</div>';
-
-statsCat.innerHTML=cats.map(c=>`
-<div class="flex justify-between items-center py-3 border-b border-white/5 last:border-0 hover:bg-white/[0.02] px-2 rounded-lg transition">
-<span>${c.emoji} ${c.name}</span>
-<span class="font-bold px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[11px]">${data.services.filter(s=>s.category==c.id).length} servicios</span>
-</div>
-`).join('')||'<div class="text-white/20">Sin categorías</div>';
-
-activity.innerHTML=[...data.reviews,...data.pending].slice(0,6).map(r=>`<div class="flex gap-2"><span class="text-white/20">•</span><span>${r.name} dejó ${r.stars}★ en ${r.service} con código ${r.code}</span></div>`).join('')||'<div>Sin actividad aún. Genera códigos y deja reseñas.</div>';
-
-// llenar inputs editar todo
-Object.keys(t).forEach(k=>{
-let inp=document.getElementById('e'+k.charAt(0).toUpperCase()+k.slice(1));
-if(inp) inp.value=t[k];
-});
+document.getElementById('sEmpty').style.display=filtered.length?'none':'grid';
+function starsToText(n){return '★'.repeat(n)+'☆'.repeat(5-n);}
+document.getElementById('rGrid').innerHTML=data.reviews.map(r=>`<div class="card-ghost p-5"><div class="flex justify-between"><span class="text-[#00ff66] text-[13px]">${starsToText(r.stars)} (${r.stars}/5)</span><span class="text-[9px] px-2 py-1 rounded-full bg-[#00ff66]/10 border border-[#00ff66]/20">${r.service}</span></div><p class="mt-3 text-[12px] text-white/60">"${r.text}"</p><div class="mt-4 flex items-center gap-2"><div class="w-7 h-7 rounded-full bg-[#00ff66]/20 grid place-items-center text-[11px] font-bold">${r.name[0].toUpperCase()}</div><div><div class="text-[11px] font-bold">${r.name}</div><div class="text-[9px] text-white/30">${r.code}</div></div></div></div>`).join('');
+document.getElementById('rEmpty').style.display=data.reviews.length?'none':'grid';
+document.getElementById('rCount').textContent=data.reviews.length+' reseñas';
+document.getElementById('dServ').textContent=data.services.length;document.getElementById('dRev').textContent=data.reviews.length;document.getElementById('dCodes').textContent=data.codes.filter(c=>!c.used).length;document.getElementById('pC').textContent=data.pending.length;
+document.getElementById('catList').innerHTML=cats.map((c,i)=>`<div class="flex justify-between bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl px-4 py-3 text-[12px]"><span>${c.emoji} ${c.name}</span><span onclick="data.categories.splice(${i},1);save()" class="text-red-400 cursor-pointer font-bold">Borrar</span></div>`).join('');
+document.getElementById('sCat').innerHTML=cats.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+document.getElementById('clientService').innerHTML=data.services.map(s=>`<option value="${s.name}">${s.name}</option>`).join('')||'<option>General</option>';
+document.getElementById('servList').innerHTML=data.services.map((s,i)=>`<div class="flex justify-between bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl px-4 py-3 text-[12px]"><span>${s.name} [${s.category}] ${s.status==='agotado'?'• AGOTADO':''}</span><span onclick="data.services.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></div>`).join('');
+document.getElementById('codeList').innerHTML=data.codes.map((c,i)=>`<div class="flex justify-between bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl px-4 py-3 text-[12px] font-mono"><span class="${c.used?'text-white/20 line-through':''}">${c.code} ${c.used?'• '+c.usedBy:''}</span><div class="flex gap-3 font-sans"><span onclick="navigator.clipboard.writeText('${c.code}')" class="text-[#00ff66] cursor-pointer font-bold">Copiar</span><span onclick="data.codes.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></div></div>`).join('');
+document.getElementById('pendList').innerHTML=data.pending.map((r,i)=>`<div class="bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl p-4 text-[12px]"><div class="flex justify-between"><b>${r.name} ${'★'.repeat(r.stars)} (${r.stars}/5)</b><span>${r.service}</span></div><div class="text-white/30 text-[10px] mt-1">Código: ${r.code}</div><div class="mt-2 text-white/60">${r.text}</div><div class="flex gap-2 mt-3"><button onclick="approve(${i})" class="px-4 py-2 rounded-full bg-[#00ff66] text-black font-bold text-[11px]">Aprobar</button><button onclick="data.pending.splice(${i},1);save()" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[11px]">Rechazar</button></div></div>`).join('')||'<div class="text-white/20">No hay pendientes</div>';
+document.getElementById('apprList').innerHTML=data.reviews.map((r,i)=>`<div class="flex justify-between bg-[#0a1a0a] border border-[#00ff66]/10 rounded-xl px-4 py-3 text-[12px]"><span>${r.name} ${r.stars}★ ${r.text.substring(0,30)}... [${r.code}]</span><span class="flex gap-2"><span onclick="editReview(${i})" class="text-[#00ff66] cursor-pointer">Editar</span><span onclick="data.reviews.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></span></div>`).join('')||'<div class="text-white/20">No hay aprobadas</div>';
+document.getElementById('statsCat').innerHTML=cats.map(c=>`<div class="flex justify-between py-2 border-b border-white/5"><span>${c.name}</span><span class="font-bold">${data.services.filter(s=>s.category==c.id).length}</span></div>`).join('');
+// inputs editar todo
+['heroTitle1','heroTitle2','heroDesc','productosTitle','productosDesc','bestTitle','bestPrice','bestDesc','reviewsTitle','faqTitle'].forEach(k=>{let inp=document.getElementById('e'+k.charAt(0).toUpperCase()+k.slice(1)); if(inp) inp.value=data.texts[k];});
 }
-
-function setStars(n){
-currentStars=n;
-document.querySelectorAll('.star').forEach(s=>{
-let v=parseInt(s.dataset.v);
-if(v<=n){
-s.textContent='★';
-s.classList.add('active');
-}else{
-s.textContent='☆';
-s.classList.remove('active');
+function convertPrice(price){
+if(!currentCountryData) return price;
+let num=parseFloat(price.replace(/[^0-9.]/g,''))||5;
+let rates={PEN:3.7,CLP:950,COP:4100,MXN:17,ARS:900,USDT:1,USD:1};
+let rate=rates[currentCountryData.code]||1;
+if(currentCountryData.code==='USD') return `$${num} USD`;
+if(currentCountryData.code==='USDT') return `${num} USDT`;
+return `${(num*rate).toFixed(0)} ${currentCountryData.code}`;
 }
-});
-let labels=['1 estrella - Muy malo','2 estrellas - Malo','3 estrellas - Regular','4 estrellas - Muy bueno','5 estrellas - Excelente'];
-let descs=['Experiencia negativa','Podría mejorar','Buena experiencia','Muy buena experiencia','Experiencia perfecta, recomendado'];
-starText.textContent=labels[n-1];
-starDesc.textContent=descs[n-1];
-starValue.textContent=n+'/5';
-}
-
-logo.addEventListener('click',()=>{
-clicks++;
-cc.textContent=clicks+'/10 ✨';
-logo.style.transform='scale(0.9) rotate(-5deg)';
-setTimeout(()=>{logo.style.transform='';},150);
-if(clicks>=10){
-passM.classList.remove('hidden');
-clicks=0;
-cc.textContent='🔓 Admin desbloqueado';
-setTimeout(()=>{cc.textContent='';},2000);
-}
-});
-
-logo.addEventListener('touchstart',()=>{
-clicks++;
-cc.textContent=clicks+'/10 ✨';
-if(clicks>=10){
-passM.classList.remove('hidden');
-clicks=0;
-}
-});
-
-function checkP(){
-if(passI.value==='Ghost'){
-passM.classList.add('hidden');
-passI.value='';
-admin.classList.remove('hidden');
-passE.classList.add('hidden');
-cc.textContent='✅ Admin activo';
-setTimeout(()=>{cc.textContent='';},2000);
-}else{
-passE.classList.remove('hidden');
-}
-}
-
-function tab(t){
-document.querySelectorAll('.tt').forEach(e=>e.classList.add('hidden'));
-document.getElementById('t-'+t).classList.remove('hidden');
-document.querySelectorAll('.tbtn').forEach(b=>{
-b.className='tbtn w-full text-left px-4 py-3 rounded-xl bg-[#121216] border border-white/5 text-[11px] flex items-center gap-2.5';
-});
-document.querySelector(`[data-t="${t}"]`).className='tbtn w-full text-left px-4 py-3 rounded-xl bg-white text-black font-bold text-[11px] flex items-center gap-2.5 scale-[1.02]';
-}
-
-function addCat(){
-let n=catName.value.trim();
-let e=catEmoji.value||'📁';
-if(!n){
-alert('Pon nombre de categoría');
-return;
-}
-let id=n.toLowerCase().replace(/[^a-z0-9]+/g,'-');
-data.categories.push({id,name:n,emoji:e});
-catName.value='';
-catEmoji.value='';
-save();
-}
-
-function addServ(){
-let n=sN.value.trim();
-let cat=sCat.value;
-let desc=sDesc2.value||'Descripción premium';
-let price=sPrice2.value||'Desde $250 MXN';
-let emoji=sEmoji2.value||'🛠️';
-if(!n||!cat){
-alert('Falta nombre o categoría. Crea una categoría primero.');
-return;
-}
-data.services.push({name:n,category:cat,desc,price,emoji});
-sN.value='';
-sDesc2.value='';
-sPrice2.value='';
-sEmoji2.value='';
-save();
-}
-
-function editService(i){
-let s=data.services[i];
-let nn=prompt('Editar nombre:',s.name);
-if(nn===null) return;
-let dd=prompt('Editar descripción:',s.desc);
-let pp=prompt('Editar precio:',s.price);
-let ee=prompt('Editar emoji:',s.emoji);
-if(nn) data.services[i].name=nn;
-if(dd) data.services[i].desc=dd;
-if(pp) data.services[i].price=pp;
-if(ee) data.services[i].emoji=ee;
-save();
-}
-
-function genCode(){
-let c='LUNAR-'+Math.random().toString(36).substring(2,6).toUpperCase()+Math.floor(10+Math.random()*89);
-data.codes.push({code:c,used:false,usedBy:''});
-save();
-}
-
-function genBulk(){
-for(let i=0;i<5;i++){
-genCode();
-}
-}
-
-function openReviewModal(){
-reviewModal.classList.remove('hidden');
-reviewError.classList.add('hidden');
-setStars(5);
-}
-
+function setStars(n){currentStars=n;document.querySelectorAll('.star').forEach(s=>{let v=parseInt(s.dataset.v);s.textContent=v<=n?'★':'☆';s.classList.toggle('active',v<=n);});document.getElementById('starText').textContent=['1 estrella - Muy malo','2 estrellas - Malo','3 estrellas - Regular','4 estrellas - Muy bueno','5 estrellas - Excelente'][n-1];}
+document.getElementById('logo').addEventListener('click',()=>{clicks++;cc.textContent=clicks+'/10';if(clicks>=10){passM.classList.remove('hidden');clicks=0;cc.textContent='';}setTimeout(()=>{if(clicks<10){cc.textContent='';clicks=0}},3000);});
+function checkP(){if(passI.value==='Ghost'){passM.classList.add('hidden');passI.value='';admin.classList.remove('hidden');passE.classList.add('hidden');}else{passE.classList.remove('hidden');}}
+function tab(t){document.querySelectorAll('.tt').forEach(e=>e.classList.add('hidden'));document.getElementById('t-'+t).classList.remove('hidden');document.querySelectorAll('.tbtn').forEach(b=>b.className='tbtn w-full text-left px-4 py-3 rounded-xl bg-[#0a1a0a] border border-white/5 text-[11px]');document.querySelector(`[data-t="${t}"]`).className='tbtn w-full text-left px-4 py-3 rounded-xl bg-white text-black font-bold text-[11px]';}
+function addCat(){let n=catName.value.trim(), e=catEmoji.value||'📁';if(!n)return;let id=n.toLowerCase().replace(/[^a-z0-9]+/g,'-');data.categories.push({id,name:n,emoji:e});catName.value='';save();}
+function addServ(){let n=sN.value.trim(), cat=sCat.value, price=sPrice2.value||'$5 USD', desc=sDesc2.value||'Cuenta premium', status=sStatus.value||'disponible';if(!n||!cat)return alert('Falta nombre o categoría');data.services.push({name:n,category:cat,price,desc,status});sN.value='';save();}
+function genCode(){let c='GHOST-'+Math.random().toString(36).substring(2,6).toUpperCase()+Math.floor(10+Math.random()*89);data.codes.push({code:c,used:false,usedBy:''});save();}
+function genBulk(){for(let i=0;i<5;i++)genCode();}
+function openReviewModal(){reviewModal.classList.remove('hidden');}
 function submitClientReview(){
-let code=clientCode.value.trim().toUpperCase();
-let name=clientName.value.trim()||'@cliente';
-let serv=clientService.value||'General';
-let text=clientText.value.trim();
-reviewError.classList.add('hidden');
-
-if(!code){
-reviewError.textContent='Ingresa tu código especial. Pídelo al staff en Discord.';
-reviewError.classList.remove('hidden');
-return;
-}
-
+let code=clientCode.value.trim().toUpperCase(), name=clientName.value.trim()||'@cliente', serv=clientService.value||'General', text=clientText.value.trim();
+if(!code){reviewError.textContent='Ingresa código';reviewError.classList.remove('hidden');return;}
 let found=data.codes.find(c=>c.code===code);
-if(!found){
-reviewError.textContent='Código no válido. Verifica que esté bien escrito o pide uno nuevo al staff.';
-reviewError.classList.remove('hidden');
-return;
+if(!found){reviewError.textContent='Código no válido';reviewError.classList.remove('hidden');return;}
+if(found.used){reviewError.textContent='Código ya usado por '+found.usedBy;reviewError.classList.remove('hidden');return;}
+if(!text || text.length<10){reviewError.textContent='Reseña muy corta';reviewError.classList.remove('hidden');return;}
+found.used=true;found.usedBy=name;
+data.pending.unshift({name,category:'general',service:serv,stars:currentStars,text,code});
+clientCode.value='';clientName.value='';clientText.value='';reviewModal.classList.add('hidden');save();alert('Reseña enviada');
 }
-
-if(found.used){
-reviewError.textContent='Este código ya fue usado por '+found.usedBy+'. Cada código solo se usa 1 vez.';
-reviewError.classList.remove('hidden');
-return;
-}
-
-if(!text || text.length<10){
-reviewError.textContent='Escribe una reseña más detallada (mínimo 10 caracteres).';
-reviewError.classList.remove('hidden');
-return;
-}
-
-found.used=true;
-found.usedBy=name;
-data.pending.unshift({name,category:'general',service:serv,stars:currentStars,text,code,date:new Date().toLocaleDateString()});
-clientCode.value='';
-clientName.value='';
-clientText.value='';
-reviewModal.classList.add('hidden');
-save();
-alert(`¡Reseña de ${currentStars} ${currentStars===1?'estrella':'estrellas'} enviada! Será revisada por el staff.`);
-}
-
-function approve(i){
-let r=data.pending.splice(i,1)[0];
-data.reviews.unshift(r);
-save();
-}
-
-function editReview(i){
-let r=data.reviews[i];
-let txt=prompt('Editar texto de la reseña:',r.text);
-if(txt===null) return;
-let st=prompt('Editar estrellas (1 a 5):',r.stars);
-let newStars=parseInt(st);
-if(txt) data.reviews[i].text=txt;
-if(newStars>=1 && newStars<=5) data.reviews[i].stars=newStars;
-save();
-}
-
-function saveAllText(){
-let t=data.texts;
-let keys=Object.keys(t);
-keys.forEach(k=>{
-let inp=document.getElementById('e'+k.charAt(0).toUpperCase()+k.slice(1));
-if(inp){
-t[k]=inp.value;
-}
-});
-save();
-alert('✅ TODO EL TEXTO GUARDADO CORRECTAMENTE - Toda la web es editable');
-}
-
+function approve(i){let r=data.pending.splice(i,1)[0];data.reviews.unshift(r);save();}
+function editReview(i){let r=data.reviews[i];let txt=prompt('Editar texto:',r.text);let st=prompt('Estrellas 1-5:',r.stars);if(txt) data.reviews[i].text=txt;let ns=parseInt(st);if(ns>=1&&ns<=5) data.reviews[i].stars=ns;save();}
+function saveAllText(){let t=data.texts;['heroTitle1','heroTitle2','heroDesc','productosTitle','productosDesc','bestTitle','bestPrice','bestDesc','reviewsTitle','faqTitle'].forEach(k=>{let inp=document.getElementById('e'+k.charAt(0).toUpperCase()+k.slice(1)); if(inp) t[k]=inp.value;});save();alert('Texto guardado');}
 setStars(5);
 render();
 </script>
 </body>
-  </html>
+</html>
