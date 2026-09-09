@@ -2,5484 +2,3362 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#050505">
-<meta name="description" content="Luna Market — Marketplace digital">
 <title>Luna Market</title>
 
 <style>
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#050505;
-  --bg2:#080808;
-  --card:#0b0b0b;
-  --card2:#101010;
-  --line:rgba(255,255,255,.08);
-  --line2:rgba(255,255,255,.15);
-  --text:#fff;
-  --muted:#777;
-  --muted2:#aaa;
-  --accent:#fff;
-  --danger:#ff4d5a;
-  --success:#4dff91;
-  --warning:#ffc14d;
-  --radius:20px;
+ --bg:#050505;
+ --bg2:#0a0a0a;
+ --card:#101010;
+ --card2:#151515;
+ --text:#fff;
+ --muted:#888;
+ --line:rgba(255,255,255,.09);
+ --accent:#fff;
+ --accent2:#aaa;
+ --radius:22px;
 }
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+html{scroll-behavior:smooth}
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,Arial,Helvetica,sans-serif;
-  overflow-x:hidden;
+ font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ background:var(--bg);
+ color:var(--text);
+ overflow-x:hidden;
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+::-webkit-scrollbar{width:7px}
+::-webkit-scrollbar-track{background:#050505}
+::-webkit-scrollbar-thumb{background:#333;border-radius:20px}
+
+.bg-orb{
+ position:fixed;
+ width:500px;
+ height:500px;
+ border-radius:50%;
+ background:radial-gradient(circle,rgba(255,255,255,.07),transparent 65%);
+ pointer-events:none;
+ z-index:-1;
+ animation:orb 10s ease-in-out infinite alternate;
+}
+.orb1{top:-200px;left:-180px}
+.orb2{right:-220px;bottom:-180px;animation-delay:3s}
+@keyframes orb{
+ from{transform:translate(0,0) scale(1)}
+ to{transform:translate(80px,50px) scale(1.2)}
 }
 
-body.locked{
-  overflow:hidden;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  color:inherit;
-}
-
-::selection{
-  background:#fff;
-  color:#000;
-}
-
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar{
-  width:7px;
-}
-
-::-webkit-scrollbar-track{
-  background:#050505;
-}
-
-::-webkit-scrollbar-thumb{
-  background:#242424;
-  border-radius:20px;
-}
-
-/* =========================
-   ENTRY
-========================= */
-
+/* WELCOME */
 #welcomeScreen{
-  position:fixed;
-  inset:0;
-  z-index:999999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:
-    radial-gradient(circle at 50% 40%,#171717 0,#080808 35%,#020202 75%);
-  cursor:pointer;
-  transition:
-    opacity .7s ease,
-    visibility .7s ease,
-    transform .7s ease;
+ position:fixed;
+ inset:0;
+ z-index:999999;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ background:#030303;
+ cursor:pointer;
+ transition:.7s ease;
 }
-
 #welcomeScreen.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-  transform:scale(1.05);
+ opacity:0;
+ visibility:hidden;
+ pointer-events:none;
 }
-
-#welcomeScreen:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:55px 55px;
-  mask-image:linear-gradient(to bottom,transparent,#000,transparent);
-}
-
-.welcome-content{
-  position:relative;
-  z-index:2;
-  animation:welcomeIn 1s ease both;
-}
-
+.welcome-content{animation:welcomeIn 1s ease}
 .welcome-logo{
-  width:105px;
-  height:105px;
-  display:grid;
-  place-items:center;
-  margin:auto;
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:32px;
-  background:rgba(255,255,255,.04);
-  backdrop-filter:blur(20px);
-  font-size:48px;
-  font-weight:900;
-  box-shadow:
-    0 0 80px rgba(255,255,255,.06),
-    inset 0 0 30px rgba(255,255,255,.03);
-  animation:float 3s ease-in-out infinite;
+ width:100px;
+ height:100px;
+ margin:auto;
+ border:1px solid rgba(255,255,255,.25);
+ border-radius:30px;
+ display:grid;
+ place-items:center;
+ font-size:42px;
+ font-weight:950;
+ box-shadow:0 0 80px rgba(255,255,255,.1);
+ animation:float 3s ease-in-out infinite;
 }
-
 .welcome-content h1{
-  margin-top:25px;
-  font-size:clamp(42px,9vw,80px);
-  letter-spacing:-5px;
+ margin-top:25px;
+ font-size:clamp(40px,8vw,78px);
+ letter-spacing:-5px;
 }
-
 .welcome-content p{
-  margin-top:14px;
-  color:#666;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  animation:pulse 2s infinite;
+ color:#777;
+ margin-top:12px;
+ font-size:13px;
+ animation:pulse 2s infinite;
 }
-
 @keyframes welcomeIn{
-  from{
-    opacity:0;
-    transform:translateY(30px) scale(.94);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
+ from{opacity:0;transform:translateY(30px) scale(.92)}
+ to{opacity:1;transform:none}
 }
-
 @keyframes float{
-  50%{
-    transform:translateY(-10px) rotate(2deg);
-  }
+ 50%{transform:translateY(-12px) rotate(2deg)}
 }
+@keyframes pulse{50%{opacity:.35}}
 
-@keyframes pulse{
-  50%{
-    opacity:.3;
-  }
-}
-
-/* =========================
-   BACKGROUND
-========================= */
-
-.bg-grid{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-3;
-  opacity:.13;
-  background:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:60px 60px;
-}
-
-.bg-glow{
-  position:fixed;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  background:rgba(255,255,255,.025);
-  filter:blur(100px);
-  pointer-events:none;
-  z-index:-2;
-  top:10%;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 header{
-  position:fixed;
-  top:0;
+ position:fixed;
+ top:0;
+ left:0;
+ right:0;
+ z-index:500;
+ height:76px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 5%;
+ background:rgba(5,5,5,.72);
+ backdrop-filter:blur(20px);
+ border-bottom:1px solid var(--line);
+}
+.logo{
+ font-size:20px;
+ font-weight:950;
+ letter-spacing:-1px;
+}
+.logo span{color:var(--muted)}
+nav{
+ display:flex;
+ gap:7px;
+ align-items:center;
+}
+nav a{
+ padding:10px 14px;
+ border-radius:12px;
+ color:#999;
+ font-size:13px;
+ transition:.25s;
+}
+nav a:hover{
+ color:white;
+ background:rgba(255,255,255,.07);
+}
+.admin-dot{
+ width:8px;
+ height:8px;
+ padding:0;
+ border:0;
+ border-radius:50%;
+ background:#444;
+ margin-left:10px;
+ transition:.3s;
+}
+.admin-dot:hover{background:white;box-shadow:0 0 15px white}
+
+.menu-btn{
+ display:none;
+ background:none;
+ border:0;
+ color:white;
+ font-size:25px;
+}
+
+/* MAIN */
+main{padding-top:76px}
+.section{
+ max-width:1200px;
+ margin:auto;
+ padding:110px 5%;
+}
+.hero{
+ min-height:calc(100vh - 76px);
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ align-items:center;
+ gap:70px;
+}
+.hero-badge{
+ display:inline-flex;
+ padding:8px 13px;
+ border:1px solid var(--line);
+ background:rgba(255,255,255,.04);
+ border-radius:100px;
+ font-size:11px;
+ color:#aaa;
+ margin-bottom:20px;
+ animation:up .8s both;
+}
+.hero h1{
+ font-size:clamp(48px,7vw,90px);
+ line-height:.92;
+ letter-spacing:-6px;
+ max-width:800px;
+ animation:up .8s .1s both;
+}
+.hero h1 span{
+ color:transparent;
+ -webkit-text-stroke:1px #777;
+}
+.hero p{
+ max-width:650px;
+ margin-top:28px;
+ color:#8b8b8b;
+ line-height:1.8;
+ font-size:15px;
+ animation:up .8s .2s both;
+}
+.hero-actions{
+ display:flex;
+ gap:12px;
+ margin-top:30px;
+ animation:up .8s .3s both;
+}
+.btn{
+ border:1px solid var(--line);
+ background:#fff;
+ color:#000;
+ border-radius:13px;
+ padding:13px 20px;
+ font-weight:800;
+ transition:.3s;
+}
+.btn:hover{
+ transform:translateY(-3px);
+ box-shadow:0 15px 35px rgba(255,255,255,.12);
+}
+.btn.dark{
+ background:#111;
+ color:white;
+}
+.btn.danger{
+ background:#251010;
+ color:#ff8585;
+ border-color:#4b2020;
+}
+.btn.small{padding:8px 11px;font-size:12px}
+.btn.full{width:100%}
+
+.hero-card{
+ min-height:430px;
+ border:1px solid var(--line);
+ border-radius:32px;
+ background:
+ radial-gradient(circle at 50% 25%,rgba(255,255,255,.13),transparent 35%),
+ linear-gradient(145deg,#151515,#080808);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ position:relative;
+ overflow:hidden;
+ animation:heroCard 1s .2s both;
+}
+.hero-card::before{
+ content:"";
+ position:absolute;
+ width:230px;
+ height:230px;
+ border:1px solid rgba(255,255,255,.12);
+ border-radius:50%;
+ animation:spin 12s linear infinite;
+}
+.hero-logo{
+ width:150px;
+ height:150px;
+ border-radius:42px;
+ display:grid;
+ place-items:center;
+ font-size:65px;
+ font-weight:950;
+ background:#080808;
+ border:1px solid rgba(255,255,255,.18);
+ box-shadow:0 0 80px rgba(255,255,255,.12);
+ z-index:2;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes heroCard{
+ from{opacity:0;transform:translateX(50px) rotateY(-15deg)}
+ to{opacity:1;transform:none}
+}
+@keyframes up{
+ from{opacity:0;transform:translateY(25px)}
+ to{opacity:1;transform:none}
+}
+
+/* TITLES */
+.section-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:end;
+ gap:20px;
+ margin-bottom:40px;
+}
+.eyebrow{
+ color:#777;
+ font-size:11px;
+ text-transform:uppercase;
+ letter-spacing:3px;
+}
+.section h2{
+ font-size:clamp(30px,5vw,52px);
+ letter-spacing:-3px;
+ margin-top:7px;
+}
+.section-desc{
+ color:#777;
+ line-height:1.8;
+ max-width:650px;
+}
+
+/* ABOUT */
+.about-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:20px;
+}
+.about-card{
+ border:1px solid var(--line);
+ background:linear-gradient(145deg,#111,#090909);
+ border-radius:25px;
+ padding:30px;
+ min-height:250px;
+ transition:.4s;
+}
+.about-card:hover{
+ transform:translateY(-7px);
+ border-color:rgba(255,255,255,.2);
+}
+.about-card h3{font-size:21px;margin-bottom:15px}
+.about-card p{color:#777;line-height:1.8}
+
+/* STATS */
+.stats-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
+}
+.stat{
+ padding:28px;
+ border:1px solid var(--line);
+ border-radius:20px;
+ background:#0c0c0c;
+ text-align:center;
+ transition:.35s;
+}
+.stat:hover{transform:translateY(-6px);background:#111}
+.stat-number{
+ font-size:40px;
+ font-weight:950;
+ letter-spacing:-2px;
+}
+.stat-label{
+ color:#777;
+ font-size:12px;
+ margin-top:5px;
+}
+
+/* PRODUCTS */
+.filters{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ margin-bottom:25px;
+}
+.filter{
+ border:1px solid var(--line);
+ color:#777;
+ background:#0b0b0b;
+ padding:9px 14px;
+ border-radius:100px;
+ font-size:12px;
+ transition:.25s;
+}
+.filter.active,.filter:hover{
+ color:#000;
+ background:#fff;
+}
+.products-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+.product{
+ border:1px solid var(--line);
+ border-radius:24px;
+ overflow:hidden;
+ background:#0c0c0c;
+ transition:.4s;
+ cursor:pointer;
+}
+.product:hover{
+ transform:translateY(-8px);
+ border-color:rgba(255,255,255,.22);
+ box-shadow:0 25px 60px rgba(0,0,0,.5);
+}
+.product-img{
+ height:220px;
+ background:#151515;
+ display:grid;
+ place-items:center;
+ overflow:hidden;
+}
+.product-img img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ transition:.5s;
+}
+.product:hover .product-img img{transform:scale(1.06)}
+.product-placeholder{
+ font-size:45px;
+ color:#333;
+}
+.product-info{padding:20px}
+.product-cat{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:2px}
+.product-info h3{margin-top:8px;font-size:18px}
+.product-info p{
+ color:#777;
+ font-size:12px;
+ line-height:1.6;
+ margin:8px 0 15px;
+}
+.product-bottom{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+.price{font-weight:900}
+.badge{
+ padding:5px 8px;
+ border-radius:8px;
+ background:#1c1c1c;
+ color:#aaa;
+ font-size:10px;
+}
+
+/* REVIEWS */
+.review-summary{
+ display:grid;
+ grid-template-columns:230px 1fr;
+ gap:30px;
+ padding:28px;
+ border:1px solid var(--line);
+ border-radius:25px;
+ background:#0b0b0b;
+ margin-bottom:25px;
+}
+.rating-big{text-align:center}
+.rating-big strong{
+ font-size:62px;
+ letter-spacing:-5px;
+}
+.stars{color:#fff;letter-spacing:2px}
+.rating-big small{display:block;color:#666;margin-top:5px}
+.bars{display:flex;flex-direction:column;gap:8px;justify-content:center}
+.bar-row{
+ display:grid;
+ grid-template-columns:45px 1fr 35px;
+ gap:10px;
+ align-items:center;
+ font-size:11px;
+ color:#777;
+}
+.bar{
+ height:7px;
+ border-radius:20px;
+ background:#222;
+ overflow:hidden;
+}
+.bar i{
+ display:block;
+ height:100%;
+ background:white;
+ border-radius:20px;
+}
+.review-form{
+ border:1px solid var(--line);
+ border-radius:25px;
+ padding:25px;
+ background:#0b0b0b;
+ margin-bottom:30px;
+}
+.form-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}
+.field label{
+ font-size:11px;
+ color:#777;
+ text-transform:uppercase;
+ letter-spacing:1px;
+}
+.field input,.field textarea,.field select{
+ width:100%;
+ background:#080808;
+ color:white;
+ border:1px solid var(--line);
+ border-radius:12px;
+ padding:12px;
+ outline:none;
+ transition:.2s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+ border-color:#555;
+ box-shadow:0 0 0 3px rgba(255,255,255,.03);
+}
+.field textarea{resize:vertical;min-height:100px}
+.star-selector{
+ display:flex;
+ gap:5px;
+}
+.star-selector button{
+ border:0;
+ background:none;
+ color:#333;
+ font-size:25px;
+}
+.star-selector button.active{color:white}
+.review-tools{
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ margin-bottom:20px;
+}
+.review-list{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+}
+.review-card{
+ border:1px solid var(--line);
+ background:#0c0c0c;
+ border-radius:22px;
+ padding:22px;
+ transition:.3s;
+}
+.review-card:hover{transform:translateY(-5px)}
+.review-top{
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+}
+.reviewer{
+ display:flex;
+ align-items:center;
+ gap:11px;
+}
+.avatar{
+ width:40px;
+ height:40px;
+ border-radius:50%;
+ display:grid;
+ place-items:center;
+ background:#181818;
+ border:1px solid var(--line);
+ font-weight:800;
+}
+.reviewer small{display:block;color:#555;margin-top:3px}
+.review-text{
+ color:#999;
+ font-size:13px;
+ line-height:1.8;
+ margin-top:16px;
+}
+
+/* DISCORD */
+.discord{
+ border:1px solid var(--line);
+ border-radius:30px;
+ padding:45px;
+ background:
+ radial-gradient(circle at 80% 20%,rgba(255,255,255,.08),transparent 30%),
+ #0c0c0c;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:30px;
+}
+.discord p{color:#777;line-height:1.7;margin-top:10px;max-width:600px}
+
+/* FOOTER */
+footer{
+ border-top:1px solid var(--line);
+ padding:35px 5%;
+ color:#555;
+ display:flex;
+ justify-content:space-between;
+ gap:20px;
+ flex-wrap:wrap;
+}
+.socials{display:flex;gap:12px}
+.socials a:hover{color:white}
+
+/* ADMIN */
+#adminOverlay{
+ position:fixed;
+ inset:0;
+ z-index:99990;
+ background:#050505;
+ display:none;
+ overflow:hidden;
+}
+#adminOverlay.open{display:flex}
+.admin-sidebar{
+ width:245px;
+ border-right:1px solid var(--line);
+ background:#080808;
+ padding:20px 14px;
+ display:flex;
+ flex-direction:column;
+}
+.admin-brand{
+ padding:12px;
+ margin-bottom:20px;
+ font-size:18px;
+ font-weight:900;
+}
+.admin-brand small{
+ display:block;
+ color:#555;
+ font-size:9px;
+ letter-spacing:2px;
+ margin-top:5px;
+}
+.admin-nav{display:flex;flex-direction:column;gap:4px}
+.admin-tab{
+ width:100%;
+ text-align:left;
+ border:0;
+ background:transparent;
+ color:#777;
+ padding:12px;
+ border-radius:11px;
+ font-size:12px;
+ transition:.2s;
+}
+.admin-tab:hover,.admin-tab.active{
+ color:white;
+ background:#151515;
+}
+.admin-close{
+ margin-top:auto;
+ border:1px solid var(--line);
+ color:#777;
+ background:#0d0d0d;
+ padding:11px;
+ border-radius:11px;
+}
+.admin-main{
+ flex:1;
+ min-width:0;
+ overflow:auto;
+}
+.admin-top{
+ position:sticky;
+ top:0;
+ z-index:5;
+ height:70px;
+ background:rgba(5,5,5,.88);
+ backdrop-filter:blur(20px);
+ border-bottom:1px solid var(--line);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:0 28px;
+}
+.admin-top h2{font-size:18px}
+.admin-top span{font-size:11px;color:#555}
+.admin-content{
+ padding:30px;
+ max-width:1400px;
+}
+.admin-section{display:none}
+.admin-section.active{display:block}
+.admin-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:14px;
+ margin-bottom:25px;
+}
+.admin-stat{
+ padding:20px;
+ background:#0c0c0c;
+ border:1px solid var(--line);
+ border-radius:18px;
+}
+.admin-stat b{
+ display:block;
+ font-size:27px;
+ margin-bottom:5px;
+}
+.admin-stat span{font-size:11px;color:#666}
+.panel{
+ border:1px solid var(--line);
+ border-radius:20px;
+ background:#0b0b0b;
+ padding:22px;
+ margin-bottom:20px;
+}
+.panel-title{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:15px;
+ margin-bottom:18px;
+}
+.panel-title h3{font-size:16px}
+.panel-title span{font-size:11px;color:#555}
+.two{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:15px;
+}
+.three{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
+}
+.admin-list{
+ display:flex;
+ flex-direction:column;
+ gap:8px;
+}
+.admin-row{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ padding:13px;
+ border:1px solid var(--line);
+ background:#0e0e0e;
+ border-radius:13px;
+}
+.admin-row-main{
+ min-width:0;
+ display:flex;
+ align-items:center;
+ gap:12px;
+}
+.admin-thumb{
+ width:45px;
+ height:45px;
+ border-radius:10px;
+ object-fit:cover;
+ background:#191919;
+}
+.admin-row-main strong{font-size:12px}
+.admin-row-main small{
+ display:block;
+ color:#666;
+ margin-top:4px;
+ font-size:10px;
+}
+.admin-actions{
+ display:flex;
+ gap:5px;
+ flex-wrap:wrap;
+ justify-content:flex-end;
+}
+.empty{
+ text-align:center;
+ padding:35px;
+ color:#555;
+ border:1px dashed #222;
+ border-radius:15px;
+}
+.checkbox{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ color:#999;
+ font-size:12px;
+ margin:10px 0;
+}
+.checkbox input{accent-color:white}
+.file-preview{
+ width:100%;
+ height:150px;
+ object-fit:cover;
+ border-radius:14px;
+ border:1px solid var(--line);
+ margin-top:8px;
+ display:none;
+}
+.color-row{
+ display:flex;
+ gap:10px;
+ align-items:center;
+}
+.color-row input[type=color]{
+ width:50px;
+ height:40px;
+ padding:2px;
+}
+.notice{
+ padding:12px;
+ border:1px solid #242424;
+ background:#101010;
+ color:#777;
+ border-radius:12px;
+ font-size:11px;
+ line-height:1.6;
+}
+
+/* MODALS */
+.modal{
+ position:fixed;
+ inset:0;
+ z-index:100000;
+ background:rgba(0,0,0,.78);
+ backdrop-filter:blur(10px);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+}
+.modal.open{display:flex}
+.modal-box{
+ width:min(650px,100%);
+ max-height:90vh;
+ overflow:auto;
+ border:1px solid #252525;
+ border-radius:25px;
+ background:#0b0b0b;
+ padding:25px;
+ box-shadow:0 30px 100px rgba(0,0,0,.7);
+ animation:modalIn .25s ease;
+}
+.modal-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:20px;
+}
+.modal-head h3{font-size:19px}
+.modal-x{
+ border:0;
+ background:#151515;
+ color:#aaa;
+ width:35px;
+ height:35px;
+ border-radius:10px;
+}
+.modal-actions{
+ display:flex;
+ justify-content:flex-end;
+ gap:8px;
+ margin-top:20px;
+}
+@keyframes modalIn{
+ from{opacity:0;transform:scale(.94) translateY(15px)}
+ to{opacity:1;transform:none}
+}
+
+/* REVEAL */
+.reveal{
+ opacity:0;
+ transform:translateY(30px);
+ transition:.8s ease;
+}
+.reveal.visible{
+ opacity:1;
+ transform:none;
+}
+
+/* TOAST */
+#toast{
+ position:fixed;
+ right:20px;
+ bottom:20px;
+ z-index:200000;
+ background:#fff;
+ color:#000;
+ padding:13px 17px;
+ border-radius:12px;
+ font-size:12px;
+ font-weight:800;
+ transform:translateY(100px);
+ opacity:0;
+ transition:.3s;
+}
+#toast.show{
+ transform:none;
+ opacity:1;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+ header{height:65px;padding:0 4%}
+ nav{
+  position:absolute;
+  top:65px;
   left:0;
   right:0;
-  height:76px;
-  z-index:2000;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 5%;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  background:rgba(5,5,5,.72);
-  backdrop-filter:blur(20px);
-}
-
-.logo{
-  text-decoration:none;
-  font-size:20px;
-  font-weight:950;
-  letter-spacing:-1px;
-}
-
-.logo span{
-  color:#666;
-}
-
-.nav{
-  display:flex;
-  align-items:center;
-  gap:25px;
-}
-
-.nav a{
-  color:#777;
-  text-decoration:none;
-  font-size:12px;
-  transition:.3s;
-}
-
-.nav a:hover{
-  color:#fff;
-}
-
-.header-right{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.admin-dot{
-  width:9px;
-  height:9px;
-  border:1px solid #444;
-  background:#111;
-  border-radius:50%;
-  transition:.3s;
-}
-
-.admin-dot:hover{
-  background:#fff;
-  box-shadow:0 0 20px rgba(255,255,255,.5);
-}
-
-.mobile-menu{
+  background:#080808;
+  border-bottom:1px solid var(--line);
+  padding:10px;
   display:none;
-  border:1px solid #222;
-  background:#0b0b0b;
-  color:#fff;
-  width:40px;
-  height:40px;
-  border-radius:12px;
-}
-
-/* =========================
-   GENERAL
-========================= */
-
-section{
-  padding:125px 6%;
-  position:relative;
-}
-
-.container{
-  max-width:1250px;
-  margin:auto;
-}
-
-.section-head{
-  text-align:center;
-  margin-bottom:55px;
-}
-
-.eyebrow{
-  color:#666;
-  font-size:10px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-}
-
-.section-head h2{
-  margin-top:12px;
-  font-size:clamp(35px,6vw,65px);
-  letter-spacing:-4px;
-}
-
-.section-head p{
-  max-width:620px;
-  margin:17px auto 0;
-  color:#777;
-  line-height:1.8;
-  font-size:14px;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  min-height:46px;
-  padding:0 20px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:12px;
-  background:#fff;
-  color:#000;
-  text-decoration:none;
-  font-size:12px;
-  font-weight:850;
+  flex-direction:column;
+ }
+ nav.open{display:flex}
+ nav a{width:100%;text-align:center}
+ .menu-btn{display:block}
+ main{padding-top:65px}
+ .section{padding:75px 5%}
+ .hero{
+  min-height:auto;
+  grid-template-columns:1fr;
+  padding-top:65px;
+ }
+ .hero h1{letter-spacing:-4px}
+ .hero-card{min-height:330px}
+ .about-grid,.review-list,.two{grid-template-columns:1fr}
+ .stats-grid{grid-template-columns:1fr 1fr}
+ .products-grid{grid-template-columns:1fr}
+ .review-summary{grid-template-columns:1fr}
+ .discord{padding:30px;flex-direction:column;align-items:flex-start}
+ .admin-sidebar{
+  position:absolute;
+  left:-250px;
+  top:0;
+  bottom:0;
+  z-index:10;
   transition:.3s;
+ }
+ #adminOverlay.sidebar-open .admin-sidebar{left:0}
+ .admin-content{padding:20px 15px}
+ .admin-top{padding:0 15px}
+ .admin-menu{display:block!important}
+ .admin-grid{grid-template-columns:1fr 1fr}
+ .three{grid-template-columns:1fr}
+}
+.admin-menu{
+ display:none;
+ border:1px solid var(--line);
+ background:#111;
+ color:white;
+ padding:8px 10px;
+ border-radius:10px;
 }
 
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 15px 40px rgba(255,255,255,.1);
+/* PRODUCT DETAIL */
+.detail-img{
+ width:100%;
+ max-height:330px;
+ object-fit:cover;
+ border-radius:18px;
+ margin-bottom:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+
+<!-- BIENVENIDA -->
+<div id="welcomeScreen">
+ <div class="welcome-content">
+  <div class="welcome-logo" id="welcomeLogo">L</div>
+  <h1 id="welcomeTitle">Luna Market</h1>
+  <p id="welcomeText">Haz clic en cualquier lugar para entrar</p>
+ </div>
+</div>
+
+<header>
+ <a href="#inicio" class="logo" id="brandName">Luna<span>Market</span></a>
+
+ <nav id="mainNav">
+  <a href="#inicio">Inicio</a>
+  <a href="#sobre">Sobre nosotros</a>
+  <a href="#estadisticas">Estadísticas</a>
+  <a href="#productos">Productos</a>
+  <a href="#resenas">Reseñas</a>
+  <a href="#discord">Discord</a>
+ </nav>
+
+ <div style="display:flex;align-items:center">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <button class="admin-dot" id="adminBtn" title="Administración"></button>
+ </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="section hero reveal" id="inicio">
+ <div>
+  <div class="hero-badge" id="heroBadge">LUNA MARKET • STORE</div>
+  <h1 id="heroTitle">Todo lo que buscas.<br><span>En un solo lugar.</span></h1>
+  <p id="heroDescription">
+   Descubre nuestra selección de productos y encuentra exactamente lo que necesitas.
+  </p>
+  <div class="hero-actions">
+   <a href="#productos" class="btn" id="heroButton">Ver productos</a>
+   <a href="#sobre" class="btn dark" id="heroSecondButton">Conocer más</a>
+  </div>
+ </div>
+
+ <div class="hero-card">
+  <div class="hero-logo" id="heroLogo">L</div>
+ </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section reveal" id="sobre">
+ <div class="section-head">
+  <div>
+   <div class="eyebrow">01 / Sobre nosotros</div>
+   <h2 id="aboutTitle">Sobre Luna Market</h2>
+  </div>
+ </div>
+
+ <div class="about-grid">
+  <div class="about-card">
+   <h3 id="aboutCardTitle">Una tienda diferente.</h3>
+   <p id="aboutText">
+    Luna Market nace con la idea de ofrecer una experiencia sencilla,
+    moderna y profesional para encontrar nuestros productos.
+   </p>
+  </div>
+
+  <div class="about-card">
+   <h3 id="aboutCardTitle2">Calidad primero.</h3>
+   <p id="aboutText2">
+    Trabajamos constantemente para mejorar nuestra tienda y ofrecer
+    una experiencia agradable a nuestros clientes.
+   </p>
+  </div>
+ </div>
+</section>
+
+<!-- ESTADISTICAS -->
+<section class="section reveal" id="estadisticas">
+ <div class="section-head">
+  <div>
+   <div class="eyebrow">02 / Números</div>
+   <h2 id="statsTitle">Luna en números</h2>
+  </div>
+ </div>
+ <p class="section-desc" id="statsDescription">
+  Algunos datos de nuestra comunidad.
+ </p>
+
+ <div class="stats-grid" id="publicStats"></div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section reveal" id="productos">
+ <div class="section-head">
+  <div>
+   <div class="eyebrow">03 / Catálogo</div>
+   <h2 id="productsTitle">Productos</h2>
+  </div>
+ </div>
+
+ <p class="section-desc" id="productsDescription">
+  Explora nuestro catálogo.
+ </p>
+
+ <div class="filters" id="categoryFilters"></div>
+ <div class="products-grid" id="publicProducts"></div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="section reveal" id="resenas">
+ <div class="section-head">
+  <div>
+   <div class="eyebrow">04 / Comunidad</div>
+   <h2 id="reviewsTitle">Reseñas</h2>
+  </div>
+ </div>
+
+ <p class="section-desc" id="reviewsDescription">
+  La opinión de nuestra comunidad.
+ </p>
+
+ <div class="review-summary">
+  <div class="rating-big">
+   <strong id="averageRating">0.0</strong>
+   <div class="stars" id="averageStars">★★★★★</div>
+   <small id="reviewCount">0 reseñas publicadas</small>
+  </div>
+
+  <div class="bars" id="ratingBars"></div>
+ </div>
+
+ <div class="review-form">
+  <div class="panel-title">
+   <h3>Deja tu reseña</h3>
+   <span>Tu reseña quedará pendiente de aprobación</span>
+  </div>
+
+  <div class="form-grid">
+   <div class="field">
+    <label>Nombre</label>
+    <input id="reviewName" maxlength="30" placeholder="Tu nombre">
+   </div>
+
+   <div class="field">
+    <label>Calificación</label>
+    <div class="star-selector" id="starSelector">
+     <button data-star="1">★</button>
+     <button data-star="2">★</button>
+     <button data-star="3">★</button>
+     <button data-star="4">★</button>
+     <button data-star="5">★</button>
+    </div>
+   </div>
+  </div>
+
+  <div class="field">
+   <label>Reseña</label>
+   <textarea id="reviewText" maxlength="400" placeholder="Cuéntanos tu experiencia..."></textarea>
+  </div>
+
+  <button class="btn" id="submitReview">Enviar reseña</button>
+ </div>
+
+ <div class="review-tools">
+  <div class="filters" style="margin:0">
+   <button class="filter active" data-review-filter="all">Todas</button>
+   <button class="filter" data-review-filter="5">5 estrellas</button>
+   <button class="filter" data-review-filter="4">4 estrellas</button>
+   <button class="filter" data-review-filter="3">3 estrellas</button>
+  </div>
+
+  <select id="reviewSort" class="field" style="width:150px;margin:0">
+   <option value="new">Más recientes</option>
+   <option value="high">Mayor puntuación</option>
+   <option value="low">Menor puntuación</option>
+  </select>
+ </div>
+
+ <div class="review-list" id="publicReviews"></div>
+</section>
+
+<!-- DISCORD -->
+<section class="section reveal" id="discord">
+ <div class="discord">
+  <div>
+   <div class="eyebrow">05 / Comunidad</div>
+   <h2 id="discordTitle">Únete a nuestro Discord</h2>
+   <p id="discordDescription">
+    Forma parte de nuestra comunidad y mantente al tanto de todas las novedades.
+   </p>
+  </div>
+
+  <a class="btn" id="discordButton" href="#" target="_blank">Entrar al Discord</a>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div id="footerText">© 2026 Luna Market. Todos los derechos reservados.</div>
+ <div class="socials" id="socialLinks"></div>
+</footer>
+
+
+<!-- ================= ADMIN ================= -->
+
+<div id="adminOverlay">
+
+ <aside class="admin-sidebar">
+  <div class="admin-brand">
+   Luna Market
+   <small>ADMIN CONTROL CENTER</small>
+  </div>
+
+  <div class="admin-nav">
+   <button class="admin-tab active" data-tab="dashboard">⌂ Dashboard</button>
+   <button class="admin-tab" data-tab="welcome">◈ Bienvenida</button>
+   <button class="admin-tab" data-tab="hero">✦ Presentación</button>
+   <button class="admin-tab" data-tab="about">▣ Sobre nosotros</button>
+   <button class="admin-tab" data-tab="stats">▥ Estadísticas</button>
+   <button class="admin-tab" data-tab="products">□ Productos</button>
+   <button class="admin-tab" data-tab="categories">◇ Categorías</button>
+   <button class="admin-tab" data-tab="reviews">★ Reseñas</button>
+   <button class="admin-tab" data-tab="discord">◉ Discord</button>
+   <button class="admin-tab" data-tab="design">⚙ Diseño</button>
+   <button class="admin-tab" data-tab="social">◎ Redes</button>
+   <button class="admin-tab" data-tab="texts">T Textos</button>
+   <button class="admin-tab" data-tab="data">⇩ Datos</button>
+  </div>
+
+  <button class="admin-close" id="adminClose">Cerrar panel</button>
+ </aside>
+
+ <div class="admin-main">
+
+  <div class="admin-top">
+   <div style="display:flex;align-items:center;gap:12px">
+    <button class="admin-menu" id="adminMenu">☰</button>
+    <div>
+     <h2 id="adminPageTitle">Dashboard</h2>
+     <span>Control completo de Luna Market</span>
+    </div>
+   </div>
+   <button class="btn small" id="saveAll">Guardar cambios</button>
+  </div>
+
+  <div class="admin-content">
+
+   <!-- DASHBOARD -->
+   <div class="admin-section active" id="tab-dashboard">
+    <div class="admin-grid">
+     <div class="admin-stat"><b id="dashProducts">0</b><span>Productos</span></div>
+     <div class="admin-stat"><b id="dashCategories">0</b><span>Categorías</span></div>
+     <div class="admin-stat"><b id="dashReviews">0</b><span>Reseñas publicadas</span></div>
+     <div class="admin-stat"><b id="dashPending">0</b><span>Reseñas pendientes</span></div>
+    </div>
+
+    <div class="two">
+     <div class="panel">
+      <div class="panel-title">
+       <h3>Acciones rápidas</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+       <button class="btn small" onclick="openProductModal()">+ Producto</button>
+       <button class="btn small dark" onclick="switchAdminTab('stats')">+ Estadística</button>
+       <button class="btn small dark" onclick="switchAdminTab('categories')">+ Categoría</button>
+       <button class="btn small dark" onclick="switchAdminTab('reviews')">Moderar reseñas</button>
+      </div>
+     </div>
+
+     <div class="panel">
+      <div class="panel-title">
+       <h3>Estado de la tienda</h3>
+      </div>
+      <div class="notice">
+       Los cambios se guardan localmente en este navegador.
+       Puedes crear una copia desde la sección Datos.
+      </div>
+     </div>
+    </div>
+
+    <div class="panel">
+     <div class="panel-title"><h3>Vista rápida</h3></div>
+     <div class="three">
+      <button class="btn dark" onclick="switchAdminTab('welcome')">Editar bienvenida</button>
+      <button class="btn dark" onclick="switchAdminTab('hero')">Editar presentación</button>
+      <button class="btn dark" onclick="switchAdminTab('design')">Editar diseño</button>
+     </div>
+    </div>
+   </div>
+
+
+   <!-- BIENVENIDA -->
+   <div class="admin-section" id="tab-welcome">
+    <div class="panel">
+     <div class="panel-title">
+      <h3>Pantalla de bienvenida</h3>
+      <span>Todo es editable</span>
+     </div>
+
+     <label class="checkbox">
+      <input type="checkbox" id="welcomeEnabled">
+      Mostrar pantalla de bienvenida
+     </label>
+
+     <div class="two">
+      <div class="field">
+       <label>Título</label>
+       <input id="welcomeTitleInput">
+      </div>
+
+      <div class="field">
+       <label>Texto</label>
+       <input id="welcomeTextInput">
+      </div>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Logo / inicial</label>
+       <input id="welcomeLogoInput" maxlength="3">
+      </div>
+
+      <div class="field">
+       <label>Color de fondo</label>
+       <input type="color" id="welcomeBgInput">
+      </div>
+     </div>
+
+     <button class="btn" id="saveWelcome">Guardar bienvenida</button>
+    </div>
+   </div>
+
+
+   <!-- HERO -->
+   <div class="admin-section" id="tab-hero">
+    <div class="panel">
+     <div class="panel-title"><h3>Presentación principal</h3></div>
+
+     <div class="field">
+      <label>Badge</label>
+      <input id="heroBadgeInput">
+     </div>
+
+     <div class="field">
+      <label>Título</label>
+      <textarea id="heroTitleInput"></textarea>
+     </div>
+
+     <div class="field">
+      <label>Descripción</label>
+      <textarea id="heroDescriptionInput"></textarea>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Botón principal</label>
+       <input id="heroButtonInput">
+      </div>
+      <div class="field">
+       <label>Segundo botón</label>
+       <input id="heroSecondButtonInput">
+      </div>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Logo / inicial</label>
+       <input id="heroLogoInput" maxlength="3">
+      </div>
+      <div class="field">
+       <label>Imagen del hero</label>
+       <input type="file" id="heroImageFile" accept="image/*">
+      </div>
+     </div>
+
+     <img id="heroImagePreview" class="file-preview">
+
+     <button class="btn" id="saveHero">Guardar presentación</button>
+    </div>
+   </div>
+
+
+   <!-- ABOUT -->
+   <div class="admin-section" id="tab-about">
+    <div class="panel">
+     <div class="panel-title"><h3>Sobre nosotros</h3></div>
+
+     <div class="field">
+      <label>Título de sección</label>
+      <input id="aboutTitleInput">
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Título tarjeta 1</label>
+       <input id="aboutCardTitleInput">
+      </div>
+
+      <div class="field">
+       <label>Título tarjeta 2</label>
+       <input id="aboutCardTitle2Input">
+      </div>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Texto tarjeta 1</label>
+       <textarea id="aboutTextInput"></textarea>
+      </div>
+
+      <div class="field">
+       <label>Texto tarjeta 2</label>
+       <textarea id="aboutText2Input"></textarea>
+      </div>
+     </div>
+
+     <button class="btn" id="saveAbout">Guardar sección</button>
+    </div>
+   </div>
+
+
+   <!-- STATS -->
+   <div class="admin-section" id="tab-stats">
+    <div class="panel">
+     <div class="panel-title">
+      <h3>Configuración de estadísticas</h3>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Título</label>
+       <input id="statsTitleInput">
+      </div>
+      <div class="field">
+       <label>Descripción</label>
+       <input id="statsDescriptionInput">
+      </div>
+     </div>
+    </div>
+
+    <div class="panel">
+     <div class="panel-title">
+      <h3>Estadísticas</h3>
+      <button class="btn small" onclick="openStatModal()">+ Añadir</button>
+     </div>
+     <div class="admin-list" id="adminStatsList"></div>
+    </div>
+   </div>
+
+
+   <!-- PRODUCTS -->
+   <div class="admin-section" id="tab-products">
+    <div class="panel">
+     <div class="panel-title">
+      <h3>Productos</h3>
+      <button class="btn small" onclick="openProductModal()">+ Nuevo producto</button>
+     </div>
+     <div class="admin-list" id="adminProductsList"></div>
+    </div>
+   </div>
+
+
+   <!-- CATEGORIES -->
+   <div class="admin-section" id="tab-categories">
+    <div class="panel">
+     <div class="panel-title">
+      <h3>Categorías</h3>
+      <button class="btn small" onclick="openCategoryModal()">+ Nueva categoría</button>
+     </div>
+     <div class="admin-list" id="adminCategoriesList"></div>
+    </div>
+   </div>
+
+
+   <!-- REVIEWS -->
+   <div class="admin-section" id="tab-reviews">
+
+    <div class="admin-grid">
+     <div class="admin-stat"><b id="adminReviewTotal">0</b><span>Total</span></div>
+     <div class="admin-stat"><b id="adminReviewPending">0</b><span>Pendientes</span></div>
+     <div class="admin-stat"><b id="adminReviewApproved">0</b><span>Aprobadas</span></div>
+     <div class="admin-stat"><b id="adminReviewAverage">0.0</b><span>Promedio</span></div>
+    </div>
+
+    <div class="panel">
+     <div class="panel-title">
+      <h3>Moderación de reseñas</h3>
+      <span>Controla lo que aparece públicamente</span>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Filtrar</label>
+       <select id="adminReviewFilter">
+        <option value="all">Todas</option>
+        <option value="pending">Pendientes</option>
+        <option value="approved">Aprobadas</option>
+        <option value="rejected">Rechazadas</option>
+       </select>
+      </div>
+
+      <div class="field">
+       <label>Buscar</label>
+       <input id="adminReviewSearch" placeholder="Nombre o contenido">
+      </div>
+     </div>
+    </div>
+
+    <div class="panel">
+     <div class="admin-list" id="adminReviewsList"></div>
+    </div>
+   </div>
+
+
+   <!-- DISCORD -->
+   <div class="admin-section" id="tab-discord">
+    <div class="panel">
+     <div class="panel-title"><h3>Sección Discord</h3></div>
+
+     <div class="field">
+      <label>Título</label>
+      <input id="discordTitleInput">
+     </div>
+
+     <div class="field">
+      <label>Descripción</label>
+      <textarea id="discordDescriptionInput"></textarea>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Texto del botón</label>
+       <input id="discordButtonInput">
+      </div>
+
+      <div class="field">
+       <label>Enlace Discord</label>
+       <input id="discordUrlInput" placeholder="https://discord.gg/...">
+      </div>
+     </div>
+
+     <button class="btn" id="saveDiscord">Guardar Discord</button>
+    </div>
+   </div>
+
+
+   <!-- DESIGN -->
+   <div class="admin-section" id="tab-design">
+    <div class="panel">
+     <div class="panel-title"><h3>Diseño global</h3></div>
+
+     <div class="two">
+      <div class="field">
+       <label>Nombre de tienda</label>
+       <input id="storeNameInput">
+      </div>
+
+      <div class="field">
+       <label>Color principal</label>
+       <div class="color-row">
+        <input type="color" id="accentColorInput">
+        <span id="accentValue"></span>
+       </div>
+      </div>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Fondo</label>
+       <input type="color" id="bgColorInput">
+      </div>
+
+      <div class="field">
+       <label>Color de tarjetas</label>
+       <input type="color" id="cardColorInput">
+      </div>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Redondeado de tarjetas</label>
+       <input type="range" id="radiusInput" min="5" max="40">
+      </div>
+
+      <div class="field">
+       <label>Intensidad del brillo</label>
+       <input type="range" id="glowInput" min="0" max="30">
+      </div>
+     </div>
+
+     <label class="checkbox">
+      <input type="checkbox" id="animationsInput">
+      Activar animaciones
+     </label>
+
+     <button class="btn" id="saveDesign">Guardar diseño</button>
+    </div>
+   </div>
+
+
+   <!-- SOCIAL -->
+   <div class="admin-section" id="tab-social">
+    <div class="panel">
+     <div class="panel-title"><h3>Redes sociales</h3></div>
+
+     <div class="field">
+      <label>Discord</label>
+      <input id="socialDiscord">
+     </div>
+
+     <div class="field">
+      <label>TikTok</label>
+      <input id="socialTikTok">
+     </div>
+
+     <div class="field">
+      <label>Instagram</label>
+      <input id="socialInstagram">
+     </div>
+
+     <div class="field">
+      <label>YouTube</label>
+      <input id="socialYouTube">
+     </div>
+
+     <button class="btn" id="saveSocial">Guardar redes</button>
+    </div>
+   </div>
+
+
+   <!-- TEXTOS -->
+   <div class="admin-section" id="tab-texts">
+    <div class="panel">
+     <div class="panel-title"><h3>Textos de la tienda</h3></div>
+
+     <div class="two">
+      <div class="field">
+       <label>Título productos</label>
+       <input id="productsTitleInput">
+      </div>
+
+      <div class="field">
+       <label>Descripción productos</label>
+       <input id="productsDescriptionInput">
+      </div>
+     </div>
+
+     <div class="two">
+      <div class="field">
+       <label>Título reseñas</label>
+       <input id="reviewsTitleInput">
+      </div>
+
+      <div class="field">
+       <label>Descripción reseñas</label>
+       <input id="reviewsDescriptionInput">
+      </div>
+     </div>
+
+     <div class="field">
+      <label>Texto del footer</label>
+      <textarea id="footerTextInput"></textarea>
+     </div>
+
+     <button class="btn" id="saveTexts">Guardar textos</button>
+    </div>
+   </div>
+
+
+   <!-- DATA -->
+   <div class="admin-section" id="tab-data">
+    <div class="panel">
+     <div class="panel-title"><h3>Respaldo de datos</h3></div>
+
+     <div class="notice">
+      Puedes exportar toda la configuración de Luna Market como un archivo JSON
+      y posteriormente importarlo.
+     </div>
+
+     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:18px">
+      <button class="btn" id="exportData">Exportar JSON</button>
+      <label class="btn dark" style="display:inline-block">
+       Importar JSON
+       <input type="file" id="importData" accept=".json" hidden>
+      </label>
+      <button class="btn danger" id="resetData">Restablecer todo</button>
+     </div>
+    </div>
+
+    <div class="panel">
+     <div class="panel-title"><h3>Información</h3></div>
+     <div class="notice">
+      Este administrador funciona sin servidor y guarda los datos en
+      localStorage. Si quieres que los cambios se compartan entre diferentes
+      teléfonos o computadoras, necesitarás una base de datos/backend.
+     </div>
+    </div>
+   </div>
+
+  </div>
+ </div>
+</div>
+
+
+<!-- MODAL PRODUCTO -->
+<div class="modal" id="productModal">
+ <div class="modal-box">
+  <div class="modal-head">
+   <h3 id="productModalTitle">Nuevo producto</h3>
+   <button class="modal-x" onclick="closeModal('productModal')">×</button>
+  </div>
+
+  <input type="hidden" id="productId">
+
+  <div class="field">
+   <label>Nombre</label>
+   <input id="productName">
+  </div>
+
+  <div class="field">
+   <label>Descripción</label>
+   <textarea id="productDescription"></textarea>
+  </div>
+
+  <div class="two">
+   <div class="field">
+    <label>Precio</label>
+    <input type="number" id="productPrice" min="0" step="0.01">
+   </div>
+
+   <div class="field">
+    <label>Stock</label>
+    <input type="number" id="productStock" min="0">
+   </div>
+  </div>
+
+  <div class="two">
+   <div class="field">
+    <label>Categoría</label>
+    <select id="productCategory"></select>
+   </div>
+
+   <div class="field">
+    <label>Etiqueta</label>
+    <input id="productBadge" placeholder="Nuevo">
+   </div>
+  </div>
+
+  <div class="field">
+   <label>Imagen desde galería</label>
+   <input type="file" id="productImageFile" accept="image/*">
+  </div>
+
+  <div class="field">
+   <label>O URL de imagen</label>
+   <input id="productImageUrl" placeholder="https://...">
+  </div>
+
+  <img id="productImagePreview" class="file-preview">
+
+  <label class="checkbox">
+   <input type="checkbox" id="productFeatured">
+   Producto destacado
+  </label>
+
+  <label class="checkbox">
+   <input type="checkbox" id="productActive" checked>
+   Producto visible
+  </label>
+
+  <div class="modal-actions">
+   <button class="btn dark" onclick="closeModal('productModal')">Cancelar</button>
+   <button class="btn" id="saveProduct">Guardar producto</button>
+  </div>
+ </div>
+</div>
+
+
+<!-- MODAL CATEGORIA -->
+<div class="modal" id="categoryModal">
+ <div class="modal-box">
+  <div class="modal-head">
+   <h3 id="categoryModalTitle">Nueva categoría</h3>
+   <button class="modal-x" onclick="closeModal('categoryModal')">×</button>
+  </div>
+
+  <input type="hidden" id="categoryId">
+
+  <div class="field">
+   <label>Nombre</label>
+   <input id="categoryName">
+  </div>
+
+  <div class="field">
+   <label>Descripción</label>
+   <textarea id="categoryDescription"></textarea>
+  </div>
+
+  <div class="modal-actions">
+   <button class="btn dark" onclick="closeModal('categoryModal')">Cancelar</button>
+   <button class="btn" id="saveCategory">Guardar</button>
+  </div>
+ </div>
+</div>
+
+
+<!-- MODAL ESTADISTICA -->
+<div class="modal" id="statModal">
+ <div class="modal-box">
+  <div class="modal-head">
+   <h3 id="statModalTitle">Nueva estadística</h3>
+   <button class="modal-x" onclick="closeModal('statModal')">×</button>
+  </div>
+
+  <input type="hidden" id="statId">
+
+  <div class="two">
+   <div class="field">
+    <label>Número</label>
+    <input id="statValue" placeholder="100+">
+   </div>
+
+   <div class="field">
+    <label>Nombre</label>
+    <input id="statLabel" placeholder="Clientes">
+   </div>
+  </div>
+
+  <div class="modal-actions">
+   <button class="btn dark" onclick="closeModal('statModal')">Cancelar</button>
+   <button class="btn" id="saveStat">Guardar</button>
+  </div>
+ </div>
+</div>
+
+
+<!-- MODAL PRODUCT DETAIL -->
+<div class="modal" id="detailModal">
+ <div class="modal-box">
+  <div class="modal-head">
+   <h3 id="detailTitle"></h3>
+   <button class="modal-x" onclick="closeModal('detailModal')">×</button>
+  </div>
+
+  <img id="detailImage" class="detail-img">
+
+  <div class="notice" id="detailDescription"></div>
+
+  <div style="display:flex;justify-content:space-between;margin-top:18px">
+   <strong id="detailPrice"></strong>
+   <span id="detailStock" class="badge"></span>
+  </div>
+ </div>
+</div>
+
+
+<div id="toast"></div>
+
+
+<script>
+"use strict";
+
+/* =========================
+   DATA
+========================= */
+
+const DEFAULT_DATA={
+ welcome:{
+  enabled:true,
+  title:"Luna Market",
+  text:"Haz clic en cualquier lugar para entrar",
+  logo:"L",
+  bg:"#030303"
+ },
+
+ hero:{
+  badge:"LUNA MARKET • STORE",
+  title:"Todo lo que buscas.<br><span>En un solo lugar.</span>",
+  description:"Descubre nuestra selección de productos y encuentra exactamente lo que necesitas.",
+  button:"Ver productos",
+  secondButton:"Conocer más",
+  logo:"L",
+  image:""
+ },
+
+ about:{
+  title:"Sobre Luna Market",
+  cardTitle:"Una tienda diferente.",
+  cardTitle2:"Calidad primero.",
+  text:"Luna Market nace con la idea de ofrecer una experiencia sencilla, moderna y profesional para encontrar nuestros productos.",
+  text2:"Trabajamos constantemente para mejorar nuestra tienda y ofrecer una experiencia agradable a nuestros clientes."
+ },
+
+ stats:{
+  title:"Luna en números",
+  description:"Algunos datos de nuestra comunidad.",
+  items:[
+   {id:"s1",value:"100+",label:"Clientes"},
+   {id:"s2",value:"50+",label:"Productos"},
+   {id:"s3",value:"99%",label:"Satisfacción"},
+   {id:"s4",value:"24/7",label:"Atención"}
+  ]
+ },
+
+ categories:[
+  {id:"all",name:"Todos",description:"Todos los productos"},
+  {id:"general",name:"General",description:"Productos generales"}
+ ],
+
+ products:[
+  {
+   id:"p1",
+   name:"Producto de ejemplo",
+   description:"Puedes editar o eliminar este producto desde el administrador.",
+   price:10,
+   stock:100,
+   category:"general",
+   badge:"Nuevo",
+   image:"",
+   featured:true,
+   active:true
+  }
+ ],
+
+ reviews:[
+  {
+   id:"r1",
+   name:"Luna User",
+   rating:5,
+   text:"Una experiencia excelente. La tienda se ve increíble.",
+   status:"approved",
+   date:Date.now()
+  }
+ ],
+
+ discord:{
+  title:"Únete a nuestro Discord",
+  description:"Forma parte de nuestra comunidad y mantente al tanto de todas las novedades.",
+  button:"Entrar al Discord",
+  url:"https://discord.gg/"
+ },
+
+ design:{
+  storeName:"Luna Market",
+  accent:"#ffffff",
+  bg:"#050505",
+  card:"#101010",
+  radius:22,
+  glow:10,
+  animations:true
+ },
+
+ social:{
+  discord:"",
+  tiktok:"",
+  instagram:"",
+  youtube:""
+ },
+
+ texts:{
+  productsTitle:"Productos",
+  productsDescription:"Explora nuestro catálogo.",
+  reviewsTitle:"Reseñas",
+  reviewsDescription:"La opinión de nuestra comunidad.",
+  footer:"© 2026 Luna Market. Todos los derechos reservados."
+ }
+};
+
+let data=loadData();
+let selectedRating=5;
+let currentCategory="all";
+let currentReviewFilter="all";
+
+
+/* =========================
+   STORAGE
+========================= */
+
+function clone(obj){
+ return JSON.parse(JSON.stringify(obj));
 }
 
-.btn.dark{
-  background:#0d0d0d;
-  color:#fff;
+function mergeData(base, saved){
+ if(!saved || typeof saved!=="object") return clone(base);
+
+ const result=clone(base);
+
+ for(const key of Object.keys(base)){
+  if(saved[key]!==undefined){
+   if(Array.isArray(base[key])){
+    result[key]=Array.isArray(saved[key])?saved[key]:base[key];
+   }else if(typeof base[key]==="object" && base[key]!==null){
+    result[key]={
+     ...base[key],
+     ...(saved[key]||{})
+    };
+   }else{
+    result[key]=saved[key];
+   }
+  }
+ }
+
+ return result;
 }
 
-.btn.ghost{
-  background:transparent;
-  color:#aaa;
+function loadData(){
+ try{
+  const saved=localStorage.getItem("luna_market_complete_v1");
+  return saved?mergeData(DEFAULT_DATA,JSON.parse(saved)):clone(DEFAULT_DATA);
+ }catch(e){
+  return clone(DEFAULT_DATA);
+ }
 }
 
-.btn.danger{
-  background:#16090b;
-  color:#ff7780;
-  border-color:#321114;
+function saveData(){
+ try{
+  localStorage.setItem(
+   "luna_market_complete_v1",
+   JSON.stringify(data)
+  );
+  applyAll();
+  toast("Cambios guardados");
+ }catch(e){
+  toast("No se pudieron guardar los datos");
+ }
 }
 
-.btn.success{
-  background:#0b1a11;
-  color:#72ffad;
-  border-color:#183725;
+
+/* =========================
+   HELPERS
+========================= */
+
+function escapeHTML(value){
+ return String(value??"")
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
 }
+
+function uid(prefix="id"){
+ return prefix+"_"+Date.now()+"_"+Math.random().toString(36).slice(2,8);
+}
+
+function toast(message){
+ const el=document.getElementById("toast");
+ el.textContent=message;
+ el.classList.add("show");
+ clearTimeout(window.__toast);
+ window.__toast=setTimeout(()=>el.classList.remove("show"),2200);
+}
+
+function openModal(id){
+ document.getElementById(id)?.classList.add("open");
+}
+
+function closeModal(id){
+ document.getElementById(id)?.classList.remove("open");
+}
+
+function formatPrice(price){
+ return "$"+Number(price||0).toFixed(2);
+}
+
+function initials(name){
+ return String(name||"?")
+  .trim()
+  .split(/\s+/)
+  .slice(0,2)
+  .map(x=>x[0])
+  .join("")
+  .toUpperCase();
+}
+
+function stars(rating){
+ return "★★★★★".split("").map((s,i)=>
+  i<rating?"★":"☆"
+ ).join("");
+}
+
+
+/* =========================
+   APPLY PUBLIC SITE
+========================= */
+
+function applyAll(){
+ applyWelcome();
+ applyHero();
+ applyAbout();
+ applyStats();
+ applyProducts();
+ applyReviews();
+ applyDiscord();
+ applyDesign();
+ applySocial();
+ applyTexts();
+ updateDashboard();
+}
+
+function applyWelcome(){
+ const w=data.welcome;
+
+ document.getElementById("welcomeTitle").textContent=w.title;
+ document.getElementById("welcomeText").textContent=w.text;
+ document.getElementById("welcomeLogo").textContent=w.logo;
+ document.getElementById("welcomeScreen").style.background=w.bg;
+
+ if(!w.enabled){
+  document.getElementById("welcomeScreen").classList.add("hide");
+ }
+}
+
+function applyHero(){
+ const h=data.hero;
+
+ document.getElementById("heroBadge").textContent=h.badge;
+ document.getElementById("heroTitle").innerHTML=h.title;
+ document.getElementById("heroDescription").textContent=h.description;
+ document.getElementById("heroButton").textContent=h.button;
+ document.getElementById("heroSecondButton").textContent=h.secondButton;
+ document.getElementById("heroLogo").textContent=h.logo;
+
+ if(h.image){
+  document.getElementById("heroLogo").style.backgroundImage=`url("${h.image}")`;
+  document.getElementById("heroLogo").style.backgroundSize="cover";
+  document.getElementById("heroLogo").style.backgroundPosition="center";
+  document.getElementById("heroLogo").textContent="";
+ }else{
+  document.getElementById("heroLogo").style.backgroundImage="";
+  document.getElementById("heroLogo").textContent=h.logo;
+ }
+}
+
+function applyAbout(){
+ document.getElementById("aboutTitle").textContent=data.about.title;
+ document.getElementById("aboutCardTitle").textContent=data.about.cardTitle;
+ document.getElementById("aboutCardTitle2").textContent=data.about.cardTitle2;
+ document.getElementById("aboutText").textContent=data.about.text;
+ document.getElementById("aboutText2").textContent=data.about.text2;
+}
+
+function applyStats(){
+ document.getElementById("statsTitle").textContent=data.stats.title;
+ document.getElementById("statsDescription").textContent=data.stats.description;
+
+ const box=document.getElementById("publicStats");
+
+ box.innerHTML=data.stats.items.map(item=>`
+  <div class="stat">
+   <div class="stat-number">${escapeHTML(item.value)}</div>
+   <div class="stat-label">${escapeHTML(item.label)}</div>
+  </div>
+ `).join("");
+}
+
+function applyProducts(){
+ renderFilters();
+ renderProducts();
+}
+
+function renderFilters(){
+ const box=document.getElementById("categoryFilters");
+
+ box.innerHTML=data.categories.map(cat=>`
+  <button class="filter ${currentCategory===cat.id?"active":""}"
+   data-category="${escapeHTML(cat.id)}">
+   ${escapeHTML(cat.name)}
+  </button>
+ `).join("");
+}
+
+function renderProducts(){
+ const box=document.getElementById("publicProducts");
+
+ let products=data.products.filter(p=>p.active!==false);
+
+ if(currentCategory!=="all"){
+  products=products.filter(p=>p.category===currentCategory);
+ }
+
+ if(!products.length){
+  box.innerHTML=`<div class="empty" style="grid-column:1/-1">No hay productos en esta categoría.</div>`;
+  return;
+ }
+
+ box.innerHTML=products.map(p=>{
+  const cat=data.categories.find(c=>c.id===p.category);
+  return `
+   <article class="product" data-product="${escapeHTML(p.id)}">
+    <div class="product-img">
+     ${
+      p.image
+      ? `<img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}">`
+      : `<div class="product-placeholder">◈</div>`
+     }
+    </div>
+
+    <div class="product-info">
+     <div class="product-cat">${escapeHTML(cat?.name||"General")}</div>
+     <h3>${escapeHTML(p.name)}</h3>
+     <p>${escapeHTML(p.description)}</p>
+
+     <div class="product-bottom">
+      <span class="price">${formatPrice(p.price)}</span>
+      ${p.badge?`<span class="badge">${escapeHTML(p.badge)}</span>`:""}
+     </div>
+    </div>
+   </article>
+  `;
+ }).join("");
+}
+
+function applyReviews(){
+ document.getElementById("reviewsTitle").textContent=data.texts.reviewsTitle;
+ document.getElementById("reviewsDescription").textContent=data.texts.reviewsDescription;
+
+ const approved=data.reviews.filter(r=>r.status==="approved");
+
+ const avg=approved.length
+  ? approved.reduce((a,r)=>a+Number(r.rating),0)/approved.length
+  : 0;
+
+ document.getElementById("averageRating").textContent=avg.toFixed(1);
+ document.getElementById("averageStars").textContent=stars(Math.round(avg));
+ document.getElementById("reviewCount").textContent=
+  `${approved.length} reseña${approved.length===1?"":"s"} publicada${approved.length===1?"":"s"}`;
+
+ const bars=document.getElementById("ratingBars");
+
+ bars.innerHTML=[5,4,3,2,1].map(n=>{
+  const count=approved.filter(r=>Number(r.rating)===n).length;
+  const percent=approved.length?(count/approved.length)*100:0;
+
+  return `
+   <div class="bar-row">
+    <span>${n} ★</span>
+    <div class="bar"><i style="width:${percent}%"></i></div>
+    <span>${count}</span>
+   </div>
+  `;
+ }).join("");
+
+ renderPublicReviews();
+}
+
+function renderPublicReviews(){
+ let reviews=data.reviews
+  .filter(r=>r.status==="approved");
+
+ if(currentReviewFilter!=="all"){
+  reviews=reviews.filter(r=>Number(r.rating)===Number(currentReviewFilter));
+ }
+
+ const sort=document.getElementById("reviewSort")?.value||"new";
+
+ reviews.sort((a,b)=>{
+  if(sort==="high") return b.rating-a.rating;
+  if(sort==="low") return a.rating-b.rating;
+  return b.date-a.date;
+ });
+
+ const box=document.getElementById("publicReviews");
+
+ if(!reviews.length){
+  box.innerHTML=`<div class="empty" style="grid-column:1/-1">Todavía no hay reseñas para mostrar.</div>`;
+  return;
+ }
+
+ box.innerHTML=reviews.map(r=>`
+  <article class="review-card">
+   <div class="review-top">
+    <div class="reviewer">
+     <div class="avatar">${escapeHTML(initials(r.name))}</div>
+     <div>
+      <strong>${escapeHTML(r.name)}</strong>
+      <small>${new Date(r.date).toLocaleDateString("es-MX")}</small>
+     </div>
+    </div>
+
+    <div class="stars">${stars(Number(r.rating))}</div>
+   </div>
+
+   <div class="review-text">${escapeHTML(r.text)}</div>
+  </article>
+ `).join("");
+}
+
+function applyDiscord(){
+ document.getElementById("discordTitle").textContent=data.discord.title;
+ document.getElementById("discordDescription").textContent=data.discord.description;
+ document.getElementById("discordButton").textContent=data.discord.button;
+ document.getElementById("discordButton").href=data.discord.url||"#";
+}
+
+function applyDesign(){
+ const d=data.design;
+
+ document.documentElement.style.setProperty("--bg",d.bg);
+ document.documentElement.style.setProperty("--card",d.card);
+ document.documentElement.style.setProperty("--accent",d.accent);
+ document.documentElement.style.setProperty("--radius",d.radius+"px");
+
+ document.getElementById("brandName").innerHTML=
+  escapeHTML(d.storeName);
+
+ document.title=d.storeName;
+
+ document.querySelectorAll(".about-card,.product,.review-card,.panel").forEach(el=>{
+  el.style.borderRadius=d.radius+"px";
+ });
+
+ if(!d.animations){
+  document.documentElement.style.setProperty("*","animation:none!important");
+ }
+}
+
+function applySocial(){
+ const links=[
+  ["Discord",data.social.discord],
+  ["TikTok",data.social.tiktok],
+  ["Instagram",data.social.instagram],
+  ["YouTube",data.social.youtube]
+ ];
+
+ document.getElementById("socialLinks").innerHTML=
+ links.filter(x=>x[1]).map(x=>
+  `<a href="${escapeHTML(x[1])}" target="_blank">${escapeHTML(x[0])}</a>`
+ ).join("");
+}
+
+function applyTexts(){
+ document.getElementById("productsTitle").textContent=data.texts.productsTitle;
+ document.getElementById("productsDescription").textContent=data.texts.productsDescription;
+ document.getElementById("footerText").textContent=data.texts.footer;
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+const welcomeScreen=document.getElementById("welcomeScreen");
+
+function enterStore(){
+ welcomeScreen.classList.add("hide");
+}
+
+welcomeScreen.addEventListener("pointerdown",enterStore);
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+document.getElementById("menuBtn").addEventListener("click",()=>{
+ document.getElementById("mainNav").classList.toggle("open");
+});
+
+document.querySelectorAll("#mainNav a").forEach(a=>{
+ a.addEventListener("click",()=>{
+  document.getElementById("mainNav").classList.remove("open");
+ });
+});
+
+
+/* =========================
+   PRODUCT EVENTS
+========================= */
+
+document.getElementById("categoryFilters").addEventListener("click",e=>{
+ const btn=e.target.closest("[data-category]");
+ if(!btn)return;
+
+ currentCategory=btn.dataset.category;
+ renderFilters();
+ renderProducts();
+});
+
+document.getElementById("publicProducts").addEventListener("click",e=>{
+ const product=e.target.closest("[data-product]");
+ if(!product)return;
+
+ openProductDetail(product.dataset.product);
+});
+
+function openProductDetail(id){
+ const p=data.products.find(x=>x.id===id);
+ if(!p)return;
+
+ document.getElementById("detailTitle").textContent=p.name;
+ document.getElementById("detailDescription").textContent=p.description;
+ document.getElementById("detailPrice").textContent=formatPrice(p.price);
+ document.getElementById("detailStock").textContent=
+  p.stock>0?`${p.stock} disponibles`:"Agotado";
+
+ const image=document.getElementById("detailImage");
+
+ if(p.image){
+  image.src=p.image;
+  image.style.display="block";
+ }else{
+  image.style.display="none";
+ }
+
+ openModal("detailModal");
+}
+
+
+/* =========================
+   REVIEWS PUBLIC
+========================= */
+
+document.querySelectorAll("#starSelector button").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  selectedRating=Number(btn.dataset.star);
+
+  document.querySelectorAll("#starSelector button").forEach(x=>{
+   x.classList.toggle("active",Number(x.dataset.star)<=selectedRating);
+  });
+ });
+});
+
+document.getElementById("submitReview").addEventListener("click",()=>{
+ const name=document.getElementById("reviewName").value.trim();
+ const text=document.getElementById("reviewText").value.trim();
+
+ if(name.length<2){
+  toast("Escribe tu nombre");
+  return;
+ }
+
+ if(text.length<5){
+  toast("Escribe una reseña");
+  return;
+ }
+
+ data.reviews.unshift({
+  id:uid("review"),
+  name:name.slice(0,30),
+  rating:selectedRating,
+  text:text.slice(0,400),
+  status:"pending",
+  date:Date.now()
+ });
+
+ saveData();
+
+ document.getElementById("reviewName").value="";
+ document.getElementById("reviewText").value="";
+
+ toast("Reseña enviada para aprobación");
+});
+
+document.querySelectorAll("[data-review-filter]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  currentReviewFilter=btn.dataset.reviewFilter;
+
+  document.querySelectorAll("[data-review-filter]").forEach(x=>
+   x.classList.toggle("active",x===btn)
+  );
+
+  renderPublicReviews();
+ });
+});
+
+document.getElementById("reviewSort").addEventListener("change",renderPublicReviews);
+
+
+/* =========================
+   ADMIN LOGIN
+========================= */
+
+document.getElementById("adminBtn").addEventListener("click",()=>{
+ const password=prompt("Contraseña del administrador:");
+
+ if(password==="Ghost"){
+  sessionStorage.setItem("luna_admin","1");
+  document.getElementById("adminOverlay").classList.add("open");
+  loadAdminForms();
+  updateDashboard();
+ }else if(password!==null){
+  toast("Contraseña incorrecta");
+ }
+});
+
+document.getElementById("adminClose").addEventListener("click",()=>{
+ document.getElementById("adminOverlay").classList.remove("open");
+});
+
+document.getElementById("adminMenu").addEventListener("click",()=>{
+ document.getElementById("adminOverlay").classList.toggle("sidebar-open");
+});
+
+
+/* =========================
+   ADMIN TABS
+========================= */
+
+const tabNames={
+ dashboard:"Dashboard",
+ welcome:"Bienvenida",
+ hero:"Presentación",
+ about:"Sobre nosotros",
+ stats:"Estadísticas",
+ products:"Productos",
+ categories:"Categorías",
+ reviews:"Reseñas",
+ discord:"Discord",
+ design:"Diseño",
+ social:"Redes",
+ texts:"Textos",
+ data:"Datos"
+};
+
+document.querySelectorAll(".admin-tab").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  switchAdminTab(btn.dataset.tab);
+ });
+});
+
+function switchAdminTab(tab){
+ document.querySelectorAll(".admin-tab").forEach(x=>
+  x.classList.toggle("active",x.dataset.tab===tab)
+ );
+
+ document.querySelectorAll(".admin-section").forEach(x=>
+  x.classList.toggle("active",x.id==="tab-"+tab)
+ );
+
+ document.getElementById("adminPageTitle").textContent=tabNames[tab]||tab;
+ document.getElementById("adminOverlay").classList.remove("sidebar-open");
+}
+
+window.switchAdminTab=switchAdminTab;
+
+
+/* =========================
+   LOAD ADMIN FORMS
+========================= */
+
+function setValue(id,value){
+ const el=document.getElementById(id);
+ if(el)el.value=value??"";
+}
+
+function loadAdminForms(){
+
+ setValue("welcomeTitleInput",data.welcome.title);
+ setValue("welcomeTextInput",data.welcome.text);
+ setValue("welcomeLogoInput",data.welcome.logo);
+ document.getElementById("welcomeEnabled").checked=data.welcome.enabled;
+ document.getElementById("welcomeBgInput").value=data.welcome.bg;
+
+ setValue("heroBadgeInput",data.hero.badge);
+ setValue("heroTitleInput",data.hero.title);
+ setValue("heroDescriptionInput",data.hero.description);
+ setValue("heroButtonInput",data.hero.button);
+ setValue("heroSecondButtonInput",data.hero.secondButton);
+ setValue("heroLogoInput",data.hero.logo);
+
+ if(data.hero.image){
+  const preview=document.getElementById("heroImagePreview");
+  preview.src=data.hero.image;
+  preview.style.display="block";
+ }
+
+ setValue("aboutTitleInput",data.about.title);
+ setValue("aboutCardTitleInput",data.about.cardTitle);
+ setValue("aboutCardTitle2Input",data.about.cardTitle2);
+ setValue("aboutTextInput",data.about.text);
+ setValue("aboutText2Input",data.about.text2);
+
+ setValue("statsTitleInput",data.stats.title);
+ setValue("statsDescriptionInput",data.stats.description);
+
+ setValue("discordTitleInput",data.discord.title);
+ setValue("discordDescriptionInput",data.discord.description);
+ setValue("discordButtonInput",data.discord.button);
+ setValue("discordUrlInput",data.discord.url);
+
+ setValue("storeNameInput",data.design.storeName);
+ setValue("accentColorInput",data.design.accent);
+ setValue("bgColorInput",data.design.bg);
+ setValue("cardColorInput",data.design.card);
+ setValue("radiusInput",data.design.radius);
+ setValue("glowInput",data.design.glow);
+ document.getElementById("animationsInput").checked=data.design.animations;
+ document.getElementById("accentValue").textContent=data.design.accent;
+
+ setValue("socialDiscord",data.social.discord);
+ setValue("socialTikTok",data.social.tiktok);
+ setValue("socialInstagram",data.social.instagram);
+ setValue("socialYouTube",data.social.youtube);
+
+ setValue("productsTitleInput",data.texts.productsTitle);
+ setValue("productsDescriptionInput",data.texts.productsDescription);
+ setValue("reviewsTitleInput",data.texts.reviewsTitle);
+ setValue("reviewsDescriptionInput",data.texts.reviewsDescription);
+ setValue("footerTextInput",data.texts.footer);
+
+ renderAdminStats();
+ renderAdminProducts();
+ renderAdminCategories();
+ renderAdminReviews();
+}
+
+document.getElementById("accentColorInput").addEventListener("input",e=>{
+ document.getElementById("accentValue").textContent=e.target.value;
+});
+
+
+/* =========================
+   SAVE WELCOME
+========================= */
+
+document.getElementById("saveWelcome").addEventListener("click",()=>{
+ data.welcome={
+  enabled:document.getElementById("welcomeEnabled").checked,
+  title:document.getElementById("welcomeTitleInput").value.trim()||"Luna Market",
+  text:document.getElementById("welcomeTextInput").value.trim(),
+  logo:document.getElementById("welcomeLogoInput").value.trim()||"L",
+  bg:document.getElementById("welcomeBgInput").value
+ };
+
+ saveData();
+});
+
 
 /* =========================
    HERO
 ========================= */
 
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding-top:130px;
-}
+document.getElementById("heroImageFile").addEventListener("change",e=>{
+ const file=e.target.files[0];
+ if(!file)return;
 
-.hero-inner{
-  max-width:1050px;
-  animation:heroIn 1.1s ease both;
-}
+ if(file.size>3*1024*1024){
+  toast("La imagen debe pesar menos de 3 MB");
+  e.target.value="";
+  return;
+ }
 
-.hero-badge{
-  display:inline-flex;
-  padding:9px 15px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.03);
-  border-radius:100px;
-  color:#777;
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  backdrop-filter:blur(15px);
-}
+ const reader=new FileReader();
 
-.hero h1{
-  margin-top:27px;
-  font-size:clamp(60px,13vw,155px);
-  line-height:.82;
-  letter-spacing:-10px;
-}
+ reader.onload=()=>{
+  data.hero.image=reader.result;
+  const preview=document.getElementById("heroImagePreview");
+  preview.src=reader.result;
+  preview.style.display="block";
+ };
 
-.hero h1 span{
-  color:#666;
-}
+ reader.readAsDataURL(file);
+});
 
-.hero-text{
-  max-width:650px;
-  margin:35px auto;
-  color:#888;
-  line-height:1.8;
-  font-size:15px;
-}
+document.getElementById("saveHero").addEventListener("click",()=>{
+ data.hero.badge=document.getElementById("heroBadgeInput").value.trim();
+ data.hero.title=document.getElementById("heroTitleInput").value.trim();
+ data.hero.description=document.getElementById("heroDescriptionInput").value.trim();
+ data.hero.button=document.getElementById("heroButtonInput").value.trim();
+ data.hero.secondButton=document.getElementById("heroSecondButtonInput").value.trim();
+ data.hero.logo=document.getElementById("heroLogoInput").value.trim()||"L";
 
-.hero-buttons{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
+ saveData();
+});
 
-@keyframes heroIn{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
 
 /* =========================
    ABOUT
 ========================= */
 
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
+document.getElementById("saveAbout").addEventListener("click",()=>{
+ data.about.title=document.getElementById("aboutTitleInput").value.trim();
+ data.about.cardTitle=document.getElementById("aboutCardTitleInput").value.trim();
+ data.about.cardTitle2=document.getElementById("aboutCardTitle2Input").value.trim();
+ data.about.text=document.getElementById("aboutTextInput").value.trim();
+ data.about.text2=document.getElementById("aboutText2Input").value.trim();
 
-.card{
-  padding:35px;
-  background:rgba(255,255,255,.025);
-  border:1px solid var(--line);
-  border-radius:25px;
-  backdrop-filter:blur(20px);
-  transition:.4s;
-}
+ saveData();
+});
 
-.card:hover{
-  transform:translateY(-8px);
-  border-color:var(--line2);
-  box-shadow:0 25px 70px rgba(0,0,0,.5);
-}
-
-.card h3{
-  font-size:25px;
-  margin-bottom:14px;
-}
-
-.card p{
-  color:#777;
-  line-height:1.8;
-}
 
 /* =========================
    STATS
 ========================= */
 
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
+document.getElementById("saveStat").addEventListener("click",()=>{
+ const id=document.getElementById("statId").value;
+ const value=document.getElementById("statValue").value.trim();
+ const label=document.getElementById("statLabel").value.trim();
+
+ if(!value||!label){
+  toast("Completa los campos");
+  return;
+ }
+
+ if(id){
+  const item=data.stats.items.find(x=>x.id===id);
+  if(item){
+   item.value=value;
+   item.label=label;
+  }
+ }else{
+  data.stats.items.push({
+   id:uid("stat"),
+   value,
+   label
+  });
+ }
+
+ data.stats.title=document.getElementById("statsTitleInput").value.trim();
+ data.stats.description=document.getElementById("statsDescriptionInput").value.trim();
+
+ saveData();
+ closeModal("statModal");
+ loadAdminForms();
+});
+
+document.getElementById("statsTitleInput").addEventListener("change",()=>{
+ data.stats.title=document.getElementById("statsTitleInput").value;
+ saveData();
+});
+
+document.getElementById("statsDescriptionInput").addEventListener("change",()=>{
+ data.stats.description=document.getElementById("statsDescriptionInput").value;
+ saveData();
+});
+
+function openStatModal(id=null){
+ const item=id?data.stats.items.find(x=>x.id===id):null;
+
+ document.getElementById("statId").value=item?.id||"";
+ document.getElementById("statValue").value=item?.value||"";
+ document.getElementById("statLabel").value=item?.label||"";
+ document.getElementById("statModalTitle").textContent=
+  item?"Editar estadística":"Nueva estadística";
+
+ openModal("statModal");
 }
 
-.stat{
-  padding:32px 20px;
-  text-align:center;
-  background:#090909;
-  border:1px solid var(--line);
-  border-radius:20px;
-  transition:.4s;
+window.openStatModal=openStatModal;
+
+function deleteStat(id){
+ if(!confirm("¿Eliminar esta estadística?"))return;
+
+ data.stats.items=data.stats.items.filter(x=>x.id!==id);
+ saveData();
+ renderAdminStats();
 }
 
-.stat:hover{
-  transform:translateY(-7px);
+window.deleteStat=deleteStat;
+
+function renderAdminStats(){
+ const box=document.getElementById("adminStatsList");
+
+ if(!data.stats.items.length){
+  box.innerHTML=`<div class="empty">No hay estadísticas.</div>`;
+  return;
+ }
+
+ box.innerHTML=data.stats.items.map(item=>`
+  <div class="admin-row">
+   <div>
+    <strong>${escapeHTML(item.value)}</strong>
+    <small>${escapeHTML(item.label)}</small>
+   </div>
+
+   <div class="admin-actions">
+    <button class="btn small dark" onclick="openStatModal('${item.id}')">Editar</button>
+    <button class="btn small danger" onclick="deleteStat('${item.id}')">Eliminar</button>
+   </div>
+  </div>
+ `).join("");
 }
 
-.stat-number{
-  display:block;
-  font-size:45px;
-  font-weight:950;
-  letter-spacing:-3px;
-}
-
-.stat-label{
-  display:block;
-  margin-top:7px;
-  color:#666;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-}
 
 /* =========================
-   PRODUCTS
+   PRODUCT MODAL
 ========================= */
 
-.category-bar{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-bottom:35px;
+function refreshCategorySelect(){
+ const select=document.getElementById("productCategory");
+
+ select.innerHTML=data.categories
+  .filter(c=>c.id!=="all")
+  .map(c=>`
+   <option value="${escapeHTML(c.id)}">${escapeHTML(c.name)}</option>
+  `).join("");
 }
 
-.category{
-  border:1px solid #1e1e1e;
-  background:#0b0b0b;
-  color:#777;
-  padding:10px 16px;
-  border-radius:100px;
-  font-size:11px;
-  transition:.3s;
+function openProductModal(id=null){
+ refreshCategorySelect();
+
+ const p=id?data.products.find(x=>x.id===id):null;
+
+ document.getElementById("productModalTitle").textContent=
+  p?"Editar producto":"Nuevo producto";
+
+ document.getElementById("productId").value=p?.id||"";
+ document.getElementById("productName").value=p?.name||"";
+ document.getElementById("productDescription").value=p?.description||"";
+ document.getElementById("productPrice").value=p?.price??"";
+ document.getElementById("productStock").value=p?.stock??"";
+ document.getElementById("productCategory").value=p?.category||data.categories.find(c=>c.id!=="all")?.id||"";
+ document.getElementById("productBadge").value=p?.badge||"";
+ document.getElementById("productImageUrl").value=
+  p?.image?.startsWith("data:")?"":p?.image||"";
+ document.getElementById("productFeatured").checked=!!p?.featured;
+ document.getElementById("productActive").checked=p?p.active!==false:true;
+
+ const preview=document.getElementById("productImagePreview");
+
+ if(p?.image){
+  preview.src=p.image;
+  preview.style.display="block";
+ }else{
+  preview.style.display="none";
+  preview.removeAttribute("src");
+ }
+
+ openModal("productModal");
 }
 
-.category:hover,
-.category.active{
-  background:#fff;
-  color:#000;
-  border-color:#fff;
+window.openProductModal=openProductModal;
+
+document.getElementById("productImageFile").addEventListener("change",e=>{
+ const file=e.target.files[0];
+ if(!file)return;
+
+ if(file.size>3*1024*1024){
+  toast("La imagen debe pesar menos de 3 MB");
+  e.target.value="";
+  return;
+ }
+
+ const reader=new FileReader();
+
+ reader.onload=()=>{
+  document.getElementById("productImageUrl").value="";
+  document.getElementById("productImagePreview").src=reader.result;
+  document.getElementById("productImagePreview").style.display="block";
+  document.getElementById("productImagePreview").dataset.base64=reader.result;
+ };
+
+ reader.readAsDataURL(file);
+});
+
+document.getElementById("productImageUrl").addEventListener("input",e=>{
+ const url=e.target.value.trim();
+
+ if(url){
+  const preview=document.getElementById("productImagePreview");
+  preview.src=url;
+  preview.style.display="block";
+  delete preview.dataset.base64;
+ }
+});
+
+document.getElementById("saveProduct").addEventListener("click",()=>{
+ const id=document.getElementById("productId").value;
+
+ const name=document.getElementById("productName").value.trim();
+ const description=document.getElementById("productDescription").value.trim();
+ const price=Number(document.getElementById("productPrice").value);
+ const stock=Number(document.getElementById("productStock").value);
+ const category=document.getElementById("productCategory").value;
+
+ if(!name){
+  toast("El producto necesita un nombre");
+  return;
+ }
+
+ let image=document.getElementById("productImageUrl").value.trim();
+
+ const base64=document.getElementById("productImagePreview").dataset.base64;
+ if(base64)image=base64;
+
+ const product={
+  id:id||uid("product"),
+  name,
+  description,
+  price:isFinite(price)?price:0,
+  stock:isFinite(stock)?stock:0,
+  category,
+  badge:document.getElementById("productBadge").value.trim(),
+  image,
+  featured:document.getElementById("productFeatured").checked,
+  active:document.getElementById("productActive").checked
+ };
+
+ if(id){
+  const index=data.products.findIndex(x=>x.id===id);
+  if(index>=0)data.products[index]=product;
+ }else{
+  data.products.push(product);
+ }
+
+ saveData();
+ closeModal("productModal");
+ loadAdminForms();
+});
+
+function deleteProduct(id){
+ if(!confirm("¿Eliminar este producto?"))return;
+
+ data.products=data.products.filter(p=>p.id!==id);
+
+ saveData();
+ renderAdminProducts();
 }
 
-.products{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+window.deleteProduct=deleteProduct;
+
+function toggleProduct(id){
+ const p=data.products.find(x=>x.id===id);
+ if(!p)return;
+
+ p.active=p.active===false;
+ saveData();
+ renderAdminProducts();
 }
 
-.product{
-  overflow:hidden;
-  background:#090909;
-  border:1px solid var(--line);
-  border-radius:24px;
-  transition:.45s;
-  animation:productIn .6s ease both;
+window.toggleProduct=toggleProduct;
+
+function renderAdminProducts(){
+ const box=document.getElementById("adminProductsList");
+
+ if(!data.products.length){
+  box.innerHTML=`<div class="empty">No hay productos.</div>`;
+  return;
+ }
+
+ box.innerHTML=data.products.map(p=>`
+  <div class="admin-row">
+   <div class="admin-row-main">
+    ${
+     p.image
+     ? `<img class="admin-thumb" src="${escapeHTML(p.image)}">`
+     : `<div class="admin-thumb"></div>`
+    }
+
+    <div>
+     <strong>${escapeHTML(p.name)}</strong>
+     <small>
+      ${formatPrice(p.price)} · Stock: ${p.stock}
+      ${p.active===false?" · Oculto":""}
+     </small>
+    </div>
+   </div>
+
+   <div class="admin-actions">
+    <button class="btn small dark" onclick="toggleProduct('${p.id}')">
+     ${p.active===false?"Mostrar":"Ocultar"}
+    </button>
+
+    <button class="btn small dark" onclick="openProductModal('${p.id}')">
+     Editar
+    </button>
+
+    <button class="btn small danger" onclick="deleteProduct('${p.id}')">
+     Eliminar
+    </button>
+   </div>
+  </div>
+ `).join("");
 }
 
-.product:hover{
-  transform:translateY(-10px);
-  border-color:var(--line2);
-  box-shadow:0 30px 70px rgba(0,0,0,.55);
-}
-
-.product-image{
-  position:relative;
-  height:245px;
-  overflow:hidden;
-  background:#111;
-}
-
-.product-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.5s;
-}
-
-.product:hover img{
-  transform:scale(1.07);
-}
-
-.product-tag{
-  position:absolute;
-  top:14px;
-  left:14px;
-  padding:7px 10px;
-  border-radius:8px;
-  background:rgba(0,0,0,.7);
-  backdrop-filter:blur(10px);
-  color:#aaa;
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.product-body{
-  padding:22px;
-}
-
-.product-body h3{
-  margin-top:8px;
-  font-size:21px;
-}
-
-.product-description{
-  margin-top:10px;
-  color:#777;
-  font-size:12px;
-  line-height:1.7;
-  min-height:42px;
-}
-
-.product-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:20px;
-}
-
-.product-price{
-  font-size:21px;
-  font-weight:900;
-}
-
-.product-view{
-  border:0;
-  background:#fff;
-  color:#000;
-  padding:10px 14px;
-  border-radius:10px;
-  font-weight:800;
-  font-size:11px;
-}
-
-@keyframes productIn{
-  from{
-    opacity:0;
-    transform:translateY(25px);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
 
 /* =========================
-   REVIEWS NEW
+   CATEGORIES
 ========================= */
 
-.review-summary{
-  display:grid;
-  grid-template-columns:280px 1fr;
-  gap:20px;
-  margin-bottom:35px;
+function openCategoryModal(id=null){
+ const c=id?data.categories.find(x=>x.id===id):null;
+
+ document.getElementById("categoryId").value=c?.id||"";
+ document.getElementById("categoryName").value=c?.name||"";
+ document.getElementById("categoryDescription").value=c?.description||"";
+
+ document.getElementById("categoryModalTitle").textContent=
+  c?"Editar categoría":"Nueva categoría";
+
+ openModal("categoryModal");
 }
 
-.rating-card{
-  padding:30px;
-  text-align:center;
-  background:#090909;
-  border:1px solid var(--line);
-  border-radius:24px;
+window.openCategoryModal=openCategoryModal;
+
+document.getElementById("saveCategory").addEventListener("click",()=>{
+ const id=document.getElementById("categoryId").value;
+ const name=document.getElementById("categoryName").value.trim();
+ const description=document.getElementById("categoryDescription").value.trim();
+
+ if(!name){
+  toast("Escribe un nombre");
+  return;
+ }
+
+ if(id){
+  const c=data.categories.find(x=>x.id===id);
+  if(c){
+   c.name=name;
+   c.description=description;
+  }
+ }else{
+  data.categories.push({
+   id:uid("cat"),
+   name,
+   description
+  });
+ }
+
+ saveData();
+ closeModal("categoryModal");
+ loadAdminForms();
+});
+
+function deleteCategory(id){
+ if(id==="all"){
+  toast("No puedes eliminar Todos");
+  return;
+ }
+
+ const products=data.products.filter(p=>p.category===id);
+
+ if(products.length){
+  if(!confirm(
+   `Hay ${products.length} producto(s) en esta categoría. Se moverán a General. ¿Continuar?`
+  ))return;
+
+  let general=data.categories.find(c=>c.id==="general");
+
+  if(!general){
+   general={
+    id:"general",
+    name:"General",
+    description:"Productos generales"
+   };
+   data.categories.push(general);
+  }
+
+  data.products.forEach(p=>{
+   if(p.category===id)p.category="general";
+  });
+ }
+
+ data.categories=data.categories.filter(c=>c.id!==id);
+
+ if(currentCategory===id)currentCategory="all";
+
+ saveData();
+ loadAdminForms();
 }
 
-.rating-big{
-  font-size:65px;
-  font-weight:950;
-  letter-spacing:-5px;
+window.deleteCategory=deleteCategory;
+
+function renderAdminCategories(){
+ const box=document.getElementById("adminCategoriesList");
+
+ box.innerHTML=data.categories.map(c=>{
+  const count=data.products.filter(p=>p.category===c.id).length;
+
+  return `
+   <div class="admin-row">
+    <div>
+     <strong>${escapeHTML(c.name)}</strong>
+     <small>${count} producto(s) · ${escapeHTML(c.description||"")}</small>
+    </div>
+
+    <div class="admin-actions">
+     ${
+      c.id!=="all"
+      ? `
+       <button class="btn small dark" onclick="openCategoryModal('${c.id}')">Editar</button>
+       <button class="btn small danger" onclick="deleteCategory('${c.id}')">Eliminar</button>
+      `
+      : `<span class="badge">Principal</span>`
+     }
+    </div>
+   </div>
+  `;
+ }).join("");
 }
 
-.rating-stars{
-  margin-top:4px;
-  letter-spacing:3px;
+
+/* =========================
+   REVIEWS ADMIN
+========================= */
+
+document.getElementById("adminReviewFilter").addEventListener("change",renderAdminReviews);
+document.getElementById("adminReviewSearch").addEventListener("input",renderAdminReviews);
+
+function renderAdminReviews(){
+ const filter=document.getElementById("adminReviewFilter").value;
+ const search=document.getElementById("adminReviewSearch").value.toLowerCase().trim();
+
+ let reviews=[...data.reviews];
+
+ if(filter!=="all"){
+  reviews=reviews.filter(r=>r.status===filter);
+ }
+
+ if(search){
+  reviews=reviews.filter(r=>
+   r.name.toLowerCase().includes(search)||
+   r.text.toLowerCase().includes(search)
+  );
+ }
+
+ reviews.sort((a,b)=>b.date-a.date);
+
+ const box=document.getElementById("adminReviewsList");
+
+ if(!reviews.length){
+  box.innerHTML=`<div class="empty">No hay reseñas con este filtro.</div>`;
+ }else{
+  box.innerHTML=reviews.map(r=>`
+   <div class="admin-row" style="align-items:flex-start">
+    <div style="flex:1;min-width:0">
+     <div style="display:flex;gap:10px;align-items:center">
+      <div class="avatar">${escapeHTML(initials(r.name))}</div>
+      <div>
+       <strong>${escapeHTML(r.name)}</strong>
+       <small>
+        ${stars(Number(r.rating))}
+        · ${r.status}
+        · ${new Date(r.date).toLocaleDateString("es-MX")}
+       </small>
+      </div>
+     </div>
+
+     <p style="color:#777;font-size:12px;line-height:1.7;margin-top:12px">
+      ${escapeHTML(r.text)}
+     </p>
+    </div>
+
+    <div class="admin-actions">
+     ${
+      r.status!=="approved"
+      ? `<button class="btn small" onclick="reviewAction('${r.id}','approved')">Aprobar</button>`
+      : ""
+     }
+
+     ${
+      r.status!=="rejected"
+      ? `<button class="btn small dark" onclick="reviewAction('${r.id}','rejected')">Rechazar</button>`
+      : ""
+     }
+
+     <button class="btn small danger" onclick="deleteReview('${r.id}')">
+      Eliminar
+     </button>
+    </div>
+   </div>
+  `).join("");
+ }
+
+ updateReviewAdminStats();
 }
 
-.rating-count{
-  margin-top:8px;
-  color:#666;
-  font-size:11px;
+function reviewAction(id,status){
+ const review=data.reviews.find(r=>r.id===id);
+ if(!review)return;
+
+ review.status=status;
+ saveData();
+ renderAdminReviews();
 }
 
-.rating-bars{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:11px;
-  padding:30px;
-  background:#090909;
-  border:1px solid var(--line);
-  border-radius:24px;
+window.reviewAction=reviewAction;
+
+function deleteReview(id){
+ if(!confirm("¿Eliminar esta reseña?"))return;
+
+ data.reviews=data.reviews.filter(r=>r.id!==id);
+ saveData();
+ renderAdminReviews();
 }
 
-.rating-row{
-  display:grid;
-  grid-template-columns:45px 1fr 35px;
-  align-items:center;
-  gap:10px;
-  color:#777;
-  font-size:11px;
+window.deleteReview=deleteReview;
+
+function updateReviewAdminStats(){
+ const total=data.reviews.length;
+ const pending=data.reviews.filter(r=>r.status==="pending").length;
+ const approved=data.reviews.filter(r=>r.status==="approved").length;
+
+ const approvedReviews=data.reviews.filter(r=>r.status==="approved");
+ const avg=approvedReviews.length
+  ? approvedReviews.reduce((a,r)=>a+Number(r.rating),0)/approvedReviews.length
+  : 0;
+
+ document.getElementById("adminReviewTotal").textContent=total;
+ document.getElementById("adminReviewPending").textContent=pending;
+ document.getElementById("adminReviewApproved").textContent=approved;
+ document.getElementById("adminReviewAverage").textContent=avg.toFixed(1);
 }
 
-.bar{
-  height:7px;
-  overflow:hidden;
-  background:#171717;
-  border-radius:20px;
-}
-
-.bar span{
-  display:block;
-  height:100%;
-  width:0;
-  background:#fff;
-  border-radius:20px;
-  transition:1s;
-}
-
-.review-write{
-  padding:28px;
-  margin-bottom:30px;
-  background:#090909;
-  border:1px solid var(--line);
-  border-radius:24px;
-}
-
-.review-write h3{
-  margin-bottom:18px;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 180px;
-  gap:10px;
-}
-
-input,
-textarea,
-select{
-  width:100%;
-  background:#080808;
-  color:#fff;
-  border:1px solid #222;
-  outline:none;
-  border-radius:12px;
-  padding:13px 14px;
-  margin-bottom:10px;
-  transition:.3s;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:#555;
-  box-shadow:0 0 0 3px rgba(255,255,255,.025);
-}
-
-textarea{
-  min-height:110px;
-  resize:vertical;
-}
-
-.review-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-
-.review-card{
-  padding:23px;
-  background:#090909;
-  border:1px solid var(--line);
-  border-radius:20px;
-  transition:.35s;
-}
-
-.review-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--line2);
-}
-
-.review-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.review-user{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.review-avatar{
-  width:38px;
-  height:38px;
-  display:grid;
-  place-items:center;
-  border-radius:12px;
-  background:#161616;
-  color:#aaa;
-  font-weight:900;
-}
-
-.review-name{
-  font-size:13px;
-  font-weight:800;
-}
-
-.review-date{
-  margin-top:3px;
-  color:#555;
-  font-size:9px;
-}
-
-.review-stars{
-  color:#fff;
-  letter-spacing:1px;
-  font-size:11px;
-}
-
-.review-text{
-  margin-top:17px;
-  color:#777;
-  line-height:1.7;
-  font-size:12px;
-}
-
-.review-empty{
-  padding:45px;
-  text-align:center;
-  border:1px dashed #222;
-  border-radius:20px;
-  color:#555;
-}
 
 /* =========================
    DISCORD
 ========================= */
 
-.discord-box{
-  position:relative;
-  overflow:hidden;
-  padding:70px 30px;
-  text-align:center;
-  border:1px solid var(--line);
-  border-radius:30px;
-  background:
-    radial-gradient(circle at center,rgba(255,255,255,.05),transparent 55%),
-    #090909;
-}
-
-.discord-box h2{
-  font-size:clamp(38px,7vw,75px);
-  letter-spacing:-5px;
-}
-
-.discord-box p{
-  max-width:600px;
-  margin:20px auto 30px;
-  color:#777;
-  line-height:1.8;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  padding:60px 6% 35px;
-  border-top:1px solid #111;
-}
-
-.footer{
-  max-width:1250px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:30px;
-}
-
-.footer-title{
-  font-size:20px;
-  font-weight:950;
-}
-
-.footer-sub{
-  margin-top:7px;
-  color:#555;
-  font-size:11px;
-}
-
-.socials{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-.socials a{
-  padding:9px 13px;
-  color:#777;
-  border:1px solid #1d1d1d;
-  border-radius:10px;
-  text-decoration:none;
-  font-size:11px;
-  transition:.3s;
-}
-
-.socials a:hover{
-  color:#fff;
-  border-color:#444;
-  transform:translateY(-3px);
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:8000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:rgba(0,0,0,.82);
-  backdrop-filter:blur(18px);
-}
-
-.modal.show{
-  display:flex;
-  animation:fade .25s ease;
-}
-
-.modal-box{
-  width:min(650px,100%);
-  max-height:90vh;
-  overflow:auto;
-  padding:28px;
-  background:#090909;
-  border:1px solid #242424;
-  border-radius:25px;
-  box-shadow:0 35px 100px rgba(0,0,0,.8);
-  animation:modalIn .3s ease;
-}
-
-.close{
-  float:right;
-  width:36px;
-  height:36px;
-  border:1px solid #222;
-  border-radius:10px;
-  background:#111;
-  color:#aaa;
-  font-size:20px;
-}
-
-.modal-title{
-  margin-bottom:20px;
-}
-
-.detail-image{
-  width:100%;
-  height:320px;
-  object-fit:cover;
-  border-radius:18px;
-  margin-bottom:20px;
-}
-
-.detail-category{
-  color:#666;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-}
-
-.detail-name{
-  margin-top:8px;
-  font-size:32px;
-}
-
-.detail-description{
-  margin:15px 0;
-  color:#777;
-  line-height:1.8;
-}
-
-.detail-price{
-  font-size:28px;
-  font-weight:950;
-}
-
-@keyframes fade{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-@keyframes modalIn{
-  from{
-    opacity:0;
-    transform:translateY(20px) scale(.95);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-/* =========================
-   ADMIN
-========================= */
-
-.admin{
-  position:fixed;
-  inset:0;
-  z-index:7000;
-  display:none;
-  background:#050505;
-}
-
-.admin.show{
-  display:block;
-}
-
-.admin-header{
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 25px;
-  border-bottom:1px solid #151515;
-  background:rgba(5,5,5,.9);
-  backdrop-filter:blur(20px);
-}
-
-.admin-brand{
-  font-size:15px;
-  font-weight:900;
-}
-
-.admin-layout{
-  height:calc(100vh - 70px);
-  display:grid;
-  grid-template-columns:230px 1fr;
-}
-
-.admin-sidebar{
-  padding:18px;
-  overflow:auto;
-  border-right:1px solid #151515;
-}
-
-.admin-tab{
-  width:100%;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:13px;
-  margin-bottom:5px;
-  text-align:left;
-  border:0;
-  background:transparent;
-  color:#666;
-  border-radius:11px;
-  transition:.25s;
-  font-size:12px;
-}
-
-.admin-tab:hover,
-.admin-tab.active{
-  color:#fff;
-  background:#111;
-}
-
-.admin-main{
-  padding:35px;
-  overflow:auto;
-}
-
-.admin-section{
-  display:none;
-  animation:fade .25s ease;
-}
-
-.admin-section.active{
-  display:block;
-}
-
-.admin-title{
-  font-size:30px;
-  letter-spacing:-2px;
-}
-
-.admin-subtitle{
-  margin-top:7px;
-  color:#666;
-  font-size:12px;
-}
-
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin:30px 0;
-}
-
-.dashboard-card{
-  padding:24px;
-  background:#090909;
-  border:1px solid #181818;
-  border-radius:18px;
-}
-
-.dashboard-card small{
-  color:#666;
-}
-
-.dashboard-card strong{
-  display:block;
-  margin-top:8px;
-  font-size:35px;
-}
-
-.dashboard-card.success strong{
-  color:var(--success);
-}
-
-.dashboard-card.warning strong{
-  color:var(--warning);
-}
-
-.admin-toolbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:25px 0;
-}
-
-.admin-toolbar-left,
-.admin-toolbar-right{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.admin-search{
-  width:260px;
-  margin:0;
-}
-
-.admin-list{
-  display:grid;
-  gap:10px;
-}
-
-.admin-item{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  padding:17px;
-  background:#090909;
-  border:1px solid #171717;
-  border-radius:15px;
-}
-
-.admin-info{
-  flex:1;
-  min-width:0;
-}
-
-.admin-info strong{
-  display:block;
-}
-
-.admin-info small{
-  display:block;
-  margin-top:5px;
-  color:#666;
-}
-
-.admin-actions{
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-}
-
-.admin-btn{
-  padding:8px 11px;
-  border:1px solid #252525;
-  background:#111;
-  color:#aaa;
-  border-radius:8px;
-  font-size:11px;
-}
-
-.admin-btn:hover{
-  color:#fff;
-  border-color:#444;
-}
-
-.admin-btn.danger:hover{
-  color:#ff707a;
-  border-color:#4a1c20;
-  background:#180b0d;
-}
-
-.admin-btn.success:hover{
-  color:#72ffad;
-  border-color:#1b432c;
-  background:#0b170f;
-}
-
-.form-box{
-  max-width:760px;
-  padding:25px;
-  background:#090909;
-  border:1px solid #171717;
-  border-radius:20px;
-}
-
-.form-label{
-  display:block;
-  margin:5px 0 7px;
-  color:#666;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.image-preview{
-  display:none;
-  width:100%;
-  max-height:250px;
-  object-fit:cover;
-  margin:5px 0 15px;
-  border:1px solid #222;
-  border-radius:15px;
-}
-
-.status{
-  display:inline-flex;
-  padding:5px 8px;
-  border-radius:7px;
-  font-size:9px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.status.pending{
-  background:#191308;
-  color:#ffca62;
-}
-
-.status.approved{
-  background:#0b180f;
-  color:#6cff9d;
-}
-
-.status.rejected{
-  background:#190b0d;
-  color:#ff727b;
-}
-
-.admin-review{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  gap:15px;
-  align-items:start;
-}
-
-.admin-avatar{
-  width:45px;
-  height:45px;
-  display:grid;
-  place-items:center;
-  background:#161616;
-  border-radius:13px;
-  color:#aaa;
-  font-weight:900;
-}
-
-.review-admin-text{
-  margin-top:8px;
-  color:#666;
-  font-size:12px;
-  line-height:1.6;
-}
-
-.review-filter{
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-}
-
-.filter-btn{
-  padding:9px 12px;
-  border:1px solid #222;
-  border-radius:9px;
-  background:#0c0c0c;
-  color:#666;
-  font-size:10px;
-}
-
-.filter-btn.active{
-  background:#fff;
-  color:#000;
-}
-
-/* =========================
-   TOAST
-========================= */
-
-#toast{
-  position:fixed;
-  left:50%;
-  bottom:25px;
-  z-index:30000;
-  transform:translate(-50%,100px);
-  opacity:0;
-  padding:13px 18px;
-  border:1px solid #222;
-  border-radius:12px;
-  background:#fff;
-  color:#000;
-  font-size:12px;
-  font-weight:800;
-  box-shadow:0 15px 40px rgba(0,0,0,.5);
-  transition:.35s;
-}
-
-#toast.show{
-  transform:translate(-50%,0);
-  opacity:1;
-}
-
-/* =========================
-   REVEAL
-========================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
-}
-
-.reveal.visible{
-  opacity:1;
-  transform:none;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:950px){
-
-  .nav{
-    display:none;
-  }
-
-  .mobile-menu{
-    display:block;
-  }
-
-  .nav.mobile-open{
-    position:absolute;
-    top:76px;
-    left:0;
-    right:0;
-    display:flex;
-    flex-direction:column;
-    gap:0;
-    padding:10px;
-    background:#080808;
-    border-bottom:1px solid #181818;
-  }
-
-  .nav.mobile-open a{
-    padding:14px;
-    border-radius:10px;
-  }
-
-  .about-grid,
-  .review-grid{
-    grid-template-columns:1fr;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .review-summary{
-    grid-template-columns:1fr;
-  }
-
-  .admin-layout{
-    grid-template-columns:1fr;
-  }
-
-  .admin-sidebar{
-    display:flex;
-    overflow-x:auto;
-    gap:5px;
-    border-right:0;
-    border-bottom:1px solid #151515;
-  }
-
-  .admin-tab{
-    width:auto;
-    min-width:max-content;
-    margin:0;
-  }
-}
-
-@media(max-width:600px){
-
-  section{
-    padding:95px 5%;
-  }
-
-  .hero h1{
-    letter-spacing:-6px;
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .footer{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .admin-main{
-    padding:20px;
-  }
-
-  .dashboard{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .admin-item{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .admin-review{
-    grid-template-columns:auto 1fr;
-  }
-
-  .admin-review .admin-actions{
-    grid-column:1/-1;
-  }
-
-  .admin-search{
-    width:100%;
-  }
-
-  .detail-image{
-    height:230px;
-  }
-}
-</style>
-</head>
-
-<body class="locked">
-
-<!-- ENTRY -->
-
-<div id="welcomeScreen">
-  <div class="welcome-content">
-    <div class="welcome-logo">L</div>
-    <h1>Luna Market</h1>
-    <p>Toca cualquier parte para entrar</p>
-  </div>
-</div>
-
-<div class="bg-grid"></div>
-<div class="bg-glow"></div>
-
-<!-- HEADER -->
-
-<header>
-
-  <a href="#inicio" class="logo" id="siteLogo">
-    Luna<span>Market</span>
-  </a>
-
-  <nav class="nav" id="nav">
-    <a href="#inicio">Inicio</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#estadisticas">Estadísticas</a>
-    <a href="#productos">Productos</a>
-    <a href="#reviews">Reseñas</a>
-    <a href="#discord">Discord</a>
-  </nav>
-
-  <div class="header-right">
-
-    <button
-      class="mobile-menu"
-      id="mobileMenu"
-    >
-      ☰
-    </button>
-
-    <button
-      class="admin-dot"
-      id="adminOpen"
-      title="Administrador"
-    ></button>
-
-  </div>
-
-</header>
-
-<!-- HERO -->
-
-<section class="hero" id="inicio">
-
-  <div class="hero-inner">
-
-    <div class="hero-badge">
-      Marketplace digital
-    </div>
-
-    <h1>
-      LUNA<br>
-      <span>MARKET</span>
-    </h1>
-
-    <p class="hero-text" id="heroDescription">
-      Descubre productos digitales, recursos y contenido seleccionado para ti.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a href="#productos" class="btn">
-        Explorar productos
-      </a>
-
-      <a href="#discord" class="btn dark">
-        Comunidad Discord
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="sobre">
-
-  <div class="container reveal">
-
-    <div class="section-head">
-      <div class="eyebrow">01 — Nosotros</div>
-      <h2>Sobre Luna Market</h2>
-      <p>
-        Una experiencia digital simple, moderna y rápida.
-      </p>
-    </div>
-
-    <div class="about-grid">
-
-      <div class="card">
-        <h3>Simple.</h3>
-        <p>
-          Encuentra tus productos rápidamente mediante categorías
-          y una interfaz diseñada para que todo sea fácil de usar.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Profesional.</h3>
-        <p id="aboutText">
-          Luna Market combina diseño moderno, productos digitales
-          y una experiencia pensada para móvil y ordenador.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- STATS -->
-
-<section id="estadisticas">
-
-  <div class="container reveal">
-
-    <div class="section-head">
-      <div class="eyebrow">02 — Datos</div>
-      <h2>Estadísticas</h2>
-    </div>
-
-    <div class="stats">
-
-      <div class="stat">
-        <strong class="stat-number" data-stat="products">0</strong>
-        <span class="stat-label">Productos</span>
-      </div>
-
-      <div class="stat">
-        <strong class="stat-number" data-stat="categories">0</strong>
-        <span class="stat-label">Categorías</span>
-      </div>
-
-      <div class="stat">
-        <strong class="stat-number" data-stat="reviews">0</strong>
-        <span class="stat-label">Reseñas</span>
-      </div>
-
-      <div class="stat">
-        <strong class="stat-number" data-stat="approved">0</strong>
-        <span class="stat-label">Clientes</span>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- PRODUCTS -->
-
-<section id="productos">
-
-  <div class="container reveal">
-
-    <div class="section-head">
-      <div class="eyebrow">03 — Store</div>
-      <h2>Productos</h2>
-      <p>
-        Explora nuestro catálogo.
-      </p>
-    </div>
-
-    <div
-      class="category-bar"
-      id="categoryBar"
-    ></div>
-
-    <div
-      class="products"
-      id="productsGrid"
-    ></div>
-
-  </div>
-
-</section>
-
-<!-- REVIEWS -->
-
-<section id="reviews">
-
-  <div class="container reveal">
-
-    <div class="section-head">
-      <div class="eyebrow">04 — Comunidad</div>
-      <h2>Lo que dicen</h2>
-      <p>
-        Las opiniones de nuestra comunidad.
-      </p>
-    </div>
-
-    <div class="review-summary">
-
-      <div class="rating-card">
-
-        <div
-          class="rating-big"
-          id="ratingAverage"
-        >
-          0.0
-        </div>
-
-        <div
-          class="rating-stars"
-          id="ratingStars"
-        >
-          ☆☆☆☆☆
-        </div>
-
-        <div
-          class="rating-count"
-          id="ratingCount"
-        >
-          0 reseñas
-        </div>
-
-      </div>
-
-      <div
-        class="rating-bars"
-        id="ratingBars"
-      ></div>
-
-    </div>
-
-    <div class="review-write">
-
-      <h3>Comparte tu experiencia</h3>
-
-      <div class="form-grid">
-
-        <input
-          id="reviewName"
-          placeholder="Tu nombre"
-          maxlength="40"
-        >
-
-        <select id="reviewStars">
-          <option value="5">★★★★★ — Excelente</option>
-          <option value="4">★★★★☆ — Muy bueno</option>
-          <option value="3">★★★☆☆ — Bueno</option>
-          <option value="2">★★☆☆☆ — Regular</option>
-          <option value="1">★☆☆☆☆ — Malo</option>
-        </select>
-
-      </div>
-
-      <textarea
-        id="reviewText"
-        placeholder="Escribe tu reseña..."
-        maxlength="500"
-      ></textarea>
-
-      <button
-        class="btn"
-        id="sendReview"
-      >
-        Publicar reseña
-      </button>
-
-    </div>
-
-    <div
-      class="review-grid"
-      id="reviewsGrid"
-    ></div>
-
-  </div>
-
-</section>
-
-<!-- DISCORD -->
-
-<section id="discord">
-
-  <div class="container">
-
-    <div class="discord-box reveal">
-
-      <h2>Únete a Discord</h2>
-
-      <p>
-        Forma parte de nuestra comunidad y recibe novedades,
-        promociones y nuevos lanzamientos.
-      </p>
-
-      <a
-        class="btn"
-        id="discordButton"
-        href="#"
-        target="_blank"
-        rel="noopener"
-      >
-        Entrar al Discord
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="footer">
-
-    <div>
-
-      <div
-        class="footer-title"
-        id="footerBrand"
-      >
-        Luna Market
-      </div>
-
-      <div
-        class="footer-sub"
-        id="footerText"
-      >
-        © 2026 Luna Market
-      </div>
-
-    </div>
-
-    <div class="socials">
-
-      <a id="socialDiscord" href="#" target="_blank">
-        Discord
-      </a>
-
-      <a id="socialTikTok" href="#" target="_blank">
-        TikTok
-      </a>
-
-      <a id="socialInstagram" href="#" target="_blank">
-        Instagram
-      </a>
-
-      <a id="socialYoutube" href="#" target="_blank">
-        YouTube
-      </a>
-
-    </div>
-
-  </div>
-
-</footer>
-
-<!-- TOAST -->
-
-<div id="toast"></div>
-
-<!-- PRODUCT MODAL -->
-
-<div
-  class="modal"
-  id="productModal"
->
-  <div class="modal-box">
-
-    <button
-      class="close"
-      data-close="productModal"
-    >
-      ×
-    </button>
-
-    <img
-      class="detail-image"
-      id="detailImage"
-      alt=""
-    >
-
-    <div
-      class="detail-category"
-      id="detailCategory"
-    ></div>
-
-    <h2
-      class="detail-name"
-      id="detailName"
-    ></h2>
-
-    <p
-      class="detail-description"
-      id="detailDescription"
-    ></p>
-
-    <div
-      class="detail-price"
-      id="detailPrice"
-    ></div>
-
-    <br>
-
-    <a
-      class="btn"
-      id="detailBuy"
-      href="#"
-      target="_blank"
-      rel="noopener"
-    >
-      Comprar
-    </a>
-
-  </div>
-</div>
-
-<!-- LOGIN -->
-
-<div
-  class="modal"
-  id="loginModal"
->
-  <div class="modal-box">
-
-    <button
-      class="close"
-      data-close="loginModal"
-    >
-      ×
-    </button>
-
-    <h2 class="modal-title">
-      Panel privado
-    </h2>
-
-    <p style="color:#666;margin-bottom:20px;">
-      Introduce la contraseña de administrador.
-    </p>
-
-    <input
-      type="password"
-      id="adminPassword"
-      placeholder="Contraseña"
-      autocomplete="off"
-    >
-
-    <button
-      class="btn"
-      id="loginAdmin"
-    >
-      Entrar
-    </button>
-
-  </div>
-</div>
-
-<!-- ADMIN -->
-
-<div
-  class="admin"
-  id="adminPanel"
->
-
-  <div class="admin-header">
-
-    <div class="admin-brand">
-      Luna Market / Admin
-    </div>
-
-    <button
-      class="btn dark"
-      id="adminClose"
-    >
-      Cerrar
-    </button>
-
-  </div>
-
-  <div class="admin-layout">
-
-    <aside class="admin-sidebar">
-
-      <button
-        class="admin-tab active"
-        data-tab="dashboard"
-      >
-        ◈ Dashboard
-      </button>
-
-      <button
-        class="admin-tab"
-        data-tab="products"
-      >
-        ◆ Productos
-      </button>
-
-      <button
-        class="admin-tab"
-        data-tab="categories"
-      >
-        ◇ Categorías
-      </button>
-
-      <button
-        class="admin-tab"
-        data-tab="reviews"
-      >
-        ★ Reseñas
-      </button>
-
-      <button
-        class="admin-tab"
-        data-tab="appearance"
-      >
-        ◐ Apariencia
-      </button>
-
-      <button
-        class="admin-tab"
-        data-tab="social"
-      >
-        ◎ Redes
-      </button>
-
-      <button
-        class="admin-tab"
-        data-tab="announcements"
-      >
-        ▣ Anuncios
-      </button>
-
-      <button
-        class="admin-tab"
-        data-tab="coupons"
-      >
-        % Cupones
-      </button>
-
-      <button
-        class="admin-tab"
-        data-tab="data"
-      >
-        ⚙ Datos
-      </button>
-
-    </aside>
-
-    <main class="admin-main">
-
-      <!-- DASHBOARD -->
-
-      <section
-        class="admin-section active"
-        id="tab-dashboard"
-      >
-
-        <h1 class="admin-title">
-          Dashboard
-        </h1>
-
-        <p class="admin-subtitle">
-          Resumen de Luna Market.
-        </p>
-
-        <div class="dashboard">
-
-          <div class="dashboard-card">
-            <small>Productos</small>
-            <strong id="dashProducts">0</strong>
-          </div>
-
-          <div class="dashboard-card">
-            <small>Categorías</small>
-            <strong id="dashCategories">0</strong>
-          </div>
-
-          <div class="dashboard-card warning">
-            <small>Reseñas pendientes</small>
-            <strong id="dashPending">0</strong>
-          </div>
-
-          <div class="dashboard-card success">
-            <small>Reseñas aprobadas</small>
-            <strong id="dashApproved">0</strong>
-          </div>
-
-        </div>
-
-        <div class="card">
-
-          <h3>
-            Estado de la tienda
-          </h3>
-
-          <p id="storeStatusText">
-            Luna Market está funcionando correctamente.
-          </p>
-
-        </div>
-
-      </section>
-
-      <!-- PRODUCTS -->
-
-      <section
-        class="admin-section"
-        id="tab-products"
-      >
-
-        <h1 class="admin-title">
-          Productos
-        </h1>
-
-        <p class="admin-subtitle">
-          Crea, edita y elimina productos.
-        </p>
-
-        <div class="admin-toolbar">
-
-          <div class="admin-toolbar-left">
-
-            <button
-              class="btn"
-              id="newProduct"
-            >
-              + Nuevo producto
-            </button>
-
-          </div>
-
-          <input
-            class="admin-search"
-            id="productSearch"
-            placeholder="Buscar producto..."
-          >
-
-        </div>
-
-        <div
-          class="form-box"
-          id="productFormBox"
-          style="display:none;margin-bottom:20px;"
-        >
-
-          <input
-            type="hidden"
-            id="productId"
-          >
-
-          <label class="form-label">
-            Nombre
-          </label>
-
-          <input
-            id="productName"
-            placeholder="Nombre del producto"
-            maxlength="70"
-          >
-
-          <label class="form-label">
-            Precio
-          </label>
-
-          <input
-            id="productPrice"
-            placeholder="$5"
-          >
-
-          <label class="form-label">
-            Categoría
-          </label>
-
-          <select id="productCategory"></select>
-
-          <label class="form-label">
-            Descripción
-          </label>
-
-          <textarea
-            id="productDescription"
-            placeholder="Descripción del producto..."
-          ></textarea>
-
-          <label class="form-label">
-            Enlace de compra
-          </label>
-
-          <input
-            id="productUrl"
-            placeholder="https://..."
-          >
-
-          <label class="form-label">
-            Imagen desde galería
-          </label>
-
-          <input
-            id="productImageFile"
-            type="file"
-            accept="image/*"
-          >
-
-          <label class="form-label">
-            O URL de imagen
-          </label>
-
-          <input
-            id="productImage"
-            placeholder="https://..."
-          >
-
-          <img
-            id="productPreview"
-            class="image-preview"
-            alt="Vista previa"
-          >
-
-          <div class="admin-actions">
-
-            <button
-              class="btn"
-              id="saveProduct"
-            >
-              Guardar
-            </button>
-
-            <button
-              class="btn dark"
-              id="cancelProduct"
-            >
-              Cancelar
-            </button>
-
-          </div>
-
-        </div>
-
-        <div
-          class="admin-list"
-          id="adminProductsList"
-        ></div>
-
-      </section>
-
-      <!-- CATEGORIES -->
-
-      <section
-        class="admin-section"
-        id="tab-categories"
-      >
-
-        <h1 class="admin-title">
-          Categorías
-        </h1>
-
-        <p class="admin-subtitle">
-          Organiza tus productos.
-        </p>
-
-        <div class="admin-toolbar">
-
-          <button
-            class="btn"
-            id="addCategory"
-          >
-            + Nueva categoría
-          </button>
-
-        </div>
-
-        <div
-          class="admin-list"
-          id="adminCategoriesList"
-        ></div>
-
-      </section>
-
-      <!-- REVIEWS -->
-
-      <section
-        class="admin-section"
-        id="tab-reviews"
-      >
-
-        <h1 class="admin-title">
-          Reseñas
-        </h1>
-
-        <p class="admin-subtitle">
-          Modera las opiniones de los usuarios.
-        </p>
-
-        <div class="admin-toolbar">
-
-          <div class="review-filter">
-
-            <button
-              class="filter-btn active"
-              data-review-filter="all"
-            >
-              Todas
-            </button>
-
-            <button
-              class="filter-btn"
-              data-review-filter="pending"
-            >
-              Pendientes
-            </button>
-
-            <button
-              class="filter-btn"
-              data-review-filter="approved"
-            >
-              Aprobadas
-            </button>
-
-            <button
-              class="filter-btn"
-              data-review-filter="rejected"
-            >
-              Rechazadas
-            </button>
-
-          </div>
-
-          <input
-            class="admin-search"
-            id="reviewSearch"
-            placeholder="Buscar reseña..."
-          >
-
-        </div>
-
-        <div
-          class="admin-list"
-          id="adminReviewsList"
-        ></div>
-
-      </section>
-
-      <!-- APPEARANCE -->
-
-      <section
-        class="admin-section"
-        id="tab-appearance"
-      >
-
-        <h1 class="admin-title">
-          Apariencia
-        </h1>
-
-        <p class="admin-subtitle">
-          Personaliza la información principal de la tienda.
-        </p>
-
-        <div class="form-box">
-
-          <label class="form-label">
-            Nombre
-          </label>
-
-          <input
-            id="settingName"
-            placeholder="Luna Market"
-          >
-
-          <label class="form-label">
-            Descripción
-          </label>
-
-          <textarea
-            id="settingDescription"
-          ></textarea>
-
-          <label class="form-label">
-            Texto sobre nosotros
-          </label>
-
-          <textarea
-            id="settingAbout"
-          ></textarea>
-
-          <label class="form-label">
-            Footer
-          </label>
-
-          <input
-            id="settingFooter"
-          >
-
-          <label class="form-label">
-            Logo desde galería
-          </label>
-
-          <input
-            id="logoFile"
-            type="file"
-            accept="image/*"
-          >
-
-          <label class="form-label">
-            URL del logo
-          </label>
-
-          <input
-            id="logoUrl"
-            placeholder="https://..."
-          >
-
-          <img
-            id="logoPreview"
-            class="image-preview"
-          >
-
-          <button
-            class="btn"
-            id="saveAppearance"
-          >
-            Guardar cambios
-          </button>
-
-        </div>
-
-      </section>
-
-      <!-- SOCIAL -->
-
-      <section
-        class="admin-section"
-        id="tab-social"
-      >
-
-        <h1 class="admin-title">
-          Redes
-        </h1>
-
-        <p class="admin-subtitle">
-          Configura los enlaces sociales.
-        </p>
-
-        <div class="form-box">
-
-          <label class="form-label">
-            Discord
-          </label>
-
-          <input
-            id="socialDiscordInput"
-            placeholder="https://discord.gg/..."
-          >
-
-          <label class="form-label">
-            TikTok
-          </label>
-
-          <input
-            id="socialTikTokInput"
-            placeholder="https://tiktok.com/@..."
-          >
-
-          <label class="form-label">
-            Instagram
-          </label>
-
-          <input
-            id="socialInstagramInput"
-            placeholder="https://instagram.com/..."
-          >
-
-          <label class="form-label">
-            YouTube
-          </label>
-
-          <input
-            id="socialYoutubeInput"
-            placeholder="https://youtube.com/..."
-          >
-
-          <button
-            class="btn"
-            id="saveSocial"
-          >
-            Guardar redes
-          </button>
-
-        </div>
-
-      </section>
-
-      <!-- ANNOUNCEMENTS -->
-
-      <section
-        class="admin-section"
-        id="tab-announcements"
-      >
-
-        <h1 class="admin-title">
-          Anuncios
-        </h1>
-
-        <p class="admin-subtitle">
-          Crea mensajes destacados para la tienda.
-        </p>
-
-        <div class="form-box">
-
-          <label class="form-label">
-            Texto del anuncio
-          </label>
-
-          <input
-            id="announcementText"
-            placeholder="Nuevo producto disponible..."
-          >
-
-          <label class="form-label">
-            Estado
-          </label>
-
-          <select id="announcementEnabled">
-            <option value="true">Activado</option>
-            <option value="false">Desactivado</option>
-          </select>
-
-          <button
-            class="btn"
-            id="saveAnnouncement"
-          >
-            Guardar anuncio
-          </button>
-
-        </div>
-
-        <br>
-
-        <div
-          class="card"
-          id="announcementPreview"
-        ></div>
-
-      </section>
-
-      <!-- COUPONS -->
-
-      <section
-        class="admin-section"
-        id="tab-coupons"
-      >
-
-        <h1 class="admin-title">
-          Cupones
-        </h1>
-
-        <p class="admin-subtitle">
-          Administra códigos promocionales.
-        </p>
-
-        <div class="form-box">
-
-          <label class="form-label">
-            Código
-          </label>
-
-          <input
-            id="couponCode"
-            placeholder="LUNA10"
-          >
-
-          <label class="form-label">
-            Descuento
-          </label>
-
-          <input
-            id="couponDiscount"
-            type="number"
-            min="1"
-            max="100"
-            placeholder="10"
-          >
-
-          <button
-            class="btn"
-            id="addCoupon"
-          >
-            Crear cupón
-          </button>
-
-        </div>
-
-        <br>
-
-        <div
-          class="admin-list"
-          id="couponsList"
-        ></div>
-
-      </section>
-
-      <!-- DATA -->
-
-      <section
-        class="admin-section"
-        id="tab-data"
-      >
-
-        <h1 class="admin-title">
-          Datos
-        </h1>
-
-        <p class="admin-subtitle">
-          Copias de seguridad y mantenimiento.
-        </p>
-
-        <div class="form-box">
-
-          <button
-            class="btn"
-            id="exportData"
-          >
-            Exportar datos
-          </button>
-
-          <label
-            class="btn dark"
-            style="display:inline-flex;margin-left:5px;"
-          >
-            Importar datos
-            <input
-              id="importData"
-              type="file"
-              accept=".json"
-              hidden
-            >
-          </label>
-
-          <br><br>
-
-          <button
-            class="btn danger"
-            id="resetData"
-          >
-            Restaurar tienda
-          </button>
-
-        </div>
-
-      </section>
-
-    </main>
-
-  </div>
-
-</div>
-
-<div id="toast"></div>
-
-<script>
-"use strict";
-
-/* =====================================================
-   STORAGE
-===================================================== */
-
-const STORAGE_KEY = "luna_market_final_v8";
-
-const DEFAULT_DATA = {
-  settings:{
-    name:"Luna Market",
-    description:"Descubre productos digitales, recursos y contenido seleccionado para ti.",
-    about:"Luna Market combina diseño moderno, productos digitales y una experiencia pensada para móvil y ordenador.",
-    footer:"© 2026 Luna Market. Todos los derechos reservados.",
-    logo:"",
-    discord:"",
-    tiktok:"",
-    instagram:"",
-    youtube:""
-  },
-
-  announcement:{
-    text:"",
-    enabled:false
-  },
-
-  coupons:[],
-
-  categories:[
-    "Todos",
-    "Digital",
-    "Minecraft",
-    "Diseño"
-  ],
-
-  products:[
-    {
-      id:1,
-      name:"Starter Pack",
-      price:"$5",
-      category:"Digital",
-      description:"Un paquete digital para comenzar.",
-      image:"",
-      url:"#"
-    },
-    {
-      id:2,
-      name:"Minecraft Pack",
-      price:"$8",
-      category:"Minecraft",
-      description:"Recursos para tu proyecto de Minecraft.",
-      image:"",
-      url:"#"
-    },
-    {
-      id:3,
-      name:"Design Pack",
-      price:"$10",
-      category:"Diseño",
-      description:"Recursos visuales para tus proyectos.",
-      image:"",
-      url:"#"
-    }
-  ],
-
-  reviews:[
-    {
-      id:1,
-      name:"Luna User",
-      stars:5,
-      text:"Excelente experiencia.",
-      approved:true,
-      rejected:false,
-      date:Date.now()
-    },
-    {
-      id:2,
-      name:"Cliente",
-      stars:5,
-      text:"Todo muy bien organizado.",
-      approved:true,
-      rejected:false,
-      date:Date.now()
-    }
-  ]
-};
-
-let data = loadData();
-
-let currentCategory = "Todos";
-let productImageBase64 = "";
-let logoBase64 = "";
-let currentReviewFilter = "all";
-
-/* =====================================================
-   LOAD / SAVE
-===================================================== */
-
-function deepClone(obj){
-  return JSON.parse(JSON.stringify(obj));
-}
-
-function loadData(){
-
-  try{
-
-    const raw =
-      localStorage.getItem(STORAGE_KEY);
-
-    if(!raw){
-      return deepClone(DEFAULT_DATA);
-    }
-
-    const saved =
-      JSON.parse(raw);
-
-    return normalizeData(saved);
-
-  }catch(error){
-
-    console.error(error);
-
-    return deepClone(DEFAULT_DATA);
-
-  }
-}
-
-function normalizeData(saved){
-
-  const result = deepClone(DEFAULT_DATA);
-
-  if(saved && typeof saved === "object"){
-
-    if(saved.settings){
-      result.settings = {
-        ...result.settings,
-        ...saved.settings
-      };
-    }
-
-    if(Array.isArray(saved.categories)){
-      result.categories = saved.categories;
-    }
-
-    if(Array.isArray(saved.products)){
-      result.products = saved.products;
-    }
-
-    if(Array.isArray(saved.reviews)){
-      result.reviews = saved.reviews.map(r=>({
-        ...r,
-        approved:Boolean(r.approved),
-        rejected:Boolean(r.rejected),
-        date:r.date || Date.now()
-      }));
-    }
-
-    if(Array.isArray(saved.coupons)){
-      result.coupons = saved.coupons;
-    }
-
-    if(saved.announcement){
-      result.announcement = {
-        ...result.announcement,
-        ...saved.announcement
-      };
-    }
-  }
-
-  if(!result.categories.includes("Todos")){
-    result.categories.unshift("Todos");
-  }
-
-  return result;
-}
-
-function saveData(){
-
-  try{
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(data)
-    );
-  }catch(error){
-
-    console.error(error);
-
-    toast("No se pudieron guardar los cambios.");
-
-  }
-}
-
-/* =====================================================
-   HELPERS
-===================================================== */
-
-function $(id){
-  return document.getElementById(id);
-}
-
-function escapeHtml(value){
-
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-function escapeAttr(value){
-
-  return String(value ?? "")
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'");
-
-}
-
-function toast(message){
-
-  const el = $("toast");
-
-  el.textContent = message;
-
-  el.classList.add("show");
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer =
-    setTimeout(()=>{
-      el.classList.remove("show");
-    },2600);
-}
-
-function safeUrl(url){
-
-  if(!url) return "#";
-
-  const value = String(url).trim();
-
-  if(
-    value.startsWith("https://") ||
-    value.startsWith("http://") ||
-    value.startsWith("mailto:")
-  ){
-    return value;
-  }
-
-  return "#";
-}
-
-function placeholder(name){
-
-  return "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(`
-      <svg xmlns="http://www.w3.org/2000/svg"
-           width="800"
-           height="500">
-        <rect width="800" height="500" fill="#111"/>
-        <text
-          x="400"
-          y="250"
-          text-anchor="middle"
-          dominant-baseline="middle"
-          fill="#555"
-          font-family="Arial"
-          font-size="42">
-          ${escapeHtml(name)}
-        </text>
-      </svg>
-    `);
-}
-
-function stars(amount){
-
-  const n =
-    Math.max(
-      1,
-      Math.min(
-        5,
-        Number(amount) || 5
-      )
-    );
-
-  return "★".repeat(n) +
-    `<span style="color:#333">` +
-    "★".repeat(5-n) +
-    `</span>`;
-}
-
-/* =====================================================
-   ENTRY
-===================================================== */
-
-const welcome =
-  $("welcomeScreen");
-
-function enterMarket(){
-
-  welcome.classList.add("hide");
-
-  document.body.classList.remove("locked");
-
-}
-
-welcome.addEventListener(
-  "pointerdown",
-  enterMarket,
-  {passive:true}
-);
-
-/* =====================================================
-   MOBILE NAV
-===================================================== */
-
-$("mobileMenu").addEventListener("click",()=>{
-
-  $("nav").classList.toggle("mobile-open");
-
+document.getElementById("saveDiscord").addEventListener("click",()=>{
+ data.discord={
+  title:document.getElementById("discordTitleInput").value.trim(),
+  description:document.getElementById("discordDescriptionInput").value.trim(),
+  button:document.getElementById("discordButtonInput").value.trim(),
+  url:document.getElementById("discordUrlInput").value.trim()
+ };
+
+ saveData();
 });
 
-document.querySelectorAll(".nav a").forEach(link=>{
 
-  link.addEventListener("click",()=>{
-    $("nav").classList.remove("mobile-open");
-  });
+/* =========================
+   DESIGN
+========================= */
 
+document.getElementById("saveDesign").addEventListener("click",()=>{
+ data.design={
+  storeName:document.getElementById("storeNameInput").value.trim()||"Luna Market",
+  accent:document.getElementById("accentColorInput").value,
+  bg:document.getElementById("bgColorInput").value,
+  card:document.getElementById("cardColorInput").value,
+  radius:Number(document.getElementById("radiusInput").value),
+  glow:Number(document.getElementById("glowInput").value),
+  animations:document.getElementById("animationsInput").checked
+ };
+
+ saveData();
 });
 
-/* =====================================================
-   SETTINGS
-===================================================== */
 
-function renderSettings(){
-
-  const s = data.settings;
-
-  document.title =
-    s.name || "Luna Market";
-
-  $("siteLogo").innerHTML =
-    escapeHtml(s.name || "Luna Market");
-
-  $("heroDescription").textContent =
-    s.description || "";
-
-  $("aboutText").textContent =
-    s.about || "";
-
-  $("footerBrand").textContent =
-    s.name || "Luna Market";
-
-  $("footerText").textContent =
-    s.footer || "";
-
-  setHref(
-    $("discordButton"),
-    s.discord
-  );
-
-  setHref(
-    $("socialDiscord"),
-    s.discord
-  );
-
-  setHref(
-    $("socialTikTok"),
-    s.tiktok
-  );
-
-  setHref(
-    $("socialInstagram"),
-    s.instagram
-  );
-
-  setHref(
-    $("socialYoutube"),
-    s.youtube
-  );
-
-}
-
-function setHref(el,url){
-
-  if(!el) return;
-
-  const valid =
-    safeUrl(url);
-
-  el.href = valid;
-
-  if(valid === "#"){
-    el.removeAttribute("target");
-  }else{
-    el.target = "_blank";
-    el.rel = "noopener";
-  }
-}
-
-/* =====================================================
-   CATEGORIES
-===================================================== */
-
-function renderCategories(){
-
-  const bar =
-    $("categoryBar");
-
-  bar.innerHTML = "";
-
-  data.categories.forEach(category=>{
-
-    const button =
-      document.createElement("button");
-
-    button.className =
-      "category" +
-      (
-        category === currentCategory
-        ? " active"
-        : ""
-      );
-
-    button.textContent =
-      category;
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        currentCategory =
-          category;
-
-        renderCategories();
-        renderProducts();
-      }
-    );
-
-    bar.appendChild(button);
-
-  });
-
-  const select =
-    $("productCategory");
-
-  select.innerHTML = "";
-
-  data.categories
-    .filter(c=>c !== "Todos")
-    .forEach(category=>{
-
-      const option =
-        document.createElement("option");
-
-      option.value = category;
-      option.textContent = category;
-
-      select.appendChild(option);
-
-    });
-
-}
-
-/* =====================================================
-   PRODUCTS PUBLIC
-===================================================== */
-
-function renderProducts(){
-
-  const grid =
-    $("productsGrid");
-
-  grid.innerHTML = "";
-
-  let products =
-    [...data.products];
-
-  if(currentCategory !== "Todos"){
-
-    products =
-      products.filter(
-        p=>p.category === currentCategory
-      );
-
-  }
-
-  if(!products.length){
-
-    grid.innerHTML = `
-      <div class="review-empty">
-        No hay productos en esta categoría.
-      </div>
-    `;
-
-    return;
-  }
-
-  products.forEach((product,index)=>{
-
-    const card =
-      document.createElement("article");
-
-    card.className = "product";
-
-    card.style.animationDelay =
-      `${index * .06}s`;
-
-    card.innerHTML = `
-
-      <div class="product-image">
-
-        <img
-          src="${product.image || placeholder(product.name)}"
-          alt="${escapeHtml(product.name)}"
-          loading="lazy"
-        >
-
-        <div class="product-tag">
-          ${escapeHtml(product.category)}
-        </div>
-
-      </div>
-
-      <div class="product-body">
-
-        <h3>
-          ${escapeHtml(product.name)}
-        </h3>
-
-        <p class="product-description">
-          ${escapeHtml(product.description || "")}
-        </p>
-
-        <div class="product-bottom">
-
-          <div class="product-price">
-            ${escapeHtml(product.price || "$0")}
-          </div>
-
-          <button
-            class="product-view"
-            data-product="${product.id}"
-          >
-            Ver producto
-          </button>
-
-        </div>
-
-      </div>
-    `;
-
-    grid.appendChild(card);
-
-  });
-
-  grid.querySelectorAll(
-    "[data-product]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        openProduct(
-          Number(button.dataset.product)
-        );
-      }
-    );
-
-  });
-
-}
-
-/* =====================================================
-   PRODUCT MODAL
-===================================================== */
-
-function openProduct(id){
-
-  const product =
-    data.products.find(
-      p=>Number(p.id) === Number(id)
-    );
-
-  if(!product) return;
-
-  $("detailImage").src =
-    product.image ||
-    placeholder(product.name);
-
-  $("detailCategory").textContent =
-    product.category || "";
-
-  $("detailName").textContent =
-    product.name || "";
-
-  $("detailDescription").textContent =
-    product.description || "";
-
-  $("detailPrice").textContent =
-    product.price || "$0";
-
-  setHref(
-    $("detailBuy"),
-    product.url
-  );
-
-  openModal("productModal");
-}
-
-/* =====================================================
-   MODALS
-===================================================== */
-
-function openModal(id){
-
-  const modal = $(id);
-
-  if(!modal) return;
-
-  modal.classList.add("show");
-
-}
-
-function closeModal(id){
-
-  const modal = $(id);
-
-  if(!modal) return;
-
-  modal.classList.remove("show");
-
-}
-
-document.querySelectorAll(
-  "[data-close]"
-).forEach(button=>{
-
-  button.addEventListener(
-    "click",
-    ()=>{
-      closeModal(
-        button.dataset.close
-      );
-    }
-  );
-
-});
-
-document.querySelectorAll(
-  ".modal"
-).forEach(modal=>{
-
-  modal.addEventListener(
-    "click",
-    event=>{
-
-      if(event.target === modal){
-        modal.classList.remove("show");
-      }
-
-    }
-  );
-
-});
-
-document.addEventListener(
-  "keydown",
-  event=>{
-
-    if(event.key === "Escape"){
-
-      document.querySelectorAll(
-        ".modal.show"
-      ).forEach(modal=>{
-        modal.classList.remove("show");
-      });
-
-    }
-
-  }
-);
-
-/* =====================================================
-   REVIEWS PUBLIC
-===================================================== */
-
-function getApprovedReviews(){
-
-  return data.reviews.filter(
-    r=>r.approved && !r.rejected
-  );
-
-}
-
-function renderReviews(){
-
-  const reviews =
-    getApprovedReviews();
-
-  const grid =
-    $("reviewsGrid");
-
-  grid.innerHTML = "";
-
-  renderRatingSummary(reviews);
-
-  if(!reviews.length){
-
-    grid.innerHTML = `
-      <div class="review-empty">
-        Todavía no hay reseñas aprobadas.
-      </div>
-    `;
-
-    return;
-  }
-
-  reviews
-    .slice()
-    .reverse()
-    .forEach(review=>{
-
-      const card =
-        document.createElement("article");
-
-      const initial =
-        String(review.name || "?")
-          .charAt(0)
-          .toUpperCase();
-
-      card.className =
-        "review-card";
-
-      card.innerHTML = `
-
-        <div class="review-top">
-
-          <div class="review-user">
-
-            <div class="review-avatar">
-              ${escapeHtml(initial)}
-            </div>
-
-            <div>
-
-              <div class="review-name">
-                ${escapeHtml(review.name)}
-              </div>
-
-              <div class="review-date">
-                ${formatDate(review.date)}
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="review-stars">
-            ${stars(review.stars)}
-          </div>
-
-        </div>
-
-        <p class="review-text">
-          ${escapeHtml(review.text)}
-        </p>
-
-      `;
-
-      grid.appendChild(card);
-
-    });
-
-}
-
-function renderRatingSummary(reviews){
-
-  if(!reviews.length){
-
-    $("ratingAverage").textContent =
-      "0.0";
-
-    $("ratingStars").innerHTML =
-      "☆☆☆☆☆";
-
-    $("ratingCount").textContent =
-      "0 reseñas";
-
-  }else{
-
-    const average =
-      reviews.reduce(
-        (sum,r)=>sum + Number(r.stars || 0),
-        0
-      ) / reviews.length;
-
-    $("ratingAverage").textContent =
-      average.toFixed(1);
-
-    const rounded =
-      Math.round(average);
-
-    $("ratingStars").innerHTML =
-      "★".repeat(rounded) +
-      `<span style="color:#333">` +
-      "★".repeat(5-rounded) +
-      `</span>`;
-
-    $("ratingCount").textContent =
-      `${reviews.length} ${
-        reviews.length === 1
-        ? "reseña"
-        : "reseñas"
-      }`;
-
-  }
-
-  const bars =
-    $("ratingBars");
-
-  bars.innerHTML = "";
-
-  for(let star=5;star>=1;star--){
-
-    const amount =
-      reviews.filter(
-        r=>Number(r.stars) === star
-      ).length;
-
-    const percentage =
-      reviews.length
-      ? (amount/reviews.length)*100
-      : 0;
-
-    bars.innerHTML += `
-
-      <div class="rating-row">
-
-        <span>${star} ★</span>
-
-        <div class="bar">
-          <span
-            style="width:${percentage}%"
-          ></span>
-        </div>
-
-        <span>${amount}</span>
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-function formatDate(timestamp){
-
-  if(!timestamp)
-    return "Reciente";
-
-  try{
-
-    return new Intl.DateTimeFormat(
-      "es-MX",
-      {
-        day:"2-digit",
-        month:"short",
-        year:"numeric"
-      }
-    ).format(
-      new Date(timestamp)
-    );
-
-  }catch{
-    return "Reciente";
-  }
-
-}
-
-$("sendReview").addEventListener(
-  "click",
-  ()=>{
-
-    const name =
-      $("reviewName").value.trim();
-
-    const text =
-      $("reviewText").value.trim();
-
-    const starsValue =
-      Number(
-        $("reviewStars").value
-      );
-
-    if(name.length < 2){
-
-      toast("Escribe un nombre válido.");
-
-      return;
-    }
-
-    if(text.length < 5){
-
-      toast("La reseña es demasiado corta.");
-
-      return;
-    }
-
-    data.reviews.push({
-
-      id:Date.now(),
-
-      name:name.slice(0,40),
-
-      stars:Math.max(
-        1,
-        Math.min(5,starsValue)
-      ),
-
-      text:text.slice(0,500),
-
-      approved:false,
-
-      rejected:false,
-
-      date:Date.now()
-
-    });
-
-    saveData();
-
-    $("reviewName").value = "";
-    $("reviewText").value = "";
-
-    renderReviews();
-    updateStats();
-    renderAdminReviews();
-
-    toast(
-      "Reseña enviada para moderación."
-    );
-
-  }
-);
-
-/* =====================================================
-   ADMIN LOGIN
-===================================================== */
-
-$("adminOpen").addEventListener(
-  "click",
-  ()=>{
-    openModal("loginModal");
-  }
-);
-
-$("adminPassword").addEventListener(
-  "keydown",
-  event=>{
-    if(event.key === "Enter"){
-      loginAdmin();
-    }
-  }
-);
-
-$("loginAdmin").addEventListener(
-  "click",
-  loginAdmin
-);
-
-function loginAdmin(){
-
-  const password =
-    $("adminPassword").value;
-
-  if(password !== "Ghost"){
-
-    toast("Contraseña incorrecta.");
-
-    return;
-  }
-
-  $("adminPassword").value = "";
-
-  closeModal("loginModal");
-
-  $("adminPanel")
-    .classList.add("show");
-
-  renderAdmin();
-
-}
-
-$("adminClose").addEventListener(
-  "click",
-  ()=>{
-    $("adminPanel")
-      .classList.remove("show");
-  }
-);
-
-/* =====================================================
-   ADMIN TABS
-===================================================== */
-
-document.querySelectorAll(
-  ".admin-tab"
-).forEach(button=>{
-
-  button.addEventListener(
-    "click",
-    ()=>{
-
-      document.querySelectorAll(
-        ".admin-tab"
-      ).forEach(btn=>{
-        btn.classList.remove("active");
-      });
-
-      document.querySelectorAll(
-        ".admin-section"
-      ).forEach(section=>{
-        section.classList.remove("active");
-      });
-
-      button.classList.add("active");
-
-      const target =
-        $("tab-" + button.dataset.tab);
-
-      if(target){
-        target.classList.add("active");
-      }
-
-    }
-  );
-
-});
-
-/* =====================================================
-   ADMIN PRODUCTS
-===================================================== */
-
-$("newProduct").addEventListener(
-  "click",
-  ()=>{
-
-    resetProductForm();
-
-    $("productFormBox").style.display =
-      "block";
-
-    $("productName").focus();
-
-  }
-);
-
-$("cancelProduct").addEventListener(
-  "click",
-  resetProductForm
-);
-
-function resetProductForm(){
-
-  $("productId").value = "";
-
-  $("productName").value = "";
-
-  $("productPrice").value = "";
-
-  $("productDescription").value = "";
-
-  $("productUrl").value = "";
-
-  $("productImage").value = "";
-
-  $("productImageFile").value = "";
-
-  productImageBase64 = "";
-
-  $("productPreview").style.display =
-    "none";
-
-  $("saveProduct").textContent =
-    "Guardar";
-
-  $("productFormBox").style.display =
-    "none";
-
-}
-
-function renderAdminProducts(){
-
-  const list =
-    $("adminProductsList");
-
-  const search =
-    $("productSearch").value
-      .trim()
-      .toLowerCase();
-
-  list.innerHTML = "";
-
-  const products =
-    data.products.filter(
-      product =>
-        !search ||
-        product.name
-          .toLowerCase()
-          .includes(search) ||
-        product.category
-          .toLowerCase()
-          .includes(search)
-    );
-
-  if(!products.length){
-
-    list.innerHTML = `
-      <div class="review-empty">
-        No se encontraron productos.
-      </div>
-    `;
-
-    return;
-  }
-
-  products.forEach(product=>{
-
-    const item =
-      document.createElement("div");
-
-    item.className =
-      "admin-item";
-
-    item.innerHTML = `
-
-      <div class="admin-info">
-
-        <strong>
-          ${escapeHtml(product.name)}
-        </strong>
-
-        <small>
-          ${escapeHtml(product.category)}
-          ·
-          ${escapeHtml(product.price)}
-        </small>
-
-      </div>
-
-      <div class="admin-actions">
-
-        <button
-          class="admin-btn"
-          data-edit-product="${product.id}"
-        >
-          Editar
-        </button>
-
-        <button
-          class="admin-btn danger"
-          data-delete-product="${product.id}"
-        >
-          Eliminar
-        </button>
-
-      </div>
-    `;
-
-    list.appendChild(item);
-
-  });
-
-  list.querySelectorAll(
-    "[data-edit-product]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        editProduct(
-          Number(
-            button.dataset.editProduct
-          )
-        );
-      }
-    );
-
-  });
-
-  list.querySelectorAll(
-    "[data-delete-product]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        deleteProduct(
-          Number(
-            button.dataset.deleteProduct
-          )
-        );
-      }
-    );
-
-  });
-
-}
-
-$("productSearch").addEventListener(
-  "input",
-  renderAdminProducts
-);
-
-$("productImageFile").addEventListener(
-  "change",
-  event=>{
-
-    const file =
-      event.target.files[0];
-
-    if(!file) return;
-
-    if(!file.type.startsWith("image/")){
-
-      toast("Selecciona una imagen.");
-
-      return;
-    }
-
-    const reader =
-      new FileReader();
-
-    reader.onload = e=>{
-
-      productImageBase64 =
-        e.target.result;
-
-      $("productPreview").src =
-        productImageBase64;
-
-      $("productPreview").style.display =
-        "block";
-
-    };
-
-    reader.readAsDataURL(file);
-
-  }
-);
-
-$("productImage").addEventListener(
-  "input",
-  ()=>{
-
-    const url =
-      $("productImage").value.trim();
-
-    if(!url) return;
-
-    productImageBase64 = "";
-
-    $("productPreview").src =
-      url;
-
-    $("productPreview").style.display =
-      "block";
-
-  }
-);
-
-$("saveProduct").addEventListener(
-  "click",
-  saveProduct
-);
-
-function saveProduct(){
-
-  const name =
-    $("productName").value.trim();
-
-  const price =
-    $("productPrice").value.trim();
-
-  const category =
-    $("productCategory").value;
-
-  const description =
-    $("productDescription").value.trim();
-
-  const url =
-    $("productUrl").value.trim();
-
-  const id =
-    Number(
-      $("productId").value
-    );
-
-  if(name.length < 2){
-
-    toast("Escribe el nombre.");
-
-    return;
-  }
-
-  if(!price){
-
-    toast("Escribe el precio.");
-
-    return;
-  }
-
-  if(!category){
-
-    toast("Selecciona una categoría.");
-
-    return;
-  }
-
-  const image =
-    productImageBase64 ||
-    $("productImage").value.trim();
-
-  if(id){
-
-    const product =
-      data.products.find(
-        p=>Number(p.id) === id
-      );
-
-    if(product){
-
-      product.name = name;
-      product.price = price;
-      product.category = category;
-      product.description = description;
-      product.url = safeUrl(url);
-      product.image = image;
-
-    }
-
-    toast("Producto actualizado.");
-
-  }else{
-
-    data.products.push({
-
-      id:Date.now(),
-
-      name,
-
-      price,
-
-      category,
-
-      description,
-
-      url:safeUrl(url),
-
-      image
-
-    });
-
-    toast("Producto creado.");
-
-  }
-
-  saveData();
-
-  resetProductForm();
-
-  renderAll();
-
-}
-
-function editProduct(id){
-
-  const product =
-    data.products.find(
-      p=>Number(p.id) === Number(id)
-    );
-
-  if(!product) return;
-
-  $("productFormBox").style.display =
-    "block";
-
-  $("productId").value =
-    product.id;
-
-  $("productName").value =
-    product.name;
-
-  $("productPrice").value =
-    product.price;
-
-  $("productCategory").value =
-    product.category;
-
-  $("productDescription").value =
-    product.description || "";
-
-  $("productUrl").value =
-    product.url || "";
-
-  $("productImage").value =
-    product.image &&
-    !product.image.startsWith("data:")
-      ? product.image
-      : "";
-
-  productImageBase64 =
-    product.image?.startsWith("data:")
-      ? product.image
-      : "";
-
-  if(product.image){
-
-    $("productPreview").src =
-      product.image;
-
-    $("productPreview").style.display =
-      "block";
-
-  }
-
-  $("saveProduct").textContent =
-    "Actualizar";
-
-  $("productFormBox")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-
-}
-
-function deleteProduct(id){
-
-  const product =
-    data.products.find(
-      p=>Number(p.id) === Number(id)
-    );
-
-  if(!product) return;
-
-  if(!confirm(
-    `¿Eliminar "${product.name}"?`
-  )){
-    return;
-  }
-
-  data.products =
-    data.products.filter(
-      p=>Number(p.id) !== Number(id)
-    );
-
-  saveData();
-
-  renderAll();
-
-  toast("Producto eliminado.");
-
-}
-
-/* =====================================================
-   CATEGORIES
-===================================================== */
-
-function renderAdminCategories(){
-
-  const list =
-    $("adminCategoriesList");
-
-  list.innerHTML = "";
-
-  data.categories
-    .filter(c=>c !== "Todos")
-    .forEach(category=>{
-
-      const used =
-        data.products.filter(
-          p=>p.category === category
-        ).length;
-
-      const item =
-        document.createElement("div");
-
-      item.className =
-        "admin-item";
-
-      item.innerHTML = `
-
-        <div class="admin-info">
-
-          <strong>
-            ${escapeHtml(category)}
-          </strong>
-
-          <small>
-            ${used} producto(s)
-          </small>
-
-        </div>
-
-        <div class="admin-actions">
-
-          <button
-            class="admin-btn"
-            data-rename="${escapeAttr(category)}"
-          >
-            Renombrar
-          </button>
-
-          <button
-            class="admin-btn danger"
-            data-delete-category="${escapeAttr(category)}"
-          >
-            Eliminar
-          </button>
-
-        </div>
-
-      `;
-
-      list.appendChild(item);
-
-    });
-
-  list.querySelectorAll(
-    "[data-rename]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        renameCategory(
-          button.dataset.rename
-        );
-      }
-    );
-
-  });
-
-  list.querySelectorAll(
-    "[data-delete-category]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        deleteCategory(
-          button.dataset.deleteCategory
-        );
-      }
-    );
-
-  });
-
-}
-
-$("addCategory").addEventListener(
-  "click",
-  ()=>{
-
-    const name =
-      prompt(
-        "Nombre de la categoría:"
-      );
-
-    if(!name) return;
-
-    const clean =
-      name.trim();
-
-    if(clean.length < 2){
-
-      toast("Nombre demasiado corto.");
-
-      return;
-    }
-
-    if(
-      data.categories
-        .some(
-          c=>c.toLowerCase() === clean.toLowerCase()
-        )
-    ){
-
-      toast("La categoría ya existe.");
-
-      return;
-    }
-
-    data.categories.push(clean);
-
-    saveData();
-
-    renderAll();
-
-    toast("Categoría creada.");
-
-  }
-);
-
-function renameCategory(oldName){
-
-  const result =
-    prompt(
-      "Nuevo nombre:",
-      oldName
-    );
-
-  if(!result) return;
-
-  const newName =
-    result.trim();
-
-  if(!newName) return;
-
-  if(
-    data.categories.some(
-      c=>c.toLowerCase() === newName.toLowerCase()
-    )
-  ){
-
-    toast("La categoría ya existe.");
-
-    return;
-  }
-
-  const index =
-    data.categories.indexOf(oldName);
-
-  if(index === -1) return;
-
-  data.categories[index] =
-    newName;
-
-  data.products.forEach(product=>{
-
-    if(product.category === oldName){
-      product.category = newName;
-    }
-
-  });
-
-  if(currentCategory === oldName){
-    currentCategory = newName;
-  }
-
-  saveData();
-
-  renderAll();
-
-  toast("Categoría renombrada.");
-
-}
-
-function deleteCategory(name){
-
-  const products =
-    data.products.filter(
-      p=>p.category === name
-    );
-
-  if(products.length){
-
-    toast(
-      "Mueve o elimina los productos primero."
-    );
-
-    return;
-  }
-
-  if(!confirm(
-    `¿Eliminar "${name}"?`
-  )) return;
-
-  data.categories =
-    data.categories.filter(
-      c=>c !== name
-    );
-
-  if(currentCategory === name){
-    currentCategory = "Todos";
-  }
-
-  saveData();
-
-  renderAll();
-
-  toast("Categoría eliminada.");
-
-}
-
-/* =====================================================
-   REVIEWS ADMIN
-===================================================== */
-
-function renderAdminReviews(){
-
-  const list =
-    $("adminReviewsList");
-
-  const search =
-    $("reviewSearch")
-      .value
-      .trim()
-      .toLowerCase();
-
-  let reviews =
-    [...data.reviews];
-
-  if(currentReviewFilter === "pending"){
-
-    reviews =
-      reviews.filter(
-        r=>!r.approved && !r.rejected
-      );
-
-  }
-
-  if(currentReviewFilter === "approved"){
-
-    reviews =
-      reviews.filter(
-        r=>r.approved && !r.rejected
-      );
-
-  }
-
-  if(currentReviewFilter === "rejected"){
-
-    reviews =
-      reviews.filter(
-        r=>r.rejected
-      );
-
-  }
-
-  if(search){
-
-    reviews =
-      reviews.filter(
-        r=>
-          r.name
-            .toLowerCase()
-            .includes(search) ||
-          r.text
-            .toLowerCase()
-            .includes(search)
-      );
-
-  }
-
-  list.innerHTML = "";
-
-  if(!reviews.length){
-
-    list.innerHTML = `
-      <div class="review-empty">
-        No hay reseñas en este filtro.
-      </div>
-    `;
-
-    return;
-  }
-
-  reviews
-    .sort(
-      (a,b)=>
-        Number(b.date || 0) -
-        Number(a.date || 0)
-    )
-    .forEach(review=>{
-
-      const item =
-        document.createElement("div");
-
-      item.className =
-        "admin-item";
-
-      const status =
-        review.rejected
-          ? "rejected"
-          : review.approved
-            ? "approved"
-            : "pending";
-
-      const statusText =
-        review.rejected
-          ? "Rechazada"
-          : review.approved
-            ? "Aprobada"
-            : "Pendiente";
-
-      item.innerHTML = `
-
-        <div class="admin-review">
-
-          <div class="admin-avatar">
-            ${escapeHtml(
-              String(review.name || "?")
-                .charAt(0)
-                .toUpperCase()
-            )}
-          </div>
-
-          <div class="admin-info">
-
-            <strong>
-              ${escapeHtml(review.name)}
-            </strong>
-
-            <small>
-              ${stars(review.stars)}
-              ·
-              ${formatDate(review.date)}
-            </small>
-
-            <div class="review-admin-text">
-              ${escapeHtml(review.text)}
-            </div>
-
-          </div>
-
-          <div>
-
-            <span class="status ${status}">
-              ${statusText}
-            </span>
-
-          </div>
-
-        </div>
-
-        <div class="admin-actions">
-
-          ${
-            !review.approved
-            ?
-            `
-              <button
-                class="admin-btn success"
-                data-approve="${review.id}"
-              >
-                Aprobar
-              </button>
-            `
-            :
-            ""
-          }
-
-          ${
-            !review.rejected
-            ?
-            `
-              <button
-                class="admin-btn"
-                data-reject="${review.id}"
-              >
-                Rechazar
-              </button>
-            `
-            :
-            ""
-          }
-
-          <button
-            class="admin-btn danger"
-            data-delete-review="${review.id}"
-          >
-            Eliminar
-          </button>
-
-        </div>
-
-      `;
-
-      list.appendChild(item);
-
-    });
-
-  list.querySelectorAll(
-    "[data-approve]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        updateReview(
-          Number(button.dataset.approve),
-          "approve"
-        );
-      }
-    );
-
-  });
-
-  list.querySelectorAll(
-    "[data-reject]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        updateReview(
-          Number(button.dataset.reject),
-          "reject"
-        );
-      }
-    );
-
-  });
-
-  list.querySelectorAll(
-    "[data-delete-review]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-        deleteReview(
-          Number(
-            button.dataset.deleteReview
-          )
-        );
-      }
-    );
-
-  });
-
-}
-
-document.querySelectorAll(
-  "[data-review-filter]"
-).forEach(button=>{
-
-  button.addEventListener(
-    "click",
-    ()=>{
-
-      currentReviewFilter =
-        button.dataset.reviewFilter;
-
-      document.querySelectorAll(
-        "[data-review-filter]"
-      ).forEach(btn=>{
-        btn.classList.remove("active");
-      });
-
-      button.classList.add("active");
-
-      renderAdminReviews();
-
-    }
-  );
-
-});
-
-$("reviewSearch").addEventListener(
-  "input",
-  renderAdminReviews
-);
-
-function updateReview(id,action){
-
-  const review =
-    data.reviews.find(
-      r=>Number(r.id) === Number(id)
-    );
-
-  if(!review) return;
-
-  if(action === "approve"){
-
-    review.approved = true;
-    review.rejected = false;
-
-    toast("Reseña aprobada.");
-
-  }
-
-  if(action === "reject"){
-
-    review.approved = false;
-    review.rejected = true;
-
-    toast("Reseña rechazada.");
-
-  }
-
-  saveData();
-
-  renderAll();
-
-}
-
-function deleteReview(id){
-
-  const review =
-    data.reviews.find(
-      r=>Number(r.id) === Number(id)
-    );
-
-  if(!review) return;
-
-  if(!confirm(
-    `¿Eliminar la reseña de "${review.name}"?`
-  )) return;
-
-  data.reviews =
-    data.reviews.filter(
-      r=>Number(r.id) !== Number(id)
-    );
-
-  saveData();
-
-  renderAll();
-
-  toast("Reseña eliminada.");
-
-}
-
-/* =====================================================
-   APPEARANCE
-===================================================== */
-
-function loadAppearance(){
-
-  const s =
-    data.settings;
-
-  $("settingName").value =
-    s.name || "";
-
-  $("settingDescription").value =
-    s.description || "";
-
-  $("settingAbout").value =
-    s.about || "";
-
-  $("settingFooter").value =
-    s.footer || "";
-
-  $("logoUrl").value =
-    s.logo &&
-    !s.logo.startsWith("data:")
-      ? s.logo
-      : "";
-
-  if(s.logo){
-
-    $("logoPreview").src =
-      s.logo;
-
-    $("logoPreview").style.display =
-      "block";
-
-  }else{
-
-    $("logoPreview").style.display =
-      "none";
-
-  }
-
-}
-
-$("logoFile").addEventListener(
-  "change",
-  event=>{
-
-    const file =
-      event.target.files[0];
-
-    if(!file) return;
-
-    if(!file.type.startsWith("image/")){
-
-      toast("Selecciona una imagen.");
-
-      return;
-    }
-
-    const reader =
-      new FileReader();
-
-    reader.onload = e=>{
-
-      logoBase64 =
-        e.target.result;
-
-      $("logoPreview").src =
-        logoBase64;
-
-      $("logoPreview").style.display =
-        "block";
-
-    };
-
-    reader.readAsDataURL(file);
-
-  }
-);
-
-$("logoUrl").addEventListener(
-  "input",
-  ()=>{
-
-    const url =
-      $("logoUrl").value.trim();
-
-    if(!url) return;
-
-    logoBase64 = "";
-
-    $("logoPreview").src =
-      url;
-
-    $("logoPreview").style.display =
-      "block";
-
-  }
-);
-
-$("saveAppearance").addEventListener(
-  "click",
-  ()=>{
-
-    data.settings.name =
-      $("settingName")
-        .value
-        .trim()
-      || "Luna Market";
-
-    data.settings.description =
-      $("settingDescription")
-        .value
-        .trim();
-
-    data.settings.about =
-      $("settingAbout")
-        .value
-        .trim();
-
-    data.settings.footer =
-      $("settingFooter")
-        .value
-        .trim();
-
-    data.settings.logo =
-      logoBase64 ||
-      $("logoUrl")
-        .value
-        .trim();
-
-    saveData();
-
-    renderAll();
-
-    toast("Apariencia guardada.");
-
-  }
-);
-
-/* =====================================================
+/* =========================
    SOCIAL
-===================================================== */
+========================= */
 
-function loadSocial(){
+document.getElementById("saveSocial").addEventListener("click",()=>{
+ data.social={
+  discord:document.getElementById("socialDiscord").value.trim(),
+  tiktok:document.getElementById("socialTikTok").value.trim(),
+  instagram:document.getElementById("socialInstagram").value.trim(),
+  youtube:document.getElementById("socialYouTube").value.trim()
+ };
 
-  $("socialDiscordInput").value =
-    data.settings.discord || "";
+ saveData();
+});
 
-  $("socialTikTokInput").value =
-    data.settings.tiktok || "";
 
-  $("socialInstagramInput").value =
-    data.settings.instagram || "";
+/* =========================
+   TEXTS
+========================= */
 
-  $("socialYoutubeInput").value =
-    data.settings.youtube || "";
+document.getElementById("saveTexts").addEventListener("click",()=>{
+ data.texts={
+  productsTitle:document.getElementById("productsTitleInput").value.trim(),
+  productsDescription:document.getElementById("productsDescriptionInput").value.trim(),
+  reviewsTitle:document.getElementById("reviewsTitleInput").value.trim(),
+  reviewsDescription:document.getElementById("reviewsDescriptionInput").value.trim(),
+  footer:document.getElementById("footerTextInput").value.trim()
+ };
 
-}
+ saveData();
+});
 
-$("saveSocial").addEventListener(
-  "click",
-  ()=>{
 
-    data.settings.discord =
-      $("socialDiscordInput")
-        .value
-        .trim();
+/* =========================
+   EXPORT / IMPORT
+========================= */
 
-    data.settings.tiktok =
-      $("socialTikTokInput")
-        .value
-        .trim();
+document.getElementById("exportData").addEventListener("click",()=>{
+ const blob=new Blob(
+  [JSON.stringify(data,null,2)],
+  {type:"application/json"}
+ );
 
-    data.settings.instagram =
-      $("socialInstagramInput")
-        .value
-        .trim();
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
 
-    data.settings.youtube =
-      $("socialYoutubeInput")
-        .value
-        .trim();
+ a.href=url;
+ a.download="luna-market-backup.json";
+ a.click();
 
-    saveData();
+ URL.revokeObjectURL(url);
+ toast("Respaldo exportado");
+});
 
-    renderSettings();
+document.getElementById("importData").addEventListener("change",e=>{
+ const file=e.target.files[0];
+ if(!file)return;
 
-    toast("Redes guardadas.");
+ const reader=new FileReader();
 
+ reader.onload=()=>{
+  try{
+   const imported=JSON.parse(reader.result);
+
+   data=mergeData(DEFAULT_DATA,imported);
+
+   saveData();
+   loadAdminForms();
+
+   toast("Datos importados correctamente");
+  }catch(error){
+   toast("El archivo JSON no es válido");
   }
-);
+ };
 
-/* =====================================================
-   ANNOUNCEMENTS
-===================================================== */
+ reader.readAsText(file);
+ e.target.value="";
+});
 
-function loadAnnouncement(){
+document.getElementById("resetData").addEventListener("click",()=>{
+ if(!confirm(
+  "Esto eliminará todos los cambios y restaurará Luna Market a los valores iniciales. ¿Continuar?"
+ ))return;
 
-  $("announcementText").value =
-    data.announcement.text || "";
+ data=clone(DEFAULT_DATA);
+ saveData();
+ loadAdminForms();
 
-  $("announcementEnabled").value =
-    String(
-      Boolean(
-        data.announcement.enabled
-      )
-    );
+ toast("Tienda restaurada");
+});
 
-  renderAnnouncement();
 
-}
-
-function renderAnnouncement(){
-
-  const box =
-    $("announcementPreview");
-
-  if(
-    data.announcement.enabled &&
-    data.announcement.text
-  ){
-
-    box.innerHTML = `
-      <strong>
-        Anuncio activo
-      </strong>
-
-      <p style="margin-top:10px;color:#777;">
-        ${escapeHtml(
-          data.announcement.text
-        )}
-      </p>
-    `;
-
-  }else{
-
-    box.innerHTML = `
-      <strong>
-        No hay anuncio activo
-      </strong>
-
-      <p style="margin-top:10px;color:#555;">
-        Activa un anuncio desde este panel.
-      </p>
-    `;
-
-  }
-
-}
-
-$("saveAnnouncement").addEventListener(
-  "click",
-  ()=>{
-
-    data.announcement.text =
-      $("announcementText")
-        .value
-        .trim();
-
-    data.announcement.enabled =
-      $("announcementEnabled")
-        .value === "true";
-
-    saveData();
-
-    renderAnnouncement();
-
-    toast("Anuncio actualizado.");
-
-  }
-);
-
-/* =====================================================
-   COUPONS
-===================================================== */
-
-function renderCoupons(){
-
-  const list =
-    $("couponsList");
-
-  list.innerHTML = "";
-
-  if(!data.coupons.length){
-
-    list.innerHTML = `
-      <div class="review-empty">
-        No tienes cupones creados.
-      </div>
-    `;
-
-    return;
-  }
-
-  data.coupons.forEach(coupon=>{
-
-    const item =
-      document.createElement("div");
-
-    item.className =
-      "admin-item";
-
-    item.innerHTML = `
-
-      <div class="admin-info">
-
-        <strong>
-          ${escapeHtml(coupon.code)}
-        </strong>
-
-        <small>
-          ${coupon.discount}% de descuento
-        </small>
-
-      </div>
-
-      <button
-        class="admin-btn danger"
-        data-delete-coupon="${coupon.id}"
-      >
-        Eliminar
-      </button>
-
-    `;
-
-    list.appendChild(item);
-
-  });
-
-  list.querySelectorAll(
-    "[data-delete-coupon]"
-  ).forEach(button=>{
-
-    button.addEventListener(
-      "click",
-      ()=>{
-
-        const id =
-          Number(
-            button.dataset.deleteCoupon
-          );
-
-        data.coupons =
-          data.coupons.filter(
-            c=>Number(c.id) !== id
-          );
-
-        saveData();
-
-        renderCoupons();
-
-        toast("Cupón eliminado.");
-
-      }
-    );
-
-  });
-
-}
-
-$("addCoupon").addEventListener(
-  "click",
-  ()=>{
-
-    const code =
-      $("couponCode")
-        .value
-        .trim()
-        .toUpperCase();
-
-    const discount =
-      Number(
-        $("couponDiscount").value
-      );
-
-    if(code.length < 3){
-
-      toast("Código demasiado corto.");
-
-      return;
-    }
-
-    if(
-      !Number.isFinite(discount) ||
-      discount < 1 ||
-      discount > 100
-    ){
-
-      toast("Descuento inválido.");
-
-      return;
-    }
-
-    if(
-      data.coupons.some(
-        c=>c.code === code
-      )
-    ){
-
-      toast("Ese cupón ya existe.");
-
-      return;
-    }
-
-    data.coupons.push({
-
-      id:Date.now(),
-
-      code,
-
-      discount
-
-    });
-
-    $("couponCode").value = "";
-    $("couponDiscount").value = "";
-
-    saveData();
-
-    renderCoupons();
-
-    toast("Cupón creado.");
-
-  }
-);
-
-/* =====================================================
+/* =========================
    DASHBOARD
-===================================================== */
+========================= */
 
 function updateDashboard(){
+ document.getElementById("dashProducts").textContent=
+  data.products.length;
 
-  const products =
-    data.products.length;
+ document.getElementById("dashCategories").textContent=
+  Math.max(0,data.categories.length-1);
 
-  const categories =
-    Math.max(
-      0,
-      data.categories.length - 1
-    );
+ document.getElementById("dashReviews").textContent=
+  data.reviews.filter(r=>r.status==="approved").length;
 
-  const pending =
-    data.reviews.filter(
-      r=>!r.approved && !r.rejected
-    ).length;
+ document.getElementById("dashPending").textContent=
+  data.reviews.filter(r=>r.status==="pending").length;
 
-  const approved =
-    data.reviews.filter(
-      r=>r.approved && !r.rejected
-    ).length;
-
-  $("dashProducts").textContent =
-    products;
-
-  $("dashCategories").textContent =
-    categories;
-
-  $("dashPending").textContent =
-    pending;
-
-  $("dashApproved").textContent =
-    approved;
-
-  $("storeStatusText").textContent =
-    `La tienda tiene ${products} productos, ` +
-    `${categories} categorías y ` +
-    `${approved} reseñas aprobadas.`;
-
+ updateReviewAdminStats();
 }
 
-/* =====================================================
-   STATS PUBLIC
-===================================================== */
 
-function updateStats(){
+/* =========================
+   SAVE ALL
+========================= */
 
-  const products =
-    data.products.length;
-
-  const categories =
-    Math.max(
-      0,
-      data.categories.length - 1
-    );
-
-  const reviews =
-    data.reviews.length;
-
-  const approved =
-    getApprovedReviews().length;
-
-  animateNumber(
-    document.querySelector(
-      '[data-stat="products"]'
-    ),
-    products
-  );
-
-  animateNumber(
-    document.querySelector(
-      '[data-stat="categories"]'
-    ),
-    categories
-  );
-
-  animateNumber(
-    document.querySelector(
-      '[data-stat="reviews"]'
-    ),
-    reviews
-  );
-
-  animateNumber(
-    document.querySelector(
-      '[data-stat="approved"]'
-    ),
-    approved
-  );
-
-}
-
-function animateNumber(
-  element,
-  target
-){
-
-  if(!element) return;
-
-  const start =
-    Number(
-      element.textContent
-    ) || 0;
-
-  const duration = 650;
-
-  const startTime =
-    performance.now();
-
-  function frame(time){
-
-    const progress =
-      Math.min(
-        (time-startTime)/
-        duration,
-        1
-      );
-
-    const value =
-      Math.floor(
-        start +
-        (target-start)*
-        progress
-      );
-
-    element.textContent =
-      value;
-
-    if(progress < 1){
-      requestAnimationFrame(frame);
-    }
-
-  }
-
-  requestAnimationFrame(frame);
-
-}
-
-/* =====================================================
-   ADMIN RENDER
-===================================================== */
-
-function renderAdmin(){
-
-  renderAdminProducts();
-
-  renderAdminCategories();
-
-  renderAdminReviews();
-
-  loadAppearance();
-
-  loadSocial();
-
-  loadAnnouncement();
-
-  renderCoupons();
-
-  updateDashboard();
-
-}
-
-/* =====================================================
-   ALL
-===================================================== */
-
-function renderAll(){
-
-  renderSettings();
-
-  renderCategories();
-
-  renderProducts();
-
-  renderReviews();
-
-  renderAdmin();
-
-  updateStats();
-
-}
-
-/* =====================================================
-   EXPORT
-===================================================== */
-
-$("exportData").addEventListener(
-  "click",
-  ()=>{
-
-    const json =
-      JSON.stringify(
-        data,
-        null,
-        2
-      );
-
-    const blob =
-      new Blob(
-        [json],
-        {
-          type:"application/json"
-        }
-      );
-
-    const url =
-      URL.createObjectURL(blob);
-
-    const link =
-      document.createElement("a");
-
-    link.href = url;
-
-    link.download =
-      "luna-market-backup.json";
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    link.remove();
-
-    URL.revokeObjectURL(url);
-
-    toast("Copia de seguridad exportada.");
-
-  }
-);
-
-/* =====================================================
-   IMPORT
-===================================================== */
-
-$("importData").addEventListener(
-  "change",
-  event=>{
-
-    const file =
-      event.target.files[0];
-
-    if(!file) return;
-
-    const reader =
-      new FileReader();
-
-    reader.onload = e=>{
-
-      try{
-
-        const imported =
-          JSON.parse(
-            e.target.result
-          );
-
-        data =
-          normalizeData(imported);
-
-        saveData();
-
-        currentCategory =
-          "Todos";
-
-        renderAll();
-
-        toast("Datos importados correctamente.");
-
-      }catch(error){
-
-        console.error(error);
-
-        toast("El archivo no es válido.");
-
-      }
-
-      event.target.value = "";
-
-    };
-
-    reader.readAsText(file);
-
-  }
-);
-
-/* =====================================================
-   RESET
-===================================================== */
-
-$("resetData").addEventListener(
-  "click",
-  ()=>{
-
-    const confirmation =
-      prompt(
-        'Escribe RESTAURAR para confirmar:'
-      );
-
-    if(
-      confirmation !== "RESTAURAR"
-    ){
-
-      toast("Restauración cancelada.");
-
-      return;
-    }
-
-    data =
-      deepClone(DEFAULT_DATA);
-
-    currentCategory =
-      "Todos";
-
-    saveData();
-
-    renderAll();
-
-    toast("Tienda restaurada.");
-
-  }
-);
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-const observer =
-  new IntersectionObserver(
-    entries=>{
-
-      entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-          entry.target.classList.add(
-            "visible"
-          );
-
-          observer.unobserve(
-            entry.target
-          );
-
-        }
-
-      });
-
-    },
-    {
-      threshold:.1
-    }
-  );
-
-document.querySelectorAll(
-  ".reveal"
-).forEach(element=>{
-
-  observer.observe(element);
-
+document.getElementById("saveAll").addEventListener("click",()=>{
+ saveData();
+ loadAdminForms();
 });
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
 
-renderAll();
+/* =========================
+   MODAL CLOSE
+========================= */
+
+document.querySelectorAll(".modal").forEach(modal=>{
+ modal.addEventListener("pointerdown",e=>{
+  if(e.target===modal){
+   modal.classList.remove("open");
+  }
+ });
+});
+
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"){
+  document.querySelectorAll(".modal.open").forEach(m=>m.classList.remove("open"));
+ }
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("visible");
+  }
+ });
+},{threshold:.08});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+
+/* =========================
+   INIT
+========================= */
+
+applyAll();
+loadAdminForms();
+
+document.querySelectorAll("#starSelector button").forEach(btn=>{
+ btn.classList.toggle("active",Number(btn.dataset.star)<=selectedRating);
+});
 
 </script>
 
