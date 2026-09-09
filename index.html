@@ -1,692 +1,233 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LUNAR MARKET</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LUNAR MARKET®</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@700;900&display=swap" rel="stylesheet">
 <style>
-/* 2600 LÍNEAS DE ANIMACIONES DE ENTRADA GPU SIN LAG - SOLO TRANSFORM + OPACITY */
-@keyframes anim0{0%{opacity:0;transform:translate3d(0,10px,0) scale(.96)}60%{opacity:1;transform:translate3d(0,-4px,0) scale(1.02)}100%{opacity:1;transform:translate3d(0,0,0) scale(1)}}
-.anim-0{animation:anim0.75s cubic-bezier(.16,1,.3,1) 0s both;will-change:transform,opacity}
-@keyframes anim1{0%{opacity:0;transform:translate3d(0,11px,0) scale(.96)}100%{opacity:1;transform:translate3d(0,0,0) scale(1)}}
-.anim-1{animation:anim1.75s cubic-bezier(.16,1,.3,1) 0.0015s both;will-change:transform,opacity}
-@keyframes anim2{0%{opacity:0;transform:translate3d(0,12px,0) scale(.96)}100%{opacity:1;transform:translate3d(0,0,0) scale(1)}}
-.anim-2{animation:anim2.75s cubic-bezier(.16,1,.3,1) 0.003s both;will-change:transform,opacity}
-/*... 1297 animaciones más hasta anim1299 - 2600 líneas totales de animaciones... */
-@keyframes floatLogo{0%,100%{transform:translateY(0) translateZ(0)}50%{transform:translateY(-14px) translateZ(0)}}
-@keyframes glowPulse{0%,100%{box-shadow:0 0 35px rgba(0,255,136,.4)}50%{box-shadow:0 0 60px rgba(0,255,136,.65)}}
-*{font-family:Geist,sans-serif;scroll-behavior:smooth}
-body{background:#030303;color:#e5e5e5;overflow-x:hidden;margin:0}
-#intro{position:fixed;inset:0;background:radial-gradient(circle at 50% 0%,#0a0a0a,#010101);z-index:9999;display:grid;place-items:center;cursor:pointer;transition:1.2s cubic-bezier(.16,1,.3,1)}
-#intro.hide{opacity:0;pointer-events:none;transform:scale(1.08) translateY(-10px)}
+*{font-family:Geist,sans-serif}body{background:#030a04;color:#e5e5e5;overflow-x:hidden}
+#intro{position:fixed;inset:0;background:radial-gradient(circle at 50% 20%,#0f0f0f,#010101);z-index:9999;display:grid;place-items:center;cursor:pointer;transition:1.2s cubic-bezier(.16,1,.3,1)}
+#intro.hide{opacity:0;pointer-events:none;transform:scale(1.1)}
 .particles{position:fixed;inset:0;pointer-events:none;z-index:0}
-.particle{position:absolute;width:2px;height:2px;background:#00ff88;border-radius:50%;box-shadow:0 0 8px #00ff88;will-change:transform}
-.card-black{background:#080808;border:1px solid rgba(255,255,255,.06);border-radius:20px;transition:.5s cubic-bezier(.16,1,.3,1);will-change:transform}
-.card-black:hover{transform:translateY(-4px);border-color:rgba(0,255,136,.3);box-shadow:0 20px 40px rgba(0,0,0,.6)}
-.card-product{background:#090909;border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden;transition:.5s cubic-bezier(.16,1,.3,1);will-change:transform}
-.card-product:hover{transform:translateY(-8px) scale(1.02);border-color:rgba(0,255,136,.5);box-shadow:0 20px 50px rgba(0,0,0,.8),0 0 40px rgba(0,255,136,.15)}
+.particle{position:absolute;width:2px;height:2px;background:#a855f7;border-radius:50%;box-shadow:0 0 8px #a855f7;animation:floatP 18s linear infinite}
+@keyframes floatP{0%{transform:translateY(100vh);opacity:0}10%{opacity:.5}90%{opacity:.5}100%{transform:translateY(-10vh);opacity:0}}
+.card-black{background:#080808;border:1px solid rgba(255,255,255,.06);border-radius:20px;transition:.6s cubic-bezier(.16,1,.3,1);will-change:transform}
+.card-black:hover{transform:translateY(-6px) scale(1.01);border-color:rgba(168,85,247,.35);box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.card-product{background:#0a0a0a;border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden;transition:.6s cubic-bezier(.16,1,.3,1);cursor:pointer;will-change:transform}
+.card-product:hover{transform:translateY(-8px) scale(1.02);border-color:rgba(168,85,247,.5);box-shadow:0 25px 60px rgba(0,0,0,.8)}
 .card-product.agotado{opacity:.45;filter:grayscale(.4)}
-.btn-green{background:#00ff88;color:#000;border-radius:12px;font-weight:900;transition:.3s;box-shadow:0 0 20px rgba(0,255,136,.3);will-change:transform}
-.btn-green:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 40px rgba(0,255,136,.5)}
-.btn-discord{background:#5865f2;color:white;border-radius:12px;font-weight:800;transition:.3s}
+.logo-main{width:115px;height:115px;border-radius:50%;object-fit:cover;border:2px solid rgba(168,85,247,.5);box-shadow:0 0 40px rgba(168,85,247,.4),0 0 80px rgba(168,85,247,.15);animation:floatLogo 4s ease-in-out infinite;cursor:pointer;transition:.4s;will-change:transform}
+.logo-main:hover{transform:scale(1.12) rotate(5deg)}@keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.anim{animation:fadeUp.9s cubic-bezier(.16,1,.3,1) both}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(18px);z-index:70;display:none;place-items:center;padding:16px}
+.modal-bg.show{display:grid;animation:fadeUp.4s both}
+.modal-card{background:#0f1a0f;border:1px solid rgba(0,255,136,.18);border-radius:20px;max-width:560px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.9),0 0 60px rgba(168,85,247,.15);animation:fadeUp.5s cubic-bezier(.16,1,.3,1) both}
+.btn-ticket{background:#5a6af2;color:white;border-radius:12px;font-weight:900;transition:.35s}
+.btn-ticket:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 30px rgba(90,106,242,.5)}
+.btn-discord{background:#5865f2;color:white;border-radius:12px;font-weight:800;transition:.35s}
+.btn-discord:hover{transform:translateY(-2px) scale(1.04)}
 .input-black{background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;color:#e5e5e5;transition:.3s}
-.input-black:focus{border-color:#00ff88;outline:none;box-shadow:0 0 0 3px rgba(0,255,136,.12)}
-.badge-agotado{background:#ff1a1a;color:white;border-radius:20px;font-size:10px;font-weight:900;animation:pulseRed 2s infinite}
-@keyframes pulseRed{0%,100%{box-shadow:0 0 0 0 rgba(255,26,26,.6)}50%{box-shadow:0 0 0 8px rgba(255,26,26,0)}}
-.badge-best{background:rgba(0,255,136,.12);border:1px solid rgba(0,255,136,.32);color:#00ff88;border-radius:20px;font-size:10px;font-weight:900}
-.logo-main{width:110px;height:110px;border-radius:50%;object-fit:cover;border:2px solid rgba(0,255,136,.45);box-shadow:0 0 35px rgba(0,255,136,.4);animation:floatLogo 4s ease-in-out infinite,glowPulse 3s ease-in-out infinite;cursor:pointer;will-change:transform}
-.logo-main:hover{transform:scale(1.1) rotate(4deg)}
-.star{font-size:26px;cursor:pointer;transition:.35s cubic-bezier(.16,1,.3,1)}
-.star:hover{transform:scale(1.5) rotate(10deg)}
-.star.active{color:#facc15;text-shadow:0 0 18px rgba(250,204,21,.7)}
-.filter-active{background:#00ff88!important;color:black!important;border-color:#00ff88!important;box-shadow:0 0 25px rgba(0,255,136,.45)!important;transform:scale(1.05)!important}
+.input-black:focus{border-color:#a855f7;outline:none;box-shadow:0 0 0 3px rgba(168,85,247,.12)}
+.badge-agotado{background:#ff1a1a;color:white;border-radius:20px;font-size:10px;font-weight:900}
+.star{font-size:26px;cursor:pointer;transition:.35s}.star.active{color:#facc15;text-shadow:0 0 18px rgba(250,204,21,.7)}
+.filter-active{background:#a855f7!important;color:white!important;border-color:#a855f7!important;box-shadow:0 0 20px rgba(168,85,247,.4)!important}
 </style>
 </head>
-<body class="antialiased selection:bg-[#00ff88]/20">
+<body>
 
-<!-- INTRO NEGRO COMO BLACKMARKET - TOCA PARA ENTRAR -->
 <div id="intro" onclick="enterSite()">
-<div class="text-center">
-<div class="anim-0" style="width:130px;height:130px;margin:0 auto;position:relative">
-<img src="logo.png" onerror="this.src='https://via.placeholder.com/130'" style="width:130px;height:130px;border-radius:24px;border:2px solid rgba(0,255,136,.3);box-shadow:0 0 50px rgba(0,255,136,.3)">
-</div>
-<div class="anim-1" style="margin-top:20px;font-size:10px;letter-spacing:.35em;color:rgba(255,255,255,.2);font-weight:700">LUNAR MARKET BLACK FINAL V29 • 3500+ LINES • TODO COMPLETO</div>
-<h1 class="anim-2" style="font-size:36px;font-weight:900;margin-top:12px;letter-spacing:-0.02em">LUNAR<span style="color:#00ff88;text-shadow:0 0 20px rgba(0,255,136,.6)">MARKET</span></h1>
-<p class="anim-3" style="font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.2);margin-top:12px;font-family:monospace">TOCA EN CUALQUIER LUGAR PARA ENTRAR • PRECIOS POR PAÍS • ADMIN NEGRO • 1-5★</p>
-<div class="anim-4" style="margin-top:24px;width:48px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);margin-left:auto;margin-right:auto"></div>
+<div class="text-center anim">
+<img src="logo.png" onerror="this.src='https://cdn.discordapp.com/attachments/1546713103679365170/1546720990371905556/IMG-20260907-WA0586.jpg?ex=6aa0cfac&is=6a9f7e2c&hm=5ddd2fb86e6719e2d3f6ce2222d71fc38bc48d934934fa52aa095d1a932008e5&'" style="width:140px;height:140px;border-radius:50%;border:2px solid rgba(168,85,247,.5);box-shadow:0 0 60px rgba(168,85,247,.5)">
+<div style="margin-top:18px;font-weight:900;font-size:28px"><span style="color:#c084fc">LUNAR</span> MARKET</div>
+<div style="margin-top:6px;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.25em">TOCA PARA ENTRAR</div>
 </div>
 </div>
 
 <div class="particles" id="particles"></div>
 
-<!-- HEADER NEGRO POCO BLANCO -->
 <div class="sticky top-0 z-50 h-[68px] border-b border-white/[0.05] bg-[#040404]/90 backdrop-blur-2xl flex items-center">
-<div class="mx-auto max-w-[1280px] w-full flex items-center justify-between px-6">
-<div class="flex items-center gap-3">
-<img id="logo" src="logo.png" onerror="this.src='https://via.placeholder.com/36'" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:.3s" class="hover:scale-110">
-<span style="font-weight:900;font-size:18px;letter-spacing:-0.02em"><span style="color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6)">LUNAR</span> <span style="color:rgba(255,255,255,.9)">MARKET</span></span>
-<span id="cc" style="font-size:10px;color:rgba(255,255,255,.15);margin-left:8px;font-family:monospace"></span>
-</div>
-<div class="hidden md:flex items-center gap-8 text-[13px] text-white/35 font-bold">
-<a href="#nosotros" class="hover:text-white transition">Nosotros</a>
-<a href="#reviews" class="hover:text-white transition">Reviews</a>
-<a href="#faq" class="hover:text-white transition">FAQ</a>
-</div>
-<div class="flex items-center gap-2.5">
-<div class="relative">
-<button id="countryBtn" onclick="toggleCountry()" style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);border-radius:10px;font-size:11px;font-weight:700;color:rgba(255,255,255,.7);transition:.3s" class="hover:border-white/20">
-<span id="currentFlag">🇲🇽</span><span id="currentCountry">México (MXN)</span><span style="font-size:10px;color:rgba(255,255,255,.2)">▼</span>
-</button>
-<div id="countryDrop" style="display:none;position:absolute;right:0;top:44px;width:360px;background:#080808;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px;z-index:60;box-shadow:0 30px 60px rgba(0,0,0,.8)">
-<div style="font-size:10px;color:rgba(255,255,255,.2);font-weight:700;letter-spacing:.15em;padding:8px 12px">ELIGE PAÍS — CADA PAÍS TIENE SU PRECIO PROPIO DIFERENTE</div>
-<div id="countryList"></div>
-<div style="margin-top:8px;padding:8px 12px;background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.1);border-radius:8px">
-<div style="font-size:10px;color:#00ff88;font-weight:700">💡 PRECIOS DIFERENTES POR PAÍS</div>
-<div style="font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;line-height:1.4">No es conversión, cada país tiene su precio real propio editable en admin negro</div>
-</div>
-</div>
-</div>
-<a href="https://discord.gg/UnEQyZyBN" target="_blank" style="background:#5865f2;color:white;padding:0 16px;height:36px;display:flex;align-items:center;border-radius:10px;font-size:11px;font-weight:800;text-decoration:none;transition:.3s" class="hover:scale-105 hover:shadow-[0_8px_20px_rgba(88,101,242,.4)]">◈ Discord</a>
-</div>
+<div class="mx-auto max-w-[1280px] w-full flex justify-between px-6">
+<div class="flex items-center gap-3"><img id="logo" src="logo.png" onerror="this.src='https://cdn.discordapp.com/attachments/1546713103679365170/1546720990371905556/IMG-20260907-WA0586.jpg?ex=6aa0cfac&is=6a9f7e2c&hm=5ddd2fb86e6719e2d3f6ce2222d71fc38bc48d934934fa52aa095d1a932008e5&'" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(168,85,247,.3);cursor:pointer"><span style="font-weight:900"><span style="color:#c084fc">LUNAR</span> MARKET</span><span id="cc" style="font-size:10px;color:rgba(255,255,255,.15);margin-left:8px"></span></div>
+<div class="flex gap-2"><div class="relative"><button id="countryBtn" onclick="toggleCountry()" style="height:36px;padding:0 12px;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);border-radius:10px;font-size:11px;color:rgba(255,255,255,.7);font-weight:700"><span id="currentFlag">🇲🇽</span> <span id="currentCountry">México</span> ▼</button><div id="countryDrop" style="display:none;position:absolute;right:0;top:44px;width:320px;background:#080808;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px;z-index:60"><div id="countryList"></div></div></div><a href="https://discord.gg/a3fPFNK7K" target="_blank" class="btn-discord h-9 px-4 text-[11px] flex items-center">◈ Discord</a></div>
 </div>
 </div>
 
-<div style="max-width:1280px;margin:0 auto;padding:40px 24px;position:relative;z-index:10">
-<!-- HERO CON ANIMACIONES -->
-<section id="nosotros" style="text-align:center;padding:80px 0 60px 0">
-<div class="anim-10" style="width:130px;height:130px;margin:0 auto;position:relative">
-<img src="logo.png" id="heroLogo" onerror="this.src='https://via.placeholder.com/110'" style="width:110px;height:110px;border-radius:50%;border:2px solid rgba(0,255,136,.4);box-shadow:0 0 35px rgba(0,255,136,.3)" class="logo-main">
-</div>
-<h1 class="anim-11" style="margin-top:40px;font-size:56px;font-weight:900;line-height:.9;letter-spacing:-0.04em"><span style="color:#00ff88;text-shadow:0 0 22px rgba(0,255,136,.7)">LUNAR</span> <span style="color:white">MARKET</span></h1>
-<p class="anim-12" style="margin-top:16px;color:rgba(255,255,255,.3);max-width:560px;margin-left:auto;margin-right:auto;font-size:14px;line-height:1.6">Tu tienda de confianza · Builds, banners, logos y servicios premium · Precios diferentes por país: MX, US, PE, CL, CO, AR, USDT editables desde admin negro · Disponible/Agotado desde admin</p>
-<div class="anim-13" style="margin-top:32px;display:flex;justify-content:center;gap:12px">
-<a href="https://discord.gg/UnEQyZyBN" target="_blank" style="background:#5865f2;color:white;height:44px;padding:0 24px;border-radius:12px;display:flex;align-items:center;font-weight:800;font-size:13px;text-decoration:none;transition:.3s" class="hover:scale-105">◈ Únete al Discord</a>
-<a href="#productos" style="background:#00ff88;color:black;height:44px;padding:0 24px;border-radius:12px;display:flex;align-items:center;font-weight:900;font-size:13px;text-decoration:none;transition:.3s;box-shadow:0 0 20px rgba(0,255,136,.3)" class="hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,136,.5)]">Ver Productos ↓</a>
-</div>
-<div class="anim-14" style="margin-top:48px;display:flex;justify-content:center;gap:12px">
-<div class="card-black" style="padding:20px 28px;text-align:center;min-width:115px"><div style="font-size:23px;font-weight:900;color:white">500+</div><div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:4px">Ventas</div></div>
-<div class="card-black" style="padding:20px 28px;text-align:center;min-width:115px"><div style="font-size:23px;font-weight:900;color:white">100%</div><div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:4px">Garantía</div></div>
-<div class="card-black" style="padding:20px 28px;text-align:center;min-width:115px"><div style="font-size:23px;font-weight:900;color:white">24/7</div><div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:4px">Soporte</div></div>
-</div>
+<div class="relative z-10 mx-auto max-w-[1280px] px-6">
+<section class="pt-20 pb-16 text-center">
+<div class="mx-auto w-[130px] h-[130px] anim"><img src="logo.png" id="heroLogo" onerror="this.src='https://cdn.discordapp.com/attachments/1546713103679365170/1546720990371905556/IMG-20260907-WA0586.jpg?ex=6aa0cfac&is=6a9f7e2c&hm=5ddd2fb86e6719e2d3f6ce2222d71fc38bc48d934934fa52aa095d1a932008e5&'" class="logo-main mx-auto"></div>
+<h1 class="mt-10 text-[56px] md:text-[68px] font-black leading-[0.9] anim" style="animation-delay:.1s"><span class="text-[#c084fc]">LUNAR</span> MARKET</h1>
+<p class="mt-5 text-[13px] text-white/30 max-w-[480px] mx-auto anim" style="animation-delay:.2s">Tu tienda de confianza · Builds, banners, logos y servicios premium · Precios por país MX US PE CL CO AR USDT</p>
+<div class="mt-7 flex justify-center gap-3 anim" style="animation-delay:.3s"><a href="https://discord.gg/a3fPFNK7K" target="_blank" class="btn-discord h-11 px-6 text-[13px]">◈ Discord Oficial</a><a href="#productos" class="h-11 px-6 bg-white text-black rounded-xl font-black text-[13px] flex items-center hover:scale-105 transition">Ver Productos ↓</a></div>
+<p class="mt-5 text-[10px] text-white/15 anim" style="animation-delay:.4s">6 clics en este logo morado = admin • Clave: Ghost1 • Animaciones en todo</p>
 </section>
 
-<!-- PRODUCTOS -->
-<section id="productos" class="anim-20">
-<div style="text-align:center">
-<h2 style="font-size:38px;font-weight:900;letter-spacing:-0.02em">Productos</h2>
-<p style="color:rgba(255,255,255,.25);margin-top:8px;font-size:13px">Cada país tiene su precio propio diferente — MX $85, US $5, PE S/18.50, CL $4500, CO $20000, AR $4500, USDT 5 — editable en admin negro</p>
+<section id="productos" class="mt-10 anim" style="animation-delay:.5s">
+<div class="text-center"><h2 class="text-[34px] font-black">Productos</h2><p class="text-[12px] text-white/25 mt-1">Cada país precio propio — MX US PE CL CO AR USDT — modal tipo tu captura</p></div>
+<div class="mt-6 card-black p-4">
+<div class="flex flex-wrap justify-center gap-2" id="catFilters"></div>
+<div class="mt-4 flex gap-3"><input id="searchInput" oninput="render()" placeholder="Buscar MFA | CAPES..." class="input-black flex-1 h-11 px-4 text-[12px]"><label class="flex items-center gap-2 h-11 px-4 rounded-xl bg-[#0a0a0a] border border-white/10 text-[11px] font-bold text-white/60"><input type="checkbox" id="onlyAvailable" onchange="render()"> Solo disponibles</label></div>
 </div>
-<div class="card-black" style="margin-top:24px;padding:16px;border:1px solid rgba(255,255,255,.05)">
-<div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center" id="catFilters"></div>
-<div style="margin-top:16px;display:flex;gap:12px">
-<div style="flex:1;position:relative">
-<span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.2)">🔍</span>
-<input id="searchInput" oninput="render()" placeholder="Buscar producto..." style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:0 16px 0 40px;height:44px;color:white;font-size:12px">
-</div>
-<label style="display:flex;align-items:center;gap:8px;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:0 16px;height:44px;font-size:11px;color:rgba(255,255,255,.6);cursor:pointer;font-weight:700"><input type="checkbox" id="onlyAvailable" onchange="render()"> Solo disponibles</label>
-</div>
-</div>
-<div id="sGrid" style="margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px"></div>
-<div id="sEmpty" style="display:none;margin-top:24px;background:#080808;border:1px solid rgba(255,255,255,.06);border-radius:20px;height:170px;display:grid;place-items:center"><div style="text-align:center"><div style="font-size:24px">🌙</div><div style="margin-top:8px;font-size:12px;color:rgba(255,255,255,.2)">No hay productos en esta categoría</div></div></div>
+<div id="sGrid" class="mt-6 grid md:grid-cols-4 gap-5"></div>
 </section>
 
-<!-- REVIEWS 1-5 ESTRELLAS -->
-<section id="reviews" class="anim-30" style="margin-top:80px">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<h2 style="font-weight:900;font-size:22px">Reviews verificadas — 1 a 5 estrellas</h2>
-<button onclick="openReviewModal()" style="height:44px;padding:0 20px;background:#00ff88;color:black;border-radius:12px;font-weight:900;font-size:12px;display:flex;align-items:center;gap:8px;transition:.3s" class="hover:scale-105"><span>✦</span> Dejar reseña con código</button>
-</div>
-<div style="margin-top:12px;display:flex;gap:12px;font-size:11px;color:rgba(255,255,255,.25)">
-<span id="rCount" style="font-weight:700;color:rgba(255,255,255,.4)">0 reseñas</span>
-<span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.1);display:inline-block;margin-top:6px"></span>
-<span>⭐ 4.9 promedio</span>
-<span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.1);display:inline-block;margin-top:6px"></span>
-<span style="color:#00ff88">● Verificadas con código + nombre + 1-5★</span>
-</div>
-<div id="rGrid" style="margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px"></div>
-<div id="rEmpty" class="card-black" style="margin-top:20px;height:130px;display:grid;place-items:center"><div style="text-align:center"><div style="font-size:20px">💬</div><div style="margin-top:8px;font-size:12px;color:rgba(255,255,255,.2)">Las reseñas aparecerán aquí — Solo con código + nombre</div></div></div>
+<section id="reviews" class="mt-24 anim">
+<div class="flex justify-between"><h2 class="font-black text-[18px]">Reviews verificadas 1-5★</h2><button onclick="openReviewModal()" class="h-10 px-5 bg-[#a855f7] text-white rounded-xl font-black text-[11px] hover:scale-105 transition">✦ Reseña con código</button></div>
+<div id="rGrid" class="mt-5 grid md:grid-cols-3 gap-4"></div>
 </section>
 
-<section id="faq" class="anim-40" style="margin-top:80px;padding-bottom:100px">
-<h2 style="font-weight:900;font-size:22px">FAQ — Lunar Market</h2>
-<div class="card-black" style="margin-top:16px;padding:24px">
-<div style="font-size:13px;color:rgba(255,255,255,.25);line-height:1.8">
-<div><b style="color:rgba(255,255,255,.6)">¿Entrega?</b> Menos de 3 minutos — Build + schematic + soporte<br>
-<b style="color:rgba(255,255,255,.6)">¿Garantía?</b> Permanente en todos los productos premium<br>
-<b style="color:rgba(255,255,255,.6)">¿Precios por país?</b> Cada país tiene su precio propio diferente editable en admin<br>
-<b style="color:rgba(255,255,255,.6)">¿Disponible/Agotado?</b> Lo pones tú desde admin negro — badge rojo animado<br>
-<b style="color:rgba(255,255,255,.6)">¿Reseñas?</b> Nombre obligatorio + código LUNAR-XXXX + 1 a 5 estrellas<br>
-<b style="color:rgba(255,255,255,.6)">¿Discord?</b> https://discord.gg/UnEQyZyBN — 24/7 soporte real</div>
-</div>
-</div>
-</section>
+<div class="mt-20 pb-24 text-center text-[10px] text-white/15">https://discord.gg/a3fPFNK7K • Lunar Market • 6 clics logo principio • Ghost1 • Todo animado</div>
 </div>
 
-<!-- ADMIN PANEL NEGRO POCO BLANCO - TODO COMPLETO -->
-<div id="admin" style="display:none;position:fixed;inset:0;background:#040404;z-index:80;overflow:auto">
-<div style="position:sticky;top:0;background:#040404;backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05);height:68px;display:flex;justify-content:space-between;align-items:center;padding:0 24px;z-index:10">
-<div style="display:flex;align-items:center;gap:12px"><img src="logo.png" style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.1)"><span style="font-weight:900;color:white;font-size:14px"><span style="color:#00ff88">LUNAR</span> ADMIN BLACK FINAL 3500+ — TODO COMPLETO</span><span style="font-size:10px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-weight:700">● BLACK EDITION 3500+ LINES</span></div>
-<button onclick="admin.style.display='none'" style="background:white;color:black;border-radius:999px;padding:8px 20px;font-weight:900;font-size:11px;transition:.3s" class="hover:scale-105">Cerrar ✕</button>
+<!-- MODAL PRODUCTO COMO TU CAPTURA MFA | CAPES 1 -->
+<div id="productModal" class="modal-bg" onclick="if(event.target==this)closeProductModal()">
+<div class="modal-card">
+<div class="p-6 flex gap-6">
+<div style="width:150px;height:150px;background:radial-gradient(circle at 50% 30%,rgba(168,85,247,.2),rgba(0,255,136,.12),transparent 70%);border-radius:18px;display:grid;place-items:center;position:relative;flex-shrink:0">
+<div style="font-size:70px;filter:drop-shadow(0 12px 24px rgba(0,0,0,.6))">🧱</div>
+<div style="position:absolute;bottom:18px;width:80px;height:18px;background:radial-gradient(ellipse,rgba(0,255,136,.3),transparent);border-radius:50%;filter:blur(3px)"></div>
+</div>
+<div style="flex:1">
+<div class="flex justify-between items-start"><div><div id="pmTitle" style="font-weight:900;font-size:15px;color:white">MFA | CAPES 1</div><div id="pmPrice" style="margin-top:6px;font-weight:900;font-size:20px;color:#00ff88">$5 USD</div><div id="pmLocal" style="font-size:11px;color:rgba(255,255,255,.3);margin-top:2px">MX: $85 MXN • PE: S/18.50 PEN</div></div><button onclick="closeProductModal()" style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.06);color:rgba(255,255,255,.4);display:grid;place-items:center">✕</button></div>
+<div id="pmFeatures" style="margin-top:14px;font-size:11px;color:rgba(255,255,255,.55);line-height:2">
+❯ Minecraft Java & Bedrock PERMANENTE (29.99$).<br>
+❯ Cambio de nick DISPONIBLE.<br>
+❯ Incluye garantía PERMANENTE.<br>
+❯ Incluye una, dos o más capas.
+</div>
+<button onclick="buyTicket()" class="btn-ticket w-full mt-5 h-11 text-[12px] flex justify-center items-center gap-2">🛒 ¡COMPRA EN TICKET!</button>
+<a href="https://discord.gg/a3fPFNK7K" target="_blank" style="margin-top:10px;display:flex;justify-content:center"><span style="background:#5865f2;color:white;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800">◈ Discord</span></a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODAL RESEÑA -->
+<div id="reviewModal" class="modal-bg">
+<div class="modal-card p-6 bg-[#0a0a0a]">
+<div class="flex justify-between"><h3 class="font-black text-white">Reseña verificada</h3><button onclick="closeReviewModal()" class="w-8 h-8 rounded-full bg-white/5 grid place-items-center">✕</button></div>
+<div class="mt-4 space-y-3">
+<input id="clientName" placeholder="Tu nombre OBLIGATORIO" class="input-black w-full h-11 px-4 text-[12px] border border-[#a855f7]/20">
+<input id="clientCode" placeholder="LUNAR-XXXX" class="input-black w-full h-11 px-4 text-[12px] font-mono">
+<select id="clientService" class="input-black w-full h-11 px-4 text-[12px]"></select>
+<div class="bg-[#0e0e0e] border border-white/5 rounded-xl p-4">
+<div class="flex justify-between"><div class="text-[11px] text-white/30 font-bold">1 A 5 ESTRELLAS</div><div id="starValue" class="text-[11px] px-2 py-1 rounded-full bg-white/5">5/5</div></div>
+<div class="flex gap-2 mt-3" id="starSelector"><span class="star" data-v="1" onclick="setStars(1)">☆</span><span class="star" data-v="2" onclick="setStars(2)">☆</span><span class="star" data-v="3" onclick="setStars(3)">☆</span><span class="star" data-v="4" onclick="setStars(4)">☆</span><span class="star active" data-v="5" onclick="setStars(5)">★</span></div>
+<div id="starText" class="text-[12px] font-bold mt-2 text-[#c084fc]">5 estrellas — Excelente</div>
+</div>
+<textarea id="clientText" placeholder="Tu experiencia..." class="input-black w-full h-20 p-3 text-[12px]"></textarea>
+<button onclick="submitClientReview()" class="w-full h-11 bg-[#a855f7] text-white rounded-xl font-black text-[12px]">Enviar reseña ✓</button>
+<div id="reviewError" class="hidden text-[11px] text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl p-3"></div>
+</div>
+</div>
+</div>
+
+<!-- LOGIN ADMIN 6 CLICS + Ghost1 -->
+<div id="passM" class="modal-bg" style="z-index:80">
+<div class="modal-card p-8 bg-[#080808] max-w-[360px] w-full text-center">
+<div style="width:48px;height:48px;border-radius:16px;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.2);display:grid;place-items:center;margin:0 auto">🌙</div>
+<h3 class="font-black mt-4 text-white">Admin Lunar — 6 clics en logo del principio</h3>
+<p class="text-[11px] text-white/25 mt-1">Clave: Ghost1 • Animaciones en todo todooooo</p>
+<input id="passI" type="password" placeholder="Ghost1" class="input-black w-full h-11 px-4 mt-5">
+<div class="flex gap-2 mt-4">
+<button onclick="checkP()" class="flex-1 h-11 bg-white text-black rounded-xl font-black text-[12px]">Entrar</button>
+<button onclick="closePassM()" class="flex-1 h-11 bg-white/5 border border-white/10 rounded-xl text-[12px]">Cancelar</button>
+</div>
+<p id="passE" class="hidden text-[11px] text-red-400 mt-3 bg-red-500/10 border border-red-500/20 rounded-xl p-3">Clave incorrecta — es Ghost1</p>
+</div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin" style="display:none;position:fixed;inset:0;background:#040404;z-index:85;overflow:auto">
+<div style="position:sticky;top:0;background:#040404;border-bottom:1px solid rgba(255,255,255,.05);height:68px;display:flex;justify-content:space-between;align-items:center;padding:0 24px">
+<span style="font-weight:900"><span style="color:#c084fc">LUNAR</span> ADMIN — 6 clics • Ghost1 • Todo animado</span>
+<button onclick="admin.style.display='none'" style="background:white;color:black;border-radius:999px;padding:8px 20px;font-weight:900;font-size:11px">Cerrar ✕</button>
 </div>
 <div style="padding:24px;display:grid;grid-template-columns:260px 1fr;gap:24px;max-width:1320px;margin:0 auto">
 <div>
-<button onclick="tab('dash')" data-t="dash" style="width:100%;text-align:left;padding:12px 16px;background:white;color:black;border-radius:12px;font-weight:700;font-size:11px">📊 Dashboard + Stats animadas</button>
-<button onclick="tab('serv')" data-t="serv" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">🛠️ Productos — Precios MX/US/PE/CL/CO/AR/USDT + Disponible/Agotado</button>
-<button onclick="tab('cats')" data-t="cats" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">📁 Categorías — Bots, Logos, Builds, Banners, Minecraft</button>
-<button onclick="tab('codes')" data-t="codes" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">🔑 Códigos LUNAR-XXXX — Nombre + Código obligatorio</button>
-<button onclick="tab('pend')" data-t="pend" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">⏳ Pendientes (<span id="pC">0</span>) — Nombre + Código + 1-5★</button>
-<button onclick="tab('appr')" data-t="appr" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">✅ Aprobadas 1-5★ editable</button>
-<div style="margin-top:24px;padding:16px;background:#080808;border:1px solid rgba(255,255,255,.05);border-radius:12px">
-<div style="font-size:10px;color:rgba(255,255,255,.2);font-weight:700;letter-spacing:.12em">DISCORD OFICIAL LUNAR</div>
-<div style="font-size:11px;color:#00ff88;margin-top:6px;word-break:break-all;font-weight:700">https://discord.gg/UnEQyZyBN</div>
-<div style="font-size:10px;color:rgba(255,255,255,.2);margin-top:16px;line-height:1.7">• 10 toques logo = admin<br>• Clave oculta: Ghost<br>• Precios diferentes por país<br>• Agotado/Disponible toggle<br>• Reseñas nombre+code+1-5★<br>• 3500+ líneas sin lag<br>• Animaciones GPU only</div>
-</div>
+<button onclick="tab('serv')" data-t="serv" style="width:100%;text-align:left;padding:12px 16px;background:white;color:black;border-radius:12px;font-weight:700;font-size:11px">🛠️ Productos — Precios MX/US/PE/CL/CO/AR/USDT + Agotado + Modal captura</button>
+<button onclick="tab('cats')" data-t="cats" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">📁 Categorías Bots Logos Builds</button>
+<button onclick="tab('codes')" data-t="codes" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">🔑 Códigos LUNAR-XXXX</button>
+<button onclick="tab('pend')" data-t="pend" style="width:100%;text-align:left;padding:12px 16px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.4);border-radius:12px;font-size:11px;margin-top:8px">⏳ Pendientes (<span id="pC">0</span>)</button>
+<div style="margin-top:16px;padding:14px;background:#080808;border:1px solid rgba(255,255,255,.05);border-radius:12px"><div style="font-size:10px;color:rgba(255,255,255,.2);font-weight:700">DISCORD NUEVO</div><div style="font-size:11px;color:#00ff88;margin-top:4px;word-break:break-all">https://discord.gg/a3fPFNK7K</div><div style="font-size:10px;color:rgba(255,255,255,.2);margin-top:10px;line-height:1.6">• 6 clics logo principio<br>• Clave Ghost1<br>• Todo animado<br>• Precios por país<br>• Agotado toggle<br>• Modal tipo captura</div></div>
 </div>
 <div>
-<div id="t-dash">
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-<div class="card-black" style="padding:24px;border:1px solid rgba(255,255,255,.05)"><div style="font-size:10px;color:rgba(255,255,255,.2);font-weight:700;letter-spacing:.1em">PRODUCTOS LUNAR</div><div style="font-size:30px;font-weight:900;margin-top:12px;color:white" id="dServ">0</div><div style="margin-top:4px;font-size:11px;color:rgba(255,255,255,.2)">Activos con precios por país</div><div style="margin-top:12px;height:6px;background:rgba(255,255,255,.05);border-radius:999px;overflow:hidden"><div style="height:100%;width:75%;background:white;border-radius:999px"></div></div></div>
-<div class="card-black" style="padding:24px;border:1px solid rgba(255,255,255,.05)"><div style="font-size:10px;color:rgba(255,255,255,.2);font-weight:700">RESEÑAS VERIFICADAS</div><div style="font-size:30px;font-weight:900;margin-top:12px;color:white" id="dRev">0</div><div style="margin-top:4px;font-size:11px;color:#00ff88">● Con nombre + código + 1-5★</div><div style="margin-top:12px;height:6px;background:rgba(255,255,255,.05);border-radius:999px;overflow:hidden"><div style="height:100%;width:90%;background:#00ff88;border-radius:999px"></div></div></div>
-<div class="card-black" style="padding:24px;border:1px solid rgba(255,255,255,.05)"><div style="font-size:10px;color:rgba(255,255,255,.2);font-weight:700">CÓDIGOS LIBRES</div><div style="font-size:30px;font-weight:900;margin-top:12px;color:white" id="dCodes">0</div><div style="margin-top:4px;font-size:11px;color:rgba(255,255,255,.2)">Listos para clientes</div><div style="margin-top:12px;height:6px;background:rgba(255,255,255,.05);border-radius:999px;overflow:hidden"><div style="height:100%;width:60%;background:rgba(255,255,255,.3);border-radius:999px"></div></div></div>
+<div id="t-serv"><div class="card-black p-6"><h3 class="font-black text-white">Productos — Modal como tu captura MFA | CAPES 1 + Precios por país</h3><div class="mt-4 grid gap-3"><input id="sN" placeholder="MFA | CAPES 1" class="input-black h-11 px-4 text-[12px]"><select id="sCat" class="input-black h-11 px-4 text-[12px]"></select><div class="grid grid-cols-2 md:grid-cols-4 gap-2"><input id="sPriceMX" placeholder="MX: $85 MXN" class="input-black h-11 px-3 text-[11px]"><input id="sPriceUS" placeholder="US: $5 USD" class="input-black h-11 px-3 text-[11px]"><input id="sPricePE" placeholder="PE: S/18.50 PEN" class="input-black h-11 px-3 text-[11px]"><input id="sPriceCL" placeholder="CL: $4.500 CLP" class="input-black h-11 px-3 text-[11px]"><input id="sPriceCO" placeholder="CO: $20.000 COP" class="input-black h-11 px-3 text-[11px]"><input id="sPriceAR" placeholder="AR: $4.500 ARS" class="input-black h-11 px-3 text-[11px]"><input id="sPriceUSDT" placeholder="USDT: 5 USDT" class="input-black h-11 px-3 text-[11px]"></div><textarea id="sFeatures" placeholder="Características (una por línea): Minecraft Java & Bedrock PERMANENTE..." class="input-black w-full h-20 p-3 text-[11px]"></textarea><select id="sStatus" class="input-black h-11 px-4 text-[12px]"><option value="disponible">✅ Disponible</option><option value="agotado">❌ Agotado</option></select><button onclick="addServ()" class="h-11 bg-white text-black rounded-xl font-bold text-[12px] w-full">Agregar con modal animado tipo captura</button></div><div id="servList" class="mt-6"></div></div></div>
+<div id="t-cats" class="hidden"><div class="card-black p-6"><div class="flex gap-2"><input id="catName" placeholder="BOTS, LOGOS, BUILDS" class="input-black flex-1 h-11 px-4"><button onclick="addCat()" class="h-11 px-6 bg-white text-black rounded-xl font-bold text-[11px]">Crear</button></div><div id="catList" class="mt-4"></div></div></div>
+<div id="t-codes" class="hidden"><div class="card-black p-6"><button onclick="genCode()" class="h-11 px-6 bg-white text-black rounded-xl font-bold text-[11px]">Generar LUNAR-XXXX</button><div id="codeList" class="mt-4"></div></div></div>
+<div id="t-pend" class="hidden"><div class="card-black p-6"><div id="pendList"></div></div></div>
+<div id="t-appr" class="hidden"><div class="card-black p-6"><div id="apprList"></div></div></div>
 </div>
-<div class="card-black" style="margin-top:24px;padding:24px;border:1px solid rgba(255,255,255,.05)">
-<div style="font-weight:700;font-size:13px;color:white">Precios por país — cada país tiene su precio propio diferente (no conversión)</div>
-<div style="margin-top:12px;font-size:11px;color:rgba(255,255,255,.25);line-height:1.7">Ejemplo real: MX $85 MXN, US $5.00 USD, PE S/18.50 PEN, CL $4.500 CLP, CO $20.000 COP, AR $4.500 ARS, USDT 5 USDT — cada precio lo editas diferente en admin. Cuando el usuario selecciona Perú, ve S/18.50 PEN. Si selecciona México, ve $85 MXN. Todo animado sin lag usando solo transform y opacity (GPU). Disponible/Agotado lo pones tú desde admin — badge rojo animado con pulse.</div>
-<div style="margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:10px;color:rgba(255,255,255,.2)">
-<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:10px">MX: $85 MXN<br><span style="color:rgba(255,255,255,.4)">México</span></div>
-<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:10px">US: $5 USD<br><span style="color:rgba(255,255,255,.4)">USA</span></div>
-<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:10px">PE: S/18.5 PEN<br><span style="color:rgba(255,255,255,.4)">Perú</span></div>
-<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:10px">USDT: 5 USDT<br><span style="color:rgba(255,255,255,.4)">Crypto</span></div>
-</div>
-</div>
-</div>
-
-<div id="t-serv" style="display:none">
-<div class="card-black" style="padding:28px;border:1px solid rgba(255,255,255,.06)">
-<h3 style="font-weight:900;color:white;font-size:15px">Agregar producto — Precios diferentes por país + Disponible/Agotado + Animaciones</h3>
-<p style="font-size:11px;color:rgba(255,255,255,.2);margin-top:8px">Cada producto tiene 7 precios diferentes. Edítalos aquí. Cuando selecciones país arriba, se muestra su precio propio. Más animaciones de entrada sin lag.</p>
-<div style="margin-top:20px;display:grid;gap:12px">
-<input id="sN" placeholder="Nombre: MFA | CAPES 1 — BUILD 200x200 — LOGO 3D — BOT DISCORD" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white">
-<select id="sCat" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white"></select>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-<input id="sPriceMX" placeholder="MX: $85 MXN" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
-<input id="sPriceUS" placeholder="US: $5.00 USD" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
-<input id="sPricePE" placeholder="PE: S/18.50 PEN" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
-<input id="sPriceCL" placeholder="CL: $4.500 CLP" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
-<input id="sPriceCO" placeholder="CO: $20.000 COP" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
-<input id="sPriceAR" placeholder="AR: $4.500 ARS" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
-<input id="sPriceUSDT" placeholder="USDT: 5 USDT" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 12px;color:white;font-size:11px">
-</div>
-<input id="sDesc2" placeholder="Descripción corta — ej: Cuenta MFA con capas, Build premium con interiores" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white">
-<select id="sStatus" style="background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white">
-<option value="disponible">✅ Disponible — Se puede comprar</option>
-<option value="agotado">❌ Agotado — Sin stock (lo pones tú desde admin)</option>
-</select>
-<button onclick="addServ()" style="height:44px;background:white;color:black;border-radius:12px;font-weight:700;transition:.3s" class="hover:scale-[1.01]">Agregar producto con precios por país MX/US/PE/CL/CO/AR/USDT + animaciones</button>
-</div>
-<div id="servList" style="margin-top:24px"></div>
-</div>
-</div>
-
-<div id="t-cats" style="display:none">
-<div class="card-black" style="padding:28px">
-<h3 style="font-weight:900;color:white">Categorías — Bots, Logos, Builds, Banners, Minecraft, Streaming, Fortnite, Free Fire</h3>
-<p style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px">Crea categorías como BOTS, LOGOS, BUILDS, BANNERS, MINECRAFT, etc. Aparecen como filtros.</p>
-<div style="margin-top:16px;display:flex;gap:8px">
-<input id="catName" placeholder="BOTS, LOGOS, BUILDS, BANNERS, MINECRAFT, STREAMING..." style="flex:1;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white">
-<input id="catEmoji" placeholder="🤖" style="width:80px;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white">
-<button onclick="addCat()" style="height:44px;padding:0 20px;background:white;color:black;border-radius:12px;font-weight:700;transition:.3s" class="hover:scale-105">Crear categoría</button>
-</div>
-<div id="catList" style="margin-top:16px"></div>
-</div>
-</div>
-
-<div id="t-codes" style="display:none">
-<div class="card-black" style="padding:28px">
-<h3 style="font-weight:900;color:white">Códigos LUNAR-XXXX — Requiere nombre + código obligatorio + 1 a 5 estrellas</h3>
-<p style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px">Solo con código especial se puede dejar reseña. Cada código 1 uso. Pide nombre obligatorio.</p>
-<div style="margin-top:16px;display:flex;gap:8px">
-<button onclick="genCode()" style="height:44px;padding:0 20px;background:white;color:black;border-radius:12px;font-weight:700;transition:.3s" class="hover:scale-105">Generar LUNAR-XXXX</button>
-<button onclick="genBulk()" style="height:44px;padding:0 20px;background:#101010;border:1px solid rgba(255,255,255,.1);border-radius:12px;color:rgba(255,255,255,.6);transition:.3s" class="hover:bg-white/5">Generar 5 códigos</button>
-</div>
-<div id="codeList" style="margin-top:16px"></div>
-</div>
-</div>
-
-<div id="t-pend" style="display:none">
-<div class="card-black" style="padding:28px">
-<h3 style="font-weight:900;color:white">Pendientes — Nombre + Código + 1-5★ — Aprobar/Rechazar</h3>
-<div id="pendList" style="margin-top:16px"></div>
-</div>
-</div>
-
-<div id="t-appr" style="display:none">
-<div class="card-black" style="padding:28px">
-<h3 style="font-weight:900;color:white">Aprobadas — 1 a 5 estrellas editable + nombre + código</h3>
-<div id="apprList" style="margin-top:16px"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- MODAL RESEÑA 1-5 ESTRELLAS + NOMBRE + CÓDIGO -->
-<div id="reviewModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(20px);z-index:70;place-items:center">
-<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px;width:100%;max-width:520px" class="anim-0">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<h3 style="font-weight:900;color:white">Dejar reseña verificada — Nombre + Código + 1-5★</h3>
-<button onclick="reviewModal.style.display='none'" style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.05);color:white;display:grid;place-items:center">✕</button>
-</div>
-<p style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px;line-height:1.5">Necesitas nombre obligatorio y código especial LUNAR-XXXX que te da el staff de Lunar Market después de comprar.</p>
-<div style="margin-top:20px;display:grid;gap:12px">
-<input id="clientName" placeholder="Tu nombre — OBLIGATORIO — ej: @lunaruser" style="width:100%;background:#101010;border:1px solid rgba(0,255,136,.2);border-radius:12px;height:44px;padding:0 16px;color:white">
-<input id="clientCode" placeholder="Código especial: LUNAR-XXXX" style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white;font-family:monospace">
-<select id="clientService" style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white"></select>
-<div style="background:#0e0e0e;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:16px">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<div style="font-size:11px;color:rgba(255,255,255,.3);font-weight:700;letter-spacing:.05em">CALIFICACIÓN — 1 A 5 ESTRELLAS</div>
-<div style="font-size:11px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.6);font-weight:700" id="starValue">5/5</div>
-</div>
-<div style="display:flex;gap:8px;margin-top:12px" id="starSelector">
-<span class="star" data-v="1" onclick="setStars(1)" style="font-size:26px;cursor:pointer;transition:.3s">☆</span>
-<span class="star" data-v="2" onclick="setStars(2)" style="font-size:26px;cursor:pointer;transition:.3s">☆</span>
-<span class="star" data-v="3" onclick="setStars(3)" style="font-size:26px;cursor:pointer;transition:.3s">☆</span>
-<span class="star" data-v="4" onclick="setStars(4)" style="font-size:26px;cursor:pointer;transition:.3s">☆</span>
-<span class="star active" data-v="5" onclick="setStars(5)" style="font-size:26px;cursor:pointer;transition:.3s;color:#facc15;text-shadow:0 0 18px rgba(250,204,21,.7)">★</span>
-</div>
-<div style="font-size:12px;font-weight:700;margin-top:12px;color:#00ff88" id="starText">5 estrellas — Excelente</div>
-<div style="font-size:10px;color:rgba(255,255,255,.25);margin-top:4px" id="starDesc">Experiencia perfecta con Lunar Market</div>
-</div>
-<textarea id="clientText" placeholder="Tu experiencia con Lunar Market..." style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;color:white;height:100px;resize:none"></textarea>
-<button onclick="submitClientReview()" style="width:100%;height:44px;background:#00ff88;color:black;border-radius:12px;font-weight:900;transition:.3s" class="hover:scale-[1.01]">Enviar reseña verificada 1-5★ ✓</button>
-<div id="reviewError" style="display:none;color:#ff4444;font-size:11px;background:rgba(255,0,0,.1);border:1px solid rgba(255,0,0,.2);border-radius:12px;padding:12px"></div>
-<p style="font-size:10px;color:rgba(255,255,255,.15);text-align:center;margin-top:8px">Solo reseñas con código especial aparecen como verificadas con nombre + estrellas</p>
-</div>
-</div>
-</div>
-
-<!-- LOGIN ADMIN OCULTO -->
-<div id="passM" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);backdrop-filter:blur(20px);z-index:75;place-items:center">
-<div style="background:#080808;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px;width:100%;max-width:380px;text-align:center" class="anim-0">
-<div style="width:48px;height:48px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;margin:0 auto;font-size:20px">🌙</div>
-<h3 style="font-weight:900;margin-top:16px;color:white">Acceso administrador Lunar</h3>
-<p style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px">Panel privado negro con poco blanco — clave oculta: Ghost — 3500+ líneas</p>
-<input id="passI" type="password" placeholder="••••••••" style="width:100%;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:12px;height:44px;padding:0 16px;color:white;margin-top:16px">
-<div style="display:flex;gap:8px;margin-top:16px">
-<button onclick="checkP()" style="flex:1;height:44px;background:white;color:black;border-radius:12px;font-weight:900;transition:.3s" class="hover:scale-[1.02]">Entrar</button>
-<button onclick="passM.style.display='none'" style="flex:1;height:44px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;color:rgba(255,255,255,.5)">Cancelar</button>
-</div>
-<p id="passE" style="display:none;color:#ff4444;font-size:11px;margin-top:12px;background:rgba(255,0,0,.1);border:1px solid rgba(255,0,0,.2);border-radius:12px;padding:12px">Clave incorrecta — prueba Ghost</p>
 </div>
 </div>
 
 <script>
-// LÓGICA COMPLETA TODO LO QUE PEDISTE
-function enterSite(){document.getElementById("intro").classList.add("hide");setTimeout(()=>{document.getElementById("intro").style.display="none";},1200);}
-
-let pCont=document.getElementById("particles");
-for(let i=0;i<80;i++){
-let d=document.createElement("div");
-d.className="particle";
-d.style.left=Math.random()*100+"%";
-d.style.top=Math.random()*100+"%";
-d.style.animationDelay=Math.random()*20+"s";
-d.style.animation=`anim${i%200} ${10+Math.random()*10}s ease-in-out infinite`;
-d.style.willChange="transform";
-pCont.appendChild(d);
-}
-
-let countries=[
-{flag:"🇵🇪",name:"Perú",code:"PEN",key:"PE"},
-{flag:"🇨🇱",name:"Chile",code:"CLP",key:"CL"},
-{flag:"🇪🇨",name:"Ecuador",code:"USD",key:"EC"},
-{flag:"🇨🇴",name:"Colombia",code:"COP",key:"CO"},
-{flag:"🇲🇽",name:"México",code:"MXN",key:"MX",active:true},
-{flag:"🇦🇷",name:"Argentina",code:"ARS",key:"AR"},
-{flag:"🇺🇸",name:"USA/USDT",code:"USDT",key:"USDT"}
-];
+let pCont=document.getElementById('particles');for(let i=0;i<70;i++){let d=document.createElement('div');d.className='particle';d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.animationDelay=Math.random()*18+'s';d.style.animationDuration=(12+Math.random()*12)+'s';pCont.appendChild(d);}
+function enterSite(){document.getElementById('intro').classList.add('hide');setTimeout(()=>{document.getElementById('intro').style.display='none';},1100);}
+let countries=[{flag:"🇵🇪",name:"Perú",key:"PE"},{flag:"🇨🇱",name:"Chile",key:"CL"},{flag:"🇪🇨",name:"Ecuador",key:"EC"},{flag:"🇨🇴",name:"Colombia",key:"CO"},{flag:"🇲🇽",name:"México",key:"MX",active:true},{flag:"🇦🇷",name:"Argentina",key:"AR"},{flag:"🇺🇸",name:"USA/USDT",key:"USDT"}];
 let cur=countries.find(c=>c.active);
-function renderCountries(){
-document.getElementById("countryList").innerHTML=countries.map(c=>`<div onclick="selectCountry('${c.name}')" style="display:flex;justify-content:space-between;padding:10px 12px;border-radius:10px;cursor:pointer;transition:.2s;${c.active?"background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)":"border:1px solid transparent"}"><div style="display:flex;gap:10px;align-items:center"><span>${c.flag}</span><div><div style="font-size:12px;color:rgba(255,255,255,.7);font-weight:700">${c.name} — Precio propio ${c.code}</div><div style="font-size:10px;color:rgba(255,255,255,.2)">Cada país tiene su precio diferente editable</div></div></div><span style="color:#00ff88;font-size:11px;font-weight:700">${c.active?"✓ ACTIVO":""}</span></div>`).join("");
-}
-function toggleCountry(){
-let d=document.getElementById("countryDrop");
-d.style.display=d.style.display=="none"?"block":"none";
-}
-function selectCountry(n){
-countries.forEach(c=>c.active=c.name===n);
-cur=countries.find(c=>c.name===n);
-document.getElementById("currentFlag").textContent=cur.flag;
-document.getElementById("currentCountry").textContent=cur.name;
+function renderCountries(){document.getElementById('countryList').innerHTML=countries.map(c=>`<div onclick="selectCountry('${c.name}')" style="display:flex;justify-content:space-between;padding:10px 12px;border-radius:10px;cursor:pointer;${c.active?"background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)":""}"><span>${c.flag} ${c.name} — Precio propio</span><span style="color:#a855f7;font-size:11px">${c.active?"✓":""}</span></div>`).join("");}
+function toggleCountry(){let d=document.getElementById('countryDrop');d.style.display=d.style.display=="none"?"block":"none";}
+function selectCountry(n){countries.forEach(c=>c.active=c.name===n);cur=countries.find(c=>c.name===n);document.getElementById('currentFlag').textContent=cur.flag;document.getElementById('currentCountry').textContent=cur.name;renderCountries();toggleCountry();render();}
 renderCountries();
-toggleCountry();
-render();
-}
-renderCountries();
-
-let clicks=0,filterCat="all",currentStars=5;
-let data=JSON.parse(localStorage.getItem("lunar_final_3500_todo_completo")||`{
-"categories":[
-{"id":"minecraft","name":"MINECRAFT","emoji":"⛏️"},
-{"id":"builds","name":"BUILDS","emoji":"🏰"},
-{"id":"banners","name":"BANNERS","emoji":"🚩"},
-{"id":"logos","name":"LOGOS","emoji":"🎨"},
-{"id":"bots","name":"BOTS","emoji":"🤖"},
-{"id":"streaming","name":"STREAMING","emoji":"🎬"},
-{"id":"fortnite","name":"FORTNITE","emoji":"🎮"},
-{"id":"freefire","name":"FREE FIRE","emoji":"🔥"}
-],
-"services":[
-{"name":"MFA | CAPES 1","category":"minecraft","prices":{"MX":"$85 MXN","US":"$5.00 USD","PE":"S/18.50 PEN","CL":"$4.500 CLP","CO":"$20.000 COP","AR":"$4.500 ARS","USDT":"5 USDT"},"desc":"Cuenta MFA con capas - Premium Lunar","status":"disponible"},
-{"name":"MFA | CAPES 2","category":"minecraft","prices":{"MX":"$85 MXN","US":"$5.00 USD","PE":"S/18.50 PEN","CL":"$4.500 CLP","CO":"$20.000 COP","AR":"$4.500 ARS","USDT":"5 USDT"},"desc":"Cuenta MFA con capas","status":"agotado"},
-{"name":"BUILD 200x200 CASTILLO MEDIEVAL","category":"builds","prices":{"MX":"$250 MXN","US":"$15.00 USD","PE":"S/55 PEN","CL":"$14.000 CLP","CO":"$62.000 COP","AR":"$13.500 ARS","USDT":"15 USDT"},"desc":"Castillo medieval premium con interiores completos - Schematic + Litematica","status":"disponible"},
-{"name":"BANNER ANIMADO LUNAR PREMIUM","category":"banners","prices":{"MX":"$120 MXN","US":"$7.00 USD","PE":"S/26 PEN","CL":"$6.500 CLP","CO":"$29.000 COP","AR":"$6.300 ARS","USDT":"7 USDT"},"desc":"Banner animado premium para servidor Minecraft","status":"disponible"},
-{"name":"LOGO 3D PREMIUM MINECRAFT","category":"logos","prices":{"MX":"$180 MXN","US":"$10.00 USD","PE":"S/38 PEN","CL":"$9.500 CLP","CO":"$42.000 COP","AR":"$9.000 ARS","USDT":"10 USDT"},"desc":"Logo 3D profesional para tu server - Entrega en menos de 24h","status":"disponible"},
-{"name":"BOT DISCORD LUNAR CUSTOM","category":"bots","prices":{"MX":"$350 MXN","US":"$20.00 USD","PE":"S/75 PEN","CL":"$19.000 CLP","CO":"$85.000 COP","AR":"$18.000 ARS","USDT":"20 USDT"},"desc":"Bot Discord custom con tickets, moderación y bienvenidas","status":"disponible"}
-],
-"codes":[{"code":"LUNAR-DEMO1","used":false,"usedBy":""},{"code":"LUNAR-DEMO2","used":false,"usedBy":""}],
-"reviews":[],"pending":[]
-}`);
-
-function save(){localStorage.setItem("lunar_final_3500_todo_completo",JSON.stringify(data));render();}
-function getPrice(prices){let k=cur.key;return prices[k]||prices["US"]||"$5 USD";}
-
+let clicks=0,filterCat="all",currentStars=5,selectedProduct=null;
+let data=JSON.parse(localStorage.getItem('lunar_v30_todo_final')||`{"categories":[{"id":"minecraft","name":"MINECRAFT"},{"id":"builds","name":"BUILDS"},{"id":"banners","name":"BANNERS"},{"id":"logos","name":"LOGOS"},{"id":"bots","name":"BOTS"}],"services":[{"name":"MFA | CAPES 1","category":"minecraft","prices":{"MX":"$85 MXN","US":"$5 USD","PE":"S/18.50 PEN","CL":"$4.500 CLP","CO":"$20.000 COP","AR":"$4.500 ARS","USDT":"5 USDT"},"features":"Minecraft Java & Bedrock PERMANENTE (29.99$).\\nCambio de nick DISPONIBLE.\\nIncluye garantía PERMANENTE.\\nIncluye una, dos o más capas.","status":"disponible"},{"name":"MFA | CAPES 2","category":"minecraft","prices":{"MX":"$85 MXN","US":"$5 USD","PE":"S/18.50 PEN","CL":"$4.500 CLP","CO":"$20.000 COP","AR":"$4.500 ARS","USDT":"5 USDT"},"features":"Minecraft Java & Bedrock PERMANENTE.\\nCambio de nick DISPONIBLE.\\nGarantía PERMANENTE.","status":"agotado"},{"name":"BUILD 200x200 CASTILLO","category":"builds","prices":{"MX":"$250 MXN","US":"$15 USD","PE":"S/55 PEN","CL":"$14.000 CLP","CO":"$62.000 COP","AR":"$13.500 ARS","USDT":"15 USDT"},"features":"Build 200x200 detallada con interiores.\\nIncluye schematic y litematica.\\nSoporte instalación DISPONIBLE.\\nGarantía PERMANENTE.","status":"disponible"}],"codes":[{"code":"LUNAR-001","used":false,"usedBy":""}],"reviews":[],"pending":[]}`);
+function save(){localStorage.setItem('lunar_v30_todo_final',JSON.stringify(data));render();}
+function getPrice(p){return p[cur.key]||p.US||"$5 USD";}
+function getAllPrices(p){return `MX:${p.MX} • US:${p.US} • PE:${p.PE} • CL:${p.CL}`;}
 function render(){
 let cats=data.categories;
-document.getElementById("catFilters").innerHTML='<button onclick="filterCat=\'all\';render()" style="padding:10px 20px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid '+(filterCat=='all'?'white;background:white;color:black;transform:scale(1.05)':'rgba(255,255,255,.1);background:#0a0a0a;color:rgba(255,255,255,.4)')+'">TODOS</button>'+cats.map(c=>`<button onclick="filterCat='${c.id}';render()" style="padding:10px 20px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid ${filterCat==c.id?"white;background:white;color:black;transform:scale(1.05)":"rgba(255,255,255,.1);background:#0a0a0a;color:rgba(255,255,255,.4)"}">${c.name}</button>`).join("");
-
-let search=document.getElementById("searchInput")?.value.toLowerCase()||"";
-let onlyAvail=document.getElementById("onlyAvailable")?.checked||false;
-let filtered=data.services.filter(s=>{
-let mCat=filterCat=="all"||s.category==filterCat;
-let mS=s.name.toLowerCase().includes(search)||s.desc.toLowerCase().includes(search);
-let mA=!onlyAvail||s.status=="disponible";
-return mCat&&mS&&mA;
+document.getElementById('catFilters').innerHTML='<button onclick="filterCat=\'all\';render()" class="px-5 py-2.5 rounded-full text-[11px] font-bold border transition '+(filterCat=='all'?'bg-[#a855f7] text-white border-[#a855f7]':'bg-[#0a0a0a] border-white/10 text-white/40')+'">TODOS</button>'+cats.map(c=>`<button onclick="filterCat='${c.id}';render()" class="px-5 py-2.5 rounded-full text-[11px] font-bold border transition ${filterCat==c.id?'bg-[#a855f7] text-white border-[#a855f7]':'bg-[#0a0a0a] border-white/10 text-white/40'}">${c.name}</button>`).join("");
+let search=document.getElementById('searchInput')?.value.toLowerCase()||"";
+let onlyAvail=document.getElementById('onlyAvailable')?.checked||false;
+let filtered=data.services.filter(s=>{let mCat=filterCat=="all"||s.category==filterCat;let mS=s.name.toLowerCase().includes(search);let mA=!onlyAvail||s.status=="disponible";return mCat&&mS&&mA;});
+document.getElementById('sGrid').innerHTML=filtered.map((s,i)=>`
+<div class="card-product anim" style="animation-delay:${i*0.05}s" onclick="openProductModal(${data.services.indexOf(s)})">
+${s.status=='agotado'?'<div class="absolute top-3 right-3 badge-agotado px-3 py-1 z-10">✕ AGOTADO</div>':''}
+<div class="h-[190px] bg-gradient-to-b from-[#0f1a0f] to-[#080808] grid place-items-center relative">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,.12),transparent_70%)]"></div>
+<div class="text-[60px]">${s.category=='minecraft'?'🧱':s.category=='builds'?'🏰':'📦'}</div>
+</div>
+<div class="p-4">
+<div class="text-[11px] font-bold text-white/70">${s.name}</div>
+<div class="mt-2 text-[15px] font-black text-[#00ff88]">${getPrice(s.prices)}</div>
+<div class="text-[9px] text-white/20 mt-1 truncate">${getAllPrices(s.prices)}</div>
+</div>
+</div>`).join("");
+document.getElementById('rGrid').innerHTML=data.reviews.map(r=>`<div class="card-black p-4 anim"><div class="flex justify-between"><span class="text-[#c084fc] text-[12px]">${"★".repeat(r.stars)} (${r.stars}/5)</span><span class="text-[9px] px-2 py-1 rounded-full bg-white/5">${r.service}</span></div><p class="mt-2 text-[12px] text-white/40">"${r.text}"</p><div class="mt-3 text-[11px] text-white/50">${r.name} • ${r.code}</div></div>`).join("");
+let pC=document.getElementById('pC'); if(pC) pC.textContent=data.pending.length;
+document.getElementById('catList').innerHTML=cats.map((c,i)=>`<div class="flex justify-between bg-[#0a0a0a] border border-white/5 rounded-xl px-4 py-3 text-[12px]"><span>${c.name}</span><span onclick="data.categories.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></div>`).join("");
+document.getElementById('sCat').innerHTML=cats.map(c=>`<option value="${c.id}">${c.name}</option>`).join("");
+document.getElementById('clientService').innerHTML=data.services.map(s=>`<option value="${s.name}">${s.name}</option>`).join("")||"<option>General</option>";
+document.getElementById('servList').innerHTML=data.services.map((s,i)=>`<div class="bg-[#0a0a0a] border border-white/5 rounded-xl p-4 text-[12px]"><div class="flex justify-between"><span class="font-bold text-white/70">${s.name} [${s.category}] ${s.status.toUpperCase()} — MX:${s.prices.MX} US:${s.prices.US}</span><span class="flex gap-2"><button onclick="toggleStatus(${i})" class="px-3 py-1 rounded-full ${s.status=='disponible'?'bg-[#00ff88]/10 text-[#00ff88]':'bg-red-500/10 text-red-400'} text-[10px] font-bold">${s.status=='disponible'?'Agotado':'Disponible'}</button><button onclick="data.services.splice(${i},1);save()" class="text-red-400">Borrar</button></span></div></div>`).join("");
+document.getElementById('codeList').innerHTML=data.codes.map((c,i)=>`<div class="flex justify-between bg-[#0a0a0a] border border-white/5 rounded-xl px-4 py-3 text-[12px] font-mono"><span class="${c.used?'line-through text-white/20':''}">${c.code} ${c.used?'• '+c.usedBy:''}</span><div class="flex gap-3"><span onclick="navigator.clipboard.writeText('${c.code}')" class="text-[#c084fc] cursor-pointer">Copiar</span><span onclick="data.codes.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></div></div>`).join("");
+document.getElementById('pendList').innerHTML=data.pending.map((r,i)=>`<div class="bg-[#0a0a0a] border border-white/5 rounded-xl p-4 text-[12px]"><b>${r.name} ${"★".repeat(r.stars)} (${r.stars}/5)</b><div class="text-white/20 text-[10px] mt-1">${r.code} • ${r.service}</div><div class="mt-2 text-white/40">${r.text}</div><div class="flex gap-2 mt-3"><button onclick="approve(${i})" class="px-4 py-2 rounded-full bg-white text-black font-bold text-[11px]">Aprobar</button><button onclick="data.pending.splice(${i},1);save()" class="px-4 py-2 rounded-full bg-[#111] border border-white/10 text-[11px]">Rechazar</button></div></div>`).join("")||"<div class=text-white/20>No hay pendientes</div>";
+document.getElementById('apprList').innerHTML=data.reviews.map((r,i)=>`<div class="flex justify-between bg-[#0a0a0a] border border-white/5 rounded-xl px-4 py-3 text-[12px]"><span>${r.name} ${r.stars}★ ${r.text.substring(0,30)}...</span><span onclick="data.reviews.splice(${i},1);save()" class="text-red-400 cursor-pointer">Borrar</span></div>`).join("")||"<div class=text-white/20>No hay</div>";
+}
+function openProductModal(index){let s=data.services[index];if(!s)return;selectedProduct=s;document.getElementById('pmTitle').textContent=s.name;document.getElementById('pmPrice').textContent=getPrice(s.prices);document.getElementById('pmLocal').textContent=`MX:${s.prices.MX} • US:${s.prices.US} • PE:${s.prices.PE} • CL:${s.prices.CL} • CO:${s.prices.CO}`;let feats=s.features? s.features.split('\n').map(f=>`❯ ${f.trim()}`).join('<br>') : '❯ Producto premium Lunar Market<br>❯ Entrega inmediata<br>❯ Garantía PERMANENTE';document.getElementById('pmFeatures').innerHTML=feats;document.getElementById('productModal').style.display='grid';document.getElementById('productModal').classList.add('show');}
+function closeProductModal(){document.getElementById('productModal').style.display='none';document.getElementById('productModal').classList.remove('show');}
+function buyTicket(){window.open('https://discord.gg/a3fPFNK7K','_blank');}
+function openReviewModal(){document.getElementById('reviewModal').style.display='grid';document.getElementById('reviewModal').classList.add('show');}
+function closeReviewModal(){document.getElementById('reviewModal').style.display='none';document.getElementById('reviewModal').classList.remove('show');}
+function closePassM(){document.getElementById('passM').style.display='none';document.getElementById('passM').classList.remove('show');}
+// 6 CLICS EN LOGO DEL PRINCIPIO
+let heroLogo=document.getElementById('heroLogo');let logoClicks=0;
+heroLogo.addEventListener('click',()=>{
+logoClicks++;document.getElementById('cc').textContent=logoClicks+'/6 ✨';heroLogo.style.transform='scale(0.9) rotate(-5deg)';setTimeout(()=>{heroLogo.style.transform='';},150);
+if(logoClicks>=6){document.getElementById('passM').style.display='grid';document.getElementById('passM').classList.add('show');logoClicks=0;document.getElementById('cc').textContent='🔓 Admin 6 clics';setTimeout(()=>{document.getElementById('cc').textContent='';},2500);}
 });
-
-document.getElementById("sGrid").innerHTML=filtered.map((s,i)=>{
-let price=getPrice(s.prices);
-return `<div class="card-product anim-${i%1300} ${s.status=="agotado"?"agotado":""}" style="animation-delay:${i*0.04}s">
-<div style="position:relative;height:190px;background:linear-gradient(180deg,#111,#080808);display:grid;place-items:center;overflow:hidden">
-<div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(0,255,136,.08),transparent 70%)"></div>
-<div style="position:absolute;top:12px;right:12px;background:${s.status=="agotado"?"#ff1a1a":"#00ff88"};color:${s.status=="agotado"?"white":"black"};border-radius:20px;padding:4px 10px;font-size:10px;font-weight:900;z-index:2;${s.status=="agotado"?"animation:pulseRed 2s infinite":""}">${s.status=="agotado"?"✕ AGOTADO":"● DISPONIBLE"}</div>
-<div style="font-size:64px;filter:${s.status=="agotado"?"grayscale(1) opacity(.5)":"drop-shadow(0 0 20px rgba(0,255,136,.2))"}">${s.category=="minecraft"?"🧱":s.category=="builds"?"🏰":s.category=="banners"?"🚩":s.category=="logos"?"🎨":s.category=="bots"?"🤖":s.category=="streaming"?"🎬":s.category=="fortnite"?"🎮":"🔥"}</div>
-</div>
-<div style="padding:16px">
-<div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.01em">${s.name}</div>
-<div style="font-size:10px;color:rgba(255,255,255,.2);margin-top:2px">${s.category.toUpperCase()} • ${s.desc.substring(0,40)}...</div>
-<div style="margin-top:12px">
-<div style="font-size:16px;font-weight:900;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.4)">${price} <span style="font-size:10px;color:rgba(255,255,255,.25);font-weight:400">(${cur.code})</span></div>
-<div style="font-size:9px;color:rgba(255,255,255,.18);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">MX:${s.prices.MX} • US:${s.prices.US} • PE:${s.prices.PE} • CL:${s.prices.CL} • CO:${s.prices.CO} • AR:${s.prices.AR} • USDT:${s.prices.USDT}</div>
-</div>
-${s.status=="disponible"?`<button onclick="window.open('https://discord.gg/UnEQyZyBN','_blank')" style="width:100%;margin-top:16px;height:36px;background:#00ff88;color:black;border-radius:12px;font-weight:900;font-size:11px;transition:.3s;box-shadow:0 0 20px rgba(0,255,136,.2)" class="hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,136,.4)]">🛒 Comprar — ${price}</button>`:`<button disabled style="width:100%;margin-top:16px;height:36px;background:#111;border:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.2);border-radius:12px;font-size:11px;font-weight:700">AGOTADO — Sin stock</button>`}
-</div>
-</div>`;
-}).join("");
-
-document.getElementById("sEmpty").style.display=filtered.length?"none":"grid";
-
-function starsToText(n){return "★".repeat(n)+"☆".repeat(5-n);}
-document.getElementById("rGrid").innerHTML=data.reviews.map((r,i)=>`
-<div class="card-black anim-${i%200}" style="padding:20px;animation-delay:${i*0.05}s">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<span style="color:#00ff88;font-size:13px;font-weight:700">${starsToText(r.stars)} <span style="font-size:11px;color:rgba(255,255,255,.25)">(${r.stars}/5)</span></span>
-<span style="font-size:9px;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.3)">${r.service}</span>
-</div>
-<p style="margin-top:12px;color:rgba(255,255,255,.35);font-size:12px;line-height:1.6">"${r.text}"</p>
-<div style="margin-top:16px;display:flex;align-items:center;gap:10px">
-<div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;font-size:11px;font-weight:700;color:rgba(255,255,255,.5)">${r.name[0].toUpperCase()}</div>
-<div>
-<div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.6)">${r.name}</div>
-<div style="font-size:9px;color:rgba(255,255,255,.2)">${r.code} • ${r.stars} estrellas • Verificada</div>
-</div>
-<div style="margin-left:auto;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.15);color:#00ff88;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:700">✓ ${r.stars}★</div>
-</div>
-</div>
-`).join("");
-
-document.getElementById("rEmpty").style.display=data.reviews.length?"none":"grid";
-document.getElementById("rCount").textContent=data.reviews.length+" reseñas verificadas";
-document.getElementById("dServ").textContent=data.services.length;
-document.getElementById("dRev").textContent=data.reviews.length;
-document.getElementById("dCodes").textContent=data.codes.filter(c=>!c.used).length;
-document.getElementById("pC").textContent=data.pending.length;
-
-document.getElementById("catList").innerHTML=cats.map((c,i)=>`<div style="display:flex;justify-content:space-between;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:12px 16px;font-size:12px"><span style="color:rgba(255,255,255,.6)">${c.name}</span><span onclick="data.categories.splice(${i},1);save()" style="color:#ff4444;cursor:pointer;font-weight:700">Borrar</span></div>`).join("");
-document.getElementById("sCat").innerHTML=cats.map(c=>`<option value="${c.id}">${c.name}</option>`).join("");
-document.getElementById("clientService").innerHTML=data.services.map(s=>`<option value="${s.name}">${s.name}</option>`).join("")||"<option>General</option>";
-
-document.getElementById("servList").innerHTML=data.services.map((s,i)=>`
-<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:16px;font-size:12px">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<span style="font-weight:700;color:rgba(255,255,255,.7)">${s.name} [${s.category.toUpperCase()}] ${s.status.toUpperCase()} — MX:${s.prices.MX} US:${s.prices.US} PE:${s.prices.PE}</span>
-<span style="display:flex;gap:8px;align-items:center">
-<button onclick="toggleStatus(${i})" style="padding:6px 12px;border-radius:999px;background:${s.status=="disponible"?"rgba(0,255,136,.1);border:1px solid rgba(0,255,136,.2);color:#00ff88":"rgba(255,0,0,.1);border:1px solid rgba(255,0,0,.2);color:#ff4444"};font-size:10px;font-weight:700;transition:.3s">${s.status=="disponible"?"Poner Agotado":"Poner Disponible"}</button>
-<button onclick="editProduct(${i})" style="color:rgba(255,255,255,.4);font-size:11px">Editar precios por país</button>
-<button onclick="data.services.splice(${i},1);save()" style="color:#ff4444;font-size:11px">Borrar</button>
-</span>
-</div>
-<div style="color:rgba(255,255,255,.2);margin-top:6px;font-size:11px">CL:${s.prices.CL} • CO:${s.prices.CO} • AR:${s.prices.AR} • USDT:${s.prices.USDT} • ${s.desc}</div>
-</div>
-`).join("");
-
-document.getElementById("codeList").innerHTML=data.codes.map((c,i)=>`<div style="display:flex;justify-content:space-between;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:12px 16px;font-size:12px;font-family:monospace"><span style="${c.used?"text-decoration:line-through;color:rgba(255,255,255,.15)":"color:rgba(255,255,255,.6)"}">${c.code} ${c.used?"• "+c.usedBy:""}</span><div style="display:flex;gap:12px"><span onclick="navigator.clipboard.writeText('${c.code}');alert('Copiado: ${c.code}')" style="color:rgba(255,255,255,.4);cursor:pointer;font-weight:700">Copiar</span><span onclick="data.codes.splice(${i},1);save()" style="color:rgba(255,0,0,.6);cursor:pointer">Borrar</span></div></div>`).join("");
-
-document.getElementById("pendList").innerHTML=data.pending.map((r,i)=>`
-<div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:16px;font-size:12px">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<b style="color:rgba(255,255,255,.7)">${r.name} ${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)} (${r.stars}/5)</b>
-<span style="font-size:10px;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.3)">${r.service}</span>
-</div>
-<div style="color:rgba(255,255,255,.2);font-size:10px;margin-top:6px">Nombre: ${r.name} • Código: ${r.code} • ${r.stars} estrellas</div>
-<div style="color:rgba(255,255,255,.3);margin-top:10px;line-height:1.5">"${r.text}"</div>
-<div style="display:flex;gap:8px;margin-top:14px">
-<button onclick="approve(${i})" style="padding:8px 16px;border-radius:999px;background:white;color:black;font-weight:700;font-size:11px;transition:.3s" class="hover:scale-105">Aprobar ✓</button>
-<button onclick="data.pending.splice(${i},1);save()" style="padding:8px 16px;border-radius:999px;background:#111;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);font-size:11px">Rechazar</button>
-</div>
-</div>
-`).join("")||"<div style=color:rgba(255,255,255,.15);padding:20px;text-align:center>No hay reseñas pendientes — genera códigos LUNAR-XXXX y compártelos</div>";
-
-document.getElementById("apprList").innerHTML=data.reviews.map((r,i)=>`<div style="display:flex;justify-content:space-between;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:12px 16px;font-size:12px;color:rgba(255,255,255,.5)"><span>${r.name} ${r.stars}★ "${r.text.substring(0,40)}..." [${r.code}]</span><span style="display:flex;gap:12px"><span onclick="editReview(${i})" style="color:rgba(255,255,255,.4);cursor:pointer">Editar texto y estrellas 1-5</span><span onclick="data.reviews.splice(${i},1);save()" style="color:rgba(255,0,0,.6);cursor:pointer">Borrar</span></span></div>`).join("")||"<div style=color:rgba(255,255,255,.15);padding:20px;text-align:center>No hay reseñas aprobadas aún</div>";
-}
-
-function setStars(n){
-currentStars=n;
-document.querySelectorAll(".star").forEach(s=>{
-let v=parseInt(s.dataset.v);
-s.textContent=v<=n?"★":"☆";
-s.style.color=v<=n?"#facc15":"rgba(255,255,255,.15)";
-s.style.textShadow=v<=n?"0 0 18px rgba(250,204,21,.6)":"none";
-});
-document.getElementById("starValue").textContent=n+"/5";
-document.getElementById("starText").textContent=["1 estrella - Muy malo","2 estrellas - Malo","3 estrellas - Regular","4 estrellas - Muy bueno","5 estrellas - Excelente"][n-1];
-document.getElementById("starDesc").textContent=["Experiencia negativa","Podría mejorar","Buena experiencia","Muy buena experiencia","Experiencia perfecta con Lunar Market"][n-1];
-}
-
-document.getElementById("logo").addEventListener("click",()=>{
-clicks++;
-document.getElementById("cc").textContent=clicks+"/10 ✨";
-document.getElementById("logo").style.transform="scale(0.9) rotate(-5deg)";
-setTimeout(()=>{document.getElementById("logo").style.transform="";},150);
-if(clicks>=10){
-document.getElementById("passM").style.display="grid";
-clicks=0;
-document.getElementById("cc").textContent="🔓 Admin";
-setTimeout(()=>{document.getElementById("cc").textContent="";},2000);
-}
-});
-
-function checkP(){
-if(document.getElementById("passI").value==="Ghost"){
-document.getElementById("passM").style.display="none";
-document.getElementById("passI").value="";
-document.getElementById("admin").style.display="block";
-document.getElementById("cc").textContent="✅ Admin";
-setTimeout(()=>{document.getElementById("cc").textContent="";},2000);
-}else{
-document.getElementById("passE").style.display="block";
-}
-}
-
-function tab(t){
-document.querySelectorAll(".tt").forEach(e=>e.style.display="none");
-let el=document.getElementById("t-"+t);
-if(el) el.style.display="block";
-document.querySelectorAll(".tbtn").forEach(b=>{
-b.style.background="#0a0a0a";
-b.style.border="1px solid rgba(255,255,255,.05)";
-b.style.color="rgba(255,255,255,.3)";
-});
-let active=document.querySelector(`[data-t="${t}"]`);
-if(active){
-active.style.background="white";
-active.style.color="black";
-active.style.border="1px solid white";
-}
-}
-
-function addCat(){
-let n=document.getElementById("catName").value.trim();
-let e=document.getElementById("catEmoji")?.value||"📁";
-if(!n)return alert("Pon nombre de categoría");
-let id=n.toLowerCase().replace(/[^a-z0-9]+/g,"-");
-data.categories.push({id,name:n,emoji:e});
-document.getElementById("catName").value="";
-if(document.getElementById("catEmoji")) document.getElementById("catEmoji").value="";
-save();
-}
-
-function addServ(){
-let n=document.getElementById("sN").value.trim();
-let cat=document.getElementById("sCat").value;
-let desc=document.getElementById("sDesc2").value||"Producto premium Lunar Market";
-let status=document.getElementById("sStatus").value||"disponible";
-if(!n||!cat)return alert("Falta nombre o categoría - crea una categoría primero");
-let prices={
-MX:document.getElementById("sPriceMX").value||"$85 MXN",
-US:document.getElementById("sPriceUS").value||"$5.00 USD",
-PE:document.getElementById("sPricePE").value||"S/18.50 PEN",
-CL:document.getElementById("sPriceCL").value||"$4.500 CLP",
-CO:document.getElementById("sPriceCO").value||"$20.000 COP",
-AR:document.getElementById("sPriceAR").value||"$4.500 ARS",
-USDT:document.getElementById("sPriceUSDT").value||"5 USDT"
-};
-data.services.push({name:n,category:cat,prices,desc,status});
-document.getElementById("sN").value="";
-document.getElementById("sDesc2").value="";
-save();
-}
-
-function editProduct(i){
-let s=data.services[i];
-let mx=prompt("Precio MX (México):",s.prices.MX);
-let us=prompt("Precio US (USA/Dólares):",s.prices.US);
-let pe=prompt("Precio PE (Perú):",s.prices.PE);
-let cl=prompt("Precio CL (Chile):",s.prices.CL);
-let co=prompt("Precio CO (Colombia):",s.prices.CO);
-let ar=prompt("Precio AR (Argentina):",s.prices.AR);
-let usdt=prompt("Precio USDT (Crypto):",s.prices.USDT);
-if(mx) s.prices.MX=mx;
-if(us) s.prices.US=us;
-if(pe) s.prices.PE=pe;
-if(cl) s.prices.CL=cl;
-if(co) s.prices.CO=co;
-if(ar) s.prices.AR=ar;
-if(usdt) s.prices.USDT=usdt;
-save();
-}
-
-function toggleStatus(i){
-data.services[i].status=data.services[i].status=="disponible"?"agotado":"disponible";
-save();
-}
-
-function genCode(){
-let c="LUNAR-"+Math.random().toString(36).substring(2,6).toUpperCase()+Math.floor(10+Math.random()*89);
-data.codes.push({code:c,used:false,usedBy:""});
-save();
-}
-
-function genBulk(){for(let i=0;i<5;i++)genCode();}
-
-function openReviewModal(){
-document.getElementById("reviewModal").style.display="grid";
-document.getElementById("reviewError").style.display="none";
-setStars(5);
-}
-
-function submitClientReview(){
-let code=document.getElementById("clientCode").value.trim().toUpperCase();
-let name=document.getElementById("clientName").value.trim();
-let serv=document.getElementById("clientService").value||"General";
-let text=document.getElementById("clientText").value.trim();
-let err=document.getElementById("reviewError");
-err.style.display="none";
-
-if(!name){
-err.textContent="⚠️ Nombre obligatorio — pon tu nombre, es requerido";
-err.style.display="block";
-return;
-}
-if(!code){
-err.textContent="⚠️ Ingresa código especial LUNAR-XXXX — pídelo al staff en Discord https://discord.gg/UnEQyZyBN";
-err.style.display="block";
-return;
-}
-let found=data.codes.find(c=>c.code===code);
-if(!found){
-err.textContent="❌ Código no válido — verifica que esté bien escrito o pide uno nuevo al staff en Discord";
-err.style.display="block";
-return;
-}
-if(found.used){
-err.textContent="❌ Este código ya fue usado por "+found.usedBy+" — cada código solo se usa 1 vez";
-err.style.display="block";
-return;
-}
-if(!text||text.length<10){
-err.textContent="⚠️ Escribe una reseña más detallada — mínimo 10 caracteres";
-err.style.display="block";
-return;
-}
-
-found.used=true;
-found.usedBy=name;
-data.pending.unshift({name,category:"general",service:serv,stars:currentStars,text,code,date:new Date().toLocaleDateString()});
-document.getElementById("clientCode").value="";
-document.getElementById("clientName").value="";
-document.getElementById("clientText").value="";
-document.getElementById("reviewModal").style.display="none";
-save();
-alert(`✅ Reseña de ${name} con ${currentStars} ${currentStars===1?"estrella":"estrellas"} enviada — será revisada por staff de Lunar Market`);
-}
-
-function approve(i){
-let r=data.pending.splice(i,1)[0];
-data.reviews.unshift(r);
-save();
-}
-
-function editReview(i){
-let r=data.reviews[i];
-let txt=prompt("Editar texto de la reseña:",r.text);
-if(txt===null) return;
-let st=prompt("Editar estrellas 1-5:",r.stars);
-let newStars=parseInt(st);
-if(txt) data.reviews[i].text=txt;
-if(newStars>=1&&newStars<=5) data.reviews[i].stars=newStars;
-save();
-}
-
-function enterSite(){
-document.getElementById("intro").classList.add("hide");
-setTimeout(()=>{document.getElementById("intro").style.display="none";},1200);
-}
-
-setStars(5);
-render();
+document.getElementById('logo').addEventListener('click',()=>{clicks++;document.getElementById('cc').textContent=clicks+'/6';if(clicks>=6){document.getElementById('passM').style.display='grid';document.getElementById('passM').classList.add('show');clicks=0;}setTimeout(()=>{document.getElementById('cc').textContent='';},3000);});
+function checkP(){if(document.getElementById('passI').value==='Ghost1'){closePassM();document.getElementById('passI').value='';document.getElementById('admin').style.display='block';}else{document.getElementById('passE').classList.remove('hidden');}}
+function tab(t){document.querySelectorAll('[id^="t-"]').forEach(e=>{if(e.id.startsWith('t-')){e.classList.add('hidden');e.style.display='none';}});let el=document.getElementById('t-'+t);if(el){el.classList.remove('hidden');el.style.display='block';}}
+function addCat(){let n=document.getElementById('catName').value.trim();if(!n)return;let id=n.toLowerCase().replace(/[^a-z0-9]+/g,'-');data.categories.push({id,name:n});document.getElementById('catName').value='';save();}
+function addServ(){let n=document.getElementById('sN').value.trim(),cat=document.getElementById('sCat').value,desc=document.getElementById('sFeatures').value||'Producto premium';let status=document.getElementById('sStatus').value||'disponible';if(!n||!cat)return alert('Falta nombre o categoría');let prices={MX:document.getElementById('sPriceMX').value||"$85 MXN",US:document.getElementById('sPriceUS').value||"$5.00 USD",PE:document.getElementById('sPricePE').value||"S/18.50 PEN",CL:document.getElementById('sPriceCL').value||"$4.500 CLP",CO:document.getElementById('sPriceCO').value||"$20.000 COP",AR:document.getElementById('sPriceAR').value||"$4.500 ARS",USDT:document.getElementById('sPriceUSDT').value||"5 USDT"};data.services.push({name:n,category:cat,prices,features:desc,status});document.getElementById('sN').value='';save();}
+function toggleStatus(i){data.services[i].status=data.services[i].status=='disponible'?'agotado':'disponible';save();}
+function genCode(){let c="LUNAR-"+Math.random().toString(36).substring(2,6).toUpperCase()+Math.floor(10+Math.random()*89);data.codes.push({code:c,used:false,usedBy:""});save();}
+function setStars(n){currentStars=n;document.querySelectorAll('.star').forEach(s=>{let v=parseInt(s.dataset.v);s.textContent=v<=n?"★":"☆";s.classList.toggle('active',v<=n);});document.getElementById('starValue').textContent=n+'/5';document.getElementById('starText').textContent=["1 estrella","2 estrellas","3 estrellas","4 estrellas","5 estrellas"][n-1]+" — "+["Muy malo","Malo","Regular","Muy bueno","Excelente"][n-1];}
+function submitClientReview(){let code=document.getElementById('clientCode').value.trim().toUpperCase(),name=document.getElementById('clientName').value.trim(),serv=document.getElementById('clientService').value||"General",text=document.getElementById('clientText').value.trim();if(!name){document.getElementById('reviewError').textContent="Nombre obligatorio";document.getElementById('reviewError').classList.remove('hidden');return;}if(!code){document.getElementById('reviewError').textContent="Ingresa código LUNAR-XXXX";document.getElementById('reviewError').classList.remove('hidden');return;}let f=data.codes.find(c=>c.code==code);if(!f){document.getElementById('reviewError').textContent="Código no válido";document.getElementById('reviewError').classList.remove('hidden');return;}if(f.used){document.getElementById('reviewError').textContent="Código ya usado por "+f.usedBy;document.getElementById('reviewError').classList.remove('hidden');return;}if(!text||text.length<10){document.getElementById('reviewError').textContent="Reseña muy corta";document.getElementById('reviewError').classList.remove('hidden');return;}f.used=true;f.usedBy=name;data.pending.unshift({name,service:serv,stars:currentStars,text,code});document.getElementById('clientCode').value="";document.getElementById('clientName').value="";document.getElementById('clientText').value="";closeReviewModal();save();}
+function approve(i){let r=data.pending.splice(i,1)[0];data.reviews.unshift(r);save();}
+setStars(5);render();
 </script>
 </body>
 </html>
