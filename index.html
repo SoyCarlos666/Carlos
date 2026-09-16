@@ -1,133 +1,59 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HIKARI - Portfolio</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#070d1d;color:white;font-family:'JetBrains Mono', monospace;min-height:100vh}
-body::before{
- content:"";position:fixed;inset:0;pointer-events:none;
- background:
-  radial-gradient(800px at 30% 20%, rgba(107,182,255,0.18), transparent 60%),
-  radial-gradient(2px 2px at 20% 30%, #fff, transparent),
-  radial-gradient(1px 1px at 80% 10%, #fff, transparent),
-  radial-gradient(1px 1px at 60% 80%, #fff, transparent),
-  radial-gradient(1px 1px at 90% 60%, #fff, transparent);
-}
-nav{
-  width:86%;margin:20px auto;display:flex;justify-content:space-between;
-  align-items:center;background:rgba(14,23,44,0.85);border:1px solid rgba(255,255,255,0.08);
-  padding:12px 22px;border-radius:999px;backdrop-filter:blur(20px)
-}
-nav.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-0.5px}
-nav.brand img{width:38px;height:38px;border-radius:50%;border:2px solid #6bb6ff}
-nav.links a{color:#94a3b8;text-decoration:none;margin-left:22px;font-weight:700;font-size:14px}
-nav.links a.active{color:white;background:rgba(107,182,255,0.18);padding:7px 16px;border-radius:999px;border:1px solid rgba(107,182,255,0.3)}
-
-.hero{display:flex;justify-content:space-between;align-items:center;width:86%;margin:70px auto;gap:50px;flex-wrap:wrap}
-.hero-left h1{font-size:72px;line-height:0.9;color:#6bb6ff;font-weight:900;margin:0;letter-spacing:-2px}
-.hero-left p{color:#94a3b8;max-width:520px;margin-top:22px;line-height:1.7;font-size:14px}
-.btns{display:flex;gap:12px;margin-top:28px}
-.btn{padding:13px 22px;border-radius:12px;font-weight:800;text-decoration:none;border:1px solid rgba(255,255,255,0.1);font-size:14px}
-.btn-blue{background:#6bb6ff;color:#070d1d;box-shadow:0 8px 24px rgba(107,182,255,0.4)}
-.btn-dark{background:rgba(255,255,255,0.05);color:white}
-
-.right{text-align:center;min-width:340px}
-.avatar-wrap{width:300px;height:300px;border-radius:50%;border:3px solid #6bb6ff;box-shadow:0 0 50px rgba(107,182,255,0.5);overflow:hidden;margin:0 auto;background:#0e172c}
-.avatar-wrap img{width:100%;height:100%;object-fit:cover}
-
-.discord-card{
-  margin-top:22px;background:rgba(17,26,50,0.95);border:1px solid rgba(107,182,255,0.35);
-  border-radius:18px;padding:16px;width:340px;text-align:left;backdrop-filter:blur(16px)
-}
-.discord-head{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:1px;font-weight:800}
-.status-dot{width:9px;height:9px;border-radius:50%;background:#23a559;box-shadow:0 0 10px #23a559;display:inline-block}
-.spotify{display:flex;align-items:center;gap:12px;margin-top:14px;background:rgba(0,0,0,0.35);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}
-.spotify img{width:52px;height:52px;border-radius:8px}
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="brand"><img id="nav-avatar" src=""><span>HIKARI DESIGNS</span></div>
-  <div class="links"><a class="active" href="#">Inicio</a><a href="#">Trabajos</a><a href="#">Trayectoria</a><a href="#">Contacto</a></div>
-</nav>
-
-<div class="hero">
-  <div class="hero-left">
-    <h1>Hola soy<br>Hikari</h1>
-    <p>Tengo la experiencia suficiente haciendo diseños, banners estilo sakura, miniaturas y configuraciones de Minecraft! Puedes contactarme para mejorar tu proyecto!</p>
-    <div class="btns"><a class="btn btn-blue" href="#trabajos">Ver trabajos</a><a class="btn btn-dark" href="#trayectoria">Ver trayectoria</a></div>
+<div id="dc-card" style="width:340px;background:#111a32;border:1px solid #6bb6ff66;border-radius:18px;padding:16px;font-family:monospace;color:white">
+  <div style="display:flex;align-items:center;gap:10px">
+    <img id="dc-avatar" style="width:40px;height:40px;border-radius:50%" src="">
+    <div>
+      <div id="dc-name" style="font-weight:800">Cargando...</div>
+      <div id="dc-status" style="font-size:12px;color:#94a3b8">Conectando...</div>
+    </div>
+    <div id="dc-dot" style="margin-left:auto;width:10px;height:10px;border-radius:50%;background:grey"></div>
   </div>
-
-  <div class="right">
-    <div class="avatar-wrap"><img id="main-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png"></div>
-    <h3 id="discord-tag" style="margin:18px 0 0">Cargando...</h3>
-
-    <div class="discord-card">
-      <div class="discord-head">
-        <span>💬</span><span style="color:#a5b4fc">DISCORD •</span>
-        <span id="status-text" style="color:#7cf29f">EN LÍNEA</span>
-        <span class="status-dot" id="status-dot"></span>
-      </div>
-      <div id="status-detail" style="font-size:11px;color:#94a3b8;margin-top:6px;letter-spacing:0.5px">Conectando...</div>
-
-      <div class="spotify" id="spotify-box">
-        <img id="song-img" src="">
-        <div style="min-width:0">
-          <div id="song-name" style="font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">No está escuchando nada</div>
-          <div id="song-artist" style="font-size:11px;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Conecta Spotify a Discord</div>
-        </div>
-        <span style="margin-left:auto;color:#1DB954;font-size:18px">♫</span>
-      </div>
+  
+  <div id="dc-spotify" style="display:none;margin-top:14px;background:#00050;padding:10px;border-radius:12px;align-items:center;gap:10px">
+    <img id="sp-img" style="width:48px;height:48px;border-radius:8px" src="">
+    <div style="overflow:hidden">
+      <div id="sp-song" style="font-weight:800;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">-</div>
+      <div id="sp-artist" style="font-size:11px;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">-</div>
+      <div id="sp-bar" style="height:3px;background:#ffffff22;border-radius:10px;margin-top:6px"><div id="sp-progress" style="height:100%;background:#1DB954;width:0%"></div></div>
     </div>
   </div>
 </div>
 
 <script>
-const DISCORD_ID = "1484659327716294657";
+const ID = "1484659327716294657";
+async function update(){
+  try{
+    const res = await fetch(`https://api.lanyard.rest/v1/users/${ID}`);
+    const json = await res.json();
+    if(!json.success){ 
+      document.getElementById('dc-status').innerText = "❌ Únete a discord.gg/lanyard";
+      return;
+    }
+    const d = json.data;
+    const avatar = d.discord_user.avatar ? `https://cdn.discordapp.com/avatars/${ID}/${d.discord_user.avatar}.png` : `https://cdn.discordapp.com/embed/avatars/0.png`;
+    document.getElementById('dc-avatar').src = avatar;
+    document.getElementById('dc-name').innerText = d.discord_user.global_name || d.discord_user.username;
+    
+    const colors = {online:"#23a559", idle:"#f0b232", dnd:"#f23f43", offline:"#80848e"};
+    document.getElementById('dc-dot').style.background = colors[d.discord_status] || "#80848e";
+    document.getElementById('dc-status').innerText = d.discord_status.toUpperCase() + (d.listening_to_spotify ? " • ESCUCHANDO SPOTIFY" : "");
 
-async function load(){
- try{
-  const r = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
-  const {data} = await r.json();
-  if(!data) return;
-
-  const av = data.discord_user.avatar
-   ? `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${data.discord_user.avatar}.png?size=512`
-    : `https://cdn.discordapp.com/embed/avatars/${parseInt(data.discord_user.discriminator)%5}.png`;
-
-  document.getElementById('main-avatar').src = av;
-  document.getElementById('nav-avatar').src = av;
-  document.getElementById('discord-tag').innerText = `! ${data.discord_user.global_name || data.discord_user.username} 🌸`;
-
-  const map = {online:["EN LÍNEA","#23a559"], idle:["AUSENTE","#f0b232"], dnd:["NO MOLESTAR","#f23f43"], offline:["DESCONECTADO","#80848e"]};
-  const [txt,color] = map[data.discord_status] || ["DESCONOCIDO","#80848e"];
-  document.getElementById('status-text').innerText = txt;
-  document.getElementById('status-dot').style.background = color;
-  document.getElementById('status-dot').style.boxShadow = `0 0 10px ${color}`;
-  document.getElementById('status-detail').innerText = data.listening_to_spotify? "En línea • ESCUCHANDO SPOTIFY" : `En línea • ${data.activities[0]?.name || "En Discord"}`;
-
-  const box = document.getElementById('spotify-box');
-  if(data.listening_to_spotify){
-    box.style.display = "flex";
-    document.getElementById('song-name').innerText = data.spotify.song;
-    document.getElementById('song-artist').innerText = `${data.spotify.artist} • ${data.spotify.album}`;
-    document.getElementById('song-img').src = data.spotify.album_art_url;
-  } else if(data.activities.length > 0){
-    const act = data.activities.find(a=>a.type!==2) || data.activities[0];
-    box.style.display = "flex";
-    document.getElementById('song-name').innerText = act.name;
-    document.getElementById('song-artist').innerText = act.details || act.state || "Jugando";
-    document.getElementById('song-img').src = av;
+    if(d.listening_to_spotify){
+      document.getElementById('dc-spotify').style.display = "flex";
+      document.getElementById('sp-song').innerText = d.spotify.song;
+      document.getElementById('sp-artist').innerText = d.spotify.artist;
+      document.getElementById('sp-img').src = d.spotify.album_art_url;
+      // barra de progreso real
+      const total = d.spotify.timestamps.end - d.spotify.timestamps.start;
+      const current = Date.now() - d.spotify.timestamps.start;
+      const pct = Math.min(100, (current/total)*100);
+      document.getElementById('sp-progress').style.width = pct + "%";
+    } else {
+      document.getElementById('dc-spotify').style.display = "none";
+    }
+  }catch(e){
+    document.getElementById('dc-status').innerText = "Error de conexión";
   }
- }catch(e){ console.log(e) }
 }
-load();
-setInterval(load, 15000);
+update();
+setInterval(update, 1000); // actualiza la barra cada segundo
 </script>
-
-</body>
-</html>
