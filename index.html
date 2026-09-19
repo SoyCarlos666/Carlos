@@ -1,59 +1,93 @@
-<div id="dc-card" style="width:340px;background:#111a32;border:1px solid #6bb6ff66;border-radius:18px;padding:16px;font-family:monospace;color:white">
-  <div style="display:flex;align-items:center;gap:10px">
-    <img id="dc-avatar" style="width:40px;height:40px;border-radius:50%" src="">
-    <div>
-      <div id="dc-name" style="font-weight:800">Cargando...</div>
-      <div id="dc-status" style="font-size:12px;color:#94a3b8">Conectando...</div>
-    </div>
-    <div id="dc-dot" style="margin-left:auto;width:10px;height:10px;border-radius:50%;background:grey"></div>
-  </div>
-  
-  <div id="dc-spotify" style="display:none;margin-top:14px;background:#00050;padding:10px;border-radius:12px;align-items:center;gap:10px">
-    <img id="sp-img" style="width:48px;height:48px;border-radius:8px" src="">
-    <div style="overflow:hidden">
-      <div id="sp-song" style="font-weight:800;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">-</div>
-      <div id="sp-artist" style="font-size:11px;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">-</div>
-      <div id="sp-bar" style="height:3px;background:#ffffff22;border-radius:10px;margin-top:6px"><div id="sp-progress" style="height:100%;background:#1DB954;width:0%"></div></div>
-    </div>
-  </div>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>! Hades666 - Creador de Portafolios</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;800&family=Syne:wght@800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#050505;color:#fff;font-family:'Space Grotesk',sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(600px at 15% 15%,#ff000022,transparent),radial-gradient(600px at 85% 85%,#8b000022,transparent);pointer-events:none}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);background:#111111e6;backdrop-filter:blur(18px);border:1px solid #ff000033;border-radius:999px;padding:5px;display:flex;gap:4px;z-index:99}
+.nav button{border:0;background:0;color:#999;padding:8px 16px;border-radius:999px;font-weight:800;cursor:pointer;font-size:13px}
+.nav button.active{background:#ff0000;color:#fff;box-shadow:0 0 20px #ff000099}
+.section{display:none;max-width:900px;margin:0 auto;padding:90px 18px 40px;animation:up .35s ease}
+.section.active{display:block}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.card{background:linear-gradient(180deg,#1a0a0a,#0e0e0e);border:1px solid #ff000022;border-radius:22px;padding:28px;box-shadow:0 0 40px #ff00000f}
+.small{color:#ff2a2a;letter-spacing:.3em;font-size:11px;font-weight:900;margin-bottom:6px}
+.big{font-family:'Syne',sans-serif;font-size:52px;line-height:.9;font-weight:800;background:linear-gradient(#fff,#ffaaaa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.avatar{width:130px;height:130px;margin:0 auto 18px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#ff0000,#6b0000);box-shadow:0 0 28px #ff000088}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.status{display:flex;gap:12px;align-items:center;margin-top:18px;background:#000c;border:1px solid #ffffff12;border-radius:14px;padding:12px}
+.dot{width:10px;height:10px;border-radius:50%;background:#666;box-shadow:0 0 10px currentColor}
+.spotify{display:none;gap:12px;align-items:center;margin-top:10px;background:#0f0505;border:1px solid #ff000022;border-radius:14px;padding:12px}
+.spotify.show{display:flex}.bar{height:4px;background:#ffffff18;border-radius:99px;margin-top:7px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#ff0000,#ff6a6a);width:0%}
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:14px}.review{background:linear-gradient(180deg,#1a0a0a,#0f0f0f);border:1px solid #ff000015;border-radius:18px;padding:18px}
+@media(max-width:700px){.reviews{grid-template-columns:1fr}.big{font-size:38px}}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+@media(max-width:600px){.contact{grid-template-columns:1fr}}
+.cbox{background:linear-gradient(180deg,#1a0a0a,#0f0f0f);border:1px solid #ff000015;border-radius:20px;padding:26px;text-align:center}
+.btn{display:inline-block;margin-top:12px;background:#ff0000;color:#fff;padding:10px 20px;border-radius:999px;font-weight:900;text-decoration:none;box-shadow:0 0 18px #ff000066}
+.btn:hover{transform:scale(1.05)}
+</style></head><body>
+
+<div class="nav">
+<button class="active" onclick="go('inicio',this)">Inicio</button>
+<button onclick="go('resenas',this)">Reseñas</button>
+<button onclick="go('sobre',this)">Sobre mi</button>
+<button onclick="go('contacto',this)">Contacto</button>
 </div>
 
-<script>
-const ID = "1484659327716294657";
-async function update(){
-  try{
-    const res = await fetch(`https://api.lanyard.rest/v1/users/${ID}`);
-    const json = await res.json();
-    if(!json.success){ 
-      document.getElementById('dc-status').innerText = "❌ Únete a discord.gg/lanyard";
-      return;
-    }
-    const d = json.data;
-    const avatar = d.discord_user.avatar ? `https://cdn.discordapp.com/avatars/${ID}/${d.discord_user.avatar}.png` : `https://cdn.discordapp.com/embed/avatars/0.png`;
-    document.getElementById('dc-avatar').src = avatar;
-    document.getElementById('dc-name').innerText = d.discord_user.global_name || d.discord_user.username;
-    
-    const colors = {online:"#23a559", idle:"#f0b232", dnd:"#f23f43", offline:"#80848e"};
-    document.getElementById('dc-dot').style.background = colors[d.discord_status] || "#80848e";
-    document.getElementById('dc-status').innerText = d.discord_status.toUpperCase() + (d.listening_to_spotify ? " • ESCUCHANDO SPOTIFY" : "");
+<div id="inicio" class="section active">
+<div style="text-align:center"><div class="avatar"><img src="https://cdn.discordapp.com/attachments/1550611547632705609/1550661484923592794/images.jpeg?ex=6aaf258b&is=6aadd40b&hm=6ea2a26deabbd2691d3cbdb44f98361681f7354945c4ffa12ed7e73cfc45f6ab" onerror="this.src='https://cdn.discordapp.com/embed/avatars/1.png'"></div></div>
+<div class="card" style="text-align:center">
+<div class="small">CREADOR DE PORTAFOLIOS</div><div class="big">! Hades666</div>
+<p style="margin-top:16px;color:#bbb;line-height:1.7;max-width:600px;margin-inline:auto">
+Soy <b style="color:#fff">! Hades666</b> creador de portafolios a tu gusto entra a mi studio y ve mis reseñas mis trabajos.<br><br>Creo portafolios modernos, animados, con tu Discord en vivo y tu música de Spotify. Rojo y negro, estilo pro gamer como te gusta.
+</p>
+<div class="status"><img id="dcAv" style="width:34px;height:34px;border-radius:50%;display:none"><div style="flex:1;text-align:left"><div id="dcName" style="font-weight:800;font-size:13px">! Hades666</div><div id="dcStat" style="font-size:11px;color:#888">Cargando...</div></div><div id="dcDot" class="dot"></div></div>
+<div id="spBox" class="spotify"><img id="spImg" style="width:54px;height:54px;border-radius:10px"><div style="flex:1;text-align:left;overflow:hidden"><div id="spSong" style="font-weight:800;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">-</div><div id="spArtist" style="font-size:11px;color:#888"></div><div class="bar"><div id="spFill" class="fill"></div></div></div><div style="color:#ff0000">♫</div></div>
+<div style="margin-top:14px;color:#ff000077;font-size:11px">ID: 1484659327716294657 • Views: <span id="v">0</span></div>
+</div><div style="text-align:center;margin-top:18px;color:#333;font-size:11px">© 2026 ! Hades666</div>
+</div>
 
-    if(d.listening_to_spotify){
-      document.getElementById('dc-spotify').style.display = "flex";
-      document.getElementById('sp-song').innerText = d.spotify.song;
-      document.getElementById('sp-artist').innerText = d.spotify.artist;
-      document.getElementById('sp-img').src = d.spotify.album_art_url;
-      // barra de progreso real
-      const total = d.spotify.timestamps.end - d.spotify.timestamps.start;
-      const current = Date.now() - d.spotify.timestamps.start;
-      const pct = Math.min(100, (current/total)*100);
-      document.getElementById('sp-progress').style.width = pct + "%";
-    } else {
-      document.getElementById('dc-spotify').style.display = "none";
-    }
-  }catch(e){
-    document.getElementById('dc-status').innerText = "Error de conexión";
-  }
-}
-update();
-setInterval(update, 1000); // actualiza la barra cada segundo
-</script>
+<div id="resenas" class="section">
+<div class="small">RESEÑAS</div><div class="big" style="font-size:36px;margin-bottom:20px">Sobre Portafolios</div>
+<div class="reviews">
+<div class="review"><div style="color:#ff2a2a">★★★★★</div><p style="color:#ccc;font-size:13px;line-height:1.6;margin-top:8px">El mejor creador de portafolios, me hizo mi web roja y negra con Spotify en vivo y estado de Discord. 10/10, super rápido y barato.</p><div style="margin-top:12px;font-weight:700;font-size:12px">Carlos - Cliente Portafolio</div></div>
+<div class="review"><div style="color:#ff2a2a">★★★★★</div><p style="color:#ccc;font-size:13px;line-height:1.6;margin-top:8px">Le pedí un portafolio a mi gusto y lo hizo idéntico a como lo imaginaba. Entren a su studio, tiene trabajos brutales. Recomendadísimo.</p><div style="margin-top:12px;font-weight:700;font-size:12px">Axel - Cliente</div></div>
+<div class="review"><div style="color:#ff2a2a">★★★★★</div><p style="color:#ccc;font-size:13px;line-height:1.6;margin-top:8px">Hace portafolios que parecen de otro nivel, con animaciones y todo funcional. Mi portafolio ahora consigue clientes solo.</p><div style="margin-top:12px;font-weight:700;font-size:12px">ZayDev - Cliente Portafolio</div></div>
+<div class="review"><div style="color:#ff2a2a">★★★★★</div><p style="color:#ccc;font-size:13px;line-height:1.6;margin-top:8px">100% confiable, me entregó todo en un solo index.html listo para Netlify. Soporte después de la entrega. Volveré por más.</p><div style="margin-top:12px;font-weight:700;font-size:12px">MrDev - Cliente</div></div>
+</div>
+</div>
+
+<div id="sobre" class="section">
+<div class="card"><div class="small">SOBRE MI</div><div class="big" style="font-size:44px">! Hades666</div>
+<p style="margin-top:18px;color:#bbb;line-height:1.8">
+Hola, soy ! Hades666, creador de portafolios a tu gusto. Llevo más de 3 años haciendo portafolios para devs, gamers y creadores.<br><br>
+Cada portafolio incluye: diseño rojo y negro, Discord live con tu ID <b style="color:#fff">1484659327716294657</b>, Spotify en vivo, reseñas, y todo en un solo archivo index.html listo para Netlify.<br><br>
+Mi Discord: <b style="color:#fff">carlitosxit</b> - Mi Studio donde puedes ver mis trabajos y reseñas:
+</p><a class="btn" href="https://discord.gg/EacwHegNg" target="_blank">https://discord.gg/EacwHegNg - Entra a Studio</a>
+</div></div>
+
+<div id="contacto" class="section">
+<div style="text-align:center"><div class="small">CONTACTO</div><div class="big" style="font-size:32px">¿Necesitas un portafolio?</div><p style="color:#666;margin-top:8px">Contáctame por acá</p></div>
+<div class="contact">
+<div class="cbox"><div style="font-size:36px">💬</div><div style="font-weight:800;font-size:20px;margin-top:8px">Discord</div><div style="margin-top:8px;background:#ffffff0f;padding:5px 14px;border-radius:999px;display:inline-block;color:#ffaaaa;font-size:12px;border:1px solid #ff000022">carlitosxit</div><div style="color:#555;font-size:11px;margin-top:10px">Contactame en discord</div><a class="btn" href="https://discord.gg/EacwHegNg" target="_blank">Entra a Studio</a></div>
+<div class="cbox"><div style="font-size:36px">🎨</div><div style="font-weight:800;font-size:20px;margin-top:8px">Mis Trabajos</div><div style="margin-top:8px;background:#ffffff0f;padding:5px 14px;border-radius:999px;display:inline-block;color:#ffaaaa;font-size:12px;border:1px solid #ff000022">Portafolios Pro</div><div style="color:#555;font-size:11px;margin-top:10px">Ve mis reseñas y trabajos</div><a class="btn" href="https://discord.gg/EacwHegNg" target="_blank">Ver Studio</a></div>
+</div></div>
+
+<script>
+function go(id,el){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));el.classList.add('active');scrollTo(0,0)}
+const ID="1484659327716294657";
+async function upd(){
+ try{
+  const r=await fetch("https://api.lanyard.rest/v1/users/"+ID);const j=await r.json();
+  if(!j.success){document.getElementById('dcStat').innerText="Únete a discord.gg/lanyard para activar";return}
+  const d=j.data;const av=d.discord_user.avatar?`https://cdn.discordapp.com/avatars/${ID}/${d.discord_user.avatar}.png?size=128`:"";
+  if(av){const a=document.getElementById('dcAv');a.src=av;a.style.display='block'}
+  document.getElementById('dcName').innerText=d.discord_user.global_name||d.discord_user.username;
+  document.getElementById('dcStat').innerText=d.discord_status.toUpperCase()+(d.listening_to_spotify?" • ESCUCHANDO":"");
+  const c={online:"#ff0000",idle:"#ffaa00",dnd:"#ff0000",offline:"#555"};
+  document.getElementById('dcDot').style.background=c[d.discord_status]||"#555";
+  if(d.listening_to_spotify){const b=document.getElementById('spBox');b.classList.add('show');document.getElementById('spSong').innerText=d.spotify.song;document.getElementById('spArtist').innerText=d.spotify.artist;document.getElementById('spImg').src=d.spotify.album_art_url;const tot=d.spotify.timestamps.end-d.spotify.timestamps.start;const cur=Date.now()-d.spotify.timestamps.start;document.getElementById('spFill').style.width=Math.min(100,(cur/tot)*100)+"%";}
+ }catch(e){document.getElementById('dcStat').innerText="Offline"}
+}upd();setInterval(upd,1500);document.getElementById('v').innerText=Math.floor(Math.random()*50+15);
+</script></body></html>
