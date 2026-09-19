@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08111f">
+  <title>Manager Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+  <div class="particles" id="particles"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#inicio">
+      <span class="brand-logo"><img id="brandLogo" src="" alt="Logo"></span>
+      <span>
+        <strong id="brandName">Manager</strong>
+        <small id="brandRole">Staff Management</small>
+      </span>
+    </a>
+
+    <nav id="nav">
+      <a href="#inicio" class="active">Inicio</a>
+      <a href="#presentacion">Presentación</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#trabajo">Qué hago</a>
+      <a href="#estadisticas">Estadísticas</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a class="admin-link" href="admin.html">Configurar</a>
+  </header>
+
+  <main>
+    <section class="hero section" id="inicio">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span></span><span id="heroEyebrow">STAFF MANAGEMENT • MINECRAFT</span></div>
+        <h1 id="heroTitle">Gestión de Staff con<br><em>orden, criterio y liderazgo.</em></h1>
+        <p id="heroText">Ayudo a equipos de Minecraft a organizar su staff, mejorar procesos internos y mantener una experiencia profesional para la comunidad.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary" id="heroPrimary">Contactarme <span>↗</span></a>
+          <a href="#experiencia" class="btn btn-ghost" id="heroSecondary">Ver experiencia</a>
+        </div>
+        <div class="hero-meta">
+          <div><span class="status-dot"></span><b id="availability">Disponible para nuevos proyectos</b></div>
+          <span class="meta-line"></span>
+          <span id="heroLocation">Minecraft • Staff Team</span>
+        </div>
+      </div>
+
+      <div class="hero-card reveal delay-1">
+        <div class="card-ring"></div>
+        <div class="profile-card">
+          <div class="profile-top">
+            <span class="mini-label">MANAGER PROFILE</span>
+            <span class="online">ONLINE</span>
+          </div>
+          <img id="heroLogo" class="profile-image" src="" alt="Perfil">
+          <h2 id="profileName">Manager</h2>
+          <p id="profileRole">Staff Manager</p>
+          <div class="profile-tags" id="profileTags"></div>
+          <div class="profile-bottom">
+            <span>Experiencia</span><strong id="profileExperience">8+ meses</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-section" id="presentacion">
+      <div class="section-heading reveal">
+        <span class="section-number">01</span>
+        <div><span class="kicker">PRESENTACIÓN</span><h2 id="presentationTitle">Un staff bien gestionado cambia todo.</h2></div>
+      </div>
+      <div class="two-column">
+        <div class="large-copy reveal"><p id="presentationText"></p></div>
+        <div class="quote-card reveal delay-1"><span>“</span><p id="presentationQuote"></p><small id="presentationQuoteBy"></small></div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre-mi">
+      <div class="section-heading reveal">
+        <span class="section-number">02</span>
+        <div><span class="kicker">SOBRE MÍ</span><h2 id="aboutTitle">Más que administrar: liderar.</h2></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-main reveal"><p id="aboutText"></p></div>
+        <div class="about-list reveal delay-1" id="aboutPoints"></div>
+      </div>
+    </section>
+
+    <section class="section dark-panel-section" id="trabajo">
+      <div class="section-heading reveal">
+        <span class="section-number">03</span>
+        <div><span class="kicker">QUÉ HAGO</span><h2 id="servicesTitle">Trabajo detrás del equipo.</h2></div>
+      </div>
+      <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <section class="section stats-section" id="estadisticas">
+      <div class="section-heading reveal">
+        <span class="section-number">04</span>
+        <div><span class="kicker">ESTADÍSTICAS</span><h2>Resultados y experiencia.</h2></div>
+      </div>
+      <div class="stats-grid" id="statsGrid"></div>
+    </section>
+
+    <section class="section" id="experiencia">
+      <div class="section-heading reveal">
+        <span class="section-number">05</span>
+        <div><span class="kicker">EXPERIENCIA</span><h2 id="experienceTitle">Servidores y proyectos.</h2></div>
+      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <section class="section process-section" id="proceso">
+      <div class="section-heading reveal">
+        <span class="section-number">06</span>
+        <div><span class="kicker">PROCESO</span><h2>Cómo trabajo.</h2></div>
+      </div>
+      <div class="process-grid" id="processGrid"></div>
+    </section>
+
+    <section class="section testimonials-section" id="reseñas">
+      <div class="section-heading reveal">
+        <span class="section-number">07</span>
+        <div><span class="kicker">REFERENCIAS</span><h2>Lo que destaca mi trabajo.</h2></div>
+      </div>
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
+    </section>
+
+    <section class="section contact-section" id="contacto">
+      <div class="contact-box reveal">
+        <div>
+          <span class="kicker">CONTACTO</span>
+          <h2 id="contactTitle">¿Buscas una persona para tu Staff Team?</h2>
+          <p id="contactText"></p>
+        </div>
+        <div class="contact-actions">
+          <a id="discordBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener">Discord ↗</a>
+          <a id="emailBtn" class="btn btn-ghost" href="#">Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span id="footerName">Manager Portfolio</span>
+    <span>© <span id="year"></span> — Staff Management</span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

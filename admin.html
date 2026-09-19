@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07111e">
+<title>Portfolio Manager — Configurador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#050b14;color:#eaf5ff;font-family:Inter,sans-serif}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 80% 10%,#16629a22,transparent 30%),linear-gradient(90deg,#ffffff03 1px,transparent 1px),linear-gradient(#ffffff03 1px,transparent 1px);background-size:auto,60px 60px,60px 60px}.wrap{width:min(1100px,calc(100% - 28px));margin:auto;padding:25px 0 80px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px 18px;border:1px solid #6dbdff22;background:#091421dd;backdrop-filter:blur(16px);border-radius:18px;position:sticky;top:10px;z-index:5}.top h1{font:700 18px "Space Grotesk";margin:0}.top small{color:#71879d}.actions{display:flex;gap:8px;flex-wrap:wrap}button,a.btn{font:800 11px Inter;padding:11px 14px;border-radius:10px;border:1px solid #67b9ff2d;background:#0d2033;color:#dcefff;text-decoration:none;cursor:pointer}button.primary{background:linear-gradient(135deg,#6bc6ff,#248fdf);color:#04101c;border:0}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:15px}.panel{border:1px solid #6dbdff18;background:#091421d9;border-radius:18px;padding:22px}.panel.full{grid-column:1/-1}.panel h2{font:700 19px "Space Grotesk";margin:0 0 5px}.panel p{font-size:10px;color:#71879d;margin:0 0 18px}.fields{display:grid;gap:11px}.field label{display:block;font-size:9px;font-weight:800;letter-spacing:.8px;color:#7f97ad;margin-bottom:5px}.field input,.field textarea{width:100%;border:1px solid #75bded1e;background:#050d17;color:#eaf5ff;border-radius:10px;padding:11px;font:500 11px Inter;outline:none}.field textarea{min-height:90px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#55b6ff66}.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.repeat{display:grid;gap:9px}.item{border:1px solid #6dbdff18;padding:12px;border-radius:12px;background:#07111c}.item-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.item-head b{font-size:10px;color:#78c5ff}.remove{background:#32161a!important;color:#ff9aa4!important;border-color:#ff6f7c22!important}.hint{font-size:10px;color:#71879d;line-height:1.7}.toast{position:fixed;right:18px;bottom:18px;background:#0d2438;border:1px solid #65baff33;padding:13px 16px;border-radius:12px;font-size:11px;opacity:0;transform:translateY(10px);transition:.25s;z-index:20}.toast.show{opacity:1;transform:none}@media(max-width:720px){.grid{grid-template-columns:1fr}.panel.full{grid-column:auto}.row{grid-template-columns:1fr}.top{position:relative;display:block}.actions{margin-top:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>Portfolio Control Center</h1><small>Edita tu portafolio sin tocar el HTML.</small></div>
+    <div class="actions">
+      <a class="btn" href="index.html">Ver portfolio</a>
+      <button class="primary" id="save">Guardar cambios</button>
+      <button id="export">Exportar</button>
+      <label class="btn" style="cursor:pointer">Importar <input id="import" type="file" accept=".json" hidden></label>
+      <button id="reset">Restaurar</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <section class="panel"><h2>Identidad</h2><p>Nombre, rol, logo y datos principales.</p><div class="fields">
+      <div class="row"><div class="field"><label>NOMBRE</label><input id="brand.name"></div><div class="field"><label>ROL</label><input id="brand.role"></div></div>
+      <div class="field"><label>URL DEL LOGO</label><input id="brand.logo"></div>
+      <div class="row"><div class="field"><label>NOMBRE DEL PERFIL</label><input id="brand.profileName"></div><div class="field"><label>ROL DEL PERFIL</label><input id="brand.profileRole"></div></div>
+      <div class="row"><div class="field"><label>EXPERIENCIA</label><input id="brand.experience"></div><div class="field"><label>DISPONIBILIDAD</label><input id="brand.availability"></div></div>
+      <div class="field"><label>UBICACIÓN / ENFOQUE</label><input id="brand.location"></div>
+      <div class="field"><label>TAGS, SEPARADOS POR COMAS</label><input id="brand.tags"></div>
+    </div></section>
+
+    <section class="panel"><h2>Inicio</h2><p>La primera impresión del portfolio.</p><div class="fields">
+      <div class="field"><label>ETIQUETA</label><input id="hero.eyebrow"></div>
+      <div class="field"><label>TÍTULO (ADMITE &lt;br&gt; Y &lt;em&gt;)</label><textarea id="hero.title"></textarea></div>
+      <div class="field"><label>DESCRIPCIÓN</label><textarea id="hero.text"></textarea></div>
+      <div class="row"><div class="field"><label>BOTÓN PRINCIPAL</label><input id="hero.primary"></div><div class="field"><label>BOTÓN SECUNDARIO</label><input id="hero.secondary"></div></div>
+    </div></section>
+
+    <section class="panel"><h2>Presentación</h2><p>Mensaje profesional sobre tu enfoque.</p><div class="fields">
+      <div class="field"><label>TÍTULO</label><input id="presentation.title"></div>
+      <div class="field"><label>TEXTO</label><textarea id="presentation.text"></textarea></div>
+      <div class="field"><label>FRASE</label><textarea id="presentation.quote"></textarea></div>
+      <div class="field"><label>AUTOR / DESCRIPCIÓN</label><input id="presentation.quoteBy"></div>
+    </div></section>
+
+    <section class="panel"><h2>Sobre mí</h2><p>Tu descripción y puntos fuertes.</p><div class="fields">
+      <div class="field"><label>TÍTULO</label><input id="about.title"></div>
+      <div class="field"><label>DESCRIPCIÓN</label><textarea id="about.text"></textarea></div>
+      <div id="aboutPoints" class="repeat"></div>
+      <button type="button" id="addPoint">+ Añadir punto</button>
+    </div></section>
+
+    <section class="panel full"><h2>Qué hago</h2><p>Servicios o responsabilidades del Manager.</p><div id="services" class="repeat"></div><button id="addService">+ Añadir función</button></section>
+
+    <section class="panel full"><h2>Estadísticas</h2><p>Datos que quieras mostrar en tu perfil.</p><div id="stats" class="repeat"></div><button id="addStat">+ Añadir estadística</button></section>
+
+    <section class="panel full"><h2>Experiencia / Proyectos</h2><p>Mineback puede quedar como ejemplo. Cambia nombres, rol y descripción.</p><div id="projects" class="repeat"></div><button id="addProject">+ Añadir proyecto</button></section>
+
+    <section class="panel full"><h2>Proceso de trabajo</h2><p>Explica cómo gestionas un equipo.</p><div id="process" class="repeat"></div><button id="addProcess">+ Añadir paso</button></section>
+
+    <section class="panel full"><h2>Referencias</h2><p>Testimonios o referencias de proyectos.</p><div id="testimonials" class="repeat"></div><button id="addTestimonial">+ Añadir referencia</button></section>
+
+    <section class="panel"><h2>Contacto</h2><p>Enlaces que aparecerán al final.</p><div class="fields">
+      <div class="field"><label>TÍTULO</label><input id="contact.title"></div>
+      <div class="field"><label>TEXTO</label><textarea id="contact.text"></textarea></div>
+      <div class="field"><label>DISCORD</label><input id="contact.discord"></div>
+      <div class="field"><label>EMAIL (mailto:)</label><input id="contact.email"></div>
+    </div></section>
+
+    <section class="panel"><h2>Colores</h2><p>Azul inspirado en tu referencia. Puedes cambiarlo.</p><div class="fields">
+      <div class="field"><label>AZUL PRINCIPAL</label><input id="colors.accent" placeholder="#56b8ff"></div>
+      <div class="field"><label>AZUL SECUNDARIO</label><input id="colors.accent2" placeholder="#178cff"></div>
+      <div class="hint">Los cambios se guardan en este navegador. Usa Exportar si quieres llevar tu configuración a otro dispositivo.</div>
+    </div></section>
+  </div>
+</div>
+<div class="toast" id="toast">Guardado</div>
+<script src="config.js"></script><script src="admin.js"></script>
+</body>
+</html>
