@@ -5,7 +5,7 @@
 */
 window.PORTFOLIO_CONFIG = {
   brand: {
-    name: "Tu Nombre",
+    name: "hades",
     role: "Staff Manager",
     logo: "https://cdn.discordapp.com/attachments/1550611547632705609/1550661484923592794/images.jpeg?ex=6aafce4b&is=6aae7ccb&hm=4ebc661f14a9fcc83ec042fb3ce5f01bfa475baa0785bdaf61e3b0bc549a2b57&",
     profileName: "Tu Nombre",
