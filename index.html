@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <title>𝙀𝙇 𝙃𝘼𝘿𝙀𝙎𝙎𝙀𝙄⁶⁶⁶ — Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="loader-grid"></div>
+    <div class="loader-box">
+      <div class="loader-logo">H⁶⁶⁶</div>
+      <div class="loader-title">CARGANDO PORTAFOLIO</div>
+      <div class="loader-bar"><span id="loaderBar"></span></div>
+      <div id="loaderPercent">0%</div>
+    </div>
+  </div>
+
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="nav">
+    <a href="#inicio" class="brand">
+      <span class="brand-avatar" id="navAvatar">H</span>
+      <span><b id="navName">𝙀𝙇 𝙃𝘼𝘿𝙀𝙎𝙎𝙀𝙄⁶⁶⁶</b><small>PORTAFOLIO</small></span>
+    </a>
+    <button class="menu" id="menuBtn" aria-label="Abrir menú">☰</button>
+    <nav id="navLinks">
+      <a href="#inicio">INICIO</a>
+      <a href="#perfil">PERFIL</a>
+      <a href="#metricas">MÉTRICAS</a>
+      <a href="#experiencia">EXPERIENCIA</a>
+      <a href="#habilidades">HABILIDADES</a>
+      <a href="#contacto">CONTACTO</a>
+      <a class="nav-cta" href="admin.html">ADMIN</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero section">
+      <div class="hero-card reveal">
+        <div class="hero-copy">
+          <div class="eyebrow" id="heroEyebrow">GESTIÓN DE COMUNIDADES MINECRAFT</div>
+          <h1 id="heroName">𝙀𝙇 𝙃𝘼𝘿𝙀𝙎𝙎𝙀𝙄⁶⁶⁶</h1>
+          <p id="heroDescription">Organización, gestión y apoyo para comunidades Minecraft, con enfoque en staff, operaciones y experiencia del jugador.</p>
+          <div class="line"></div>
+          <div class="actions">
+            <a class="btn primary" href="#perfil">VER PERFIL</a>
+            <a class="btn ghost" href="#contacto">HABLEMOS</a>
+          </div>
+          <div class="presence" id="discordPresence">
+            <span class="presence-dot"></span>
+            <span>Consultando Discord...</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div>
+          <div class="avatar-ring">
+            <img id="heroAvatar" alt="Avatar" src="https://mc-heads.net/body/1484659327716294657/180">
+          </div>
+          <div class="status-card">
+            <span class="status-dot" id="statusDot"></span>
+            <div><small>DISCORD</small><b id="statusText">Cargando estado</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfil" class="section">
+      <div class="section-head reveal">
+        <span>01</span><h2>MI PERFIL</h2>
+      </div>
+      <div class="profile-grid">
+        <article class="glass reveal">
+          <span class="tag">SOBRE MÍ</span>
+          <h3 id="aboutTitle">Gestión, organización y comunidad.</h3>
+          <p id="aboutText">Trabajo en la organización de equipos, atención a jugadores, coordinación y mejora de procesos dentro de proyectos Minecraft.</p>
+        </article>
+        <article class="glass reveal">
+          <span class="tag">ENFOQUE</span>
+          <div class="mini-list" id="focusList"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="metricas" class="section">
+      <div class="section-head reveal"><span>02</span><h2>MÉTRICAS</h2></div>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section id="experiencia" class="section">
+      <div class="section-head reveal"><span>03</span><h2>EXPERIENCIA</h2></div>
+      <div class="experience-intro glass reveal">
+        <h3 id="experienceTitle">Experiencia dentro de comunidades Minecraft</h3>
+        <p id="experienceText">Participación en gestión, coordinación, soporte y estructura de equipos.</p>
+      </div>
+      <div class="timeline" id="servers"></div>
+    </section>
+
+    <section id="habilidades" class="section">
+      <div class="section-head reveal"><span>04</span><h2>HABILIDADES</h2></div>
+      <div class="skills" id="skills"></div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="section-head reveal"><span>05</span><h2>CONTACTO</h2></div>
+      <div class="contact-grid glass reveal">
+        <div class="contact-copy">
+          <span class="tag">HABLEMOS</span>
+          <h3 id="contactTitle">¿Tienes un proyecto?</h3>
+          <p id="contactText">Escríbeme con la información de tu servidor o proyecto y cuéntame qué necesitas.</p>
+          <div class="contact-item">
+            <span>DISCORD</span><b id="discordName">—</b>
+            <button data-copy="discordName">COPIAR</button>
+          </div>
+          <div class="contact-item">
+            <span>EMAIL</span><b id="email">—</b>
+            <button data-copy="email">COPIAR</button>
+          </div>
+        </div>
+        <form id="contactForm" class="contact-form">
+          <label>Tu nombre / nick<input id="formName" required placeholder="Escribe tu nombre"></label>
+          <label>Tu Discord<input id="formDiscord" required placeholder="usuario o @usuario"></label>
+          <label>Servidor / proyecto<input id="formServer" placeholder="Ej: BoxPvP, Survival..."></label>
+          <label>¿En qué puedo ayudarte?<textarea id="formMessage" required placeholder="Cuéntame sobre tu proyecto..."></textarea></label>
+          <button class="btn primary" type="submit">ENVIAR MENSAJE</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><span id="footerName">𝙀𝙇 𝙃𝘼𝘿𝙀𝙎𝙎𝙀𝙄⁶⁶⁶</span> · Portafolio</footer>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
