@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Admin — Hadessei Portfolio</title>
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <div class="admin-wrap">
+    <header>
+      <a href="./index.html">← VER PORTAFOLIO</a>
+      <h1>ADMIN PANEL</h1>
+      <span>Editor local</span>
+    </header>
+
+    <div class="notice">
+      Puedes editar el contenido desde aquí. Los cambios se guardan en este navegador mediante localStorage.
+      Si quieres que el cambio se vea para todos los visitantes de GitHub Pages, necesitas publicar la nueva configuración en el repositorio o conectar una base de datos/backend.
+    </div>
+
+    <section class="panel">
+      <h2>Información principal</h2>
+      <div class="grid">
+        <label>Nombre<input id="name"></label>
+        <label>Etiqueta<input id="eyebrow"></label>
+        <label>Avatar / skin URL<input id="avatar"></label>
+        <label>Discord ID<input id="discordId"></label>
+      </div>
+      <label>Descripción<textarea id="description"></textarea></label>
+    </section>
+
+    <section class="panel">
+      <h2>Perfil</h2>
+      <div class="grid">
+        <label>Título<input id="aboutTitle"></label>
+        <label>Texto<textarea id="aboutText"></textarea></label>
+      </div>
+      <label>Enfoques, uno por línea<textarea id="focus"></textarea></label>
+    </section>
+
+    <section class="panel">
+      <h2>Experiencia</h2>
+      <div class="grid">
+        <label>Título<input id="experienceTitle"></label>
+        <label>Texto<textarea id="experienceText"></textarea></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Contacto</h2>
+      <div class="grid">
+        <label>Discord<input id="discord"></label>
+        <label>Email<input id="email"></label>
+        <label>Link de Discord<input id="contactLink"></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Métricas</h2>
+      <div id="statsEditor"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Servidores / experiencia</h2>
+      <div id="serversEditor"></div>
+      <button class="secondary" id="addServer">+ AGREGAR SERVIDOR</button>
+    </section>
+
+    <section class="panel">
+      <h2>Habilidades</h2>
+      <div id="skillsEditor"></div>
+      <button class="secondary" id="addSkill">+ AGREGAR HABILIDAD</button>
+    </section>
+
+    <div class="actions">
+      <button id="save">GUARDAR CAMBIOS</button>
+      <button id="reset" class="danger">RESTAURAR CONFIGURACIÓN</button>
+    </div>
+
+    <p id="result"></p>
+  </div>
+
+  <script src="./config.js"></script>
+  <script src="./admin.js"></script>
+</body>
+</html>
